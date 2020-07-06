@@ -266,7 +266,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #87CEFA 0%, #696969 100%);
 }
 
 .text-color {
@@ -619,7 +619,8 @@ header .go-back i {
     font-weight: 400;
 }
 
-@-webkit-keyframes rainbow {
+/*这两个注释的就是主页面上变换颜色的*/
+/*@-webkit-keyframes rainbow {
 
     0%,
     100% {
@@ -709,7 +710,7 @@ header .go-back i {
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
-}
+}*/
 
 .index-card {
     margin-top: -10px;
