@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    35
+                    613
                 </div>
                 
 
@@ -473,6 +473,19 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h4 id="关于自己对Vue学习的一些重点和理解"><a href="#关于自己对Vue学习的一些重点和理解" class="headerlink" title="关于自己对Vue学习的一些重点和理解"></a>关于自己对Vue学习的一些重点和理解</h4><p>学习的地方包括Vue自己的网站，菜鸟教程，B站等</p>
+<h5 id="1-vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。"><a href="#1-vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。" class="headerlink" title="1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。"></a>1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。</h5><h5 id="2-模板语法"><a href="#2-模板语法" class="headerlink" title="2.模板语法"></a>2.模板语法</h5><p>插值：数据绑定：文本：, v-once；原始html：v-html，将html文本转换为html样式；作用于html 的attribute：v-bind,</p>
+<p>指令：指令 (Directives) 是带有 <code>v-</code> 前缀的特殊 attribute,一些指令可以带参数。</p>
+<p>动态参数：可以用方括号括起来的 JavaScript 表达式作为一个指令的参数。可以使用null字符串显式的移除此属性。</p>
+<p><strong><code>v-bind</code> 指令可以用于响应式地更新 HTML attribute，</strong></p>
+<p><strong><code>v-on</code> 指令，它用于监听 DOM 事件,</strong></p>
+<h5 id="3-计算属性和侦听器"><a href="#3-计算属性和侦听器" class="headerlink" title="3.计算属性和侦听器"></a>3.计算属性和侦听器</h5><p>​    1.对于任何复杂逻辑，你都应当使用<strong>计算属性</strong>computed。</p>
+<p>​    2.我们可以将同一函数定义为一个方法而不是一个计算属性。两种方式的最终结果确实是完全相同的。然而，不同的是<strong>计算属性是基于它们的响应式依赖进行缓存的</strong>。只在相关响应式依赖发生改变时它们才会重新求值。只要值没有发生变化，就不会再次计算属性，直接返回上一次的计算结果。而方法会每一次重新渲染时都重新计算。</p>
+<p>​    3.Vue 提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：<strong>侦听属性</strong> </p>
+<h5 id="4-class和style绑定"><a href="#4-class和style绑定" class="headerlink" title="4.class和style绑定"></a>4.class和style绑定</h5><p>​    1.对象语法，使用v-bind:class指令。</p>
+<p>​    2.绑定内联样式，v-bind:style指令。是一个js对象</p>
+<h5 id="5-条件渲染"><a href="#5-条件渲染" class="headerlink" title="5.条件渲染"></a>5.条件渲染</h5><p>​    1.v-if条件性的渲染一部分内容，使用<template>进行包裹，再使用v-if可以渲染多个内容。还有配套的 v-else,还有v-else-if进行连续使用。</p>
+<p>​    2.v-show的使用与v-if差不多，但没有v-else这些。同时因为各自特性，如果需要非常频繁地切换，则使用 <code>v-show</code> 较好；如果在运行时条件很少改变，则使用 <code>v-if</code> 较好。</p>
+<h5 id="6-列表渲染"><a href="#6-列表渲染" class="headerlink" title="6.列表渲染"></a>6.列表渲染</h5><p>​    1.v-for，使用item in items的格式执行。其中items需要在vue里面的data里指定数据。也可使用value in object进行对象循环，也可使用(value, name, index)进行对象里面的数据，键名，索引访问。</p>
 
             </div>
             <hr/>
@@ -723,7 +736,7 @@
                     <div class="summary block-with-text">
                         
                             关于自己对Vue学习的一些重点和理解学习的地方包括Vue自己的网站，菜鸟教程，B站等
-
+1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。2.模板语法插值：数据绑定：文本：, v-once；原始html：v-html，
                         
                     </div>
                     <div class="publish-info">
