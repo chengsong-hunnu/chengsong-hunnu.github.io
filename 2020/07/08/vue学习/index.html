@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    613
+                    1.3k
                 </div>
                 
 
@@ -477,7 +477,7 @@
 <p>指令：指令 (Directives) 是带有 <code>v-</code> 前缀的特殊 attribute,一些指令可以带参数。</p>
 <p>动态参数：可以用方括号括起来的 JavaScript 表达式作为一个指令的参数。可以使用null字符串显式的移除此属性。</p>
 <p><strong><code>v-bind</code> 指令可以用于响应式地更新 HTML attribute，</strong></p>
-<p><strong><code>v-on</code> 指令，它用于监听 DOM 事件,</strong></p>
+<p><strong><code>v-on</code> 指令，它用于监听 DOM 事件,</strong>进行事件处理</p>
 <h5 id="3-计算属性和侦听器"><a href="#3-计算属性和侦听器" class="headerlink" title="3.计算属性和侦听器"></a>3.计算属性和侦听器</h5><p>​    1.对于任何复杂逻辑，你都应当使用<strong>计算属性</strong>computed。</p>
 <p>​    2.我们可以将同一函数定义为一个方法而不是一个计算属性。两种方式的最终结果确实是完全相同的。然而，不同的是<strong>计算属性是基于它们的响应式依赖进行缓存的</strong>。只在相关响应式依赖发生改变时它们才会重新求值。只要值没有发生变化，就不会再次计算属性，直接返回上一次的计算结果。而方法会每一次重新渲染时都重新计算。</p>
 <p>​    3.Vue 提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：<strong>侦听属性</strong> </p>
@@ -485,7 +485,52 @@
 <p>​    2.绑定内联样式，v-bind:style指令。是一个js对象</p>
 <h5 id="5-条件渲染"><a href="#5-条件渲染" class="headerlink" title="5.条件渲染"></a>5.条件渲染</h5><p>​    1.v-if条件性的渲染一部分内容，使用<template>进行包裹，再使用v-if可以渲染多个内容。还有配套的 v-else,还有v-else-if进行连续使用。</p>
 <p>​    2.v-show的使用与v-if差不多，但没有v-else这些。同时因为各自特性，如果需要非常频繁地切换，则使用 <code>v-show</code> 较好；如果在运行时条件很少改变，则使用 <code>v-if</code> 较好。</p>
-<h5 id="6-列表渲染"><a href="#6-列表渲染" class="headerlink" title="6.列表渲染"></a>6.列表渲染</h5><p>​    1.v-for，使用item in items的格式执行。其中items需要在vue里面的data里指定数据。也可使用value in object进行对象循环，也可使用(value, name, index)进行对象里面的数据，键名，索引访问。</p>
+<h5 id="6-列表渲染"><a href="#6-列表渲染" class="headerlink" title="6.列表渲染"></a>6.列表渲染</h5><p>​    1.v-for，使用item in items的格式执行。其中items需要在vue里面的data里指定数据。也可使用value in object进行对象循环，也可使用(value, name, index)进行对象里面的数据，键名，索引访问。也可以使用n in 10进行循环。类似于 <code>v-if</code>，你也可以利用带有 <code>v-for</code> 的 <code>&lt;template&gt;</code> 来循环渲染一段包含多个元素的内容。</p>
+<h5 id="7-事件处理"><a href="#7-事件处理" class="headerlink" title="7.事件处理"></a>7.事件处理</h5><p>​    1.v-on监听dom事件，并执行一些js代码。还可以接收一个需要调用的方法名称。在vue的methods里面添加方法。</p>
+<p>​    Vue.js 为 <code>v-on</code> 提供了<strong>事件修饰符</strong>。之前提过，修饰符是由点开头的指令后缀来表示的。</p>
+<ul>
+<li><code>.stop</code></li>
+<li><code>.prevent</code></li>
+<li><code>.capture</code></li>
+<li><code>.self</code></li>
+<li><code>.once</code></li>
+<li><code>.passive</code></li>
+</ul>
+<pre><code>&lt;!-- 阻止单击事件继续传播 --&gt;
+&lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;
+
+&lt;!-- 提交事件不再重载页面 --&gt;
+&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;
+
+&lt;!-- 修饰符可以串联 --&gt;
+&lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;
+
+&lt;!-- 只有修饰符 --&gt;
+&lt;form v-on:submit.prevent&gt;&lt;/form&gt;
+
+&lt;!-- 添加事件监听器时使用事件捕获模式 --&gt;
+&lt;!-- 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 --&gt;
+&lt;div v-on:click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;
+
+&lt;!-- 只当在 event.target 是当前元素自身时触发处理函数 --&gt;
+&lt;!-- 即事件不是从内部元素触发的 --&gt;
+&lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;
+
+&lt;!-- 点击事件将只会触发一次 --&gt;
+&lt;a v-on:click.once=&quot;doThis&quot;&gt;&lt;/a&gt;</code></pre><p>​    使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 <code>v-on:click.prevent.self</code> 会阻止<strong>所有的点击</strong>，而 <code>v-on:click.self.prevent</code> 只会阻止对元素自身的点击。</p>
+<p>​    2.监听按键事件时，可以使用按键修饰符，如：v-on:keyup.enter，只有enter键可以触发事件。</p>
+<h5 id="8-表单输入绑定"><a href="#8-表单输入绑定" class="headerlink" title="8.表单输入绑定"></a>8.表单输入绑定</h5><p>​    1.v-model，创建双向数据绑定，一处数据发生变化，另一处也会发生变化。</p>
+<p>​    <code>v-model</code> 在内部为不同的输入元素使用不同的 property 并抛出不同的事件：</p>
+<ul>
+<li>text 和 textarea 元素使用 <code>value</code> property 和 <code>input</code> 事件；</li>
+<li>checkbox 和 radio 使用 <code>checked</code> property 和 <code>change</code> 事件；</li>
+<li>select 字段将 <code>value</code> 作为 prop 并将 <code>change</code> 作为事件。</li>
+</ul>
+<p>​    2.文本，多行文本，复选框，单选按钮，选择框。</p>
+<p>​    3.值绑定</p>
+<p>​    4.修饰符，.lazy;.number;.trim</p>
+<h5 id="9-组件"><a href="#9-组件" class="headerlink" title="9.组件"></a>9.组件</h5><p>​    1.组件可以扩展 HTML 元素，封装可重用的代码。组件系统让我们可以用独立可复用的小组件来构建大型应用，几乎任意类型的应用的界面都可以抽象为一个组件树。</p>
+<p>​    2.</p>
 
             </div>
             <hr/>
