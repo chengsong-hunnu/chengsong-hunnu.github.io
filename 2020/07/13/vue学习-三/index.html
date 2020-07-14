@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue学习(一), 晟松">
+    <meta name="keywords" content="vue学习-三, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue学习(一) | 晟松</title>
+    <title>vue学习-三 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue学习(一)</h1>
+                    <h1 class="description center-align post-title">vue学习-三</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue/">
-                                <span class="chip bg-color">vue</span>
+                            <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6/">
+                                <span class="chip bg-color">vue .vue 脚手架</span>
                             </a>
                         
                     </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-11
+                    2020-07-13
                 </div>
                 
 
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    586
+                    46
                 </div>
                 
 
@@ -472,26 +472,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="vue的黑马学习"><a href="#vue的黑马学习" class="headerlink" title="vue的黑马学习"></a>vue的黑马学习</h5><p>1.vue作用范围，只有在vue实例的el挂载点里面及其后代元素才会进行这个vue实例的操作。不仅可以使用id选择器，class选择器也行，使用.class进行el挂载。其他的选择器也都能行。可以使用其他的双标签，但不能是body和html标签。</p>
-<p>2.Vue中用到的数据定义在data中，data中可以写复杂类型的数据，渲染复杂类型数据时,遵守js的语法即可</p>
-<p>3.dom操作是获取元素，操作它们。vue使用指令操作</p>
-<p>4.v-text指令。直接替换标签里面的所有文字和数据。跟两个大括号没什么差别。</p>
-<p>5.v-html，设置标签的innerHTML，就是将纯html文本解析成html效果。</p>
-<p>6.v-on，为元素绑定事件，类似onclick等。v-on:click=”函数名”,函数在vue是你的methods里面定义，methods:{click:function(){ }, other:{ } }。同时，在函数名后面可以传递参数，相应在定义函数时也要添加这个参数。还可以使用(.)表示的指令后缀调用修饰符。如@click.once=””,只会调用一次，@keyup.enter=””这些。</p>
-<p>7.v-show,根据表达值的真假，切换元素的显示和隐藏。本质就是切换display属性。</p>
-<p>8.v-if,v-if=”值”,根据值的真假，判断是否显示，但不是操纵display，而是直接操纵dom元素。</p>
-<p>9.v-bind,设置元素的属性。v-bind:属性名=”属性值”，一般属性值在data里面进行定义。</p>
-<p>10.v-for,生成列表。格式v-for=”item in items”，在data里面对items进行数据设置，一般是数组或者对象或者对象数组。使用对象时，可使用(value,key,index) in object 对对象进行数据访问。</p>
-<p>11.v-model，获取和设置表单元素的值(进行双向数据绑定)。就是表单中的数据发生改变时，另一个绑定的数据元素也会发生改变。一般用来获取输入文本框中的输入数据.</p>
-<p>12.网络请求(axios).一般使用get和post</p>
-<p>例如：</p>
-<pre class=" language-js"><code class="language-js">axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"https://autumnfish.cn/api/joke/list?num=1"</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                        that<span class="token punctuation">.</span>joke<span class="token operator">=</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jokes<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里不能通过this访问joke，this的范围已经发生了变化</span>
-                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jokes<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+                <h5 id="单组件文件-vue"><a href="#单组件文件-vue" class="headerlink" title="单组件文件(.vue)"></a>单组件文件(.vue)</h5><p>1.解决了<strong>全局定义</strong> <strong>字符串模板</strong> <strong>不支持组件 CSS</strong>  <strong>没有构建步骤</strong>这些缺点，使关注点分离，模块化开发。</p>
 
             </div>
             <hr/>
@@ -517,7 +498,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/11/vue%E5%AD%A6%E4%B9%A0-%E4%B8%80/">http://yoursite.com/2020/07/11/vue%E5%AD%A6%E4%B9%A0-%E4%B8%80/</a>
+                    <a href="http://yoursite.com/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%B8%89/">http://yoursite.com/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%B8%89/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,8 +536,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
+                                <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6/">
+                                    <span class="chip bg-color">vue .vue 脚手架</span>
                                 </a>
                             
                         </div>
@@ -724,9 +705,57 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%B8%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="vue学习-三">
+                        
+                        <span class="card-title">vue学习-三</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            单组件文件(.vue)1.解决了全局定义 字符串模板 不支持组件 CSS  没有构建步骤这些缺点，使关注点分离，模块化开发。
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            晟松
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6/">
+                        <span class="chip bg-color">vue .vue 脚手架</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%BA%8C/">
                     <div class="card-image">
@@ -747,9 +776,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -763,52 +792,6 @@
                     
                     <a href="/tags/vue-%E8%80%81%E9%99%88/">
                         <span class="chip bg-color">vue 老陈</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/08/vue%E5%AD%A6%E4%B9%A0/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vue学习">
-                        
-                        <span class="card-title">vue学习</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            关于自己对Vue学习的一些重点和理解学习的地方包括Vue自己的网站，菜鸟教程，B站等
-1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。2.模板语法插值：数据绑定：文本：, v-once；原始html：v-html，
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            晟松
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>

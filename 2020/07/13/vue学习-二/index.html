@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue学习(一), 晟松">
+    <meta name="keywords" content="vue学习(二), 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue学习(一) | 晟松</title>
+    <title>vue学习(二) | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue学习(一)</h1>
+                    <h1 class="description center-align post-title">vue学习(二)</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue/">
-                                <span class="chip bg-color">vue</span>
+                            <a href="/tags/vue-%E8%80%81%E9%99%88/">
+                                <span class="chip bg-color">vue 老陈</span>
                             </a>
                         
                     </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-11
+                    2020-07-13
                 </div>
                 
 
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    586
+                    1.4k
                 </div>
                 
 
@@ -472,26 +472,124 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="vue的黑马学习"><a href="#vue的黑马学习" class="headerlink" title="vue的黑马学习"></a>vue的黑马学习</h5><p>1.vue作用范围，只有在vue实例的el挂载点里面及其后代元素才会进行这个vue实例的操作。不仅可以使用id选择器，class选择器也行，使用.class进行el挂载。其他的选择器也都能行。可以使用其他的双标签，但不能是body和html标签。</p>
-<p>2.Vue中用到的数据定义在data中，data中可以写复杂类型的数据，渲染复杂类型数据时,遵守js的语法即可</p>
-<p>3.dom操作是获取元素，操作它们。vue使用指令操作</p>
-<p>4.v-text指令。直接替换标签里面的所有文字和数据。跟两个大括号没什么差别。</p>
-<p>5.v-html，设置标签的innerHTML，就是将纯html文本解析成html效果。</p>
-<p>6.v-on，为元素绑定事件，类似onclick等。v-on:click=”函数名”,函数在vue是你的methods里面定义，methods:{click:function(){ }, other:{ } }。同时，在函数名后面可以传递参数，相应在定义函数时也要添加这个参数。还可以使用(.)表示的指令后缀调用修饰符。如@click.once=””,只会调用一次，@keyup.enter=””这些。</p>
-<p>7.v-show,根据表达值的真假，切换元素的显示和隐藏。本质就是切换display属性。</p>
-<p>8.v-if,v-if=”值”,根据值的真假，判断是否显示，但不是操纵display，而是直接操纵dom元素。</p>
-<p>9.v-bind,设置元素的属性。v-bind:属性名=”属性值”，一般属性值在data里面进行定义。</p>
-<p>10.v-for,生成列表。格式v-for=”item in items”，在data里面对items进行数据设置，一般是数组或者对象或者对象数组。使用对象时，可使用(value,key,index) in object 对对象进行数据访问。</p>
-<p>11.v-model，获取和设置表单元素的值(进行双向数据绑定)。就是表单中的数据发生改变时，另一个绑定的数据元素也会发生改变。一般用来获取输入文本框中的输入数据.</p>
-<p>12.网络请求(axios).一般使用get和post</p>
-<p>例如：</p>
-<pre class=" language-js"><code class="language-js">axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"https://autumnfish.cn/api/joke/list?num=1"</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                        that<span class="token punctuation">.</span>joke<span class="token operator">=</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jokes<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里不能通过this访问joke，this的范围已经发生了变化</span>
-                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jokes<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+                <h4 id="vue的B站老陈学习"><a href="#vue的B站老陈学习" class="headerlink" title="vue的B站老陈学习"></a>vue的B站老陈学习</h4><p>那些基本的在前一篇大多都说了，这一篇记一些没说到的。</p>
+<p>1.过渡动画，一般使用transition完成。例如</p>
+<pre class=" language-html"><code class="language-html">&lt;transition name = "nameoftransition">
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">></span></span></code></pre>
+<p>需要指定这个动画的名字。</p>
+<p><strong>重点是css里面的css类名和css动画效果</strong></p>
+<p>一般是动画名(例如fade)再加一些特定标识，如</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.fade-enter-active</span>, <span class="token class">.fade-leave-active</span> </span><span class="token punctuation">{</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> opacity <span class="token number">2</span>s
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.fade-enter</span>, <span class="token class">.fade-leave-to</span>  </span><span class="token punctuation">{</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token comment" spellcheck="true">/*opacity表示透明效果*/</span>
+<span class="token punctuation">}</span></code></pre>
+<p>active表示动画的进行时间，enter和leave-to表示刚进入的效果和最终离开时的效果。还有enter-to和leave这两个表示动画最后的效果和离开开始的过渡状态。</p>
+<img src="https://www.runoob.com/wp-content/uploads/2018/06/transition.png" alt="img" style="zoom:50%;" />
+
+<p>还可以使用自定义的类名，可以和第三方css类插件库(如:animate.css)进行配合。</p>
+<p>如：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span>
+    <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>custom-classes-transition<span class="token punctuation">"</span></span>
+    <span class="token attr-name">enter-active-class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>animated tada<span class="token punctuation">"</span></span>
+    <span class="token attr-name">leave-active-class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>animated bounceOutRight<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">></span></span></code></pre>
+<p>此外还有enter-class,leave-class,enter-to-class,leave-to-class.与上面相对应。</p>
+<p>过渡时间你也可以在transition里面是绑定duration进行设置。如：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">:duration</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1000<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">:duration</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{ enter: 500, leave: 800 }<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">></span></span></code></pre>
+<p>2.生命周期</p>
+<img src="https://cn.vuejs.org/images/lifecycle.png" alt="Vue å®ä¾çå½å¨æ" style="zoom:33%;" />
+
+<p>我们能拿到的只有红色框里面的东西，中间的都是vue自动完成，我们无法控制。一般直接在vue实例里面添加这些东西进行控制。如：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  created<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//进行控制.</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a is: '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>a<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>在beforeCreate里面输出this和vue里面的data会有不同，this表示vue实例刚创建，但data里面的数据还没有绑定，会输出undefined，同时methods这些也没有绑定</p>
+<p>在beforeCreate和created这中间就是绑定data和methods这些。</p>
+<p>created之后就是渲染页面，在渲染之前绑定的一些数据在vue实例里面不会拿到，虽然在浏览器html里面有了。在渲染之后(mounted)就可以拿到这些dom对象。</p>
+<p>当数据被修改，也会有两个阶段，在before阶段，虽然数据修改了，但内容还没渲染修改，在updated后，就会重新渲染，内容也改变了。</p>
+<p>销毁一般很少调用。</p>
+<p>3.组件感觉还有一些东西要写。</p>
+<p>prop传递数据（子组件用来接受父组件传递过来的数据的一个自定义属性）：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>child</span> <span class="token attr-name">message</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hello!<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>child</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>parentMsg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>//动态prop传递数据
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>child</span> <span class="token attr-name"><span class="token namespace">v-bind:</span>message1</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>parentMsg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>child</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token comment" spellcheck="true">// 注册</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'child'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 声明 props</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'message'</span><span class="token punctuation">,</span><span class="token string">'message1'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 同样也可以在 vm 实例中像 "this.message" 这样使用</span>
+  template<span class="token punctuation">:</span> <span class="token string">'&lt;span>{{ message }}+{{message1}}&lt;/span>'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>自定义事件（子组件要把数据传递回去，就需要使用自定义事件）</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>counter-event-example<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>{{ total }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button-counter</span> <span class="token attr-name"><span class="token namespace">v-on:</span>increment</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>incrementTotal<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button-counter</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button-counter</span> <span class="token attr-name"><span class="token namespace">v-on:</span>increment</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>incrementTotal<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button-counter</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'button-counter'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  template<span class="token punctuation">:</span> <span class="token string">'&lt;button v-on:click="incrementHandler">{{ counter }}&lt;/button>'</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      counter<span class="token punctuation">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    incrementHandler<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>counter <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'increment'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//触发increment事件,在v-on监听里面触发，调用vue实例里面的函数</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">'#counter-event-example'</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    total<span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    incrementTotal<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>total <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>component里面的data必须是一个函数，为了保证每个组件的数据不共用。注意驼峰命名法在html里面需要转换成横线格式。</p>
+<p>同时有$parent,$children,$root属性，可以在组件中找到父元素的vue对象，子元素的，根(最外层对象)的这些，之后就可以当做vue对象进行调用方法之类的。</p>
+<p>v-model也可以绑定到组件上，默认会利用名为 <code>value</code> 的 prop 和名为 <code>input</code> 的事件，需要在组件的template里面添加相应监听和$emit()调用。</p>
+<p>4.插槽。整体结构不变，但要插入一些内容。<slot></slot>,新版本(2.6.0)可使用v-slot。一般来说，在自定义组件的标签里面添加内容，是不会被渲染到页面上去的，但slot解决了这个问题。<slot>在组件的template里面添加使用，添加之后，当在组件标签里面添加内容时，slot将会被替换掉，内容可被渲染到页面上。一个组件的template最外层只会有一个标签，一般可使用一个div将所有元素进行包裹。</p>
+<p><strong>父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。</strong></p>
+<p>5.动态组件。</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name"><span class="token namespace">v-bind:</span>is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>currentTabComponent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">></span></span></code></pre>
+<p>可使用is属性切换不同的组件。</p>
+<p>is用法。其中currentTabComponent是在vue实例里面进行数据定义，然后在局部定义组件和方法进行切换currentTabComponent，在this.$options.components[id]，this表示vue实例，获取到组件实例，之后将component标签替换成这个组件。</p>
+<p>一般切换的时候，都会重新渲染组件。当我们不想让其重新渲染的时候，就可以使用<keep-alive>标签。如</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name"><span class="token namespace">v-bind:</span>is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>currentTabComponent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span></code></pre>
+<p> keep-alive要求被切换到的组件都有自己的名字，不论是通过组件的 <code>name</code>选项还是局部/全局注册。</p>
+<p>因为一些标签 有一些限制出现的地方，如<li>，为了避免这些情况，在组件中的template使用<strong>单文件组件(.vue文件)</strong>就不会存在这些限制，这也是重点。</p>
+<p>6.<strong>单文件组件(.vue文件)</strong></p>
+<p>脚手架。.vue文件解决了<strong>全局定义</strong> <strong>字符串模板</strong> <strong>不支持组件 CSS</strong>  <strong>没有构建步骤</strong>这些缺点</p>
 
             </div>
             <hr/>
@@ -517,7 +615,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/11/vue%E5%AD%A6%E4%B9%A0-%E4%B8%80/">http://yoursite.com/2020/07/11/vue%E5%AD%A6%E4%B9%A0-%E4%B8%80/</a>
+                    <a href="http://yoursite.com/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%BA%8C/">http://yoursite.com/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%BA%8C/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,8 +653,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
+                                <a href="/tags/vue-%E8%80%81%E9%99%88/">
+                                    <span class="chip bg-color">vue 老陈</span>
                                 </a>
                             
                         </div>
@@ -728,22 +826,20 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%BA%8C/">
+                <a href="/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%B8%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="vue学习(二)">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="vue学习-三">
                         
-                        <span class="card-title">vue学习(二)</span>
+                        <span class="card-title">vue学习-三</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vue的B站老陈学习那些基本的在前一篇大多都说了，这一篇记一些没说到的。
-1.过渡动画，一般使用transition完成。例如
-&lt;transition name = "nameoftransition">
-   &lt;div>&lt
+                            单组件文件(.vue)1.解决了全局定义 字符串模板 不支持组件 CSS  没有构建步骤这些缺点，使关注点分离，模块化开发。
+
                         
                     </div>
                     <div class="publish-info">
@@ -761,8 +857,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-%E8%80%81%E9%99%88/">
-                        <span class="chip bg-color">vue 老陈</span>
+                    <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6/">
+                        <span class="chip bg-color">vue .vue 脚手架</span>
                     </a>
                     
                 </div>
@@ -776,25 +872,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/08/vue%E5%AD%A6%E4%B9%A0/">
+                <a href="/2020/07/11/vue%E5%AD%A6%E4%B9%A0-%E4%B8%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vue学习">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="vue学习(一)">
                         
-                        <span class="card-title">vue学习</span>
+                        <span class="card-title">vue学习(一)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于自己对Vue学习的一些重点和理解学习的地方包括Vue自己的网站，菜鸟教程，B站等
-1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。2.模板语法插值：数据绑定：文本：, v-once；原始html：v-html，
+                            vue的黑马学习1.vue作用范围，只有在vue实例的el挂载点里面及其后代元素才会进行这个vue实例的操作。不仅可以使用id选择器，class选择器也行，使用.class进行el挂载。其他的选择器也都能行。可以使用其他的双标签，但不能是b
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
                             </span>
                         <span class="publish-author">
                             
