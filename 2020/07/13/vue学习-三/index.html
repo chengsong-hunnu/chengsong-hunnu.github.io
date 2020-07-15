@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6/">
-                                <span class="chip bg-color">vue .vue 脚手架</span>
+                            <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6-vue-cli/">
+                                <span class="chip bg-color">vue .vue 脚手架(vue-cli)</span>
                             </a>
                         
                     </div>
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    46
+                    509
                 </div>
                 
 
@@ -473,6 +473,48 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h5 id="单组件文件-vue"><a href="#单组件文件-vue" class="headerlink" title="单组件文件(.vue)"></a>单组件文件(.vue)</h5><p>1.解决了<strong>全局定义</strong> <strong>字符串模板</strong> <strong>不支持组件 CSS</strong>  <strong>没有构建步骤</strong>这些缺点，使关注点分离，模块化开发。</p>
+<p>2.vue-cli    vue.js的<a href="https://cli.vuejs.org/zh/guide/prototyping.html" target="_blank" rel="noopener">标准开发工具</a></p>
+<p>3.安装vue-cli按照官方文档的命令进行就可以了，不要其他的不加@符号的命令，在vscode终端里面目前是需要3版本以上。推荐使用git-bash进行npm下载或者cnpm下载。如果出现了什么命令没找到，注意添加安装路径到环境变量。如果安装好了，在bash里面vue –version没有问题，但在vscode终端里无法使用，将vscode设置成管理员打开。vue ui可以进行更简易化的创建配置操作。</p>
+<p>4.在src目录里面开发，使用npm run serve看效果，npm run build打包到dist文件夹，可将dist文件夹部署到服务器，当做平常网站。注意绝对路径(/)，和相对路径(./)</p>
+<p>5.将文件模块化，明确文件关系</p>
+<p><strong>6.app.vue文件</strong>。核心文件，在template里面写html代码，script里面写js，style里面写css。注意全局使用驼峰命名，防止一些奇怪错误。</p>
+<pre class=" language-vue"><code class="language-vue"><template>
+  <div id="app">
+    <chat-com></chat-com>
+    <userlist-com></userlist-com>
+  </div>
+</template>
+
+<script>
+import chatCom from './components/chatcom'
+import userlistCom from './components/userlistcom'
+
+export default {
+  name: 'App',
+  components: {
+    chatCom,
+    userlistCom
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+</code></pre>
+<p>使用import引入自定义组件，并在export default的component里面声明，里面的<strong>数据data是返回一个对象</strong>.</p>
+<p>报错和解决方法：</p>
+<p>1.Newline required at end of file but not found eol-last</p>
+<p>在.vue文件的最后一行后面加一个空行，还只能加一个空行，多了不行</p>
+<p>2.miss什么什么的，在miss的地方加空格。好吧，这是最考试创建的时候开启了eclint选项，是一个严格语法结构。不能使用tab，空格多了两个。</p>
+<p>3.推荐使用vscode的格式化文档，再对照错误进行修改，字符串使用单引号。</p>
 
             </div>
             <hr/>
@@ -536,8 +578,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6/">
-                                    <span class="chip bg-color">vue .vue 脚手架</span>
+                                <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6-vue-cli/">
+                                    <span class="chip bg-color">vue .vue 脚手架(vue-cli)</span>
                                 </a>
                             
                         </div>
@@ -723,7 +765,8 @@
                     <div class="summary block-with-text">
                         
                             单组件文件(.vue)1.解决了全局定义 字符串模板 不支持组件 CSS  没有构建步骤这些缺点，使关注点分离，模块化开发。
-
+2.vue-cli    vue.js的标准开发工具
+3.安装vue-cli按照官方文档的命令进行就可以了，不要其
                         
                     </div>
                     <div class="publish-info">
@@ -742,8 +785,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6/">
-                        <span class="chip bg-color">vue .vue 脚手架</span>
+                    <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6-vue-cli/">
+                        <span class="chip bg-color">vue .vue 脚手架(vue-cli)</span>
                     </a>
                     
                 </div>
