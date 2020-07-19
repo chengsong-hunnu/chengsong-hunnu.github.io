@@ -477,7 +477,7 @@
 <p>3.dom操作是获取元素，操作它们。vue使用指令操作</p>
 <p>4.v-text指令。直接替换标签里面的所有文字和数据。跟两个大括号没什么差别。</p>
 <p>5.v-html，设置标签的innerHTML，就是将纯html文本解析成html效果。</p>
-<p>6.v-on，为元素绑定事件，类似onclick等。v-on:click=”函数名”,函数在vue是你的methods里面定义，methods:{click:function(){ }, other:{ } }。同时，在函数名后面可以传递参数，相应在定义函数时也要添加这个参数。还可以使用(.)表示的指令后缀调用修饰符。如@click.once=””,只会调用一次，@keyup.enter=””这些。</p>
+<p>6.v-on，为元素绑定事件，类似onclick等。v-on:click=”函数名”,函数在vue实例的methods里面定义，methods:{click:function(){ }, other:{ } }。同时，在函数名后面可以传递参数，相应在定义函数时也要添加这个参数。还可以使用(.)表示的指令后缀调用修饰符。如@click.once=””,只会调用一次，@keyup.enter=””这些。</p>
 <p>7.v-show,根据表达值的真假，切换元素的显示和隐藏。本质就是切换display属性。</p>
 <p>8.v-if,v-if=”值”,根据值的真假，判断是否显示，但不是操纵display，而是直接操纵dom元素。</p>
 <p>9.v-bind,设置元素的属性。v-bind:属性名=”属性值”，一般属性值在data里面进行定义。</p>

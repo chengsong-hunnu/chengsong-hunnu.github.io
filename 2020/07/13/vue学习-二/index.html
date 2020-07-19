@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.7k
                 </div>
                 
 
@@ -576,6 +576,11 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 <p>component里面的data必须是一个函数，为了保证每个组件的数据不共用。注意驼峰命名法在html里面需要转换成横线格式。</p>
 <p>同时有$parent,$children,$root属性，可以在组件中找到父元素的vue对象，子元素的，根(最外层对象)的这些，之后就可以当做vue对象进行调用方法之类的。</p>
 <p>v-model也可以绑定到组件上，默认会利用名为 <code>value</code> 的 prop 和名为 <code>input</code> 的事件，需要在组件的template里面添加相应监听和$emit()调用。</p>
+<p><strong>一般使用.vue分开使用组件的话</strong></p>
+<p><strong>父组件给子组件传递数据：在父组件的子组件标签里面通过v-bind绑定一个<u>特定名</u>和数据。在子组件里使用props声明这个<u>特定名</u>，然后就可以使用这个特定名进行数据使用。</strong></p>
+<p><strong>子组件给父组件传递数据和使用父组件的方法：</strong></p>
+<p>​    <strong>1.在父组件的子组件标签里面通过v-on监听一个<u>特定名</u>和一个在父组件里面的methods的方法名，在子组件里面自定义一个点击事件之类的，触发在子组件里面自定义的方法，在这个方法里面通过this.$emit(‘<u>特定名</u>‘,’数据’)，就会通过这个特定名调用父组件里面的方法，数据也作为参数传递了过去。</strong></p>
+<p>​    <strong>2.在父组件里通过v-bind绑定一个<u>特定名</u>和<u>父组件方法</u>，在子组件里通过props声明这个特定名，然后就可以把这个<u>特定名</u>当做一个方法进行使用</strong></p>
 <p>4.插槽。整体结构不变，但要插入一些内容。<slot></slot>,新版本(2.6.0)可使用v-slot。一般来说，在自定义组件的标签里面添加内容，是不会被渲染到页面上去的，但slot解决了这个问题。<slot>在组件的template里面添加使用，添加之后，当在组件标签里面添加内容时，slot将会被替换掉，内容可被渲染到页面上。一个组件的template最外层只会有一个标签，一般可使用一个div将所有元素进行包裹。</p>
 <p><strong>父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。</strong></p>
 <p>5.动态组件。</p>
