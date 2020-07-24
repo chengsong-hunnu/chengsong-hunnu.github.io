@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vuex插件和vant, 晟松">
+    <meta name="keywords" content="ES6学习, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vuex插件和vant | 晟松</title>
+    <title>ES6学习 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vuex插件和vant</h1>
+                    <h1 class="description center-align post-title">ES6学习</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vuex-vue-vant/">
-                                <span class="chip bg-color">vuex vue vant</span>
+                            <a href="/tags/es6/">
+                                <span class="chip bg-color">es6</span>
                             </a>
                         
                     </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-23
+                    2020-07-24
                 </div>
                 
 
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    329
                 </div>
                 
 
@@ -472,133 +472,38 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>1.vuex插件</strong></p>
-<p>Vuex 的 store 接受 <code>plugins</code> 选项，这个选项暴露出每次 mutation 的钩子。Vuex 插件就是一个函数，它接收 store 作为唯一参数：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> myPlugin <span class="token operator">=</span> store <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 当 store 初始化后调用</span>
-  store<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">(</span>mutation<span class="token punctuation">,</span> state<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 每次 mutation 之后调用</span>
-    <span class="token comment" spellcheck="true">// mutation 的格式为 { type, payload }</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre>
-<p>然后像这样使用：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// ...</span>
-  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>myPlugin<span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>在插件中不允许直接修改状态——类似于组件，只能通过提交 mutation 来触发变化,通过提交 mutation，插件可以用来同步数据源到 store</p>
-<p>2.混入</p>
-<p>相当于将各个部分分开，使其可复用，混在一起使用，与合在一起写的效果相同</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> mixin <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//定义需要混入的部分</span>
-  data<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      message<span class="token punctuation">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
-      foo<span class="token punctuation">:</span> <span class="token string">'abc'</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+                <p>js的一种版本标准，只是为了学一些重点的新语法。</p>
+<img src="https://www.runoob.com/wp-content/uploads/2018/12/es6-tutorial.jpg" alt="img" style="zoom: 50%;" />
 
-<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  mixins<span class="token punctuation">:</span> <span class="token punctuation">[</span>mixin<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//使用mixins使用混入</span>
-
-  data<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      message<span class="token punctuation">:</span> <span class="token string">'goodbye'</span><span class="token punctuation">,</span>
-      bar<span class="token punctuation">:</span> <span class="token string">'def'</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  created<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$data<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true">// => { message: "goodbye", foo: "abc", bar: "def" }</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>当出现同名属性，数据的时候，以组件中的为主，如果是方法(methods)，则都会调用，但混入的会先被调用。</p>
-<p><strong>3.自定义指令</strong></p>
-<p>使用Vue.directive进行指令创建</p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 注册一个全局自定义指令 `v-focus`</span>
-Vue<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">'focus'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 当被绑定的元素插入到 DOM 中时……</span>
-  inserted<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>el<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 聚焦元素，el表示的是使用这个指令的标签的html代码</span>
-    el<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<h5 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a><a href="https://cn.vuejs.org/v2/guide/custom-directive.html#钩子函数" target="_blank" rel="noopener">钩子函数</a></h5><p>一个指令定义对象可以提供如下几个钩子函数 (均为可选)：</p>
+<p>1.箭头函数</p>
+<p><strong>箭头函数的作用主要是定义匿名函数</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> foo <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 转换成箭头函数</span>
+<span class="token keyword">let</span> foo <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>基本语法<strong>（参数）</strong>：</p>
 <ul>
-<li><p><code>bind</code>：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。</p>
-</li>
-<li><p><code>inserted</code>：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</p>
-</li>
-<li><p><code>update</code>：所在组件的 VNode 更新时调用，<strong>但是可能发生在其子 VNode 更新之前</strong>。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下)。</p>
-</li>
-<li><p><code>componentUpdated</code>：指令所在组件的 VNode <strong>及其子 VNode</strong> 全部更新后调用。</p>
-</li>
-<li><p><code>unbind</code>：只调用一次，指令与元素解绑时调用。</p>
-</li>
+<li>匿名函数没有参数：() 不能省略，占位作用。<code>let foo = () =&gt; {};</code></li>
+<li>只有一个参数：() 可以省略，也可以不省略。<code>let foo = a =&gt; {};</code></li>
+<li>多个参数，() 不能省略。<code>let foo = (a,b) =&gt; {};</code></li>
 </ul>
-<p>接下来我们来看一下钩子函数的参数 (即 <code>el</code>、<code>binding</code>、<code>vnode</code> 和 <code>oldVnode</code>)。</p>
-<h5 id="钩子函数参数"><a href="#钩子函数参数" class="headerlink" title="钩子函数参数"></a><a href="https://cn.vuejs.org/v2/guide/custom-directive.html#钩子函数参数" target="_blank" rel="noopener">钩子函数参数</a></h5><p>指令钩子函数会被传入以下参数：</p>
-<ul>
-<li><code>el</code>：指令所绑定的元素，可以用来直接操作 DOM。</li>
-<li><code>binding</code>：一个对象，包含以下 property：<ul>
-<li><code>name</code>：指令名，不包括 <code>v-</code> 前缀。</li>
-<li><code>value</code>：指令的绑定值，例如：<code>v-my-directive=&quot;1 + 1&quot;</code> 中，绑定值为 <code>2</code>。</li>
-<li><code>oldValue</code>：指令绑定的前一个值，仅在 <code>update</code> 和 <code>componentUpdated</code> 钩子中可用。无论值是否改变都可用。</li>
-<li><code>expression</code>：字符串形式的指令表达式。例如 <code>v-my-directive=&quot;1 + 1&quot;</code> 中，表达式为 <code>&quot;1 + 1&quot;</code>。</li>
-<li><code>arg</code>：传给指令的参数，可选。例如 <code>v-my-directive:foo</code> 中，参数为 <code>&quot;foo&quot;</code>。</li>
-<li><code>modifiers</code>：一个包含修饰符的对象。例如：<code>v-my-directive.foo.bar</code> 中，修饰符对象为 <code>{ foo: true, bar: true }</code>。</li>
-</ul>
-</li>
-<li><code>vnode</code>：Vue 编译生成的虚拟节点。移步 <a href="https://cn.vuejs.org/v2/api/#VNode-接口" target="_blank" rel="noopener">VNode API</a> 来了解更多详情。</li>
-<li><code>oldVnode</code>：上一个虚拟节点，仅在 <code>update</code> 和 <code>componentUpdated</code> 钩子中可用。</li>
-</ul>
-<p>除了 <code>el</code> 之外，其它参数都应该是只读的，切勿进行修改。</p>
-<p>4.vue插件</p>
-<p>通过全局方法 <code>Vue.use()</code> 使用插件</p>
-<p>Vue.js 的插件应该暴露一个 <code>install</code> 方法。这个方法的第一个参数是 <code>Vue</code> 构造器，第二个参数是一个可选的选项对象：</p>
-<pre class=" language-js"><code class="language-js">MyPlugin<span class="token punctuation">.</span>install <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>Vue<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 1. 添加全局方法或 property</span>
-  Vue<span class="token punctuation">.</span>myGlobalMethod <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 逻辑...</span>
+<p>2.let 与 const</p>
+<p>let 声明的变量只在 let 命令所在的代码块内有效。</p>
+<p>const 声明一个只读的常量，一旦声明，常量的值就不能改变。</p>
+<p>3.解构赋值</p>
+<p>解构赋值是对赋值运算符的扩展，他是一种针对数组或者对象进行模式匹配，然后对其中的变量进行赋值。</p>
+<p>4.展开符/三点运算符(…)</p>
+<p>用来取代 arguments 但比 arguments 灵活.</p>
+<p><img src="https://gitee.com/xxgw1997/Web-2/raw/master/12-ES6/images/9.png" alt="img"></p>
+<p>5.async 函数</p>
+<p>async 函数返回一个 Promise 对象，可以使用 then 方法添加回调函数。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">helloAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"helloAsync"</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-
-  <span class="token comment" spellcheck="true">// 2. 添加全局资源</span>
-  Vue<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">'my-directive'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    bind <span class="token punctuation">(</span>el<span class="token punctuation">,</span> binding<span class="token punctuation">,</span> vnode<span class="token punctuation">,</span> oldVnode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// 逻辑...</span>
-    <span class="token punctuation">}</span>
-    <span class="token operator">...</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-  <span class="token comment" spellcheck="true">// 3. 注入组件选项</span>
-  Vue<span class="token punctuation">.</span><span class="token function">mixin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    created<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// 逻辑...</span>
-    <span class="token punctuation">}</span>
-    <span class="token operator">...</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-  <span class="token comment" spellcheck="true">// 4. 添加实例方法</span>
-  Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$myMethod <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>methodOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 逻辑...</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>5.vant</p>
-<p>参考官网<a href="https://youzan.github.io/vant/?source=vuejsorg#/zh-CN/button" target="_blank" rel="noopener">vant</a></p>
-<p>ui组件。先<code>npm i vant -S</code>安装，之后</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> Vant <span class="token keyword">from</span> <span class="token string">'vant'</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//全局导入，不推荐</span>
-<span class="token keyword">import</span> <span class="token string">'vant/lib/index.css'</span><span class="token punctuation">;</span>
-Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vant<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//按需导入，推荐</span>
-<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vant'</span><span class="token punctuation">;</span>
-Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Button<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>导入vant包和样式，并使用vue.use进行使用</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>van-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>默认按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>van-button</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>van-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>主要按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>van-button</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>van-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>信息按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>van-button</span><span class="token punctuation">></span></span></code></pre>
-<p>具体使用和参数参考vant官网。</p>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">helloAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// Promise {&lt;resolved>: "helloAsync"}</span>
+<span class="token function">helloAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>v<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// helloAsync</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>async 函数中可能会有 await 表达式，async 函数执行时，如果遇到 await 就会先暂停执行 ，等到触发的异步操作完成后，恢复 async 函数的执行并返回解析值。</p>
 
             </div>
             <hr/>
@@ -624,7 +529,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/23/vuex%E6%8F%92%E4%BB%B6%E5%92%8Cvant/">http://yoursite.com/2020/07/23/vuex%E6%8F%92%E4%BB%B6%E5%92%8Cvant/</a>
+                    <a href="http://yoursite.com/2020/07/24/ES6%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/07/24/ES6%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -662,8 +567,8 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vuex-vue-vant/">
-                                    <span class="chip bg-color">vuex vue vant</span>
+                                <a href="/tags/es6/">
+                                    <span class="chip bg-color">es6</span>
                                 </a>
                             
                         </div>
@@ -831,9 +736,10 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/24/ES6%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
@@ -861,9 +767,9 @@ let foo = () => {};
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -872,6 +778,7 @@ let foo = () => {};
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -890,27 +797,27 @@ let foo = () => {};
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/19/vuex/">
+                <a href="/2020/07/23/vuex%E6%8F%92%E4%BB%B6%E5%92%8Cvant/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="vuex">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="vuex插件和vant">
                         
-                        <span class="card-title">vuex</span>
+                        <span class="card-title">vuex插件和vant</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Vuex 是一个专为 大型Vue.js 应用程序开发的状态管理模式
-1.简单来说，vuex就是用来集中管理组件的数据的(多组件共享的数据)。
-数据驱动视图，动作(action)更改数据，是一个环形单向数据流。
-每一个 Vuex 应用的核心就
+                            1.vuex插件
+Vuex 的 store 接受 plugins 选项，这个选项暴露出每次 mutation 的钩子。Vuex 插件就是一个函数，它接收 store 作为唯一参数：
+const myPlugin = store => {
+ 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
                             </span>
                         <span class="publish-author">
                             
@@ -923,8 +830,8 @@ let foo = () => {};
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-vuex/">
-                        <span class="chip bg-color">vue vuex</span>
+                    <a href="/tags/vuex-vue-vant/">
+                        <span class="chip bg-color">vuex vue vant</span>
                     </a>
                     
                 </div>
