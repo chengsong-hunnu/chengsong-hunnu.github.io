@@ -556,7 +556,7 @@
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>使用children属性进行嵌套的配置。还可以继续进行嵌套。</p>
-<p><strong>编程式导航</strong>，除了使用 <code>&lt;router-link&gt;</code>，还可使用</p>
+<p><strong>编程式导航</strong>(使用点击事件在js的mehtods里面使用)，除了使用 <code>&lt;router-link&gt;</code>，还可使用</p>
 <p><code>router.push(location, onComplete?, onAbort?)</code>进行导航。使用 <code>router.push</code> 方法。这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 字符串</span>
 router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'home'</span><span class="token punctuation">)</span>
