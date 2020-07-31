@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue学习-三, 晟松">
+    <meta name="keywords" content="typescript学习, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue学习-三 | 晟松</title>
+    <title>typescript学习 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="./images/loading.gif" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">晟松</span>
                 </a>
@@ -138,7 +138,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="./images/loading.gif" data-original="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">晟松</div>
         <div class="logo-desc">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue学习-三</h1>
+                    <h1 class="description center-align post-title">typescript学习</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6-vue-cli/">
-                                <span class="chip bg-color">vue .vue 脚手架(vue-cli)</span>
+                            <a href="/tags/typescript/">
+                                <span class="chip bg-color">typescript</span>
                             </a>
                         
                     </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-13
+                    2020-07-29
                 </div>
                 
 
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    509
+                    281
                 </div>
                 
 
@@ -472,49 +472,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="单组件文件-vue"><a href="#单组件文件-vue" class="headerlink" title="单组件文件(.vue)"></a>单组件文件(.vue)</h5><p>1.解决了<strong>全局定义</strong> <strong>字符串模板</strong> <strong>不支持组件 CSS</strong>  <strong>没有构建步骤</strong>这些缺点，使关注点分离，模块化开发。</p>
-<p>2.vue-cli    vue.js的<a href="https://cli.vuejs.org/zh/guide/prototyping.html" target="_blank" rel="noopener">标准开发工具</a></p>
-<p>3.安装vue-cli按照官方文档的命令进行就可以了，不要其他的不加@符号的命令，在vscode终端里面目前是需要3版本以上。推荐使用git-bash进行npm下载或者cnpm下载。如果出现了什么命令没找到，注意添加安装路径到环境变量。如果安装好了，在bash里面vue –version没有问题，但在vscode终端里无法使用，将vscode设置成管理员打开。vue ui可以进行更简易化的创建配置操作。</p>
-<p>4.在src目录里面开发，使用npm run serve看效果，npm run build打包到dist文件夹，可将dist文件夹部署到服务器，当做平常网站。注意绝对路径(/)，和相对路径(./)</p>
-<p>5.将文件模块化，明确文件关系</p>
-<p><strong>6.app.vue文件</strong>。核心文件，在template里面写html代码，script里面写js，style里面写css。注意全局使用驼峰命名，防止一些奇怪错误。</p>
-<pre class=" language-vue"><code class="language-vue"><template>
-  <div id="app">
-    <chat-com></chat-com>
-    <userlist-com></userlist-com>
-  </div>
-</template>
-
-<script>
-import chatCom from './components/chatcom'
-import userlistCom from './components/userlistcom'
-
-export default {
-  name: 'App',
-  components: {
-    chatCom,
-    userlistCom
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
-</code></pre>
-<p>使用import引入自定义组件，并在export default的component里面声明，里面的<strong>数据data是返回一个对象</strong>.</p>
-<p>报错和解决方法：</p>
-<p>1.Newline required at end of file but not found eol-last</p>
-<p>在.vue文件的最后一行后面加一个空行，还只能加一个空行，多了不行</p>
-<p>2.miss什么什么的，在miss的地方加空格。好吧，这是最考试创建的时候开启了eclint选项，是一个严格语法结构。不能使用tab，空格多了两个。</p>
-<p>3.推荐使用vscode的格式化文档，再对照错误进行修改，字符串使用单引号。</p>
+                <p>typescript学习,下面简称ts</p>
+<p>typescript是js的一个超集，添加了一些新的扩展.主要目的是为了开发大型应用。</p>
+<ul>
+<li>类型批注和编译时类型检查</li>
+<li>类型推断</li>
+<li>类型擦除</li>
+<li>接口</li>
+<li>枚举</li>
+<li>Mixin</li>
+<li>泛型编程</li>
+<li>名字空间</li>
+<li>元组</li>
+<li>Await</li>
+</ul>
+<p>2.使用<strong>npm install -g typescript</strong>安装进行使用，<strong>tsc</strong>是使用的标识，<strong>.ts</strong>是typescript文件扩展名。执行以下命令将 TypeScript 转换为 JavaScript 代码：</p>
+<pre class=" language-powershell"><code class="language-powershell">tsc test<span class="token punctuation">.</span>ts</code></pre>
+<p>3.TypeScript 程序由以下几个部分组成：</p>
+<ul>
+<li>模块</li>
+<li>函数</li>
+<li>变量</li>
+<li>语句和表达式</li>
+<li>注释</li>
+</ul>
+<p>每一行指令都是一段语句，可使用分号进行语句隔开，使合理。</p>
+<p>4.TypeScript 面向对象编程实例：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Site</span> <span class="token punctuation">{</span> 
+   <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">void</span> <span class="token punctuation">{</span> 
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Runoob"</span><span class="token punctuation">)</span> 
+   <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span> 
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Site</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+obj<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>编译后生成的 JavaScript 代码如下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> Site <span class="token operator">=</span> <span class="token comment" spellcheck="true">/** @class */</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">Site</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+    Site<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Runoob"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> Site<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Site</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>ts有些特殊的变量类型，如<strong>any</strong>，一般用于用户的输入，定义存储各种类型的数组。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> arrayList<span class="token punctuation">:</span> any<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token string">'fine'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ts的变量声明格式</span>
+<span class="token keyword">let</span> myts<span class="token punctuation">:</span> number <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> uname<span class="token punctuation">:</span>string <span class="token operator">=</span> <span class="token string">"Runoob"</span><span class="token punctuation">;</span> 
+arrayList<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -540,7 +546,7 @@ export default {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%B8%89/">http://yoursite.com/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%B8%89/</a>
+                    <a href="http://yoursite.com/2020/07/29/typescript%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/07/29/typescript%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -578,8 +584,8 @@ export default {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue-vue-%E8%84%9A%E6%89%8B%E6%9E%B6-vue-cli/">
-                                    <span class="chip bg-color">vue .vue 脚手架(vue-cli)</span>
+                                <a href="/tags/typescript/">
+                                    <span class="chip bg-color">typescript</span>
                                 </a>
                             
                         </div>
@@ -709,10 +715,10 @@ export default {
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="./images/loading.gif" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="./images/loading.gif" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -747,30 +753,44 @@ export default {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/15/vue%E9%AB%98%E7%BA%A7%E7%9F%A5%E8%AF%86/">
+                <a href="/2020/07/29/typescript%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="vue高级知识">
+                        <img src="./images/loading.gif" data-original="/medias/featureimages/23.jpg" class="responsive-img" alt="typescript学习">
                         
-                        <span class="card-title">vue高级知识</span>
+                        <span class="card-title">typescript学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            B站老陈1.socket.io(套接字),用于浏览器和服务器进行实时，双向，基于事件(异步)的通信。
-socket. emit(‘名’,’数据’),发送客户端数据。socket.on(‘名’,function(data){})监听客户端或服
+                            typescript学习,下面简称ts
+typescript是js的一个超集，添加了一些新的扩展.主要目的是为了开发大型应用。
+
+类型批注和编译时类型检查
+类型推断
+类型擦除
+接口
+枚举
+Mixin
+泛型编程
+名字空间
+元组
+Await
+
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -779,11 +799,12 @@ socket. emit(‘名’,’数据’),发送客户端数据。socket.on(‘名’
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-socket-less-route/">
-                        <span class="chip bg-color">vue socket less route</span>
+                    <a href="/tags/typescript/">
+                        <span class="chip bg-color">typescript</span>
                     </a>
                     
                 </div>
@@ -797,27 +818,24 @@ socket. emit(‘名’,’数据’),发送客户端数据。socket.on(‘名’
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%BA%8C/">
+                <a href="/2020/07/29/B%E7%AB%99vue%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="vue学习(二)">
+                        <img src="./images/loading.gif" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="B站vue商城项目总结">
                         
-                        <span class="card-title">vue学习(二)</span>
+                        <span class="card-title">B站vue商城项目总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vue的B站老陈学习那些基本的在前一篇大多都说了，这一篇记一些没说到的。
-1.过渡动画，一般使用transition完成。例如
-&lt;transition name = "nameoftransition">
-   &lt;div>&lt
+                            ​    跟着在B站老陈的视频进行vue的一些学习，最后面就是对前面学习的一些知识的总结性使用。做了一个仿网易严选的商城项目。这里面，你说技术并没有很难，最大的感受还是对现在前端的开发有了一些理解，特别是对ui组件的使用，可以直接就拿现有的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
                             </span>
                         <span class="publish-author">
                             
@@ -830,8 +848,8 @@ socket. emit(‘名’,’数据’),发送客户端数据。socket.on(‘名’
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-%E8%80%81%E9%99%88/">
-                        <span class="chip bg-color">vue 老陈</span>
+                    <a href="/tags/vue-laochen/">
+                        <span class="chip bg-color">vue laochen</span>
                     </a>
                     
                 </div>
@@ -1177,6 +1195,11 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="./images/loading.gif" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">晟松</span>
                 </a>
@@ -138,7 +138,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="./images/loading.gif" data-original="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">晟松</div>
         <div class="logo-desc">
@@ -473,7 +473,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>js的一种版本标准，只是为了学一些重点的新语法。</p>
-<img src="https://www.runoob.com/wp-content/uploads/2018/12/es6-tutorial.jpg" alt="img" style="zoom: 50%;" />
+<img src="./images/loading.gif" data-original="https://www.runoob.com/wp-content/uploads/2018/12/es6-tutorial.jpg" alt="img" style="zoom: 50%;" />
 
 <p>1.箭头函数</p>
 <p><strong>箭头函数的作用主要是定义匿名函数</strong></p>
@@ -493,7 +493,7 @@
 <p>解构赋值是对赋值运算符的扩展，他是一种针对数组或者对象进行模式匹配，然后对其中的变量进行赋值。</p>
 <p>4.展开符/三点运算符(…)</p>
 <p>用来取代 arguments 但比 arguments 灵活.</p>
-<p><img src="https://gitee.com/xxgw1997/Web-2/raw/master/12-ES6/images/9.png" alt="img"></p>
+<p><img src="./images/loading.gif" data-original="https://gitee.com/xxgw1997/Web-2/raw/master/12-ES6/images/9.png" alt="img"></p>
 <p>5.async 函数</p>
 <p>async 函数返回一个 Promise 对象，可以使用 then 方法添加回调函数。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">helloAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -698,10 +698,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="./images/loading.gif" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="./images/loading.gif" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -744,7 +744,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="vue总结">
+                        <img src="./images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="vue总结">
                         
                         <span class="card-title">vue总结</span>
                     </div>
@@ -792,7 +792,7 @@ v-bind,v-on,v-model,v-for,v-if/v-show,
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="vuex插件和vant">
+                        <img src="./images/loading.gif" data-original="/medias/featureimages/15.jpg" class="responsive-img" alt="vuex插件和vant">
                         
                         <span class="card-title">vuex插件和vant</span>
                     </div>
@@ -1168,6 +1168,11 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

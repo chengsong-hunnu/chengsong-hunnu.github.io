@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="./images/loading.gif" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">晟松</span>
                 </a>
@@ -138,7 +138,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="./images/loading.gif" data-original="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">晟松</div>
         <div class="logo-desc">
@@ -484,7 +484,7 @@
     <span class="token punctuation">}</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Bye from process %d with x = %d\n"</span><span class="token punctuation">,</span> <span class="token function">getpid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>结果：<img src="https://img-blog.csdnimg.cn/2019110910200816.png" alt="在这里插入图片描述"><br>先fork一个子进程，这次子进程先执行，之后再试父进程，最后得到这个结果。</p>
+<p>结果：<img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/2019110910200816.png" alt="在这里插入图片描述"><br>先fork一个子进程，这次子进程先执行，之后再试父进程，最后得到这个结果。</p>
 <p>下面有一些关键字，<a href="https://blog.csdn.net/GEAUSE/article/details/102933742" target="_blank" rel="noopener">waitpid等</a>，可以去看一下。</p>
 <p>2.下一个是关于僵尸进程的问题</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">fork7</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -498,7 +498,7 @@
         <span class="token comment" spellcheck="true">/* Infinite loop */</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p>结果：<img src="https://img-blog.csdnimg.cn/20191109103227316.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>僵死进程</strong>：是指子进程退出时，父进程并未对其发出的SIGCHLD信号进行适当处理，导致子进程停留在僵死状态等待其父进程为其回收，这个状态下的子进程就是僵死进程。</p>
+<p>结果：<img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191109103227316.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>僵死进程</strong>：是指子进程退出时，父进程并未对其发出的SIGCHLD信号进行适当处理，导致子进程停留在僵死状态等待其父进程为其回收，这个状态下的子进程就是僵死进程。</p>
 <p>主进程运行然后fork一个子进程，父进程因为while（1），一直在后台运行，但是子进程正常执行完程序。最后在后台卡住，使用Ctrl+z挂起这个程序，之后ps命令去看可看见这个程序的父进程（pid=4300）还是在后台挂起，只能用kill命令强制结束。</p>
 <p><strong>3.</strong> 这个是关于孤儿进程</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">fork8</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -514,7 +514,7 @@
         <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p>结果：<br><img src="https://img-blog.csdnimg.cn/20191109104910232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>孤儿进程</strong>：父进程退出，而它的一个或多个子进程还在运行，那么那些子进程将成为孤儿进程。孤儿进程将被init进程(pid=1)所收养，并由init进程对它们完成状态收集工作。</p>
+<p>结果：<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191109104910232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>孤儿进程</strong>：父进程退出，而它的一个或多个子进程还在运行，那么那些子进程将成为孤儿进程。孤儿进程将被init进程(pid=1)所收养，并由init进程对它们完成状态收集工作。</p>
 <p>由ps命令可看见子进程（pid=4304）还在后台运行，这就是一个孤儿进程。</p>
 <p><strong>4.</strong>关于wait</p>
 <pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span> N 5</span>
@@ -552,7 +552,7 @@
                 <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Child %d terminate abnormally\n"</span><span class="token punctuation">,</span> wpid<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p>结果：<img src="https://img-blog.csdnimg.cn/20191109113504188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>对于<strong>fork10</strong>，通过for循环先fork一个子进程，父进程进行到wait暂停，之后子进程运行exit正常退出，给出一个信号给父进程，然后根据wait的特点，父进程继续执行输出语句。</p>
+<p>结果：<img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191109113504188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>对于<strong>fork10</strong>，通过for循环先fork一个子进程，父进程进行到wait暂停，之后子进程运行exit正常退出，给出一个信号给父进程，然后根据wait的特点，父进程继续执行输出语句。</p>
 <p>对于<strong>fork11</strong>，通过for循环先fork一个子进程，父进程进行到waitpid(pid[i],&amp;child_status, 0)暂停，之后waitpid等待着pid[i]的子进程结束，之后for（0-4）正常结束子进程，for（4-0）waitpid返回子进程结束值，之后执行输出语句。</p>
 <p><strong>5</strong>关于信号</p>
 <pre class=" language-c"><code class="language-c"> <span class="token operator">*</span><span class="token operator">/</span>
@@ -785,10 +785,10 @@ Child <span class="token number">38</span> terminated abnormally
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="./images/loading.gif" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="./images/loading.gif" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -831,7 +831,7 @@ Child <span class="token number">38</span> terminated abnormally
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="android room简单学习">
+                        <img src="./images/loading.gif" data-original="/medias/featureimages/3.jpg" class="responsive-img" alt="android room简单学习">
                         
                         <span class="card-title">android room简单学习</span>
                     </div>
@@ -877,7 +877,7 @@ Child <span class="token number">38</span> terminated abnormally
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="计算机系统基础二">
+                        <img src="./images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="计算机系统基础二">
                         
                         <span class="card-title">计算机系统基础二</span>
                     </div>
@@ -1251,6 +1251,11 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

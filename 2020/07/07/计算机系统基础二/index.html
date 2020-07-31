@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="./images/loading.gif" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">晟松</span>
                 </a>
@@ -138,7 +138,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="./images/loading.gif" data-original="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">晟松</div>
         <div class="logo-desc">
@@ -475,8 +475,8 @@
                 <h2 id="计算机系统基础（二）"><a href="#计算机系统基础（二）" class="headerlink" title="计算机系统基础（二）"></a>计算机系统基础（二）</h2><h4 id="5-优化程序性能"><a href="#5-优化程序性能" class="headerlink" title="5    优化程序性能"></a>5    优化程序性能</h4><p>1.用度量标准（CPE）<strong>每元素的周期数</strong><br>2.一般优化方面为：消除循环的低效率（尽量顺序循环），减少过程调用，消除不必要的内存引用。</p>
 <h4 id="6-存储器层次结构"><a href="#6-存储器层次结构" class="headerlink" title="6 存储器层次结构"></a>6 存储器层次结构</h4><p>1.随机访问存储器（RAM）:静态（SRAM）不需要刷新，稳定，一般用于高速缓存；动态（DRAM）不稳定，一般用于主存。都是易失的（断电就没了）<br>2.非易失性存储器（ROM），整体上都被称为只读存储器。一般用于外存<br>3.磁盘：由盘片组成，一般有多张盘片，磁道，扇区。</p>
 <p>容量一般由记录密度，磁道密度，面密度决定。<br>容量 = 每个扇区的字节数 x 磁道上的平均扇区数 x 磁盘一面的磁道数 x 磁盘的面数 x 硬盘包含的磁盘数<br>访问时间一般由寻道时间，旋转时间，传送时间决定。<br>总的访问时间 = 寻址时间 + 旋转时间 + 传输时间 </p>
-<p>寻址时间 因为物理规律的限制，一般是 3-9 ms<br>旋转延迟 取决于硬盘具体的转速，一般来说是 7200 RPM<br>传输时间 就是需要读取的扇区数目<br><img src="https://img-blog.csdnimg.cn/20191116121449266.png" alt="在这里插入图片描述"><br>4.固态硬盘<br>固态硬盘中分成很多的块，每个块又有很多页，大约 32-128 个，每个页可以存放一定数据，页是进行数据读写的最小单位。但是有一点需要注意，对一个页进行写入操作的时候，需要先把整个块清空（设计限制），而一个块大概在 100,000 次写入之后就会报废。<br>5.局部性<br>时间局部性： 如果一个信息项正在被访问，那么在近期它很可能还会被再次访问。程序循环、堆栈等是产生时间局部性的原因。<br>空间局部性: 在最近的将来将用到的信息很可能与现在正在使用的信息在空间地址上是临近的<br>顺序局部性: 在典型程序中，除转移类指令外，大部分指令是顺序进行的。顺序执行和非顺序执行的比例大致是5:1。此外，对大型<strong>数组</strong>访问也是顺序的。指令的顺序执行、数组的连续存放等是产生顺序局部性的原因。<br>6.高速缓存<br><img src="https://img-blog.csdnimg.cn/20191116124629347.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>每一层都可以看作是下一层的缓存，主存中的信息按“块” 送到Cache中。<br>缓存命中：在对应的层中找到需要的数据<br><strong>缓存不命中</strong>：对应的层没有找到数据，需要从下一层中取出需要的数据，有时候会需要覆盖。<br>强制性失效: CPU 第一次访问相应缓存块，缓存中肯定没有对应数据，这是不可避免的。<br>冲突失效：在直接相联或组相联的缓存中，不同的缓存块由于索引相同相互替换，引起的失效叫做冲突失效。<br>容量失效: 有限的缓存容量导致缓存放不下而被替换，被替换出去的缓存块再被访问，引起的失效叫做容量失效。<br>7.高速缓冲存储器<br> 高速缓冲存储器的三个关键组成部分（注意区分大小写）：</p>
-<p>S 表示集合(set)数量<br>E 表示数据行(line)的数量<br>B 表示每个缓存块(block)保存的字节数目<br><img src="https://img-blog.csdnimg.cn/20191116132546630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">地址宽度m=s+t+b<br><img src="https://img-blog.csdnimg.cn/20191116135814907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>先确定组索引对应的组，再看有效为是否为1，再去比对标记位，最后看块偏移，得到数据。<br>标记位和索引位连起来唯一的标识内存中的每个块。</p>
+<p>寻址时间 因为物理规律的限制，一般是 3-9 ms<br>旋转延迟 取决于硬盘具体的转速，一般来说是 7200 RPM<br>传输时间 就是需要读取的扇区数目<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116121449266.png" alt="在这里插入图片描述"><br>4.固态硬盘<br>固态硬盘中分成很多的块，每个块又有很多页，大约 32-128 个，每个页可以存放一定数据，页是进行数据读写的最小单位。但是有一点需要注意，对一个页进行写入操作的时候，需要先把整个块清空（设计限制），而一个块大概在 100,000 次写入之后就会报废。<br>5.局部性<br>时间局部性： 如果一个信息项正在被访问，那么在近期它很可能还会被再次访问。程序循环、堆栈等是产生时间局部性的原因。<br>空间局部性: 在最近的将来将用到的信息很可能与现在正在使用的信息在空间地址上是临近的<br>顺序局部性: 在典型程序中，除转移类指令外，大部分指令是顺序进行的。顺序执行和非顺序执行的比例大致是5:1。此外，对大型<strong>数组</strong>访问也是顺序的。指令的顺序执行、数组的连续存放等是产生顺序局部性的原因。<br>6.高速缓存<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116124629347.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>每一层都可以看作是下一层的缓存，主存中的信息按“块” 送到Cache中。<br>缓存命中：在对应的层中找到需要的数据<br><strong>缓存不命中</strong>：对应的层没有找到数据，需要从下一层中取出需要的数据，有时候会需要覆盖。<br>强制性失效: CPU 第一次访问相应缓存块，缓存中肯定没有对应数据，这是不可避免的。<br>冲突失效：在直接相联或组相联的缓存中，不同的缓存块由于索引相同相互替换，引起的失效叫做冲突失效。<br>容量失效: 有限的缓存容量导致缓存放不下而被替换，被替换出去的缓存块再被访问，引起的失效叫做容量失效。<br>7.高速缓冲存储器<br> 高速缓冲存储器的三个关键组成部分（注意区分大小写）：</p>
+<p>S 表示集合(set)数量<br>E 表示数据行(line)的数量<br>B 表示每个缓存块(block)保存的字节数目<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116132546630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">地址宽度m=s+t+b<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116135814907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>先确定组索引对应的组，再看有效为是否为1，再去比对标记位，最后看块偏移，得到数据。<br>标记位和索引位连起来唯一的标识内存中的每个块。</p>
 <h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7.链接"></a>7.链接</h4><p><a href="https://blog.csdn.net/qq_43977818/article/details/102230859#" target="_blank" rel="noopener">之前的一些记录</a></p>
 <h4 id="8-异常控制流"><a href="#8-异常控制流" class="headerlink" title="8.异常控制流"></a>8.异常控制流</h4><p><a href="https://blog.csdn.net/qq_43977818/article/details/102983925#" target="_blank" rel="noopener">fork的一些记录</a></p>
 <h4 id="9-虚拟内存"><a href="#9-虚拟内存" class="headerlink" title="9.虚拟内存"></a>9.虚拟内存</h4><p>1.分页，通过页表实现逻辑地址向物理地址的转换。<br>2.每个虚拟页都可以被映射到任何的物理页上。</p>
@@ -484,8 +484,8 @@
 <p>N=2^n^,M=2^m^,P=2^p^<br>其中 N 表示虚拟地址空间中的地址数量，M 表示物理地址空间中的地址数量，P 是每一页包含的字节数(page size)。</p>
 <p>虚拟地址(VA, Virtual Address)中的元素：</p>
 <p>TLBI: TLB 的索引值<br>TLBT: TLB 的标签(tag)<br>VPO: 虚拟页偏移量<br>VPN: 虚拟页编号<br>物理地址(PA, physical address)中的元素：</p>
-<p>PPO: 物理页偏移量（与 VPO 的值相同）<br>PPN: 物理页编号<br><img src="https://img-blog.csdnimg.cn/20191116232117177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><strong>具体的访问过程为</strong>：</p>
-<p>通过虚拟地址找到页表(page table)中对应的条目<br>检查有效位(valid bit)，是否需要触发页错误(page fault)<br>然后根据页表中的物理页编号(physical page number)找到内存中的对应地址<br>最后把虚拟页偏移(virtual page offset)和前面的实际地址拼起来，就是最终的物理地址了<br>这里又分两种情况：Page Hit 和 Page Fault。<br><img src="https://img-blog.csdnimg.cn/20191123110317476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20191123110746831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3.C程序中的内存错误（P609）</p>
+<p>PPO: 物理页偏移量（与 VPO 的值相同）<br>PPN: 物理页编号<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116232117177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><strong>具体的访问过程为</strong>：</p>
+<p>通过虚拟地址找到页表(page table)中对应的条目<br>检查有效位(valid bit)，是否需要触发页错误(page fault)<br>然后根据页表中的物理页编号(physical page number)找到内存中的对应地址<br>最后把虚拟页偏移(virtual page offset)和前面的实际地址拼起来，就是最终的物理地址了<br>这里又分两种情况：Page Hit 和 Page Fault。<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191123110317476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191123110746831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3.C程序中的内存错误（P609）</p>
 
             </div>
             <hr/>
@@ -680,10 +680,10 @@
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="./images/loading.gif" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="./images/loading.gif" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -726,7 +726,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="csapp fork的一些代码运行和理解">
+                        <img src="./images/loading.gif" data-original="/medias/featureimages/15.jpg" class="responsive-img" alt="csapp fork的一些代码运行和理解">
                         
                         <span class="card-title">csapp fork的一些代码运行和理解</span>
                     </div>
@@ -771,7 +771,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="博客的建立">
+                        <img src="./images/loading.gif" data-original="/medias/featureimages/19.jpg" class="responsive-img" alt="博客的建立">
                         
                         <span class="card-title">博客的建立</span>
                     </div>
@@ -1144,6 +1144,11 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
