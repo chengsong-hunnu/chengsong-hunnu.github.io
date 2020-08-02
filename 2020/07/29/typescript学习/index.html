@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    281
+                    1.1k
                 </div>
                 
 
@@ -472,7 +472,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>typescript学习,下面简称ts</p>
+                <p>typescript学习,下面简称ts.有些语法类似于java</p>
 <p>typescript是js的一个超集，添加了一些新的扩展.主要目的是为了开发大型应用。</p>
 <ul>
 <li>类型批注和编译时类型检查</li>
@@ -504,7 +504,12 @@
    <span class="token punctuation">}</span> 
 <span class="token punctuation">}</span> 
 <span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Site</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-obj<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+obj<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 函数定义</span>
+<span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>string <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 返回一个字符串，需要写明返回类型</span>
+    <span class="token keyword">return</span> <span class="token string">"Hello World"</span> 
+<span class="token punctuation">}</span> </code></pre>
 <p>编译后生成的 JavaScript 代码如下：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> Site <span class="token operator">=</span> <span class="token comment" spellcheck="true">/** @class */</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">function</span> <span class="token function">Site</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -515,12 +520,108 @@ obj<span class="token punctuation">.</span><span class="token function">name</sp
     <span class="token keyword">return</span> Site<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Site</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-obj<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+obj<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"Hello World"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>ts有些特殊的变量类型，如<strong>any</strong>，一般用于用户的输入，定义存储各种类型的数组。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> arrayList<span class="token punctuation">:</span> any<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token string">'fine'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ts的变量声明格式</span>
 <span class="token keyword">let</span> myts<span class="token punctuation">:</span> number <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> uname<span class="token punctuation">:</span>string <span class="token operator">=</span> <span class="token string">"Runoob"</span><span class="token punctuation">;</span> 
 arrayList<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span></code></pre>
+<p>ts里定义函数的参数可设置可选(通过?)，在参数后面需要指明参数类型。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">buildName</span><span class="token punctuation">(</span>firstName<span class="token punctuation">:</span> string <span class="token operator">=</span> <span class="token string">'abc'</span><span class="token punctuation">,</span> lastName<span class="token operator">?</span><span class="token punctuation">:</span> string<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//可设置默认值</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>lastName<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> firstName <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> lastName<span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> firstName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> result1 <span class="token operator">=</span> <span class="token function">buildName</span><span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 正确</span>
+<span class="token keyword">let</span> result2 <span class="token operator">=</span> <span class="token function">buildName</span><span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"Adams"</span><span class="token punctuation">,</span> <span class="token string">"Sr."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 错误，</span>
+<span class="token keyword">let</span> result3 <span class="token operator">=</span> <span class="token function">buildName</span><span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"Adams"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 正确</span></code></pre>
+<p>ts的剩余参数，指不知道需要传入多少参数。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">addNumbers</span><span class="token punctuation">(</span><span class="token operator">...</span>nums<span class="token punctuation">:</span>number<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//一般是数组</span>
+    <span class="token keyword">var</span> i<span class="token punctuation">;</span>   
+    <span class="token keyword">var</span> sum<span class="token punctuation">:</span>number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//ts的变量声明格式</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+       sum <span class="token operator">=</span> sum <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span> 
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"和为："</span><span class="token punctuation">,</span>sum<span class="token punctuation">)</span> 
+ <span class="token punctuation">}</span> 
+ <span class="token function">addNumbers</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> </code></pre>
+<p>ts也可使用函数重载(函数名相同，参数不同)</p>
+<p>ts数组可解构(将数组元素赋值给变量)</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token string">"Runoob"</span><span class="token punctuation">]</span> 
+<span class="token keyword">var</span> <span class="token punctuation">[</span>b<span class="token punctuation">,</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> a <span class="token comment" spellcheck="true">//解构，es6好像有新的解构方式(...)</span></code></pre>
+<p>有一些常用数组方法</p>
+<ul>
+<li>contact(),链接两个数组元素</li>
+<li>forEach(),对每个元素进行一次回调函数</li>
+<li>pop(),删除最后一个元素</li>
+<li>push(),在末尾添加一个元素</li>
+<li>slice(),选取数组的一部分</li>
+</ul>
+<p>ts元组，就是一个数组，但里面的元素类型不同。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> mytuple <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token string">"Runoob"</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 创建元组</span></code></pre>
+<p>ts联合类型，就是一个变量可以有多个类型，以（|）分开。还可形成联合类型数组</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> val<span class="token punctuation">:</span>string<span class="token operator">|</span>number 
+val <span class="token operator">=</span> <span class="token number">12</span> 
+val <span class="token operator">=</span> <span class="token string">"Runoob"</span> </code></pre>
+<p>ts接口，还是interface定义一个抽象接口，当做一个类型进行使用。也可使用extend继承多个接口进行扩展</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">interface</span> <span class="token class-name">IPerson</span> <span class="token punctuation">{</span> 
+    firstName<span class="token punctuation">:</span>string<span class="token punctuation">,</span> 
+    lastName<span class="token punctuation">:</span>string<span class="token punctuation">,</span> 
+    sayHi<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>string 
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">var</span> customer<span class="token punctuation">:</span>IPerson <span class="token operator">=</span> <span class="token punctuation">{</span> 
+    firstName<span class="token punctuation">:</span><span class="token string">"Tom"</span><span class="token punctuation">,</span>
+    lastName<span class="token punctuation">:</span><span class="token string">"Hanks"</span><span class="token punctuation">,</span> 
+    sayHi<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>string <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token string">"Hi there"</span><span class="token punctuation">}</span> 
+<span class="token punctuation">}</span></code></pre>
+<p>ts类，面向对象编程,也可extend继承,不能继承父类的私有成员(方法和属性)和构造函数，不支持多继承，支持多重继承，可进行重写，和super调用父类属性和方法类可使用接口，使用关键字 implements，并将接口的属性作为类的属性使用。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">car</span><span class="token punctuation">{</span> 
+    <span class="token comment" spellcheck="true">// 类作用域,可包含以下几个模块</span>
+<span class="token comment" spellcheck="true">//字段 - 是类里面声明的变量。字段表示对象的有关数据。</span>
+
+<span class="token comment" spellcheck="true">//构造函数 − 类实例化时调用，可以为类的对象分配内存。</span>
+
+<span class="token comment" spellcheck="true">//方法 − 方法为对象要执行的操作。</span>
+    engine<span class="token punctuation">:</span><span class="token keyword">string</span><span class="token punctuation">;</span> 
+    <span class="token comment" spellcheck="true">// 构造函数 </span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>engine<span class="token punctuation">:</span><span class="token keyword">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        <span class="token keyword">this</span><span class="token punctuation">.</span>engine <span class="token operator">=</span> engine 
+    <span class="token punctuation">}</span>  
+    <span class="token comment" spellcheck="true">// 方法 </span>
+    <span class="token function">disp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">void</span> <span class="token punctuation">{</span> 
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"发动机为 :   "</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>engine<span class="token punctuation">)</span> 
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span></code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> car <span class="token operator">=</span> <span class="token comment" spellcheck="true">/** @class */</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//js代码</span>
+    <span class="token keyword">function</span> <span class="token function">Car</span><span class="token punctuation">(</span>engine<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>engine <span class="token operator">=</span> engine<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 方法 </span>
+    Car<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>disp <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"发动机为 :   "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>engine<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> Car<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>ts命名空间，为了解决重名问题。命名空间定义了标识符的可见范围，一个标识符可在多个名字空间中定义，它在不同名字空间中的含义是互不相干的，命名空间可嵌套。使用 <strong>namespace</strong> 来定义，</p>
+<pre class=" language-typescript"><code class="language-typescript">namespace SomeNameSpaceName <span class="token punctuation">{</span> 
+   <span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ISomeInterfaceName</span> <span class="token punctuation">{</span>    <span class="token punctuation">}</span>  
+   <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">SomeClassName</span> <span class="token punctuation">{</span>    <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//export导出表示可外部调用 </span>
+<span class="token punctuation">}</span></code></pre>
+<p>4.ts模块</p>
+<p>模块是在其自身的作用域里执行，在外部不可见，除非使用 export进行导出，在其他需要使用的地方通过import进行导入。模块使用模块加载器去导入其它的模块，如服务于 Web 应用的 Require.js</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">SomeInterface</span> <span class="token punctuation">{</span> 
+   <span class="token comment" spellcheck="true">// 代码部分</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">import</span> someInterfaceRef <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./SomeInterface"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -770,7 +871,7 @@ arrayList<span class="token punctuation">[</span><span class="token number">1</s
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            typescript学习,下面简称ts
+                            typescript学习,下面简称ts.有些语法类似于java
 typescript是js的一个超集，添加了一些新的扩展.主要目的是为了开发大型应用。
 
 类型批注和编译时类型检查
@@ -780,11 +881,7 @@ typescript是js的一个超集，添加了一些新的扩展.主要目的是为�
 枚举
 Mixin
 泛型编程
-名字空间
-元组
-Await
-
-
+名字空
                         
                     </div>
                     <div class="publish-info">
