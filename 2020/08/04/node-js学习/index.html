@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.2k
                 </div>
                 
 
@@ -623,7 +623,7 @@ hello<span class="token punctuation">.</span><span class="token function">sayHel
 <p>13.文件系统</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fs"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//fileSystem</span></code></pre>
 <h6 id="异步和同步"><a href="#异步和同步" class="headerlink" title="异步和同步"></a>异步和同步</h6><p>Node.js 文件系统（fs 模块）模块中的方法均有异步和同步版本，例如读取文件内容的函数有异步的 fs.readFile() 和同步的 fs.readFileSync()。</p>
-<p>异步的方法函数最后一个参数为回调函数，回调函数的第一个参数包含了错误信息(error)。建议使用异步方法，比起同步，异步方法性能更高，速度更快，而且没有阻塞。</p>
+<p>异步的方法函数最后一个参数为回调函数，回调函数的第一个参数包含了错误信息(error)。建议使用异步方法，比起同步，异步方法性能更高，速度更快，而且没有阻塞。就是可以直接执行读写文件后面的代码指令，而不需要等待文件读写完成。</p>
 <pre class=" language-js"><code class="language-js">fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'input.txt'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//回调错误函数</span>
    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
        <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -631,7 +631,7 @@ hello<span class="token punctuation">.</span><span class="token function">sayHel
    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"异步读取: "</span> <span class="token operator">+</span> data<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 同步读取</span>
+<span class="token comment" spellcheck="true">// 同步读取，主要看那sync</span>
 <span class="token keyword">var</span> data <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'input.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h6 id="打开文件等"><a href="#打开文件等" class="headerlink" title="打开文件等"></a>打开文件等</h6><pre class=" language-js"><code class="language-js">fs<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> flags<span class="token punctuation">[</span><span class="token punctuation">,</span> mode<span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//flags为文件打开行为</span>
 fs<span class="token punctuation">.</span><span class="token function">stat</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//获取文件信息，会将stats类的实例返回给其回调函数。可以通过stats类中的提供方法判断文件的相关属性</span>

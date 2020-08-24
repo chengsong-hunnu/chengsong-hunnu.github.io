@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="计算机系统基础二, 晟松">
+    <meta name="keywords" content="正则入门笔记, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>计算机系统基础二 | 晟松</title>
+    <title>正则入门笔记 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">计算机系统基础二</h1>
+                    <h1 class="description center-align post-title">正则入门笔记</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/csdn/">
-                                <span class="chip bg-color">csdn</span>
+                            <a href="/tags/regexp-%E6%AD%A3%E5%88%99/">
+                                <span class="chip bg-color">regexp 正则</span>
                             </a>
                         
                     </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-07
+                    2020-08-24
                 </div>
                 
 
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    2.1k
                 </div>
                 
 
@@ -472,20 +472,300 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="计算机系统基础（二）"><a href="#计算机系统基础（二）" class="headerlink" title="计算机系统基础（二）"></a>计算机系统基础（二）</h2><h4 id="5-优化程序性能"><a href="#5-优化程序性能" class="headerlink" title="5    优化程序性能"></a>5    优化程序性能</h4><p>1.用度量标准（CPE）<strong>每元素的周期数</strong><br>2.一般优化方面为：消除循环的低效率（尽量顺序循环），减少过程调用，消除不必要的内存引用。</p>
-<h4 id="6-存储器层次结构"><a href="#6-存储器层次结构" class="headerlink" title="6 存储器层次结构"></a>6 存储器层次结构</h4><p>1.随机访问存储器（RAM）:静态（SRAM）不需要刷新，稳定，一般用于高速缓存；动态（DRAM）不稳定，一般用于主存。都是易失的（断电就没了）<br>2.非易失性存储器（ROM），整体上都被称为只读存储器。一般用于外存<br>3.磁盘：由盘片组成，一般有多张盘片，磁道，扇区。</p>
-<p>容量一般由记录密度，磁道密度，面密度决定。<br>容量 = 每个扇区的字节数 x 磁道上的平均扇区数 x 磁盘一面的磁道数 x 磁盘的面数 x 硬盘包含的磁盘数<br>访问时间一般由寻道时间，旋转时间，传送时间决定。<br>总的访问时间 = 寻址时间 + 旋转时间 + 传输时间 </p>
-<p>寻址时间 因为物理规律的限制，一般是 3-9 ms<br>旋转延迟 取决于硬盘具体的转速，一般来说是 7200 RPM<br>传输时间 就是需要读取的扇区数目<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116121449266.png" alt="在这里插入图片描述"><br>4.固态硬盘<br>固态硬盘中分成很多的块，每个块又有很多页，大约 32-128 个，每个页可以存放一定数据，页是进行数据读写的最小单位。但是有一点需要注意，对一个页进行写入操作的时候，需要先把整个块清空（设计限制），而一个块大概在 100,000 次写入之后就会报废。<br>5.局部性<br>时间局部性： 如果一个信息项正在被访问，那么在近期它很可能还会被再次访问。程序循环、堆栈等是产生时间局部性的原因。<br>空间局部性: 在最近的将来将用到的信息很可能与现在正在使用的信息在空间地址上是临近的<br>顺序局部性: 在典型程序中，除转移类指令外，大部分指令是顺序进行的。顺序执行和非顺序执行的比例大致是5:1。此外，对大型<strong>数组</strong>访问也是顺序的。指令的顺序执行、数组的连续存放等是产生顺序局部性的原因。<br>6.高速缓存<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116124629347.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>每一层都可以看作是下一层的缓存，主存中的信息按“块” 送到Cache中。<br>缓存命中：在对应的层中找到需要的数据<br><strong>缓存不命中</strong>：对应的层没有找到数据，需要从下一层中取出需要的数据，有时候会需要覆盖。<br>强制性失效: CPU 第一次访问相应缓存块，缓存中肯定没有对应数据，这是不可避免的。<br>冲突失效：在直接相联或组相联的缓存中，不同的缓存块由于索引相同相互替换，引起的失效叫做冲突失效。<br>容量失效: 有限的缓存容量导致缓存放不下而被替换，被替换出去的缓存块再被访问，引起的失效叫做容量失效。<br>7.高速缓冲存储器<br> 高速缓冲存储器的三个关键组成部分（注意区分大小写）：</p>
-<p>S 表示集合(set)数量<br>E 表示数据行(line)的数量<br>B 表示每个缓存块(block)保存的字节数目<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116132546630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">地址宽度m=s+t+b<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116135814907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>先确定组索引对应的组，再看有效为是否为1，再去比对标记位，最后看块偏移，得到数据。<br>标记位和索引位连起来唯一的标识内存中的每个块。</p>
-<h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7.链接"></a>7.链接</h4><p><a href="https://blog.csdn.net/qq_43977818/article/details/102230859#" target="_blank" rel="noopener">之前的一些记录</a></p>
-<h4 id="8-异常控制流"><a href="#8-异常控制流" class="headerlink" title="8.异常控制流"></a>8.异常控制流</h4><p><a href="https://blog.csdn.net/qq_43977818/article/details/102983925#" target="_blank" rel="noopener">fork的一些记录</a></p>
-<h4 id="9-虚拟内存"><a href="#9-虚拟内存" class="headerlink" title="9.虚拟内存"></a>9.虚拟内存</h4><p>1.分页，通过页表实现逻辑地址向物理地址的转换。<br>2.每个虚拟页都可以被映射到任何的物理页上。</p>
-<h5 id="3-地址翻译："><a href="#3-地址翻译：" class="headerlink" title="3.地址翻译："></a><strong>3.地址翻译：</strong></h5><p><strong>从虚拟地址找到物理地址，再物理地址在缓存中找到数据<br>vpn在TLB中找到PPN，物理地址中的CI在缓存中找到对应的组，在CT标记位对应，最后CO 块偏移找到相应字节</strong><br>先来了解<strong>以下参数</strong>：</p>
-<p>N=2^n^,M=2^m^,P=2^p^<br>其中 N 表示虚拟地址空间中的地址数量，M 表示物理地址空间中的地址数量，P 是每一页包含的字节数(page size)。</p>
-<p>虚拟地址(VA, Virtual Address)中的元素：</p>
-<p>TLBI: TLB 的索引值<br>TLBT: TLB 的标签(tag)<br>VPO: 虚拟页偏移量<br>VPN: 虚拟页编号<br>物理地址(PA, physical address)中的元素：</p>
-<p>PPO: 物理页偏移量（与 VPO 的值相同）<br>PPN: 物理页编号<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191116232117177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><strong>具体的访问过程为</strong>：</p>
-<p>通过虚拟地址找到页表(page table)中对应的条目<br>检查有效位(valid bit)，是否需要触发页错误(page fault)<br>然后根据页表中的物理页编号(physical page number)找到内存中的对应地址<br>最后把虚拟页偏移(virtual page offset)和前面的实际地址拼起来，就是最终的物理地址了<br>这里又分两种情况：Page Hit 和 Page Fault。<br><img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191123110317476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="./images/loading.gif" data-original="https://img-blog.csdnimg.cn/20191123110746831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzOTc3ODE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3.C程序中的内存错误（P609）</p>
+                <p>大概就是网上的30分钟入门正则表达的一个个人总结。<a href="https://www.runoob.com/w3cnote/regular-expression-30-minutes-tutorial.html" target="_blank" rel="noopener">链接</a></p>
+<p>不过就只是进行一个简单的学习和简单实用。<a href="https://blog.csdn.net/ZYC88888/article/details/98479629" target="_blank" rel="noopener">一些方便常用的正则早有人进行了总结</a></p>
+<h5 id="1-元字符"><a href="#1-元字符" class="headerlink" title="1.元字符"></a>1.元字符</h5><p>(\b)，代表单词的开头或者结尾，并不匹配任何字符，只表明是匹配这个位置。</p>
+<p>(.)元字符，匹配除了换行符以外的任意字符。(*)同样是元字符，不过它代表的不是字符，也不是位置，而是数量——它指定(*)前边的内容可以连续重复使用任意次(可以是0次)以使整个表达式得到匹配。因此，(.*)连在一起就意味着任意数量的不包含换行的字符。如果是(+),这表示至少匹配一次或更多次</p>
+<table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">.</td>
+<td align="left">匹配除换行符以外的任意字符</td>
+</tr>
+<tr>
+<td align="left">\w</td>
+<td align="left">匹配字母或数字或下划线或汉字</td>
+</tr>
+<tr>
+<td align="left">\s</td>
+<td align="left">匹配任意的空白符</td>
+</tr>
+<tr>
+<td align="left">\d</td>
+<td align="left">匹配数字</td>
+</tr>
+<tr>
+<td align="left">\b</td>
+<td align="left">匹配单词的开始或结束</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left">匹配字符串的开始</td>
+</tr>
+<tr>
+<td align="left">$</td>
+<td align="left">匹配字符串的结束</td>
+</tr>
+</tbody></table>
+<h5 id="2-匹配重复"><a href="#2-匹配重复" class="headerlink" title="2.匹配重复"></a>2.匹配重复</h5><p>就是进行多少次重复的匹配。一般是为了减少正则表达式的长度。</p>
+<table>
+<thead>
+<tr>
+<th align="left">代码/语法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">*</td>
+<td align="left">重复零次或更多次</td>
+</tr>
+<tr>
+<td align="left">+</td>
+<td align="left">重复一次或更多次</td>
+</tr>
+<tr>
+<td align="left">?</td>
+<td align="left">重复零次或一次</td>
+</tr>
+<tr>
+<td align="left">{n}</td>
+<td align="left">重复n次</td>
+</tr>
+<tr>
+<td align="left">{n,}</td>
+<td align="left">重复n次或更多次</td>
+</tr>
+<tr>
+<td align="left">{n,m}</td>
+<td align="left">重复n到m次</td>
+</tr>
+</tbody></table>
+<p>例：^\w+匹配一行的第一个单词或整个字符串的第一个单词</p>
+<h5 id="3-字符类"><a href="#3-字符类" class="headerlink" title="3.字符类"></a>3.字符类</h5><p>为了解决一些特定的字符没有专门的匹配元字符，使用<strong>[]</strong>方括号包含这些特殊字符就行。</p>
+<p>例：[.?!]匹配标点符号(.或?或!)。[0-9]代表的含意与\d就是完全一致的</p>
+<p>\(?0\d{2}[) -]?\d{8}  首先是一个转义字符(,它能出现0次或1次(?),然后是一个0，后面跟着2个数字(\d{2})，然后是)或-或空格中的一个(方括号中间有一个<strong>空格</strong>)，它出现1次或不出现(?)，最后是8个数字(\d{8})。匹配例如(010)88886666，或022-22334455，或02912345678。</p>
+<h5 id="4-分枝条件"><a href="#4-分枝条件" class="headerlink" title="4.分枝条件"></a>4.分枝条件</h5><p><strong>|</strong>，就是当成多个匹配式进行匹配。</p>
+<p>例：0\d{2}-\d{8}|0\d{3}-\d{7}这个表达式能匹配两种以连字号分隔的电话号码：一种是三位区号，8位本地号(如010-12345678)，一种是4位区号，7位本地号(0376-2233445)。但要注意顺序，从左往右进行匹配，当匹配成功之后，后面的就不会再进行匹配了，有时候会出现一些奇怪的问题</p>
+<h5 id="5-分组"><a href="#5-分组" class="headerlink" title="5.分组"></a>5.分组</h5><p>重复单个字符（直接在字符后面加上限定符就行了）；但如果想要重复多个字符又该怎么办？你可以用小括号<strong>()</strong>来指定子表达式(也叫做分组)，然后你就可以指定这个子表达式的重复次数了</p>
+<h5 id="6-反义"><a href="#6-反义" class="headerlink" title="6.反义"></a>6.反义</h5><p>查找不属于某个能简单定义的字符类的字符</p>
+<table>
+<thead>
+<tr>
+<th align="left">代码/语法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">\W</td>
+<td align="left">匹配任意不是字母，数字，下划线，汉字的字符</td>
+</tr>
+<tr>
+<td align="left">\S</td>
+<td align="left">匹配任意不是空白符的字符</td>
+</tr>
+<tr>
+<td align="left">\D</td>
+<td align="left">匹配任意非数字的字符</td>
+</tr>
+<tr>
+<td align="left">\B</td>
+<td align="left">匹配不是单词开头或结束的位置</td>
+</tr>
+<tr>
+<td align="left">[^x]</td>
+<td align="left">匹配除了x以外的任意字符</td>
+</tr>
+<tr>
+<td align="left">[^aeiou]</td>
+<td align="left">匹配除了aeiou这几个字母以外的任意字符</td>
+</tr>
+</tbody></table>
+<p>例：\S+匹配不包含空白符的字符串。&lt;a[^&gt;]+&gt;匹配用尖括号括起来的以a开头的字符串。</p>
+<h5 id="7-后向引用"><a href="#7-后向引用" class="headerlink" title="7.后向引用"></a>7.后向引用</h5><p>大概就是在后面的正则使用前面的正则匹配出来的分组结果。具体查看文章开头链接</p>
+<table>
+<thead>
+<tr>
+<th align="left">分类</th>
+<th align="left">代码/语法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">捕获</td>
+<td align="left">(exp)</td>
+<td align="left">匹配exp,并捕获文本到自动命名的组里。exp为表达式</td>
+</tr>
+<tr>
+<td align="left">(?<name>exp)</td>
+<td align="left">匹配exp,并捕获文本到名称为name的组里，也可以写成(?’name’exp)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">(?:exp)</td>
+<td align="left">匹配exp,不捕获匹配的文本，也不给此分组分配组号</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">零宽断言</td>
+<td align="left">(?=exp)</td>
+<td align="left">匹配exp前面的位置</td>
+</tr>
+<tr>
+<td align="left">(?&lt;=exp)</td>
+<td align="left">匹配exp后面的位置</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">(?!exp)</td>
+<td align="left">匹配后面跟的不是exp的位置</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">(?&lt;!exp)</td>
+<td align="left">匹配前面不是exp的位置</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">注释</td>
+<td align="left">(?#comment)</td>
+<td align="left">这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</td>
+</tr>
+</tbody></table>
+<p>例：\b(\w+)\b\s+\1\b可以用来匹配重复的单词，像go go, 或者kitty kitty。这个表达式首先是一个单词，也就是单词开始处和结束处之间的多于一个的字母或数字(\b(\w+)\b)，这个单词会被捕获到编号为1的分组中，然后是1个或几个空白符(\s+)，最后是分组1中捕获的内容（也就是前面匹配的那个单词）(\1)</p>
+<h5 id="8-零宽断言"><a href="#8-零宽断言" class="headerlink" title="8.零宽断言"></a>8.零宽断言</h5><p>断言用来声明一个应该为真的事实。正则表达式中只有当断言为真时才会继续进行匹配。</p>
+<p>例：(?=exp)也叫零宽度正预测先行断言，它断言自身出现的位置的后面能匹配表达式exp。比如\b\w+(?=ing\b)，匹配以ing结尾的单词的前面部分(除了ing以外的部分)，如查找I’m singing while you’re dancing.时，它会匹配sing和danc。</p>
+<p>(?&lt;=exp)也叫零宽度正回顾后发断言，它断言自身出现的位置的前面能匹配表达式exp。比如(?&lt;=\bre)\w+\b会匹配以re开头的单词的后半部分(除了re以外的部分)，例如在查找reading a book时，它匹配ading。</p>
+<p>同理也有负向零宽断言</p>
+<p>例：零宽度负预测先行断言(?!exp)，断言此位置的后面不能匹配表达式exp。例如：\d{3}(?!\d)匹配三位数字，而且这三位数字的后面不能是数字；\b((?!abc)\w)+\b匹配不包含连续字符串abc的单词。</p>
+<p>同理，我们可以用(?&lt;!exp),零宽度负回顾后发断言来断言此位置的前面不能匹配表达式exp：(?&lt;![a-z])\d{7}匹配前面不是小写字母的七位数字</p>
+<h5 id="9-注释"><a href="#9-注释" class="headerlink" title="9.注释"></a>9.注释</h5><p>小括号通过语法(?#comment)来包含注释。例如：2[0-4]\d(?#200-249)|25<a href="?#250-255">0-5</a>|[01]?\d\d?(?#0-199)</p>
+<h5 id="10-贪婪匹配和懒惰匹配"><a href="#10-贪婪匹配和懒惰匹配" class="headerlink" title="10.贪婪匹配和懒惰匹配"></a>10.贪婪匹配和懒惰匹配</h5><p>就是在匹配的时候，其结果是匹配竟可能长的字符串，还是竟可能短短的字符串</p>
+<table>
+<thead>
+<tr>
+<th align="left">代码/语法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">*?</td>
+<td align="left">重复任意次，但尽可能少重复</td>
+</tr>
+<tr>
+<td align="left">+?</td>
+<td align="left">重复1次或更多次，但尽可能少重复</td>
+</tr>
+<tr>
+<td align="left">??</td>
+<td align="left">重复0次或1次，但尽可能少重复</td>
+</tr>
+<tr>
+<td align="left">{n,m}?</td>
+<td align="left">重复n到m次，但尽可能少重复</td>
+</tr>
+<tr>
+<td align="left">{n,}?</td>
+<td align="left">重复n次以上，但尽可能少重复</td>
+</tr>
+</tbody></table>
+<p>例：a.*b，它将会匹配最长的以a开始，以b结束的字符串。如果用它来搜索aabab的话，它会匹配整个字符串aabab。这被称为贪婪匹配。</p>
+<p>a.*?b匹配最短的，以a开始，以b结束的字符串。如果把它应用于aabab的话，它会匹配aab（第一到第三个字符）和ab（第四到第五个字符）</p>
+<h4 id="特别"><a href="#特别" class="headerlink" title="特别"></a>特别</h4><p>在js里面的正则似乎跟前面的正则有些不同</p>
+<p>其语法为：</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">/</span>正则表达式主体<span class="token operator">/</span><span class="token function">修饰符</span><span class="token punctuation">(</span>可选<span class="token punctuation">)</span>
+例：<span class="token keyword">var</span> patt <span class="token operator">=</span> <span class="token regex">/^\d+\.\d+$/g</span>  <span class="token comment" spellcheck="true">//匹配是否带有小数</span></code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">修饰符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">i</td>
+<td align="left">执行对大小写不敏感的匹配。</td>
+</tr>
+<tr>
+<td align="left">g</td>
+<td align="left">执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。</td>
+</tr>
+<tr>
+<td align="left">m</td>
+<td align="left">执行多行匹配。</td>
+</tr>
+</tbody></table>
+<h5 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h5><p>方括号用于查找某个范围内的字符：</p>
+<table>
+<thead>
+<tr>
+<th align="left">表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">[abc]</td>
+<td align="left">查找方括号之间的任何字符。</td>
+</tr>
+<tr>
+<td align="left">[0-9]</td>
+<td align="left">查找任何从 0 至 9 的数字。</td>
+</tr>
+<tr>
+<td align="left">(x|y)</td>
+<td align="left">查找任何以 | 分隔的选项。</td>
+</tr>
+</tbody></table>
+<p>元字符是拥有特殊含义的字符：</p>
+<table>
+<thead>
+<tr>
+<th align="left">元字符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">\d</td>
+<td align="left">查找数字。</td>
+</tr>
+<tr>
+<td align="left">\s</td>
+<td align="left">查找空白字符。</td>
+</tr>
+<tr>
+<td align="left">\b</td>
+<td align="left">匹配单词边界。</td>
+</tr>
+<tr>
+<td align="left">\uxxxx</td>
+<td align="left">查找以十六进制数 xxxx 规定的 Unicode 字符。</td>
+</tr>
+</tbody></table>
+<p>量词:</p>
+<table>
+<thead>
+<tr>
+<th align="left">量词</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">n+</td>
+<td align="left">匹配任何包含至少一个 <em>n</em> 的字符串。</td>
+</tr>
+<tr>
+<td align="left">n*</td>
+<td align="left">匹配任何包含零个或多个 <em>n</em> 的字符串。</td>
+</tr>
+<tr>
+<td align="left">n?</td>
+<td align="left">匹配任何包含零个或一个 <em>n</em> 的字符串。</td>
+</tr>
+</tbody></table>
 
             </div>
             <hr/>
@@ -511,7 +791,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E4%BA%8C/">http://yoursite.com/2020/07/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E4%BA%8C/</a>
+                    <a href="http://yoursite.com/2020/08/24/%E6%AD%A3%E5%88%99%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">http://yoursite.com/2020/08/24/%E6%AD%A3%E5%88%99%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -549,8 +829,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/csdn/">
-                                    <span class="chip bg-color">csdn</span>
+                                <a href="/tags/regexp-%E6%AD%A3%E5%88%99/">
+                                    <span class="chip bg-color">regexp 正则</span>
                                 </a>
                             
                         </div>
@@ -718,29 +998,33 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/07/csapp-fork%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E5%92%8C%E7%90%86%E8%A7%A3/">
+                <a href="/2020/08/24/%E6%AD%A3%E5%88%99%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="csapp fork的一些代码运行和理解">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="正则入门笔记">
                         
-                        <span class="card-title">csapp fork的一些代码运行和理解</span>
+                        <span class="card-title">正则入门笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            fork1. 先说一点简单的fork定义1.创建一个新进程，新进程被称为子进程。两者最大的区别在于pid不同，一般通过返回值分辨是哪个进程。2.fork函数被调用一次但返回两次。两次返回的唯一区别是子进程中返回0值而父进程中返回子进程ID。
+                            大概就是网上的30分钟入门正则表达的一个个人总结。链接
+不过就只是进行一个简单的学习和简单实用。一些方便常用的正则早有人进行了总结
+1.元字符(\b)，代表单词的开头或者结尾，并不匹配任何字符，只表明是匹配这个位置。
+(.)元字符，匹配除了
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -749,11 +1033,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/csdn-fork/">
-                        <span class="chip bg-color">csdn fork</span>
+                    <a href="/tags/regexp-%E6%AD%A3%E5%88%99/">
+                        <span class="chip bg-color">regexp 正则</span>
                     </a>
                     
                 </div>
@@ -767,24 +1052,27 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/07/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%BB%BA%E7%AB%8B/">
+                <a href="/2020/08/22/vue%E4%BC%81%E4%B8%9A%E9%A1%B9%E7%9B%AE%E7%BB%86%E8%8A%82/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="博客的建立">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="vue企业项目细节">
                         
-                        <span class="card-title">博客的建立</span>
+                        <span class="card-title">vue企业项目细节</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对这个博客，确实有很多的问题，自己都删了好几次文件，从新来搞，才搞成这样，可能还有一些的问题在里面，等后面发现了，就继续改进。现在就有一些问题就很烦，就是github.io过一段时间就不能进行访问了，相当于这个网页就没了，就是这个问题搞了好
+                            大概就是对B站老陈的一个vue企业项目视频的细节抄写
+1.axios封装和请求响应劫持对将后端传回的数据，前端需要自己对数据进行一个拦截检查，看数据是否正确。
+interceptors(instance,url){
+        inst
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
                             </span>
                         <span class="publish-author">
                             
@@ -797,8 +1085,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B/">
-                        <span class="chip bg-color">博客建立</span>
+                    <a href="/tags/vue-%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">vue 项目</span>
                     </a>
                     
                 </div>
