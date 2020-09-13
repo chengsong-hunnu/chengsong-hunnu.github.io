@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue学习, 晟松">
+    <meta name="keywords" content="计算机网络基础, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue学习 | 晟松</title>
+    <title>计算机网络基础 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue学习</h1>
+                    <h1 class="description center-align post-title">计算机网络基础</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue/">
-                                <span class="chip bg-color">vue</span>
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
                             </a>
                         
                     </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-08
+                    2020-09-10
                 </div>
                 
 
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.1k
                 </div>
                 
 
@@ -472,79 +472,48 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="关于自己对Vue学习的一些重点和理解"><a href="#关于自己对Vue学习的一些重点和理解" class="headerlink" title="关于自己对Vue学习的一些重点和理解"></a>关于自己对Vue学习的一些重点和理解</h4><p>学习的地方包括Vue自己的网站，菜鸟教程，B站等</p>
-<h5 id="1-vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。"><a href="#1-vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。" class="headerlink" title="1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。"></a>1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。</h5><h5 id="2-模板语法"><a href="#2-模板语法" class="headerlink" title="2.模板语法"></a>2.模板语法</h5><p>插值：数据绑定：文本：, v-once；原始html：v-html，将html文本转换为html样式；作用于html 的attribute：v-bind,</p>
-<p>指令：指令 (Directives) 是带有 <code>v-</code> 前缀的特殊 attribute,一些指令可以带参数。</p>
-<p>动态参数：可以用方括号括起来的 JavaScript 表达式作为一个指令的参数。可以使用null字符串显式的移除此属性。</p>
-<p><strong><code>v-bind</code> 指令可以用于响应式地更新 HTML attribute，</strong></p>
-<p><strong><code>v-on</code> 指令，它用于监听 DOM 事件,</strong>进行事件处理</p>
-<h5 id="3-计算属性和侦听器"><a href="#3-计算属性和侦听器" class="headerlink" title="3.计算属性和侦听器"></a>3.计算属性和侦听器</h5><p>​    1.对于任何复杂逻辑，你都应当使用<strong>计算属性</strong>computed。</p>
-<p>​    2.我们可以将同一函数定义为一个方法而不是一个计算属性。两种方式的最终结果确实是完全相同的。然而，不同的是<strong>计算属性是基于它们的响应式依赖进行缓存的</strong>。只在相关响应式依赖发生改变时它们才会重新求值。只要值没有发生变化，就不会再次计算属性，直接返回上一次的计算结果。而方法会每一次重新渲染时都重新计算。</p>
-<p>​    3.Vue 提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：<strong>侦听属性</strong> </p>
-<h5 id="4-class和style绑定"><a href="#4-class和style绑定" class="headerlink" title="4.class和style绑定"></a>4.class和style绑定</h5><p>​    1.对象语法，使用v-bind:class指令。</p>
-<p>​    2.绑定内联样式，v-bind:style指令。是一个js对象</p>
-<h5 id="5-条件渲染"><a href="#5-条件渲染" class="headerlink" title="5.条件渲染"></a>5.条件渲染</h5><p>​    1.v-if条件性的渲染一部分内容，使用<template>进行包裹，再使用v-if可以渲染多个内容。还有配套的 v-else,还有v-else-if进行连续使用。</p>
-<p>​    2.v-show的使用与v-if差不多，但没有v-else这些。同时因为各自特性，如果需要非常频繁地切换，则使用 <code>v-show</code> 较好；如果在运行时条件很少改变，则使用 <code>v-if</code> 较好。</p>
-<h5 id="6-列表渲染"><a href="#6-列表渲染" class="headerlink" title="6.列表渲染"></a>6.列表渲染</h5><p>​    1.v-for，使用item in items的格式执行。其中items需要在vue里面的data里指定数据。也可使用value in object进行对象循环，也可使用(value, name, index)进行对象里面的数据，键名，索引访问。也可以使用n in 10进行循环。类似于 <code>v-if</code>，你也可以利用带有 <code>v-for</code> 的 <code>&lt;template&gt;</code> 来循环渲染一段包含多个元素的内容。</p>
-<h5 id="7-事件处理"><a href="#7-事件处理" class="headerlink" title="7.事件处理"></a>7.事件处理</h5><p>​    1.v-on监听dom事件，并执行一些js代码。还可以接收一个需要调用的方法名称。在vue的methods里面添加方法。</p>
-<p>​    Vue.js 为 <code>v-on</code> 提供了<strong>事件修饰符</strong>。之前提过，修饰符是由点开头的指令后缀来表示的。</p>
-<ul>
-<li><code>.stop</code></li>
-<li><code>.prevent</code></li>
-<li><code>.capture</code></li>
-<li><code>.self</code></li>
-<li><code>.once</code></li>
-<li><code>.passive</code></li>
-</ul>
-<pre><code>&lt;!-- 阻止单击事件继续传播 --&gt;
-&lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;
+                <p>机械工业出版社的大黑书(计算机网络-自顶向下方法)和课程，慕课的一个的总结，主要根据tcp/ip的五层体系结构。介绍一些大概</p>
+<p>下面放一些他人的总结，当做补充资料或者细节</p>
+<p><a href="https://www.cnblogs.com/zyx110/p/11891335.html" target="_blank" rel="noopener">五层结构简解</a></p>
+<p><a href="https://blog.csdn.net/m0_37568814/article/details/81018769?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">比较详细的协议解析</a></p>
+<h4 id="1-总览"><a href="#1-总览" class="headerlink" title="1.总览"></a>1.总览</h4><h5 id="1-1概述"><a href="#1-1概述" class="headerlink" title="1.1概述"></a>1.1概述</h5><p>互联网组成：边缘部分+核心部分。</p>
+<p>边缘部分就是各种主机，端系统，用户直接使用。</p>
+<p>核心部分就是网络，交换机，<strong>路由器</strong>这些，为边缘部分提供服务(连通性和交换)。</p>
+<p>端系统的常见通信方式是<strong>客户服务器方式</strong>，客户和服务器都是指通信中涉及到的两个应用进程。客户和服务器都要使用网络核心部分提供的服务。另一种是<strong>对等方式</strong>，本质上看还是客户服务器方式，只不过通信双方都是客户和服务器。</p>
+<p><strong>客户和服务器建立连接之后，通信是双向的，两者都可以接收/发送信息</strong></p>
+<hr>
+<p>主机是为用户<strong>进行信息处理</strong>的，并向网络发送分组，或者从网络接收分组。</p>
+<p>路由器是实现<strong>分组交换</strong>(packet switching)的关键构件，其任务是对分组进行<strong>存储转发</strong>，最后把分组交付目的主机，这是网络核心部分最重要的功能。</p>
+<p><strong>分组交换</strong>：是以分组为单位进行传输和交换的，它是一种存储-转发交换方式。简单地说，就是一个数据报文太长了，超过了传输限制，需要将其分割分组，为每一个分组添加<strong>首部</strong>(包含地址等信息)，进行传输，最后在目的地接收后取出首部，进行拼接得到完整数据。<br><strong>存储转发</strong>：路由器收到一个分组，先暂时存储下来，再<strong>检查其首部，查找转发表</strong>，按照首部中的目的地址，找到合适的接口转发出去。</p>
+<img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913153743243.png" alt="image-20200913153743243" style="zoom:50%;" />
 
-&lt;!-- 提交事件不再重载页面 --&gt;
-&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;
+<h5 id="1-2性能指标"><a href="#1-2性能指标" class="headerlink" title="1.2性能指标"></a>1.2性能指标</h5><p>1.速率：数据的传送速率，单位bit/s等</p>
+<p>2.带宽：单位时间内，某信道能通过的“最高数据率”，单位bit/s</p>
+<p>3.吞吐量：单位时间内，通过某个网络的数据量</p>
+<p>4.<strong>时延</strong>：数据(一个报文或分组)从网络(或链路)的一端到另一端传送所需的时间。通常有</p>
+<p>发送时延/传播时延：从发送数据帧的第一个比特到最后一个比特发送完成所需的时间</p>
+<p>传播时延：电磁波在信道中需要一定的时间进行传播</p>
+<p>处理时延：主机或路由器在收到分组时，为处理分组（例如分析首部、提取数据、差错检验或查找路由）所花费的时间。</p>
+<p>排队时延：分组在路由器输入输出队列中排队等待处理所经历的时间。</p>
+<p>总时延为上面相加</p>
+<img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913155055496.png" alt="image-20200913155055496" style="zoom:50%;" />
 
-&lt;!-- 修饰符可以串联 --&gt;
-&lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;
+<p>一个小点：宽带线路和窄带线路上比特的传播速率是一样的。宽带线路:每秒有更多比特从计算机注入到线路。而且宽带不等于并行传输。</p>
+<p>5.时延带宽积</p>
+<p>6.往返时间RTT</p>
+<p>7.利用率：信道利用率和网络利用率</p>
+<h5 id="1-3体系结构"><a href="#1-3体系结构" class="headerlink" title="1.3体系结构"></a>1.3体系结构</h5><img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913160029228.png" alt="image-20200913160029228" style="zoom:50%;" />
 
-&lt;!-- 只有修饰符 --&gt;
-&lt;form v-on:submit.prevent&gt;&lt;/form&gt;
+<p>消息自上向下<strong>逐层</strong>封装，目标系统自下向上逐层拆封，由最高层将消息提供给目标进程。</p>
+<p><strong>协议数据单元</strong>(PDU):协议控制信息(协议头/首部)+数据。协议头包含地址，序号，长度，分段标志等控制信息</p>
+<p><strong>封装</strong>：<img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913160603819.png" alt="image-20200913160603819" style="zoom:43%;" /></p>
+<p>在计算机网络中数据交换必须准守事先约定的协议。</p>
+<img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913160943939.png" alt="image-20200913160943939" style="zoom:50%;" />
 
-&lt;!-- 添加事件监听器时使用事件捕获模式 --&gt;
-&lt;!-- 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 --&gt;
-&lt;div v-on:click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;
-
-&lt;!-- 只当在 event.target 是当前元素自身时触发处理函数 --&gt;
-&lt;!-- 即事件不是从内部元素触发的 --&gt;
-&lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;
-
-&lt;!-- 点击事件将只会触发一次 --&gt;
-&lt;a v-on:click.once=&quot;doThis&quot;&gt;&lt;/a&gt;</code></pre><p>​    使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 <code>v-on:click.prevent.self</code> 会阻止<strong>所有的点击</strong>，而 <code>v-on:click.self.prevent</code> 只会阻止对元素自身的点击。</p>
-<p>​    2.监听按键事件时，可以使用按键修饰符，如：v-on:keyup.enter，只有enter键可以触发事件。</p>
-<h5 id="8-表单输入绑定"><a href="#8-表单输入绑定" class="headerlink" title="8.表单输入绑定"></a>8.表单输入绑定</h5><p>​    1.v-model，创建双向数据绑定，一处数据发生变化，另一处也会发生变化。</p>
-<p>​    <code>v-model</code> 在内部为不同的输入元素使用不同的 property 并抛出不同的事件：</p>
-<ul>
-<li>text 和 textarea 元素使用 <code>value</code> property 和 <code>input</code> 事件；</li>
-<li>checkbox 和 radio 使用 <code>checked</code> property 和 <code>change</code> 事件；</li>
-<li>select 字段将 <code>value</code> 作为 prop 并将 <code>change</code> 作为事件。</li>
-</ul>
-<p>​    2.文本，多行文本，复选框，单选按钮，选择框。</p>
-<p>​    3.值绑定</p>
-<p>​    4.修饰符，.lazy;.number;.trim</p>
-<h5 id="9-组件"><a href="#9-组件" class="headerlink" title="9.组件"></a>9.组件</h5><p>​    1.组件可以扩展 HTML 元素，封装可重用的代码，是可复用的vue实例。组件系统让我们可以用独立可复用的小组件来构建大型应用，几乎任意类型的应用的界面都可以抽象为一个组件树。<strong>每个组件都只有一个根元素</strong></p>
-<p>​    2.Vue.component创建组件，第一个参数是组件名称，第二个参数是以对象的实例描述一个组件。通过将组件名作为标签进行调用。<strong>一个组件的 <code>data</code> 选项必须是一个函数</strong>，多个组件的使用，其数据都是分开的，不会互相影响。</p>
-<p>​    3.组件需要注册，Vue.component全局注册，先在js里定义组件，再在vue实例中通过component定义想使用的组件局部注册。</p>
-<p>​    4.组件里使用prop向子组件传递数据，当做自定义的attribute传递数据。也可使用v-bind动态传递prop，且是单向的。</p>
-<p>​    5.监听子组件事件，父级组件可以像处理 native DOM 事件一样通过 <code>v-on</code> 监听子组件实例的任意事件：</p>
-<pre><code>&lt;blog-post
-  ...
-  v-on:enlarge-text=&quot;postFontSize += 0.1&quot;
-&gt;&lt;/blog-post&gt;</code></pre><p>同时子组件可以通过调用内建的 <a href="https://cn.vuejs.org/v2/api/#vm-emit" target="_blank" rel="noopener"><strong><code>$emit</code></strong> 方法</a>并传入事件名称来触发一个事件：</p>
-<pre><code>&lt;button v-on:click=&quot;$emit(&#39;enlarge-text&#39;)&quot;&gt;
-  Enlarge text
-&lt;/button&gt;</code></pre><p>​    6.<slot>内容</slot>，在组件里面通过vue自定义的slot可以实现插槽效果。</p>
-<p>​    7.动态组件，通过 Vue 的 <code>&lt;component&gt;</code> 元素加一个特殊的 <code>is</code> attribute 来实现。</p>
-<h5 id="10-自定义事件"><a href="#10-自定义事件" class="headerlink" title="10.自定义事件"></a>10.自定义事件</h5><p>​    1.Vue.directive自定义指令，第一个参数是名字，或在vue实例中通过directives局部注册。会有几个钩子函数bind,inserted,update,componentUpdated,unbind.</p>
-<p>差不多这篇文章就不想写了，看其他的吧</p>
-
+<h4 id="2-应用层"><a href="#2-应用层" class="headerlink" title="2.应用层"></a>2.应用层</h4><h4 id="3-运输层"><a href="#3-运输层" class="headerlink" title="3.运输层"></a>3.运输层</h4><h4 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4.网络层"></a>4.网络层</h4><h4 id="5-链路层"><a href="#5-链路层" class="headerlink" title="5.链路层"></a>5.链路层</h4><h5 id="5-1以太网协议"><a href="#5-1以太网协议" class="headerlink" title="5.1以太网协议"></a><strong>5.1以太网协议</strong></h5><p>以太网协议规定：一组电信号构成一个数据包，叫<strong>帧</strong>，每一帧分为报头(head)和数据(data)两部分<br>报头(head)：固定18个字节<br>发送者/源地址： 6个字节<br>接收者/目标地址： 6个字节<br>数据类型：6个字节<br>数据(data):最短46个字节，最长1500字节</p>
+<p>以太网的地址称为<strong>MAC</strong>地址，为每台计算机唯一的物理地址，被出厂商写在网卡上，每一台接收或发送的设备必须拥有网卡。</p>
+<h4 id="6-物理层"><a href="#6-物理层" class="headerlink" title="6.物理层"></a>6.物理层</h4><p>就是对数据通过物理链路进行传输，包括光纤这些。</p>
+<h4 id="7-总结"><a href="#7-总结" class="headerlink" title="7.总结"></a>7.总结</h4>
             </div>
             <hr/>
 
@@ -569,7 +538,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/08/vue%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/07/08/vue%E5%AD%A6%E4%B9%A0/</a>
+                    <a href="http://yoursite.com/2020/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">http://yoursite.com/2020/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -607,8 +576,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
                                 </a>
                             
                         </div>
@@ -776,29 +745,34 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/11/vue%E5%AD%A6%E4%B9%A0-%E4%B8%80/">
+                <a href="/2020/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="vue学习(一)">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="计算机网络基础">
                         
-                        <span class="card-title">vue学习(一)</span>
+                        <span class="card-title">计算机网络基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vue的黑马学习1.vue作用范围，只有在vue实例的el挂载点里面及其后代元素才会进行这个vue实例的操作。不仅可以使用id选择器，class选择器也行，使用.class进行el挂载。其他的选择器也都能行。可以使用其他的双标签，但不能是b
+                            机械工业出版社的大黑书(计算机网络-自顶向下方法)和课程，慕课的一个的总结，主要根据tcp/ip的五层体系结构。介绍一些大概
+下面放一些他人的总结，当做补充资料或者细节
+五层结构简解
+比较详细的协议解析
+1.总览1.1概述互联网组成：边缘部
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -807,11 +781,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
                 </div>
@@ -825,27 +800,27 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/08/%E7%8C%8E%E5%A5%87%E4%BD%9C%E5%93%81/">
+                <a href="/2020/09/07/webpack%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="猎奇作品(以后有新的会更新)">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="webpack简单使用">
                         
-                        <span class="card-title">猎奇作品(以后有新的会更新)</span>
+                        <span class="card-title">webpack简单使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            就是记录一下一些看过的猎奇作品1.鱼毛骨悚然的蠕动
-​        动漫观感一般，后遗感2小时以内，留的坑有些多，不讨论其内涵，就画面来说对于猎奇这点还是有一些诠释，就是有些地方密恐慎入。
-2.芽衣恶虐，恶梦轮回
-​        这两部
+                            就是在菜鸟的一个简单学习和使用，并没有深入
+1.首先进行一个webpack的安装cnpm install webpack webpack-cli -g
+打包使用
+webpack filename -o targetname --mode=d
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-07
                             </span>
                         <span class="publish-author">
                             
@@ -858,8 +833,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%8C%8E%E5%A5%87-%E8%AE%B0%E5%BD%95/">
-                        <span class="chip bg-color">猎奇,记录</span>
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>

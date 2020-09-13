@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue学习(一), 晟松">
+    <meta name="keywords" content="vue初学习, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue学习(一) | 晟松</title>
+    <title>vue初学习 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue学习(一)</h1>
+                    <h1 class="description center-align post-title">vue初学习</h1>
                 </div>
             </div>
         </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-11
+                    2020-07-08
                 </div>
                 
 
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    598
+                    1.5k
                 </div>
                 
 
@@ -472,26 +472,81 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="vue的黑马学习，就是一些简单指令的使用"><a href="#vue的黑马学习，就是一些简单指令的使用" class="headerlink" title="vue的黑马学习，就是一些简单指令的使用"></a>vue的黑马学习，就是一些简单指令的使用</h5><p>1.vue作用范围，只有在vue实例的el挂载点里面及其后代元素才会进行这个vue实例的操作。不仅可以使用id选择器，class选择器也行，使用.class进行el挂载。其他的选择器也都能行。可以使用其他的双标签，但不能是body和html标签。</p>
-<p>2.Vue中用到的数据定义在data中，data中可以写复杂类型的数据，渲染复杂类型数据时,遵守js的语法即可</p>
-<p>3.dom操作是获取元素，操作它们。vue使用指令操作</p>
-<p>4.v-text指令。直接替换标签里面的所有文字和数据。跟两个大括号没什么差别。</p>
-<p>5.v-html，设置标签的innerHTML，就是将纯html文本解析成html效果。</p>
-<p>6.v-on，为元素绑定事件，类似onclick等。v-on:click=”函数名”,函数在vue实例的methods里面定义，methods:{click:function(){ }, other:{ } }。同时，在函数名后面可以传递参数，相应在定义函数时也要添加这个参数。还可以使用(.)表示的指令后缀调用修饰符。如@click.once=””,只会调用一次，@keyup.enter=””这些。</p>
-<p>7.v-show,根据表达值的真假，切换元素的显示和隐藏。本质就是切换display属性。</p>
-<p>8.v-if,v-if=”值”,根据值的真假，判断是否显示，但不是操纵display，而是直接操纵dom元素。</p>
-<p>9.v-bind,设置元素的属性。v-bind:属性名=”属性值”，一般属性值在data里面进行定义。</p>
-<p>10.v-for,生成列表。格式v-for=”item in items”，在data里面对items进行数据设置，一般是数组或者对象或者对象数组。使用对象时，可使用(value,key,index) in object 对对象进行数据访问。</p>
-<p>11.v-model，获取和设置表单元素的值(进行双向数据绑定)。就是表单中的数据发生改变时，另一个绑定的数据元素也会发生改变。一般用来获取输入文本框中的输入数据.</p>
-<p>12.网络请求(axios).一般使用get和post</p>
-<p>例如：</p>
-<pre class=" language-js"><code class="language-js">axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"https://autumnfish.cn/api/joke/list?num=1"</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                        that<span class="token punctuation">.</span>joke<span class="token operator">=</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jokes<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里不能通过this访问joke，this的范围已经发生了变化</span>
-                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>jokes<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+                <h4 id="关于自己对Vue学习的一些重点和理解"><a href="#关于自己对Vue学习的一些重点和理解" class="headerlink" title="关于自己对Vue学习的一些重点和理解"></a>关于自己对Vue学习的一些重点和理解</h4><p>学习的地方包括Vue自己的网站，菜鸟教程，B站等。主要是在vue.js里面看的一些知识点，有些不清，需要修改。</p>
+<h5 id="1-vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。"><a href="#1-vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。" class="headerlink" title="1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。"></a>1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。</h5><h5 id="2-模板语法"><a href="#2-模板语法" class="headerlink" title="2.模板语法"></a>2.模板语法</h5><p>插值：数据绑定：文本：, v-once；原始html：v-html，将html文本转换为html样式；作用于html 的attribute：v-bind,</p>
+<p>指令：指令 (Directives) 是带有 <code>v-</code> 前缀的特殊 attribute,一些指令可以带参数。</p>
+<p>动态参数：可以用方括号括起来的 JavaScript 表达式作为一个指令的参数。可以使用null字符串显式的移除此属性。</p>
+<p><strong><code>v-bind</code> 指令可以用于响应式地更新 HTML attribute，</strong></p>
+<p><strong><code>v-on</code> 指令，它用于监听 DOM 事件,</strong>进行事件处理</p>
+<h5 id="3-计算属性和侦听器"><a href="#3-计算属性和侦听器" class="headerlink" title="3.计算属性和侦听器"></a>3.计算属性和侦听器</h5><p>​    1.对于任何复杂逻辑，你都应当使用<strong>计算属性</strong>computed。</p>
+<p>​    2.我们可以将同一函数定义为一个方法而不是一个计算属性。两种方式的最终结果确实是完全相同的。然而，不同的是<strong>计算属性是基于它们的响应式依赖进行缓存的</strong>。只在相关响应式依赖发生改变时它们才会重新求值。只要值没有发生变化，就不会再次计算属性，直接返回上一次的计算结果。而方法会每一次重新渲染时都重新计算。</p>
+<p>​    3.Vue 提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：<strong>侦听属性</strong> </p>
+<h5 id="4-class和style绑定"><a href="#4-class和style绑定" class="headerlink" title="4.class和style绑定"></a>4.class和style绑定</h5><p>​    1.对象语法，使用v-bind:class指令。</p>
+<p>​    2.绑定内联样式，v-bind:style指令。是一个js对象</p>
+<h5 id="5-条件渲染"><a href="#5-条件渲染" class="headerlink" title="5.条件渲染"></a>5.条件渲染</h5><p>​    1.v-if条件性的渲染一部分内容，一般使用<template>进行包裹，根据if的条件看是否显示，再使用v-if可以渲染多个内容。还有配套的 v-else,还有v-else-if进行连续使用。</p>
+<p>​    2.v-show的使用与v-if差不多，但没有v-else这些。同时因为各自特性，如果需要非常频繁地切换，则使用 <code>v-show</code> 较好；如果在运行时条件很少改变，则使用 <code>v-if</code> 较好。</p>
+<h5 id="6-列表渲染"><a href="#6-列表渲染" class="headerlink" title="6.列表渲染"></a>6.列表渲染</h5><p>​    1.v-for，使用(item,index) in items的格式执行。其中items需要在vue里面的data里指定数据。也可使用value in object进行对象循环，也可使用(value, name, index)进行对象里面的数据，键名，索引访问。也可以使用n in 10进行循环。类似于 <code>v-if</code>，你也可以利用带有 <code>v-for</code> 的 <code>&lt;template&gt;</code> 来循环渲染一段包含多个元素的内容。</p>
+<h5 id="7-事件处理"><a href="#7-事件处理" class="headerlink" title="7.事件处理"></a>7.事件处理</h5><p>​    1.v-on监听dom事件，并执行一些js代码。还可以接收一个需要调用的方法名称。在vue的methods里面添加方法。</p>
+<p>​    Vue.js 为 <code>v-on</code> 提供了<strong>事件修饰符</strong>。之前提过，修饰符是由点开头的指令后缀来表示的。</p>
+<ul>
+<li><code>.stop</code></li>
+<li><code>.prevent</code></li>
+<li><code>.capture</code></li>
+<li><code>.self</code></li>
+<li><code>.once</code></li>
+<li><code>.passive</code></li>
+</ul>
+<pre class=" language-vue"><code class="language-vue"><!-- 阻止单击事件继续传播 -->
+<a v-on:click.stop="doThis"></a>
+
+<!-- 提交事件不再重载页面 -->
+<form v-on:submit.prevent="onSubmit"></form>
+
+<!-- 修饰符可以串联 -->
+<a v-on:click.stop.prevent="doThat"></a>
+
+<!-- 只有修饰符 -->
+<form v-on:submit.prevent></form>
+
+<!-- 添加事件监听器时使用事件捕获模式 -->
+<!-- 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 -->
+<div v-on:click.capture="doThis">...</div>
+
+<!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
+<!-- 即事件不是从内部元素触发的 -->
+<div v-on:click.self="doThat">...</div>
+
+<!-- 点击事件将只会触发一次 -->
+<a v-on:click.once="doThis"></a></code></pre>
+<p>​    使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 <code>v-on:click.prevent.self</code> 会阻止<strong>所有的点击</strong>，而 <code>v-on:click.self.prevent</code> 只会阻止对元素自身的点击。</p>
+<p>​    2.监听按键事件时，可以使用按键修饰符，如：v-on:keyup.enter，只有enter键可以触发事件。</p>
+<h5 id="8-表单输入绑定"><a href="#8-表单输入绑定" class="headerlink" title="8.表单输入绑定"></a>8.表单输入绑定</h5><p>​    1.v-model，创建双向数据绑定，一处数据发生变化，另一处也会发生变化。</p>
+<p>​    <code>v-model</code> 在内部为不同的输入元素使用不同的 property 并抛出不同的事件：</p>
+<ul>
+<li>text 和 textarea 元素使用 <code>value</code> property 和 <code>input</code> 事件；</li>
+<li>checkbox 和 radio 使用 <code>checked</code> property 和 <code>change</code> 事件；</li>
+<li>select 字段将 <code>value</code> 作为 prop 并将 <code>change</code> 作为事件。</li>
+</ul>
+<p>​    2.文本，多行文本，复选框，单选按钮，选择框。</p>
+<p>​    3.值绑定</p>
+<p>​    4.修饰符，.lazy;.number;.trim</p>
+<h5 id="9-组件"><a href="#9-组件" class="headerlink" title="9.组件"></a>9.组件</h5><p>​    1.组件可以扩展 HTML 元素，封装可重用的代码，是可复用的vue实例。组件系统让我们可以用独立可复用的小组件来构建大型应用，几乎任意类型的应用的界面都可以抽象为一个组件树。<strong>每个组件都只有一个根元素</strong></p>
+<p>​    2.Vue.component创建组件，第一个参数是组件名称，第二个参数是以对象的实例描述一个组件。通过将组件名作为标签进行调用。<strong>一个组件的 <code>data</code> 选项必须是一个函数</strong>，多个组件的使用，其数据都是分开的，不会互相影响。</p>
+<p>​    3.组件需要注册，Vue.component全局注册，先在js里定义组件，再在vue实例中通过component定义想使用的组件局部注册。</p>
+<p>​    4.组件里使用prop向子组件传递数据，当做自定义的attribute传递数据。也可使用v-bind动态传递prop，且是单向的。</p>
+<p>​    5.监听子组件事件，父级组件可以像处理 native DOM 事件一样通过 <code>v-on</code> 监听子组件实例的任意事件：</p>
+<pre class=" language-vue"><code class="language-vue"><blog-post
+  ...
+  v-on:enlarge-text="postFontSize += 0.1"
+></blog-post></code></pre>
+<p>同时子组件可以通过调用内建的 <a href="https://cn.vuejs.org/v2/api/#vm-emit" target="_blank" rel="noopener"><strong><code>$emit</code></strong> 方法</a>并传入事件名称来触发一个事件：</p>
+<pre class=" language-vue"><code class="language-vue"><button v-on:click="$emit('enlarge-text')">
+  Enlarge text
+</button></code></pre>
+<p>​    6.<slot>内容</slot>，在组件里面通过vue自定义的slot可以实现插槽效果。</p>
+<p>​    7.动态组件，通过 Vue 的 <code>&lt;component&gt;</code> 元素加一个特殊的 <code>is</code> attribute 来实现。</p>
+<h5 id="10-自定义事件"><a href="#10-自定义事件" class="headerlink" title="10.自定义事件"></a>10.自定义事件</h5><p>​    1.Vue.directive自定义指令，第一个参数是名字，或在vue实例中通过directives局部注册。会有几个钩子函数bind,inserted,update,componentUpdated,unbind.</p>
+<p>差不多这篇文章就不想写了，看其他的吧,基本无用。</p>
 
             </div>
             <hr/>
@@ -517,7 +572,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/11/vue%E5%AD%A6%E4%B9%A0-%E4%B8%80/">http://yoursite.com/2020/07/11/vue%E5%AD%A6%E4%B9%A0-%E4%B8%80/</a>
+                    <a href="http://yoursite.com/2020/07/08/vue%E5%88%9D%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/07/08/vue%E5%88%9D%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -728,27 +783,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/13/vue%E5%AD%A6%E4%B9%A0-%E4%BA%8C/">
+                <a href="/2020/07/11/vue%E5%AD%A6%E4%B9%A0-%E4%B8%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="vue学习(二)">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="vue学习(一)">
                         
-                        <span class="card-title">vue学习(二)</span>
+                        <span class="card-title">vue学习(一)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vue的B站老陈学习那些基本的在vue初学习大多都说了，这一篇记一些没说到的。
-1.过渡动画，一般使用transition完成。例如
-&lt;transition name = "nameoftransition">
-   &lt;div>
+                            vue的黑马学习，就是一些简单指令的使用1.vue作用范围，只有在vue实例的el挂载点里面及其后代元素才会进行这个vue实例的操作。不仅可以使用id选择器，class选择器也行，使用.class进行el挂载。其他的选择器也都能行。可以使用
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
                         </span>
                         <span class="publish-author">
                             
@@ -761,8 +813,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-%E8%80%81%E9%99%88/">
-                        <span class="chip bg-color">vue 老陈</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
@@ -776,20 +828,22 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/08/vue%E5%88%9D%E5%AD%A6%E4%B9%A0/">
+                <a href="/2020/07/08/%E7%8C%8E%E5%A5%87%E4%BD%9C%E5%93%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="vue初学习">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="猎奇作品(以后有新的会更新)">
                         
-                        <span class="card-title">vue初学习</span>
+                        <span class="card-title">猎奇作品(以后有新的会更新)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于自己对Vue学习的一些重点和理解学习的地方包括Vue自己的网站，菜鸟教程，B站等。主要是在vue.js里面看的一些知识点，有些不清，需要修改。
-1.vue对象中会有两个重要的属性，el和data，表示绑定的属性和数据。2.模板语法插值：
+                            就是记录一下一些看过的猎奇作品1.鱼毛骨悚然的蠕动
+​        动漫观感一般，后遗感2小时以内，留的坑有些多，不讨论其内涵，就画面来说对于猎奇这点还是有一些诠释，就是有些地方密恐慎入。
+2.芽衣恶虐，恶梦轮回
+​        这两部
                         
                     </div>
                     <div class="publish-info">
@@ -807,8 +861,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
+                    <a href="/tags/%E7%8C%8E%E5%A5%87-%E8%AE%B0%E5%BD%95/">
+                        <span class="chip bg-color">猎奇,记录</span>
                     </a>
                     
                 </div>
