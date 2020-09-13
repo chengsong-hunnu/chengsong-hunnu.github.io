@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    2.7k
                 </div>
                 
 
@@ -476,18 +476,22 @@
 <p>下面放一些他人的总结，当做补充资料或者细节</p>
 <p><a href="https://www.cnblogs.com/zyx110/p/11891335.html" target="_blank" rel="noopener">五层结构简解</a></p>
 <p><a href="https://blog.csdn.net/m0_37568814/article/details/81018769?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">比较详细的协议解析</a></p>
-<h4 id="1-总览"><a href="#1-总览" class="headerlink" title="1.总览"></a>1.总览</h4><h5 id="1-1概述"><a href="#1-1概述" class="headerlink" title="1.1概述"></a>1.1概述</h5><p>互联网组成：边缘部分+核心部分。</p>
-<p>边缘部分就是各种主机，端系统，用户直接使用。</p>
-<p>核心部分就是网络，交换机，<strong>路由器</strong>这些，为边缘部分提供服务(连通性和交换)。</p>
+<p><a href="https://www.jianshu.com/p/ef892323e68f" target="_blank" rel="noopener">tcp/ip协议详解</a></p>
+<p><a href="https://blog.csdn.net/qq_34468186/article/details/82146754" target="_blank" rel="noopener">get/post详解</a></p>
+<p><a href="https://www.baidu.com/link?url=_CAyhOKA2GP12gcdHKpTsYZ0QSNlkvFnT2rzkwnXdFft46kVuu2ucoM5SBW4pce9izTuTi52PUYKbcnG7xrzKnQc3a3QVTyo5_lByRJHT7S&wd=&eqid=d758fef000045fe8000000055f5e03e2" target="_blank" rel="noopener">本书前六章简解</a></p>
+<h4 id="1-总览"><a href="#1-总览" class="headerlink" title="1.总览"></a>1.总览</h4><h5 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h5><p>互联网组成：边缘部分+核心部分。</p>
+<p>边缘部分就是各种主机，端系统，用户直接使用。<strong>每个端系统都具有一个IP地址</strong>，通过ISP与网络相连。</p>
+<p>核心部分就是网络，交换机，<strong>路由器</strong>这些，为边缘部分提供服务(连通性和交换)。每台路由器都有一个转发表，用于将目的地址映射为输出链路。</p>
 <p>端系统的常见通信方式是<strong>客户服务器方式</strong>，客户和服务器都是指通信中涉及到的两个应用进程。客户和服务器都要使用网络核心部分提供的服务。另一种是<strong>对等方式</strong>，本质上看还是客户服务器方式，只不过通信双方都是客户和服务器。</p>
-<p><strong>客户和服务器建立连接之后，通信是双向的，两者都可以接收/发送信息</strong></p>
+<p>客户和服务器建立连接之后，通信是双向的，两者都可以接收/发送信息</p>
+<p><strong>协议：定义了两个或多个通信实体之间交换的报文的格式和顺序，以及报文发送，接收采取的一系列动作。</strong></p>
 <hr>
 <p>主机是为用户<strong>进行信息处理</strong>的，并向网络发送分组，或者从网络接收分组。</p>
 <p>路由器是实现<strong>分组交换</strong>(packet switching)的关键构件，其任务是对分组进行<strong>存储转发</strong>，最后把分组交付目的主机，这是网络核心部分最重要的功能。</p>
-<p><strong>分组交换</strong>：是以分组为单位进行传输和交换的，它是一种存储-转发交换方式。简单地说，就是一个数据报文太长了，超过了传输限制，需要将其分割分组，为每一个分组添加<strong>首部</strong>(包含地址等信息)，进行传输，最后在目的地接收后取出首部，进行拼接得到完整数据。<br><strong>存储转发</strong>：路由器收到一个分组，先暂时存储下来，再<strong>检查其首部，查找转发表</strong>，按照首部中的目的地址，找到合适的接口转发出去。</p>
-<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161438568.png" alt="image-20200913161533494" style="zoom:50%;" />
+<p><strong>分组交换</strong>：是以分组为单位进行传输和交换的，它是一种存储-转发交换方式。简单地说，就是一个数据报文太长了，超过了传输限制，需要将其分割分组，为每一个分组添加<strong>首部</strong>(包含地址等信息)，进行传输，最后在目的地接收后取出首部，进行拼接得到完整数据。但是有可能<strong>丢包</strong><br><strong>存储转发</strong>：路由器收到一个分组，先暂时存储下来，再<strong>检查其首部，查找转发表</strong>，按照首部中的目的地址，找到合适的接口转发出去。</p>
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161533494.png" alt="image-20200913161438568" style="zoom:50%;" />
 
-<h5 id="1-2性能指标"><a href="#1-2性能指标" class="headerlink" title="1.2性能指标"></a>1.2性能指标</h5><p>1.速率：数据的传送速率，单位bit/s等</p>
+<h5 id="1-2-性能指标"><a href="#1-2-性能指标" class="headerlink" title="1.2 性能指标"></a>1.2 性能指标</h5><p>1.速率：数据的传送速率，单位bit/s等</p>
 <p>2.带宽：单位时间内，某信道能通过的“最高数据率”，单位bit/s</p>
 <p>3.吞吐量：单位时间内，通过某个网络的数据量</p>
 <p>4.<strong>时延</strong>：数据(一个报文或分组)从网络(或链路)的一端到另一端传送所需的时间。通常有</p>
@@ -496,22 +500,67 @@
 <p>处理时延：主机或路由器在收到分组时，为处理分组（例如分析首部、提取数据、差错检验或查找路由）所花费的时间。</p>
 <p>排队时延：分组在路由器输入输出队列中排队等待处理所经历的时间。</p>
 <p>总时延为上面相加</p>
-<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161414234.png" alt="image-20200913161503961" style="zoom:50%;" />
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161503961.png" alt="image-20200913161347953" style="zoom:50%;" />
 
 <p>一个小点：宽带线路和窄带线路上比特的传播速率是一样的。宽带线路:每秒有更多比特从计算机注入到线路。而且宽带不等于并行传输。</p>
 <p>5.时延带宽积</p>
 <p>6.往返时间RTT</p>
 <p>7.利用率：信道利用率和网络利用率</p>
-<h5 id="1-3体系结构"><a href="#1-3体系结构" class="headerlink" title="1.3体系结构"></a>1.3体系结构</h5><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161533494.png" alt="image-20200913161438568" style="zoom:50%;" />
+<h5 id="1-3-体系结构"><a href="#1-3-体系结构" class="headerlink" title="1.3 体系结构"></a>1.3 体系结构</h5><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161438568.png" alt="" style="zoom:50%;" />
 
 <p>消息自上向下<strong>逐层</strong>封装，目标系统自下向上逐层拆封，由最高层将消息提供给目标进程。</p>
 <p><strong>协议数据单元</strong>(PDU):协议控制信息(协议头/首部)+数据。协议头包含地址，序号，长度，分段标志等控制信息</p>
-<p><strong>封装</strong>：<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161347953.png" alt="image-20200913161414234" style="zoom:43%;" /></p>
+<p><strong>封装</strong>：<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161414234.png" alt="image-20200913161503961" style="zoom:50%;" /></p>
 <p>在计算机网络中数据交换必须准守事先约定的协议。</p>
-<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161503961.png" alt="image-20200913161347953" style="zoom:50%;" />
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161347953.png" alt="image-20200913161414234" style="zoom:43%;" />
 
-<h4 id="2-应用层"><a href="#2-应用层" class="headerlink" title="2.应用层"></a>2.应用层</h4><p>h</p>
-<h4 id="3-运输层"><a href="#3-运输层" class="headerlink" title="3.运输层"></a>3.运输层</h4><h4 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4.网络层"></a>4.网络层</h4><h4 id="5-链路层"><a href="#5-链路层" class="headerlink" title="5.链路层"></a>5.链路层</h4><h5 id="5-1以太网协议"><a href="#5-1以太网协议" class="headerlink" title="5.1以太网协议"></a><strong>5.1以太网协议</strong></h5><p>以太网协议规定：一组电信号构成一个数据包，叫<strong>帧</strong>，每一帧分为报头(head)和数据(data)两部分<br>报头(head)：固定18个字节<br>发送者/源地址： 6个字节<br>接收者/目标地址： 6个字节<br>数据类型：6个字节<br>数据(data):最短46个字节，最长1500字节</p>
+<p>应用层：网络应用程序及应用层协议存留的地方，包括HTTP.SMTP.FTP协议。分布在多个端系统上。</p>
+<p>运输层：在应用程序端点之间传输应用层报文。有两种传输协议，<strong>TCP/UDP</strong>。TCP面向连接服务和可靠数据传输服务，UDP提供无连接服务。</p>
+<p>网络层：负责将称为<strong>数据报</strong>的网络层分组从一台主机移到另一台主机，通过TCP/UDP得到报文段和目的地址。协议为著名的<strong>IP</strong>协议。</p>
+<p>链路层：为了将分组从一个节点(主机或路由器)移到另一个节点，网络层必须需要链路层提供服务。链路层分组称为帧。</p>
+<p>物理层：链路层是将整个帧从一个网络元素移动到邻近的网络元素，物理层的任务是将帧中的一个个比特从一个节点移到下一个节点。且与双绞铜线，同轴电缆，光纤相关。</p>
+<hr>
+<h4 id="2-应用层"><a href="#2-应用层" class="headerlink" title="2.应用层"></a>2.应用层</h4><p>规定应用进程在通信是遵守的协议，协议大多基于客户服务器方式。进程通过一个称为<strong>套接字软件接口</strong>向网络发送，接收报文。</p>
+<p><strong>可供应用程序使用的运输服务：1.可靠的数据传输  2.定时 3.吞吐量 4.安全</strong></p>
+<h5 id="2-1-HTTP"><a href="#2-1-HTTP" class="headerlink" title="2.1 HTTP"></a>2.1 HTTP</h5><p>定义了web客户向web服务器请求web页面的方式，以服务器向客户发送web页面的方式。使用TCP作为他的支撑运输协议。因为HTTP服务器不保存客户的任何信息，所以称HTTP协议是一个<strong>无状态协议</strong>。默认是持续连接，也可改成非持续连接。</p>
+<p><strong>HTTP报文格式</strong></p>
+<p>请求报文：第一行称为请求行，包含方法字段(get/post/put……)、URL字段、HTTP版本字段。后续的行称为首部行。</p>
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913192706036.png" alt="image-20200913192706036" style="zoom:70%;" />
+
+<p>请求数据一般在post存在，get为空，参数直接在URL里存在。</p>
+<p>响应报文：包括初始状态行(版本，状态码，短语)，6个首部行，一个实体体(数据)。结构与上面相似。</p>
+<pre><code>HTTP/1.1 200 OK
+Date: Sat, 31 Dec 2005 23:59:59 GMT
+Content-Type: text/html;charset=ISO-8859-1
+Content-Length: 122</code></pre><p>cookie：客户与服务器的交互</p>
+<p>web缓存：内容分发网络CDN</p>
+<h5 id="2-2-SMTP"><a href="#2-2-SMTP" class="headerlink" title="2.2 SMTP"></a>2.2 SMTP</h5><p>使用TCP可靠数据传输协议，是一个电子邮件传输协议。用户代理发送信息到用户的邮件服务器，此服务器发送邮件到接收方的邮件服务器，接收方的服务器将邮件放入接收方的邮箱中。</p>
+<p>电子邮件组成：用户代理，邮件服务器，协议。</p>
+<h5 id="2-3-SMTP与HTTP的对比"><a href="#2-3-SMTP与HTTP的对比" class="headerlink" title="2.3 SMTP与HTTP的对比"></a>2.3 SMTP与HTTP的对比</h5><ol>
+<li>HTTP主要是一个<strong>拉协议</strong>，TCP连接由想要接收文件的机器发起。即在方便的时候，某些人在Web服务器上装载信息，用户使用HTTP从该服务器上拉取这些信息。</li>
+<li>SMTP基本上是一个<strong>推协议</strong>，TCP连接由想要发送该文件的机器发起。即发送邮件服务器到接收邮件服务器</li>
+<li>SMTP要求每个报文使用7比特ASCLL码形式。HTTP<strong>不受限制</strong></li>
+<li>处理一个既包含文本又包含图形的文档，HTTP把每个对象封装到自己的<strong>HTTP响应报文</strong>中，SMTP则把所有的报文对象放在一个报文之中。</li>
+</ol>
+<p>邮件访问协议：取报文是一个拉操作，而SMTP为一个推协议，通过一个特殊的协议实现邮件服务器到用户代理。</p>
+<ol>
+<li>第三版的邮局协议：POP3 授权 (代理 &lt;–&gt;服务器) 并下载</li>
+<li>因特网邮件访问协议：IMAP 更多特色 (更复杂) 操作存储在服务器上的报文</li>
+</ol>
+<h5 id="2-4-DNS域名系统"><a href="#2-4-DNS域名系统" class="headerlink" title="2.4 DNS域名系统"></a>2.4 DNS域名系统</h5><p>1.一个由分层的DNS服务器实现的分布式数据库。</p>
+<p>2.一个使得主机能够查询分布式数据库的应用层协议。（DNS协议运行在UDP之上，使用53号端口）</p>
+<p>DNS能够进行主机名(如localhost等)到IP地址(127.0.0.1)转换的目录服务。</p>
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913200420786.png" alt="image-20200913200420786" style="zoom:60%;" />
+
+<p><strong>域名的解析过程</strong><br>主机向本地域名服务器的查询一般都是采用<strong>递归查询</strong>。<br>如果主机所询问的本地域名服务器不知道被查询域名的P地址，那么本地域名服务器就以DNS客户的身份，向其他<strong>根域名服务器</strong>继续发出查询请求报文。</p>
+<p>本地域名服务器向根域名服务器的查询通常是采用<strong>迭代查询</strong>。<br>当根域名服务器收到本地域名服务器的迭代查询请求报文时，要么给出所要查询的IP地址，要么告诉本地域名服务器:“你下一步应当向哪一个域名服务器进行查询”。然后让本地域名服务器进行后续的查询。</p>
+<p><strong>DNS缓存</strong>：存放最近使用过的主机名和ip的映射，一般只会保存两天</p>
+<hr>
+<h4 id="3-运输层"><a href="#3-运输层" class="headerlink" title="3.运输层"></a>3.运输层</h4><p><strong>TCP服务</strong></p>
+<p>面向连接的服务：三次握手，建立一个TCP连接，是在两个进程的套接字之间建立。这条连接是<strong>全双工</strong>的，即双方都可进行报文收发。结束传输之后，必须四次挥手断开连接。</p>
+<p>可靠的数据传送服务：进程依靠TCP，无差错，按适当的顺序交付所有传输的数据。</p>
+<p>tcp本身没有提供加密服务，现在主要依靠<strong>安全套接字层(SSL)</strong>提供安全保证，在应用层上进行实现，是一种对TCP的加强</p>
+<h4 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4.网络层"></a>4.网络层</h4><h5 id="4-1-数据平面"><a href="#4-1-数据平面" class="headerlink" title="4.1 数据平面"></a>4.1 数据平面</h5><h5 id="4-2-控制平面"><a href="#4-2-控制平面" class="headerlink" title="4.2 控制平面"></a>4.2 控制平面</h5><h4 id="5-链路层"><a href="#5-链路层" class="headerlink" title="5.链路层"></a>5.链路层</h4><h5 id="5-1-以太网协议"><a href="#5-1-以太网协议" class="headerlink" title="5.1 以太网协议"></a><strong>5.1 以太网协议</strong></h5><p>以太网协议规定：一组电信号构成一个数据包，叫<strong>帧</strong>，每一帧分为报头(head)和数据(data)两部分<br>报头(head)：固定18个字节<br>发送者/源地址： 6个字节<br>接收者/目标地址： 6个字节<br>数据类型：6个字节<br>数据(data):最短46个字节，最长1500字节</p>
 <p>以太网的地址称为<strong>MAC</strong>地址，为每台计算机唯一的物理地址，被出厂商写在网卡上，每一台接收或发送的设备必须拥有网卡。</p>
 <h4 id="6-物理层"><a href="#6-物理层" class="headerlink" title="6.物理层"></a>6.物理层</h4><p>就是对数据通过物理链路进行传输，包括光纤这些。</p>
 <h4 id="7-总结"><a href="#7-总结" class="headerlink" title="7.总结"></a>7.总结</h4>
@@ -767,7 +816,8 @@
 下面放一些他人的总结，当做补充资料或者细节
 五层结构简解
 比较详细的协议解析
-1.总览1.1概述互联网组成：边缘部
+tcp/ip协议详解
+get/pos
                         
                     </div>
                     <div class="publish-info">
