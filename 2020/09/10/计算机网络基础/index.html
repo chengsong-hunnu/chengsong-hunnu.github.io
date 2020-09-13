@@ -485,7 +485,7 @@
 <p>主机是为用户<strong>进行信息处理</strong>的，并向网络发送分组，或者从网络接收分组。</p>
 <p>路由器是实现<strong>分组交换</strong>(packet switching)的关键构件，其任务是对分组进行<strong>存储转发</strong>，最后把分组交付目的主机，这是网络核心部分最重要的功能。</p>
 <p><strong>分组交换</strong>：是以分组为单位进行传输和交换的，它是一种存储-转发交换方式。简单地说，就是一个数据报文太长了，超过了传输限制，需要将其分割分组，为每一个分组添加<strong>首部</strong>(包含地址等信息)，进行传输，最后在目的地接收后取出首部，进行拼接得到完整数据。<br><strong>存储转发</strong>：路由器收到一个分组，先暂时存储下来，再<strong>检查其首部，查找转发表</strong>，按照首部中的目的地址，找到合适的接口转发出去。</p>
-<img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913153743243.png" alt="image-20200913153743243" style="zoom:50%;" />
+<img src="/images/loading.gif" data-original="C:/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20200913161533494.png" alt="image-20200913161533494" style="zoom:50%;" />
 
 <h5 id="1-2性能指标"><a href="#1-2性能指标" class="headerlink" title="1.2性能指标"></a>1.2性能指标</h5><p>1.速率：数据的传送速率，单位bit/s等</p>
 <p>2.带宽：单位时间内，某信道能通过的“最高数据率”，单位bit/s</p>
@@ -496,19 +496,19 @@
 <p>处理时延：主机或路由器在收到分组时，为处理分组（例如分析首部、提取数据、差错检验或查找路由）所花费的时间。</p>
 <p>排队时延：分组在路由器输入输出队列中排队等待处理所经历的时间。</p>
 <p>总时延为上面相加</p>
-<img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913155055496.png" alt="image-20200913155055496" style="zoom:50%;" />
+<img src="/images/loading.gif" data-original="C:/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20200913161503961.png" alt="image-20200913161503961" style="zoom:50%;" />
 
 <p>一个小点：宽带线路和窄带线路上比特的传播速率是一样的。宽带线路:每秒有更多比特从计算机注入到线路。而且宽带不等于并行传输。</p>
 <p>5.时延带宽积</p>
 <p>6.往返时间RTT</p>
 <p>7.利用率：信道利用率和网络利用率</p>
-<h5 id="1-3体系结构"><a href="#1-3体系结构" class="headerlink" title="1.3体系结构"></a>1.3体系结构</h5><img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913160029228.png" alt="image-20200913160029228" style="zoom:50%;" />
+<h5 id="1-3体系结构"><a href="#1-3体系结构" class="headerlink" title="1.3体系结构"></a>1.3体系结构</h5><img src="/images/loading.gif" data-original="C:/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20200913161438568.png" alt="image-20200913161438568" style="zoom:50%;" />
 
 <p>消息自上向下<strong>逐层</strong>封装，目标系统自下向上逐层拆封，由最高层将消息提供给目标进程。</p>
 <p><strong>协议数据单元</strong>(PDU):协议控制信息(协议头/首部)+数据。协议头包含地址，序号，长度，分段标志等控制信息</p>
-<p><strong>封装</strong>：<img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913160603819.png" alt="image-20200913160603819" style="zoom:43%;" /></p>
+<p><strong>封装</strong>：<img src="/images/loading.gif" data-original="C:/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20200913161414234.png" alt="image-20200913161414234" style="zoom:43%;" /></p>
 <p>在计算机网络中数据交换必须准守事先约定的协议。</p>
-<img src="/images/loading.gif" data-original="计算机网络基础.assets/image-20200913160943939.png" alt="image-20200913160943939" style="zoom:50%;" />
+<img src="/images/loading.gif" data-original="C:/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20200913161347953.png" alt="image-20200913161347953" style="zoom:50%;" />
 
 <h4 id="2-应用层"><a href="#2-应用层" class="headerlink" title="2.应用层"></a>2.应用层</h4><h4 id="3-运输层"><a href="#3-运输层" class="headerlink" title="3.运输层"></a>3.运输层</h4><h4 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4.网络层"></a>4.网络层</h4><h4 id="5-链路层"><a href="#5-链路层" class="headerlink" title="5.链路层"></a>5.链路层</h4><h5 id="5-1以太网协议"><a href="#5-1以太网协议" class="headerlink" title="5.1以太网协议"></a><strong>5.1以太网协议</strong></h5><p>以太网协议规定：一组电信号构成一个数据包，叫<strong>帧</strong>，每一帧分为报头(head)和数据(data)两部分<br>报头(head)：固定18个字节<br>发送者/源地址： 6个字节<br>接收者/目标地址： 6个字节<br>数据类型：6个字节<br>数据(data):最短46个字节，最长1500字节</p>
 <p>以太网的地址称为<strong>MAC</strong>地址，为每台计算机唯一的物理地址，被出厂商写在网卡上，每一台接收或发送的设备必须拥有网卡。</p>
