@@ -1,0 +1,1593 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据结构和算法, 晟松">
+    <meta name="description" content="晟松的博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据结构和算法 | 晟松</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">晟松</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">晟松</div>
+        <div class="logo-desc">
+            
+            晟松的博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据结构和算法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-09-17
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    907
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>虽然之前上了一些关于数据结构、算法之类的课，但之前都没有怎么搞懂，尤其是算法里面的一些算法思想，现在看能不能补上，就是一些大佬的算法指导，刷LeetCode的一些题，回看之前的书上面的重点。</p>
+<p>教材是清华大学出版社的数据结构(C语言版)、计算机算法分析与设计(第四版)</p>
+<h4 id="1-数据结构"><a href="#1-数据结构" class="headerlink" title="1.数据结构"></a>1.数据结构</h4><h5 id="1-KPM算法和next数组求值"><a href="#1-KPM算法和next数组求值" class="headerlink" title="1.KPM算法和next数组求值"></a>1.KPM算法和next数组求值</h5><p>这是一个进行字符串匹配的算法，原理是求一个字符串的某一个字符的前面的字符串最大相等的前缀和后缀</p>
+<p>kmp算法为</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">kmp</span><span class="token punctuation">(</span>string s<span class="token punctuation">,</span>string t<span class="token punctuation">,</span><span class="token keyword">int</span> pos<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//s为主串，t为模式串</span>
+    i <span class="token operator">=</span> pos<span class="token punctuation">;</span>
+    j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> j<span class="token operator">&lt;</span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//这两个0的位置存储的是string的长度</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">==</span><span class="token number">0</span> <span class="token operator">||</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> t<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span><span class="token operator">++</span>i<span class="token punctuation">;</span><span class="token operator">++</span>j<span class="token punctuation">}</span><span class="token comment" spellcheck="true">//j=0表示主串第i个字符和模式串第1个字符不匹配，需从第i+1个字符从新匹配</span>
+        <span class="token keyword">else</span>    j <span class="token operator">=</span> next<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">></span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> i<span class="token operator">-</span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 匹配成功</span>
+    <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>求next数组的算法是仿照kmp的算法来的，<strong>i</strong>不进行后退，只有模式串滑动。<strong>因为求next也就是主串和模式串都是自己</strong>，可进行模仿kmp</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">get_next</span><span class="token punctuation">(</span>string t<span class="token punctuation">,</span><span class="token keyword">int</span> next<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> next<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">==</span><span class="token number">0</span> <span class="token operator">||</span> t<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> t<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">++</span>i<span class="token punctuation">;</span><span class="token operator">++</span>j<span class="token punctuation">;</span>next<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>j<span class="token punctuation">}</span>    
+    <span class="token keyword">else</span>    j <span class="token operator">=</span> next<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>核心就是next[i]=j，先进行++是因为前面相等，则后面一个字符的next就是在if里相等的最后一个字符<strong>j</strong>的后面一个字符。符合前缀等于后缀的原则。</p>
+<p>改进后的next算法</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">get_nextval</span><span class="token punctuation">(</span>string t<span class="token punctuation">,</span><span class="token keyword">int</span> nextval<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> nextval<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span> <span class="token operator">||</span> t<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> t<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token operator">++</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>t<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> t<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>    nextval<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>j<span class="token punctuation">;</span>
+        <span class="token keyword">else</span>    nextval<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> nextval<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> j <span class="token operator">=</span> nextval<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h5 id="2-树"><a href="#2-树" class="headerlink" title="2.树"></a>2.树</h5><p>一般研究<strong>二叉树</strong></p>
+<p>1.第i层至多有2^(i-1)个节点</p>
+<p>2.深度为k的二叉树至多有2^k-1个节点</p>
+<p>3.任何一颗二叉树t，若其叶子节点数为N0，度为2的节点数为N2，则N0=N2+1</p>
+<p>​    对于完全二叉树，就是对每一个节点，若有右孩子，则必有左孩子，且右分支的子孙的最大层次为l，则其左分支下的子孙的最大层次必为l或l+1.就是节点从左到右排顺序，这个顺序不能断。</p>
+<p>4.有n个节点的完全二叉树的深度为<strong>log2 n向下取整+1</strong></p>
+<p>5.对任意节点i，若2i&gt;n，则节点i无左孩子；如果有左孩子，其左孩子必是节点2i</p>
+<p>6.若2i+1&gt;n，则节点i无右孩子；如果有右孩子，其右孩子必是节点2i+1</p>
+<p>7.i=1，则为根节点，若i&gt;1，则双亲节点为i/2向下取余</p>
+<p>二叉树可使用二叉链表进行存储，例如<code>lchild | data | rchild</code>。</p>
+<p><strong>遍历</strong></p>
+<p>先序，中序，后序。为根节点在查序中的位置</p>
+<pre class=" language-c++"><code class="language-c++">//先序的递归算法
+Status preorderTraverse(Bitree t,Status(* visit)(TElemType e)){
+    status printelement(telemType e){
+        printf(e);    //打印输出节点,    调用实例preorderTraverse(t,printelement);
+        return ok;
+    }
+    if(t){
+        if(visit(t->data))
+            if(preorderTraverse(t->lchild,visit))
+                if(preorderTraverse(t->rchild,visit)) return ok;
+        return error;
+    }else return ok;
+}</code></pre>
+<h5 id="3-图"><a href="#3-图" class="headerlink" title="3.图"></a>3.图</h5><p><a href="https://blog.csdn.net/czsupercar/article/details/88735143" target="_blank" rel="noopener">图的邻接表存储</a></p>
+<p><strong>图的遍历</strong></p>
+<p>深度优先，广度优先</p>
+<pre class=" language-c++"><code class="language-c++">//深度优先遍历
+Boolean visited[MAX]; //访问标志数组，初始值为false，当此节点被访问了，对应的visited[i]变为true
+Status(*Visitedfunc)(int v)); //函数变量
+void DFSTraverse(Graph G,Status(*visit)(int v)){
+    VisitedFunc = Visit;
+    for(v=0;v<G.vexnum;v++){visited[v] = false}    //初始化
+    for(v=0;v<G.vexnum;v++){
+        if(!visited[v]) DFS(G,v); //对未访问过的节点调用DFS
+    }
+}
+
+DFS(Graph G,int v){
+    visited[v] = true;    VisitFunc(v);    //输出v节点
+    //FirstAdjVex返回v的第一个邻接节点，NextAdjVex返回v的相对于w的下一个节点，若w是v的最后一个节点，返回空
+    for(w=FirstAdjVex(G,v);w>0;w=NextAdjVex(G,v,w)){
+        if(!visted[w])    DFS(G,w);    //对v的未访问过的邻接节点w递归调用DFS
+    }
+}</code></pre>
+<hr>
+<p><strong>最小生成树</strong></p>
+<p>稀疏图用Kruskal，稠密图用Prim</p>
+<p>n个节点至少需要n-1条边连通，但边上还有权值，选择权值之和最小的n-1条边，可能不唯一</p>
+<pre class=" language-C++"><code class="language-C++">//最小生成树，普里姆算法，最小生成树不断壮大的过程，选顶点.使用邻接矩阵存储的网
+//不断寻找与逐渐生成的最小生成树相连的边权最小的点加入
+void MiniSpanTree_prim(MGraph G ,vertexType u){
+    //从第u个顶点出发构造最小生成树
+    //closedge记录从顶点集U到V-U的代价最小的边的辅助数组定义。就是未加入的节点和这棵生成树之间的权值
+    struct {
+        VertexType adjvex;//存储该边依附在顶点集U中的顶点
+        VRtype lowcost;//存储在该边上的权值
+    }closedge[MAX_VERTEX_NUM]
+
+      k = LocateVex(G,u);    //开始的顶点的位置
+    for(j=0;j<G.vexnum;j++){    //辅助数组初始化,lowcost为开始节点u与其他节点之间的权值，权值可为无穷大
+        if(j != k) closedge[j] = {u,G.arc[k][j].adj} //{adjvex,lowcost}
+    }
+    closedge[k].lowcost = 0;    //初始U={u}
+    for(i=1;i<G.vexnum;i++){    //选择剩下的G.vexnum-1个顶点
+        k=minimum(closedge)；    //选择一个在closedge里边权值最小的顶点的序号，将其顶点和边加入最小生成树
+
+        printf(closedge[k].adjvex,G.vexs[k]);    //输出边
+        closedge[k].lowcost = 0;    //第K顶点并入U集
+        for(j=0;j<G.vexnum;j++){
+            //新顶点并入U后，重新选择最小边。就是更新closedge里面的lowcost的值
+            if(G.arcs[k][j].adj<closedge[j].lowcost)    
+                //权值比原有的lowcost小，更新。    注意是k节点和其他节点之间的权值与之前节点的权值进行比较
+                closedge[j] = {G.vexs[k],G.arcs[k][j].adj};
+        }
+    }
+}
+</code></pre>
+<hr>
+<p>Kruskal算法，连通分量（即不能形成环）不断合并的过程。在开始就将n个顶点加入U，选边。每次选择边权最小的边链接两个端点是kruskal的规则，并实时判断两个点之间有没有间接联通形成环。</p>
+<p><a href="https://blog.csdn.net/mgsky1/article/details/77840286" target="_blank" rel="noopener">参考链接</a></p>
+<pre class=" language-c++"><code class="language-c++">#include<iostream>
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+int n,m,tot=0,k=0;//n端点总数，m边数，tot记录最终答案，k已经连接了多少边 
+int fat[200];//记录集体老大。
+//并查集就是一个用双亲表示法所表示的森林，我们可以利用这个结构来查找某一个顶点的双亲，进而找到根结点。这样，我们就能判断某两个顶点是否同源，在图中的表现就是加上这条边后会不会形成环。并查集以顶点为基准，有几个顶点，就有几项。
+struct node
+{
+    int from,to,dis;//结构体储存边,dis为权值 
+}edge[2000];
+
+bool cmp(const node &a,const node &b)//sort排序（当然你也可以快排） 
+{
+    return a.dis<b.dis;
+}
+int father(int x)//找集体老大，并查集的一部分，就是寻找这个顶点的根 
+{
+    if(fat[x]!=x)    //如果这不是根，就继续向上查找，直至找到根
+    return father(fat[x]);
+    else return x;
+}
+void unionn(int x,int y)//加入团体，并查集的一部分 
+{
+    //fat[father(x)]=father(y);    //这感觉有些不能理解，甚至fat[x]=y好像也行
+    fat[x]=father(y);    //这样也行
+}
+int main()
+{
+    scanf("%d%d",&n,&m);//输入点数，边数 
+    for(int i=1;i<=m;i++)
+    {
+        scanf("%d%d%d",&edge[i].from,&edge[i].to,&edge[i].dis);//输入边的信息 
+    }
+    for(int i=1;i<=n;i++) fat[i]=i;//自己最开始就是自己的老大（初始化），自己的根就是自己
+    sort(edge+1,edge+1+m,cmp);//按权值排序（kruskal的体现） 
+    for(int i=1;i<=m;i++)//从小到大遍历 
+    {
+        if(k==n-1) break;//n个点需要n-1条边连接 
+        if(father(edge[i].from)!=father(edge[i].to))//假如不在一个团体，其根不一样，就是判断形不形成环 
+        {
+            unionn(edge[i].from,edge[i].to);//加入这个根的团体 
+            printf("from=%d to=%d \n",edge[i].from,edge[i].to);//打印加入的边的路径
+            tot+=edge[i].dis;//记录边权 
+            k++;//已连接边数+1 
+        }
+    }
+    printf("%d",tot);
+    return 0;
+}
+
+//测试用例
+6 7                        
+0 2 1
+2 5 4
+5 3 2
+2 1 5
+1 4 3
+4 5 6
+0 4 3</code></pre>
+<hr>
+<p><strong>拓扑排序</strong></p>
+<p>在有向图中选一个没有前驱的顶点（<strong>入度为0</strong>）输出，在图中删除该顶点和所有<strong>以它为尾的弧（也就是边）</strong></p>
+<p>可通过拓扑排序判断网中是否存在环，<strong>若所有的顶点都在拓扑排序序列中，则不存在环</strong>。</p>
+<pre class=" language-c++"><code class="language-c++">//拓扑排序，判断是否有环
+Status topologicalSort(AlGraph G){
+    findinDegree(G,indegree);    //对各个顶点求入度 indegree[0……vexnum-1]
+    InitStack(S);
+    for(i=0;i<G.vexnum;++i){
+        if(!indegree[i]) Push(S,i);    `//入度为0的顶点入栈
+    }
+    count = 0;    //对输出顶点计数
+    while(!StackEmpty(S)){
+        Pop(S,i);
+        printf(i,G.vertices[i].data);    ++count;    //输出i号顶点
+        for(p=G.vertices[i].firstarc; p;p=p->nextarc){    //判断这个输出顶点的邻接点
+            k = p->adjvex;    //对i号顶点的每个邻接点的入度-1
+            if(!(--indegree[k]))    Push(S,k);    //若入度为0，则入栈
+        }
+    }
+    if(count<G.vexnum)    return error;    //该有向图有回路
+    else return Ok;
+}</code></pre>
+<hr>
+<p><strong>单源最短路径</strong></p>
+<p><a href="https://www.cnblogs.com/RioTian/p/12597634.html" target="_blank" rel="noopener">参考此链接</a></p>
+<pre class=" language-c++"><code class="language-c++">// 单源最短路径：Dijkstra 算法 
+
+#include <iostream>
+
+using namespace std;
+
+int  matrix[100][100]; // 邻接矩阵
+bool visited[100];     // 标记数组
+int  dist[100];        // 源点到顶点 i 的最短距离
+int  path[100];        // 记录最短路的路径
+int  source;           // 源点
+int  vertex_num;       // 顶点数
+int  edge_num;         // 边数
+
+void Dijkstra(int source)
+{
+    memset(visited, 0, sizeof(visited));  // 初始化标记数组
+    visited[source] = true;    //开始节点被访问
+    for (int i = 0; i < vertex_num; i++)
+    {
+        dist[i] = matrix[source][i];    //开始节点到其他节点之间的权值
+        path[i] = source;
+    }
+
+    int min_cost;        // 权值最小
+    int min_cost_index;  // 权值最小的下标
+
+    for (int i = 1; i < vertex_num; i++)  // 找到源点到另外 vertex_num-1 个点的最短路径
+    {
+        min_cost = INT_MAX;    //先设为最大值
+
+        for (int j = 0; j < vertex_num; j++)
+        {
+            if (visited[j] == false && dist[j] < min_cost)  // 先找到与之相连的权值最小的节点
+            {
+                min_cost = dist[j];
+                min_cost_index = j;
+            }
+        }
+
+        visited[min_cost_index] = true;  // 该点已找到，进行标记
+
+        for (int j = 0; j < vertex_num; j++)  // 更新 dist 数组
+        {
+            if (visited[j] == false &&    //表示这个节点还未被访问
+                matrix[min_cost_index][j] != INT_MAX &&  // 确保两点之间有边
+                matrix[min_cost_index][j] + min_cost < dist[j])    //**算法核心
+            {
+                dist[j] = matrix[min_cost_index][j] + min_cost;
+                path[j] = min_cost_index;
+            }
+        }
+    }
+}
+
+int main()
+{
+    cout << "请输入图的顶点数（<100）：";
+    cin >> vertex_num;
+    cout << "请输入图的边数：";
+    cin >> edge_num;
+
+    for (int i = 0; i < vertex_num; i++)
+        for (int j = 0; j < vertex_num; j++)
+            matrix[i][j] = (i != j) ? INT_MAX : 0;  // 初始化 matrix 数组
+
+    cout << "请输入边的信息：\n";
+    int u, v, w;
+    for (int i = 0; i < edge_num; i++)
+    {
+        cin >> u >> v >> w;
+        matrix[u][v] = matrix[v][u] = w;
+    }
+
+    cout << "请输入源点（<" << vertex_num << "）：";
+    cin >> source;
+    Dijkstra(source);
+
+    for (int i = 0; i < vertex_num; i++)
+    {
+        if (i != source)
+        {
+            cout << source << " 到 " << i << " 的最短距离是：" << dist[i] << "，路径是：" << i;
+            int t = path[i];
+            while (t != source)
+            {
+                cout << "--" << t;
+                t = path[t];
+            }
+            cout << "--" << source << endl;
+        }
+    }
+
+    return 0;
+}
+
+//结果
+</code></pre>
+<hr>
+<h5 id="4-查找"><a href="#4-查找" class="headerlink" title="4.查找"></a>4.查找</h5><p><strong>1.顺序表查找</strong></p>
+<p><strong>二分法查找</strong>，low和high作为待元素的下界和上界，mid指示区间的中间位置。mid=(low+high)/2 向下取整，若mid对应的值大于被查找值key，则high = mid-1，否则low = mid+1，若相等则返回mid。当low&lt;=high时，返回未查找到。</p>
+<p><strong>索引顺序表或分块查找</strong></p>
+<p>将表分成几个子表，对每个子表建立一个索引项，包含关键字项（子表里面最大的数）和一个指针项。</p>
+<p>索引表暗关键字有序，则表有序或块有序</p>
+<p>所以最后的查找是分两步进行，先确定待查记录所在的块，然后在块里面顺序查找</p>
+<p><strong>2.动态查找表</strong></p>
+<p><strong>二叉排序树</strong></p>
+<p>动态树表，若左子树不空，则左子树所有节点均小于根节点的值，同理，右子树的节点均大于根节点的值。若查找不成功，就将关键字插入查找路径的访问的最后一个节点的左孩子或右孩子中。</p>
+<p>一个无序列表就可通过构造二叉排序树成为一个有序序列。</p>
+<p><strong>3.哈希表</strong></p>
+<p>使每一个关键字和结构中一个唯一的存储位置相对应。</p>
+<p>哈希表有些<strong>构造方法</strong>，但注意不要产生同义词，产生冲突</p>
+<p>1.直接定址法</p>
+<p>2.数字分析法</p>
+<p>3.平方取中法</p>
+<p>4.折叠法</p>
+<p>5.随机数法</p>
+<p><strong>6.除留余数法</strong>    主流</p>
+<p><strong>H(key) = key mod p</strong> ; p&lt;=m    m为表长</p>
+<p>核心是对<strong>p</strong>的取值</p>
+<p>一般经验：P可选为质数或不包含小于20的质因数的合数</p>
+<p><strong>处理冲突的方法</strong></p>
+<p><strong>1.开放定址法</strong></p>
+<p>Hi = (H(key) + di) mod m    i = 1,2,3…,k  (k&lt;=m-1)    </p>
+<p>H(key)为hash函数，m为hash表长，di为增量序列</p>
+<p>di有三种取法</p>
+<ol>
+<li>线性探测再散列    di = 1,2,3….,m-1</li>
+<li>二次探测再散列    di = 1,-1,4,-4,9,…,k^2    (k&lt;= m/2)</li>
+<li>随机探测再散列    di = 随机数</li>
+</ol>
+<p><strong>2.再hash法</strong></p>
+<p>Hi = RHi (key)</p>
+<p>当产生冲突时计算另一个hash函数地址</p>
+<p><strong>3.链地址法</strong>    主流</p>
+<p>将所有关键字为同义词的记录存储在同一线性链表中，凡hash地址为i的记录都插入到线性链表中对应的头节点中，需保持同义词在同一线性链表中按关键字有序。</p>
+<hr>
+<p>对<strong>hash表的查找</strong>和hash表的构造过程基本一致</p>
+<p>给定K值，根据构造表的hash函数求得hash地址，若表中此位置没有记录，则查找不成功，否则比较关键字，若相等，则查找成功</p>
+<hr>
+<h5 id="5-排序"><a href="#5-排序" class="headerlink" title="5.排序"></a>5.排序</h5><p>有两个基本操作，1.比较两个关键字的大小。    2.将记录从一个位置移到另一个位置。    一般改变存储方式避免2.</p>
+<p><strong>1.插入排序</strong>    O(n^2)</p>
+<p> 将一个记录插入到已排好序的有序表中，从而的到一个新的、记录值+1的有序表</p>
+<p>也有一种折半插入排序，优化了查找，结合了之前的二分法查询，进行关键字的判断，进而得到位置    仍是O(n^2)</p>
+<p><strong>2.希尔排序</strong></p>
+<p>优化了时间复杂度</p>
+<p>先将整个待排记录序列分割成若干个子序列分别进行直接插入排序，待记录基本有序之后，再对全体记录进行一次直接插入排序</p>
+<p>特点是：子排序的构成不是简单的“逐段分割”，而是将<strong>相隔某个“增量”</strong>的记录组成的一个子序列。增量最好为质数，最后一次排序必须为1，通常为5,3,1</p>
+<p><strong>3.快速排序</strong></p>
+<p>1.起泡排序    O(n^2)</p>
+<p>若为逆序（r[1.key&gt;r[2].key）交换两个记录的位置，然后比较第二个记录和第三个记录关键字，直至n-1和n进行比较过为止。</p>
+<p>这算一次起泡排序，结果为最大的记录值被排到了最后一个的位置，之后进行第二次起泡排序，对前n-1个记录进行相同操作</p>
+<p>2.快速排序</p>
+<p>其是对起泡排序的一个改进</p>
+<p><strong>核心思想</strong>为通过一次排序将待排记录分割成独立的两部分，其中一部分的关键字均比另一组的关键字小，则可分别对这两部分记录继续排序，以达到整个序列的有序</p>
+<p>首先需要选取一个枢轴，一般为第一个记录，之后将比他小的记录移到左边，大的移到右边。这样的一次操作称作一次快排</p>
+<p><strong>具体做法</strong>为附设两个指针low和high，初值指向low和high，还有一个枢轴记录的关键字pivotkey，之后首先从high的位置向前搜索找到第一个关键字小于pivotkey的记录并和枢轴记录交换位置，之后从low的位置向后搜索找到 一个比privotkey大的记录，并交换位置，重复这两部操作，直至low==high。<strong>可使用L[0]存储pivotkey</strong>，因为对枢轴的复制是多余的，只需要最后进行移位即可</p>
+<pre class=" language-c++"><code class="language-c++">//快速排序
+int Prtition(SqList &L,int low,int high){
+    L.r[0] = L.r[low];    //子表的第一个记录做枢轴记录
+    privotkey = L.r[low].key;
+    while(low<high){    //从表的两端交替向中间扫描
+        while(low<high && L.r[high].key>=privotkey)    --high;
+            L.r[low] = L.r[high];    //比枢轴记录小的记录移到左边
+        while(low<high && L.r[low].key>=privotkey)    ++low;
+            L.r[high]  = L.r[low];//比枢轴记录大的记录移到右边
+    }
+    L.r[low] = L.r[0];    //枢轴记录到位
+    return low;
+}</code></pre>
+<p>4.<strong>选择排序</strong></p>
+<p>1.简单选择排序</p>
+<p>通过n-i次关键字比较，选出最小的一个记录，并和第i个记录交换</p>
+<p>2.树形选择排序</p>
+<p>首先n个关键字进行两两比较，然后再n/2(向上取整)个较小者之间再两两比较，如此重复，直至选出最小的关键字为止</p>
+<p>可使用有n个叶子节点的完全二叉树表示，两两比较，最后的<strong>根</strong>即是最小，之后选出次最小关键字，只需<strong>将原来的叶子节点里面的最小关键字，即上一次选出来的根的那个关键字，变为无穷大</strong>，这样就选出了次最小关键字</p>
+<p>3.堆排序</p>
+<p>堆排序是对树形选择排序的优化，主要是“筛选”，“建堆”</p>
+<p>4归并排序</p>
+<p>将两个或以上的有序表组合成一个新的有序表</p>
+<hr>
+<h4 id="6-计算机算法思想"><a href="#6-计算机算法思想" class="headerlink" title="6.计算机算法思想"></a>6.计算机算法思想</h4><h5 id="1-递归与分治"><a href="#1-递归与分治" class="headerlink" title="1.递归与分治"></a>1.递归与分治</h5><p>递归看之前的一些就行，这里主要说分治法，各个击破，分而治之</p>
+<p>基本思想是将一个规模为n的问题分解成k个规模较小的子问题，这些子问题相互独立，不包含公共的子问题，且与原问题相同，递归的解这些子问题（将这些子问题继续划分），然后将各个子问题的解合并得到原问题的解。常见的 k = 2</p>
+<p>例：二分查找技术，棋盘覆盖，归并排序，快速排序等的具体实现</p>
+<h5 id="2-动态规划"><a href="#2-动态规划" class="headerlink" title="2.动态规划"></a>2.动态规划</h5><p>适用于解最优化问题，依赖于问题本身的两个核心性质：最优子结构性质和子问题重叠性质。分解的子问题往往不是互相独立的</p>
+<p>最优子结构性质：动态规划算法的第一步首先是构造最优解的结构，当问题的最优解包含了其子问题的最优解，称为最优子结构</p>
+<p>重叠子问题：递归运算自顶向下解此问题时，每次产生的子问题并不总是新问题，有些种子问题被计算多次，动态规划利用此性质，对每个子问题只解一次，而后将其解保存在一个表格中，当需要再次解此子问题时，只需要查看一下表格。</p>
+<p>其每一步的选择都依赖于相关子问题的解，只有相关子问题的解出来后，才进行选择</p>
+<ol>
+<li>找出最优解的性质，并刻画其结构特征</li>
+<li>递归的定义最优值</li>
+<li>以自底向上的方式计算出最优值</li>
+<li>根据计算最优值时得到的信息，构造最优解</li>
+<li>定义动态规划式，给出动态规划递归式，给出非递归代码</li>
+</ol>
+<p>例：矩阵连乘，最长公共子序列，最大子段和（分治与动规的区分），租用游艇问题</p>
+<p>分治和动规都是自底向上解决问题</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//租用游艇问题</span>
+<span class="token keyword">int</span> <span class="token function">getMinRent</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> dp<span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//令dp[i]为从出租站1到出租站n所需要的最少租金 </span>
+    dp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//初始化 </span>
+    dp<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span>r<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//初始化 </span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>r<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//先初始化dp[i]为第1到i站的租金 </span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>r<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//状态转移方程 </span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回n个 </span>
+<span class="token punctuation">}</span></code></pre>
+<hr>
+<h5 id="3-贪心算法"><a href="#3-贪心算法" class="headerlink" title="3.贪心算法"></a>3.贪心算法</h5><p>并不从整体最优上进行考虑，而是在局部最优进行选择，我们希望最后的结果也是整体最优的，虽然一些时候并不知道最优解，但最终结果确实最优解的很好地近似解。通常自顶向下进行求解</p>
+<p>贪心每次仅做局部最优解，之后去解做出这个选择后产生的相应的子问题。</p>
+<p>贪心算法基本要素：最优子结构性质，</p>
+<p>贪心选择性质：所求问题的整体最优解可通过一系列局部最优的选择来达到。而且需要证明每一步做的贪心选择最终导致问题的整体最优解</p>
+<p>例：活动安排问题，最优装载，多机调度问题，dijkstra最短路径算法，最小生成树算法</p>
+<hr>
+<h5 id="4-回溯法"><a href="#4-回溯法" class="headerlink" title="4.回溯法"></a>4.回溯法</h5><p>深度遍历解空间树，从根节点进行遍历，当发现某一节点肯定不包含问题的解，则跳过对其子树的遍历，逐层向祖先节点回溯</p>
+<p>通常解题步骤为：首先定义问题的解空间树；确定易于搜索的解空间结构；深度优先搜索解空间，并在搜索过程中使用剪枝函数避免无效搜索</p>
+<p>通常使用剪枝函数避免无效搜索：</p>
+<p>1.用约束函数咋扩展节点处剪去不满足约束的子树</p>
+<p>2.用限界函数减去得不到最优解的子树</p>
+<p>一般可使用递归回溯，迭代回溯，子集树与排列树</p>
+<p>子集树：从n个元素中找出满足要求的子集</p>
+<p>排列树：确定n个元素满足某种性质的排列</p>
+<img src="/images/loading.gif" data-original="https://img-blog.csdnimg.cn/20200702193813843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0NzY2ODgz,size_16,color_FFFFFF,t_70" alt="图" style="zoom: 50%;" />
+
+<p>左边的for循环中间，<code>i&lt;=n</code></p>
+<p>例：0-1背包问题，旅行售货员问题 ，装载问题</p>
+<hr>
+<h5 id="5-分支限界法"><a href="#5-分支限界法" class="headerlink" title="5.分支限界法"></a>5.分支限界法</h5><p>广度优先+剪枝</p>
+<p>一般来说，回溯法是求出问题的所有解；分支限界是求出一个解，或者说是在满足某一约束的最优解</p>
+<p>在分支限界法中，活节点一旦成为扩展节点，就一次性生成所有子节点，舍弃所有不可行解或非最优解的儿子节点，其余儿子节点加入活结点表中。</p>
+<p>从活节点表中选择下一扩展节点有几种方式</p>
+<p>1.先入先出方式</p>
+<p>2.优先队列式分支限界法（看哪一个节点先成为扩展节点）</p>
+<p>例：装载问题，旅行员售货问题</p>
+<p>总之先写到这里了，后面再改吧</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">晟松</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2020/09/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">http://yoursite.com/2020/09/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">晟松</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/09/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="数据结构和算法">
+                        
+                        <span class="card-title">数据结构和算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            虽然之前上了一些关于数据结构、算法之类的课，但之前都没有怎么搞懂，尤其是算法里面的一些算法思想，现在看能不能补上，就是一些大佬的算法指导，刷LeetCode的一些题，回看之前的书上面的重点。
+教材是清华大学出版社的数据结构(C语言版)、计算
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            晟松
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="计算机网络基础">
+                        
+                        <span class="card-title">计算机网络基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            机械工业出版社的大黑书(计算机网络-自顶向下方法)和课程，慕课的一个的总结，主要根据tcp/ip的五层体系结构。介绍一些大概
+下面放一些他人的总结，当做补充资料或者细节
+五层结构简解
+tcp协议详解
+IP协议简解
+HTTP协议详解
+get/
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            晟松
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="5073782181"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">晟松</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/chengsong-hunnu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1659289050@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1659289050" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1659289050" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <script type="text/javascript">
+    //只在桌面版网页启用特效
+    var windowWidth = $(window).width();
+    if (windowWidth > 768) {
+        document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+    }
+    </script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+</html>

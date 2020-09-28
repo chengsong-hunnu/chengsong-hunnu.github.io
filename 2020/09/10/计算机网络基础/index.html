@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11k
+                    11.1k
                 </div>
                 
 
@@ -497,7 +497,7 @@
 <p>2.带宽：单位时间内，某信道能通过的“最高数据率”，单位bit/s</p>
 <p>3.吞吐量：单位时间内，通过某个网络的数据量</p>
 <p>4.<strong>时延</strong>：数据(一个报文或分组)从网络(或链路)的一端到另一端传送所需的时间。通常有</p>
-<p>发送时延/传输时延：从发送数据帧的第一个比特到最后一个比特发送完成所需的时间</p>
+<p>发送时延/传输时延：从发送数据帧的第一个比特到最后一个比特发送完成到链路上所需的时间</p>
 <p>传播时延：电磁波在信道中需要一定的时间进行传播</p>
 <p>处理时延：主机或路由器在收到分组时，为处理分组（例如分析首部、提取数据、差错检验或查找路由）所花费的时间。</p>
 <p>排队时延：分组在路由器输入输出队列中排队等待处理所经历的时间。</p>
@@ -508,13 +508,13 @@
 <p>5.时延带宽积</p>
 <p>6.往返时间RTT</p>
 <p>7.利用率：信道利用率和网络利用率</p>
-<h5 id="1-3-体系结构"><a href="#1-3-体系结构" class="headerlink" title="1.3 体系结构"></a>1.3 体系结构</h5><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161438568.png" alt="" style="zoom:50%;" />
+<h5 id="1-3-体系结构"><a href="#1-3-体系结构" class="headerlink" title="1.3 体系结构"></a>1.3 体系结构</h5><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161438568.png" alt="" style="zoom: 67%;" />
 
-<p>消息自上向下<strong>逐层</strong>封装，目标系统自下向上逐层拆封，由最高层将消息提供给目标进程。</p>
+<p>消息自上向下<strong>逐层封装</strong>，目标系统自下向上逐层拆封，由最高层将消息提供给目标进程。</p>
 <p><strong>协议数据单元</strong>(PDU):协议控制信息(称为协议头/首部)+数据。协议头包含地址，序号，长度，分段标志等控制信息</p>
 <p><strong>封装</strong>：<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161414234.png" alt="image-20200913161503961" style="zoom:50%;" /></p>
 <p>在计算机网络中数据交换必须准守事先约定的协议。</p>
-<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161347953.png" alt="image-20200913161414234" style="zoom:43%;" />
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913161347953.png" alt="image-20200913161414234" style="zoom: 67%;" />
 
 <p>应用层：网络应用程序及应用层协议存留的地方，包括HTTP.SMTP.FTP协议。分布在多个端系统上。</p>
 <p>运输层：在应用程序端点之间传输应用层报文。有两种传输协议，<strong>TCP/UDP</strong>。TCP面向连接服务和可靠数据传输服务，UDP提供无连接服务。</p>
@@ -594,7 +594,7 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <li><strong>同步 SYN</strong>   ：在连接建立时用来同步序号。当 SYN=1，ACK=0 时表示这是一个连接请求报文段。若对方同意建立连接，则响应报文中 SYN=1，ACK=1。</li>
 <li><strong>终止 FIN</strong>   ：用来释放一个连接，当 FIN=1 时，表示此报文段的发送方的数据已发送完毕，并要求释放连接。</li>
 <li><strong>窗口</strong>   ：窗口值作为接收方让发送方设置其发送窗口的依据。之所以要有这个限制，是因为接收方的数据缓存空间是有限的。</li>
-<li><strong>选项</strong> ：规定了最大报文长度MSS，告诉对方TCP：“我的缓存所能接收的报文段的数据字段的最大长度是MSS个字节。”,与窗口用于流量控制</li>
+<li><strong>选项</strong> ：规定了最大报文长度MSS，告诉对方TCP：“我的缓存所能接收的报文段的数据字段的最大长度是MSS个字节。”,与窗口用于流量控制，后面的填充十位了保证4字节对齐。</li>
 </ul>
 <hr>
 <h5 id="3-3-TCP-的三次握手"><a href="#3-3-TCP-的三次握手" class="headerlink" title="3.3 TCP 的三次握手"></a>3.3 TCP 的三次握手</h5><img src="/images/loading.gif" data-original="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e92d0ebc-7d46-413b-aec1-34a39602f787.png" width="600" style="zoom:75%;" />
@@ -634,7 +634,7 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 </li>
 </ul>
 <p><strong>四次挥手的原因</strong>  </p>
-<p>客户端发送了 FIN 连接释放报文之后，服务器收到了这个报文，就进入了 CLOSE-WAIT 状态。这个状态是为了让服务器端发送还未传送完毕的数据，传送完毕之后，服务器会发送 FIN 连接释放报文。</p>
+<p>这是因为服务端在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。</p>
 <p><strong>TIME_WAIT</strong>  </p>
 <p>客户端接收到服务器端的 FIN 报文后进入此状态，此时并不是直接进入 CLOSED 状态，还需要等待一个时间计时器设置的时间 2MSL。这么做有两个理由：</p>
 <ul>
@@ -643,7 +643,7 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 </ul>
 <hr>
 <h5 id="3-5-流量控制"><a href="#3-5-流量控制" class="headerlink" title="3.5 流量控制"></a>3.5 流量控制</h5><p>流量控制是为了控制发送方发送速率，保证接收方来得及接收。因为可能接收方的接收缓存因为应用程序读取数据过慢，导致接收缓存溢出</p>
-<p>接收方发送的确认报文中的窗口字段可以用来控制发送方窗口大小，从而影响发送方的发送速率。将窗口字段设置为 0，则发送方不能发送数据。可靠传输中的滑动窗口进行流量控制。</p>
+<p>接收方发送的确认报文中的窗口字段可以用来控制发送方窗口大小，从而影响发送方的发送速率。将窗口字段设置为 0，则发送方不能发送数据。可依靠传输中的滑动窗口进行流量控制。</p>
 <hr>
 <h5 id="3-6-拥塞控制"><a href="#3-6-拥塞控制" class="headerlink" title="3.6 拥塞控制"></a>3.6 拥塞控制</h5><p>如果网络出现拥塞，因为缓冲区溢出，分组将会丢失，此时发送方会继续重传，从而导致网络拥塞程度更高。因此当出现拥塞时，应当控制发送方的速率。这一点和流量控制很像，但是出发点不同。流量控制是为了让接收方能来得及接收，而拥塞控制是为了降低整个网络的拥塞程度。</p>
 <img src="/images/loading.gif" data-original="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/51e2ed95-65b8-4ae9-8af3-65602d452a25.jpg" width="500" style="zoom: 67%;" />
@@ -658,7 +658,7 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <img src="/images/loading.gif" data-original="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/910f613f-514f-4534-87dd-9b4699d59d31.png" width="800" style="zoom: 67%;" />
 
 <h6 id="3-6-1-慢开始与拥塞避免"><a href="#3-6-1-慢开始与拥塞避免" class="headerlink" title="3.6.1  慢开始与拥塞避免"></a>3.6.1  慢开始与拥塞避免</h6><p>发送的最初执行慢开始，令 cwnd = 1，发送方只能发送 1 个报文段；当<strong>收到确认后</strong>，将 cwnd 加倍，因此之后发送方能够发送的报文段数量为：2、4、8 …</p>
-<p>注意到慢开始每个轮次都将 cwnd 加倍，这样会让 cwnd 增长速度非常快，从而使得发送方发送的速度增长速度过快，网络拥塞的可能性也就更高。设置一个慢开始门限 ssthresh，<strong>当 cwnd &gt;= ssthresh 时，进入拥塞避免</strong>，每个轮次只将 cwnd 加 1。</p>
+<p>注意到慢开始每个轮次都将 cwnd 加倍，这样会让 cwnd 增长速度非常快，从而使得发送方发送的速度增长速度过快，网络拥塞的可能性也就更高。设置一个<strong>慢开始门限 ssthresh</strong>，<strong>当 cwnd &gt;= ssthresh 时，进入拥塞避免</strong>，之后每个轮次只将 cwnd 加 1。</p>
 <p>如果出现了超时，则令 <strong>ssthresh = cwnd / 2</strong>，然后重新执行慢开始。</p>
 <h6 id="3-6-2-快重传与快恢复"><a href="#3-6-2-快重传与快恢复" class="headerlink" title="3.6.2  快重传与快恢复"></a>3.6.2  快重传与快恢复</h6><p>在接收方，要求每次接收到报文段都应该对最后一个已收到的<strong>有序</strong>报文段进行确认。例如已经接收到 M<sub>1</sub> 和 M<sub>2</sub>，此时收到 M<sub>4</sub>，应当发送对 M<sub>2</sub> 的确认。</p>
 <p>在发送方，如果收到三个重复确认，那么可以知道下一个报文段丢失，此时执行快重传，立即重传下一个报文段。例如收到三个 M<sub>2</sub>，则 M<sub>3</sub> 丢失，立即重传 M<sub>3</sub>。</p>
@@ -668,8 +668,8 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <h4 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4.网络层"></a>4.网络层</h4><h5 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h5><p>网络层不保证数据报的交付，和按序交付，也不保证数据的完整性。IP协议提供了主机之间的逻辑通信功能。</p>
 <p>数据平面：即是网络层中路由器的功能，决定到达网络层的<strong>数据报</strong>(网络层中的分组)如何转发到该路由器的输出链路之一，涉及<strong>IP转发和通用的转发</strong></p>
 <p>控制平面：即网络范围的逻辑，控制数据报沿着源主机到目的主机的端到端的路径中路由器之间的路由方式，涉及<strong>路由选择算法，路由选择协议</strong></p>
-<p>网络层的核心功能：<strong>转发</strong>（将分组从路由器的输入链路移到合适的输出链路的一个路由器本地动作，一般只有几纳秒，由硬件实现），<strong>路由选择</strong>（分组从发送方流向接收方，网络层必须决定这些分组所采取的路径或路由，称为路由选择算法，通常为几秒，由软件处理）</p>
-<p>路由器有个关键元素<strong>转发表</strong>，通过在里面索引进行转发。由输入端口，交换结构，输出端口，路由选择处理器组成。</p>
+<p>网络层的核心功能：<strong>转发</strong>（将分组从路由器的输入链路移到合适的输出链路的一个路由器本地动作，一般只有几纳秒，由硬件实现），<strong>路由选择</strong>（分组从发送方流向接收方，网络层必须决定这些分组所采取的路径或路由，称为路由选择算法，通常为几秒，由软件处理）<strong>匹配+动作</strong></p>
+<p>路由器有个关键元素<strong>转发表</strong>，通过在里面查找索引进行转发，路由器由输入端口，交换结构，输出端口，路由选择处理器组成。</p>
 <p>关于地址解析协议(ARP),将IP地址转换成MAC物理地址，我们放在链路层里面细讲。</p>
 <h5 id="4-2-数据平面"><a href="#4-2-数据平面" class="headerlink" title="4.2 数据平面"></a>4.2 数据平面</h5><p><strong>IP转发</strong>：路由器的转发表结构</p>
 <p><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200915205940655.png" alt="image-20200915205940655" style="zoom:50%;" /><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200915210414390.png" alt="image-20200915210414390" style="zoom:50%;" /></p>
@@ -727,7 +727,7 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <p><strong>子网定义</strong>：</p>
 <p>1.无需通过路由器就能够物理上互相到达，在路由器同一侧（接入路由器同一接口），一般处于同一局域网</p>
 <p>2.设备接口被配置的IP地址具有相同的网络地址（即共同的IP地址前缀）</p>
-<p>3.IP地址 AND 子网掩码 = 网络地址</p>
+<p>3.IP地址 AND 子网掩码 = 网络地址 （与操作，注意是子网掩码）</p>
 <p>子网的表示方法：</p>
 <p>1、子网掩码(使用子网划分)：用从最高位开始的连续1表示IP地址中的子网号部分，后面为0的标识子网内的主机号 255.255.255.0</p>
 <p>2、前缀/长度(使用无分类的IP编址)：223.1.1.0/24，表示前24位为前缀部分</p>
@@ -741,9 +741,9 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <p>CIDR 的记法上采用在 IP 地址后面加上网络前缀长度的方法，例如 128.14.35.7/20 表示前 20 位为网络前缀。</p>
 <p>CIDR 的地址掩码可以继续称为<strong>掩码</strong>（不叫子网掩码），掩码的数字 1 的长度为网络前缀的长度，掩码全为 1。</p>
 <p>一个 CIDR 地址块中有很多地址，一个 CIDR 表示的网络就可以表示原来的很多个网络，并且在路由表中只需要一个路由就可以代替原来的多个路由，减少了路由表项的数量。把这种通过使用网络前缀来减少路由表项的方式称为路由聚合，也称为   <strong>构成超网</strong>  </p>
-<p>在路由表中的项目由“网络前缀”和“下一跳地址”组成，在查找时可能会得到不止一个匹配结果，应当采用最长前缀匹配来确定应该匹配哪一个。</p>
+<p>在路由表中的项目由“网络前缀”和“下一跳地址”组成，在查找时可能会得到不止一个匹配结果，应当采用<strong>最长前缀匹配</strong>来确定应该匹配哪一个。</p>
 <p>动态主机配置协议(<strong>DHCP</strong>)：组织被分配了一块地址后，主机可以自动获取一个IP地址，而且能通过配置，给一个主机临时分配一个IP地址。</p>
-<p><strong>通用转发</strong>：IP转发是一个查找目的IP地址，发送到特定端口的 匹配+动作；通用转发在每台分组交换机里包含一张匹配加动作表，该表由远程控制器计算和分发，实现与基于目的地址的转发类似的功能，还能丢弃，复制一个分组或重写第2,3,4层的首部。</p>
+<p><strong>通用转发</strong>：IP转发是一个查找目的IP地址，发送到特定端口的 <strong>匹配+动作</strong>；通用转发在每台分组交换机里包含一张匹配加动作表，该表由远程控制器计算和分发，实现与基于目的地址的转发类似的功能，还能丢弃，复制一个分组或重写第2,3,4层的首部。</p>
 <p><strong>网络地址转换 NAT</strong></p>
 <p>专用网内部的主机使用本地 IP 地址又想和互联网上的主机通信时，可以使用 NAT 来将本地 IP 转换为全球 IP。</p>
 <p>在以前，NAT 将本地 IP 和全球 IP 一一对应，这种方式下拥有 n 个全球 IP 地址的专用网内最多只可以同时有 n 台主机接入互联网。为了更有效地利用全球 IP 地址，现在常用的 NAT 转换表把传输层的端口号也用上了，使得多个专用网内部的主机共用一个全球 IP 地址。使用端口号的 NAT 也叫做网络地址与端口转换 NAPT。</p>
@@ -770,7 +770,7 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <hr>
 <h5 id="4-3-控制平面"><a href="#4-3-控制平面" class="headerlink" title="4.3 控制平面"></a>4.3 控制平面</h5><p><strong>构件控制平面的两大类方法</strong>：</p>
 <p>传统的每路由器控制：每台路由器中运算算法，并且路由器中的路由选择组件与其他路由器的路由选择组件通信；</p>
-<p>软件定义网络(SDN)控制：其中一个逻辑上集合的控制器计算，并向每台路由器分发转发表为他们所用</p>
+<p>软件定义网络(SDN)控制：在一个逻辑上集合的控制器计算，并向每台路由器分发转发表为他们所用</p>
 <hr>
 <p><strong>路由选择算法</strong>：为了得到一条有最低开销的路径，可基于<strong>图</strong>进行最短路径选择</p>
 <p>链路状态算法(LS)：Djikstra算法，最差情况下复杂性为O(N^2)，使用全局信息的算法</p>
@@ -820,7 +820,7 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <hr>
 <p><strong>SDN控制平面</strong></p>
 <p>具有4个特征：基于流的转发，数据平面和控制平面分离，网络控制功能：位于数据平面交换机外面，可编程的网络</p>
-<p>ICMP（网际控制报文协议）：最典型的用途是差错报告，其体系结果位于IP之上，是承载在IP分组中的</p>
+<p>ICMP（网际控制报文协议）：最典型的用途是差错报告，其体系结构位于IP之上，是承载在IP分组中的</p>
 <img src="/images/loading.gif" data-original="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e3124763-f75e-46c3-ba82-341e6c98d862.jpg" width="500"/>
 
 
@@ -909,7 +909,7 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <p>2.验证服务器是真实正确的服务器，服务器会发送一个被某CA公证过的公钥。</p>
 <p>3.客户发送给服务器一个主密钥（使用服务器的公钥加密），客户和服务器使用该主密钥生成SSL会话所需的所有对称密钥</p>
 <p><strong>2.密钥导出</strong>：双方使用不同的密钥，为了更安全</p>
-<p>会根据前面的主密钥生成4个密钥，两个加密密钥用来解密数据，两个MAC密钥用来验证数据的完整性。</p>
+<p>会根据前面的主密钥生成4个密钥，两个加密密钥用来解密数据，两个MAC密钥用来验证数据的完整性，双方各两个</p>
 <p><strong>3.数据传输</strong>：为了方便将MAC完整性检测传过去，<strong>其将数据分割成一个个记录</strong>，给每个记录附加一个MAC用于完整性检测，然后加密“记录+MAC”，进行传输</p>
 <p><strong>4.SSL记录</strong>：</p>
 <img src="/images/loading.gif" data-original="https://img-blog.csdn.net/20180523150500822?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoaXBmc2hfc2g=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img" style="zoom: 67%;" />
@@ -1147,36 +1147,30 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+                <a href="/2020/09/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="计算机网络基础">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="数据结构和算法">
                         
-                        <span class="card-title">计算机网络基础</span>
+                        <span class="card-title">数据结构和算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            机械工业出版社的大黑书(计算机网络-自顶向下方法)和课程，慕课的一个的总结，主要根据tcp/ip的五层体系结构。介绍一些大概
-下面放一些他人的总结，当做补充资料或者细节
-五层结构简解
-tcp协议详解
-IP协议简解
-HTTP协议详解
-get/
+                            虽然之前上了一些关于数据结构、算法之类的课，但之前都没有怎么搞懂，尤其是算法里面的一些算法思想，现在看能不能补上，就是一些大佬的算法指导，刷LeetCode的一些题，回看之前的书上面的重点。
+教材是清华大学出版社的数据结构(C语言版)、计算
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1185,12 +1179,11 @@ get/
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">计算机网络</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
