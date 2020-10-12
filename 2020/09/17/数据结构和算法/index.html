@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    907
+                    1.6k
                 </div>
                 
 
@@ -474,7 +474,44 @@
             <div id="articleContent">
                 <p>虽然之前上了一些关于数据结构、算法之类的课，但之前都没有怎么搞懂，尤其是算法里面的一些算法思想，现在看能不能补上，就是一些大佬的算法指导，刷LeetCode的一些题，回看之前的书上面的重点。</p>
 <p>教材是清华大学出版社的数据结构(C语言版)、计算机算法分析与设计(第四版)</p>
-<h4 id="1-数据结构"><a href="#1-数据结构" class="headerlink" title="1.数据结构"></a>1.数据结构</h4><h5 id="1-KPM算法和next数组求值"><a href="#1-KPM算法和next数组求值" class="headerlink" title="1.KPM算法和next数组求值"></a>1.KPM算法和next数组求值</h5><p>这是一个进行字符串匹配的算法，原理是求一个字符串的某一个字符的前面的字符串最大相等的前缀和后缀</p>
+<h4 id="1-算法复杂度分析"><a href="#1-算法复杂度分析" class="headerlink" title="1.算法复杂度分析"></a>1.算法复杂度分析</h4><h5 id="1-时间复杂度"><a href="#1-时间复杂度" class="headerlink" title="1.时间复杂度"></a>1.时间复杂度</h5><p><strong>大 O 时间复杂度表示法</strong>( T(n) =O(f(n)) ） 实际上并不具体表示代码真正的执行时间，而是表示 <strong>代码执行时间随数据规模增长的变化趋势</strong>，所以也叫 <strong>渐进时间复杂度</strong>，简称 <strong>时间复杂度</strong></p>
+<p>由于 <strong>时间复杂度</strong> 描述的是算法执行时间与数据规模的 <strong>增长变化趋势</strong>，所以 <strong>常量、低阶、系数</strong> 实际上对这种增长趋势不产生决定性影响，所以在做时间复杂度分析时 <strong>忽略</strong> 这些项</p>
+<p>例：</p>
+<pre><code>function cal(m, n) {
+  let sum_3 = 0;
+   let i = 1;
+   let j = 1;
+   for (; i &lt;= m; ++i) {
+     j = 1; 
+     for (; j &lt;= n; ++j) {
+       sum_3 = sum_3 +  i * j;
+     }
+   }
+}</code></pre><p>以上代码也是求和，两层 for 循环 ，求 sum_3 的数据规模为 m 和 n，所以时间复杂度为 O(m*n)。</p>
+<p>时间复杂度可以分为：</p>
+<ul>
+<li><strong>最好情况时间复杂度</strong>（best case time complexity）：在最理想的情况下，执行这段代码的时间复杂度。</li>
+<li><strong>最坏情况时间复杂度</strong>（worst case time complexity）：在最糟糕的情况下，执行这段代码的时间复杂度。</li>
+<li><strong>平均情况时间复杂度</strong>（average case time complexity），用代码在所有情况下执行的次数的加权平均值表示。也叫 <strong>加权平均时间复杂度</strong> 或者 <strong>期望时间复杂度</strong>。</li>
+<li><strong>均摊时间复杂度</strong>（amortized time complexity）: 在代码执行的所有复杂度情况中绝大部分是低级别的复杂度，个别情况是高级别复杂度且发生具有时序关系时，可以将个别高级别复杂度均摊到低级别复杂度上。基本上均摊结果就等于低级别复杂度</li>
+</ul>
+<p>一般我们最关心的还是<strong>最坏情况</strong>下的时间复杂度或<strong>平均</strong>复杂度</p>
+<p><strong>O(1) &lt; O(logn) &lt; (n) &lt; O(nlogn) &lt; O(n2) &lt; O(n3) &lt; O(2n) &lt; O(n!) &lt; O(nn)</strong></p>
+<h5 id="2-空间复杂度"><a href="#2-空间复杂度" class="headerlink" title="2.空间复杂度"></a>2.空间复杂度</h5><p>类比一下，空间复杂度全称就是 <strong>渐进空间复杂度</strong>（asymptotic space complexity），表示 <strong>算法的存储空间与数据规模之间的增长关系</strong></p>
+<p>例：</p>
+<pre><code>function print(n) {
+ const newArr = []; // 第 2 行
+ newArr.length = n; // 第 3 行
+  for (let i = 0; i &lt;n; ++i) {
+    newArr[i] = i * i;
+  }
+
+  for (let j = n-1; j &gt;= 0; --j) {
+    console.log(newArr[i])
+  }
+}</code></pre><p>跟时间复杂度分析一样，我们可以看到，第 2 行代码中，我们申请了一个空间存储变量 newArr ，是个空数组。第 3 行把 newArr 的长度修改为 n 的长度的数组，每项的值为 undefined ，除此之外，剩下的代码都没有占用更多的空间，所以整段代码的空间复杂度就是 O(n)。</p>
+<hr>
+<h4 id="2-数据结构"><a href="#2-数据结构" class="headerlink" title="2.数据结构"></a>2.数据结构</h4><h5 id="1-KPM算法和next数组求值"><a href="#1-KPM算法和next数组求值" class="headerlink" title="1.KPM算法和next数组求值"></a>1.KPM算法和next数组求值</h5><p>这是一个进行字符串匹配的算法，原理是求一个字符串的某一个字符的前面的字符串最大相等的前缀和后缀</p>
 <p>kmp算法为</p>
 <pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">kmp</span><span class="token punctuation">(</span>string s<span class="token punctuation">,</span>string t<span class="token punctuation">,</span><span class="token keyword">int</span> pos<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//s为主串，t为模式串</span>
     i <span class="token operator">=</span> pos<span class="token punctuation">;</span>
@@ -586,7 +623,6 @@ void MiniSpanTree_prim(MGraph G ,vertexType u){
     }
 }
 </code></pre>
-<hr>
 <p>Kruskal算法，连通分量（即不能形成环）不断合并的过程。在开始就将n个顶点加入U，选边。每次选择边权最小的边链接两个端点是kruskal的规则，并实时判断两个点之间有没有间接联通形成环。</p>
 <p><a href="https://blog.csdn.net/mgsky1/article/details/77840286" target="_blank" rel="noopener">参考链接</a></p>
 <pre class=" language-c++"><code class="language-c++">#include<iostream>
@@ -856,7 +892,7 @@ int Prtition(SqList &L,int low,int high){
 <p>4归并排序</p>
 <p>将两个或以上的有序表组合成一个新的有序表</p>
 <hr>
-<h4 id="6-计算机算法思想"><a href="#6-计算机算法思想" class="headerlink" title="6.计算机算法思想"></a>6.计算机算法思想</h4><h5 id="1-递归与分治"><a href="#1-递归与分治" class="headerlink" title="1.递归与分治"></a>1.递归与分治</h5><p>递归看之前的一些就行，这里主要说分治法，各个击破，分而治之</p>
+<h4 id="3-计算机算法思想"><a href="#3-计算机算法思想" class="headerlink" title="3.计算机算法思想"></a>3.计算机算法思想</h4><h5 id="1-递归与分治"><a href="#1-递归与分治" class="headerlink" title="1.递归与分治"></a>1.递归与分治</h5><p>递归看之前的一些就行，这里主要说分治法，各个击破，分而治之</p>
 <p>基本思想是将一个规模为n的问题分解成k个规模较小的子问题，这些子问题相互独立，不包含公共的子问题，且与原问题相同，递归的解这些子问题（将这些子问题继续划分），然后将各个子问题的解合并得到原问题的解。常见的 k = 2</p>
 <p>例：二分查找技术，棋盘覆盖，归并排序，快速排序等的具体实现</p>
 <h5 id="2-动态规划"><a href="#2-动态规划" class="headerlink" title="2.动态规划"></a>2.动态规划</h5><p>适用于解最优化问题，依赖于问题本身的两个核心性质：最优子结构性质和子问题重叠性质。分解的子问题往往不是互相独立的</p>
@@ -1148,31 +1184,37 @@ int Prtition(SqList &L,int low,int high){
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">
+                <a href="/2020/09/30/js%E5%90%84%E7%A7%8D%E7%9F%A5%E8%AF%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="数据结构和算法">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="js各种知识">
                         
-                        <span class="card-title">数据结构和算法</span>
+                        <span class="card-title">js各种知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            虽然之前上了一些关于数据结构、算法之类的课，但之前都没有怎么搞懂，尤其是算法里面的一些算法思想，现在看能不能补上，就是一些大佬的算法指导，刷LeetCode的一些题，回看之前的书上面的重点。
-教材是清华大学出版社的数据结构(C语言版)、计算
+                            就是对一些js比较高级一点的知识的简单提及
+1.变量提升参考一道题
+var a = 10;
+{
+    function hello() {
+        a = 99;
+        function a() {
+        }
+
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1181,12 +1223,11 @@ int Prtition(SqList &L,int low,int high){
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>

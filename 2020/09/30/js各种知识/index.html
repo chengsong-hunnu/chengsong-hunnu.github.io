@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="android room简单学习, 晟松">
+    <meta name="keywords" content="js各种知识, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>android room简单学习 | 晟松</title>
+    <title>js各种知识 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">android room简单学习</h1>
+                    <h1 class="description center-align post-title">js各种知识</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/csdn-room/">
-                                <span class="chip bg-color">csdn room</span>
+                            <a href="/tags/js/">
+                                <span class="chip bg-color">js</span>
                             </a>
                         
                     </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-07
+                    2020-09-30
                 </div>
                 
 
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    396
+                    1.2k
                 </div>
                 
 
@@ -472,14 +472,68 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="room"><a href="#room" class="headerlink" title="room"></a>room</h3><p>1.要使用room需要先声明依赖，<a href="https://developer.android.google.cn/jetpack/androidx/releases/room#declaring_dependencies" target="_blank" rel="noopener">声明方法</a><br><strong>注意要在app模式下的build.gradle(module:app)里面添加依赖，不要在project里面的gradle里面添加。</strong></p>
-<p>2.room由3个主要的组件，分别为<br>Database：数据库，<br>Entity：数据库中的表，<br>DAO：访问数据库的方法。</p>
-<p>3.room可以使用一个Java类文件当做数据库的表，只需使用@Entity注解。<br>里面有几个主要的注解使用<br><strong>也可以在@Entity注解后面使用tablename声明表的名称</strong><br> <strong>@PrimaryKey(autoGenerate = true) // 设置主键，并且自动生长</strong><br> <strong>@ColumnInfo(name = “true_name”) // 设置别名，如果不设置就默认为变量名</strong><br> 在其中可以定义需要的变量且对其中每一个变量都需要写出其set方法和get方法。</p>
-<p> 4.之后我们使用DAO来对数据库进行访问<br> 同样我们需要使用一个Java接口类文件，同时使用@DAO 注解<br> 其中里面有4个主要的注解进行使用<br> <strong>@Insert 表示插入记录。<br>@Update 表示修改数据库中的记录。<br>@Delete 表示删除数据库中记录。<br>@Query(“ “) 中可以写入SQL语句，来执行操作。</strong></p>
-<p>5.创建一个Database，同样要使用@Database注解，且在其中需要指明entities和version<br><strong>Database 文件必须要继承 **androidx.room.RoomDatabase</strong>，并且得是抽象类。**</p>
-<p>之后就是建立一个布局，将数据库里面的数据显示出来，并与DAO的几个操作通过点击进行交互。</p>
-<p><a href="https://github.com/chengsong-hunnu/local-github/tree/master/room" target="_blank" rel="noopener">主要代码在这里</a></p>
-<p>主要借鉴了<a href="https://blog.csdn.net/weixin_43734095/article/details/100182369?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1" target="_blank" rel="noopener">萌宅鹿</a>和<a href="https://developer.android.google.cn/training/data-storage/room" target="_blank" rel="noopener">android studio官方</a></p>
+                <p>就是对一些js比较高级一点的知识的简单提及</p>
+<h5 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h5><p><a href="https://blog.csdn.net/nokiaguy/article/details/106073431" target="_blank" rel="noopener">参考一道题</a></p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        a <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span>
+        <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+        a <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//非严格模式下，输出99，严格模式下就不会出现这种奇怪的错误</span></code></pre>
+<p>var是函数作用域（包含它的函数的局部变量），let是块级作用域（类似一个大括号里面的作用域包括if，while，function等）。</p>
+<p>使用var时，会自动将声明提升到函数的顶部，如果在全局里面声明的，就提升到全局的顶部，而且只是对声明进行提升，实际上的赋值还是在原来的地方，所以可以看见var的多次声明一个变量并赋值，其实只是声明了一次，后面都是赋值。但let就不会进行提升，所以不能重复声明同一变量。</p>
+<p>对于函数定义，还有<strong>函数声明提升</strong>，类似于var。但函数表达式就不可以了</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//函数声明</span>
+consolo<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> num<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//函数表达式，在之前调用会error，而且不是let的原因</span>
+<span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> num<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//除此之外，这两种方式等价</span></code></pre>
+<h5 id="2-堆栈，深拷贝，浅拷贝"><a href="#2-堆栈，深拷贝，浅拷贝" class="headerlink" title="2.堆栈，深拷贝，浅拷贝"></a>2.堆栈，深拷贝，浅拷贝</h5><p><a href="https://biaochenxuying.cn/articleDetail?article_id=5d1b1e2cb9e26b1e10d2e5d5" target="_blank" rel="noopener">参考文章</a></p>
+<p><strong>堆</strong>其实是一种特殊的树。只要满足这两点，它就是一个堆。</p>
+<ul>
+<li>堆是一个完全二叉树。 完全二叉树：除了最后一层，其他层的节点个数都是满的，最后一层的节点都靠左排列。</li>
+<li>堆中每一个节点的值都必须大于等于（或小于等于）其子树中每个节点的值。 也可以说：堆中每个节点的值都大于等于（或者小于等于）其左右子节点的值。这两种表述是等价的。</li>
+</ul>
+<p>对于数据存储：</p>
+<ul>
+<li><strong>基本类型</strong>是保存在栈内存中的简单数据段，它们的值都有固定的大小，保存在栈空间，通过按值访问，并由系统自动分配和自动释放。 这样带来的好处就是，内存可以及时得到回收，相对于堆来说，更加容易管理内存空间。 JavaScript 中的 <code>Boolean、Null、Undefined、Number、String、Symbol</code> 都是基本类型。</li>
+<li><strong>引用类型</strong>（如对象、数组、函数等）是保存在堆内存中的对象，值大小不固定，栈内存中存放的该对象的访问地址指向堆内存中的对象，JavaScript 不允许直接访问堆内存中的位置，因此操作对象时，实际操作对象的引用。 JavaScript 中的 <code>Object、Array、Function、RegExp、Date</code> 是引用类型。</li>
+</ul>
+<p>深拷贝：复制得到的访问地址指向<code>不同的内存空间，互不相干</code>。所以修改其中一个值，另外一个不会改变。</p>
+<p>平时使用数组复制时，我们大多数会使用 <code>=</code>，这只是浅拷贝，存在很多问题，会相互影响</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> arr2 <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[1, 2, 3, 4, 5]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[1, 2, 3, 4, 5]</span>
+arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[6, 2, 3, 4, 5]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[6, 2, 3, 4, 5]</span>
+arr2<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[6, 2, 3, 4, 7]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[6, 2, 3, 4, 7]</span></code></pre>
+<p><strong>深拷贝的的复制过程</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">20</span> <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//先转换成字符类型，再转成object类型，成功在堆里面生成了一个新的对象数据</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+b<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span></code></pre>
+<p>在原文章中还有一些对数组这些的一些方法（如slice，concat）的测试，实现深拷贝</p>
+<h5 id="js高级程序设计里面的一些知识点记录"><a href="#js高级程序设计里面的一些知识点记录" class="headerlink" title="js高级程序设计里面的一些知识点记录"></a>js高级程序设计里面的一些知识点记录</h5><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
+<p>p237    原型的问题还是源自其自身的共享特性，当原型上面存在引用类型（如数组）的时候，这个引用类型是共享的。当一个实例修改了这个数组，其他实例也能得到这个数组，一般而言，每个实例应该有自身的属性副本。</p>
+<p>可使用<code>盗用构造函数（在子类构造函数中使用call()或apply()调用父类构造函数）</code>和<strong>组合继承(主流)</strong>（结合原型链和盗用构造函数，两者都使用）解决</p>
+<p>p240    默认情况下，所有引用类型都继承自Object</p>
+<p>p284    代理进行对赋值操作的属性检验</p>
+<p>p289    因为函数名是指向函数的指针，所以一个函数可以有多个名称</p>
+<p>p300    function定义的函数里面的this引用的是这个函数被调用时所处的作用域，而箭头函数就只是被<strong>定义</strong>时的上下文</p>
+<p>p352    await关键字只能直接出现在异步函数的定义中</p>
+<p>p467    css属性名使用连字符表示法，所以就算使用的时候必须将其转为驼峰命名</p>
 
             </div>
             <hr/>
@@ -505,7 +559,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/07/android-room%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/07/07/android-room%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/</a>
+                    <a href="http://yoursite.com/2020/09/30/js%E5%90%84%E7%A7%8D%E7%9F%A5%E8%AF%86/">http://yoursite.com/2020/09/30/js%E5%90%84%E7%A7%8D%E7%9F%A5%E8%AF%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -543,8 +597,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/csdn-room/">
-                                    <span class="chip bg-color">csdn room</span>
+                                <a href="/tags/js/">
+                                    <span class="chip bg-color">js</span>
                                 </a>
                             
                         </div>
@@ -712,32 +766,38 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/08/%E7%8C%8E%E5%A5%87%E4%BD%9C%E5%93%81/">
+                <a href="/2020/09/30/js%E5%90%84%E7%A7%8D%E7%9F%A5%E8%AF%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="猎奇作品(以后有新的会更新)">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="js各种知识">
                         
-                        <span class="card-title">猎奇作品(以后有新的会更新)</span>
+                        <span class="card-title">js各种知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            就是记录一下一些看过的作品1.鱼毛骨悚然的蠕动
-​        动漫观感一般，后遗感2小时以内，留的坑有些多，不讨论其内涵，就画面来说对于猎奇这点还是有一些诠释，就是有些地方密恐慎入。
-2.芽衣恶虐，恶梦轮回
-​        这两部作品
+                            就是对一些js比较高级一点的知识的简单提及
+1.变量提升参考一道题
+var a = 10;
+{
+    function hello() {
+        a = 99;
+        function a() {
+        }
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -746,11 +806,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%8C%8E%E5%A5%87-%E8%AE%B0%E5%BD%95/">
-                        <span class="chip bg-color">猎奇,记录</span>
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>
@@ -764,24 +825,25 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/07/csapp-fork%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E5%92%8C%E7%90%86%E8%A7%A3/">
+                <a href="/2020/09/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="csapp fork的一些代码运行和理解">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="数据结构和算法">
                         
-                        <span class="card-title">csapp fork的一些代码运行和理解</span>
+                        <span class="card-title">数据结构和算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            fork1. 先说一点简单的fork定义1.创建一个新进程，新进程被称为子进程。两者最大的区别在于pid不同，一般通过返回值分辨是哪个进程。2.fork函数被调用一次但返回两次。两次返回的唯一区别是子进程中返回0值而父进程中返回子进程ID。
+                            虽然之前上了一些关于数据结构、算法之类的课，但之前都没有怎么搞懂，尤其是算法里面的一些算法思想，现在看能不能补上，就是一些大佬的算法指导，刷LeetCode的一些题，回看之前的书上面的重点。
+教材是清华大学出版社的数据结构(C语言版)、计算
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
                             </span>
                         <span class="publish-author">
                             
@@ -794,8 +856,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/csdn-fork/">
-                        <span class="chip bg-color">csdn fork</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
