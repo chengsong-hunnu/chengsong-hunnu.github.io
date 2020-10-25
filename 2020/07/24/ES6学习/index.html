@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    719
+                    1.1k
                 </div>
                 
 
@@ -472,7 +472,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>js的一种版本标准，只是为了学一些重点的新语法。</p>
+                <p>js的一种版本标准，只是为了学一些重点的新语法。进行一点记录，更细致的还是查看教程吧</p>
+<p><a href="https://es6.ruanyifeng.com/" target="_blank" rel="noopener">阮一峰的es6教程</a></p>
+<p><a href="https://juejin.im/post/6844903959283367950" target="_blank" rel="noopener">掘金的总结</a></p>
 <h4 id="1-箭头函数"><a href="#1-箭头函数" class="headerlink" title="1.箭头函数"></a>1.箭头函数</h4><p><strong>箭头函数的作用主要是定义匿名函数</strong></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> foo <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 转换成箭头函数</span>
@@ -486,26 +488,31 @@
 <p><strong>箭头函数的特点：</strong></p>
 <p>1、不能做构造函数（不能实例化）</p>
 <p>2、没有 arguments。 arguments就是函数带的实参，类似linux的argv，可用arguments获取调用的参数。</p>
-<p><strong>3、箭头函数没有自己的this，箭头函数的this不是调用的时候决定的，this指向上下文环境。（意思：箭头函数的外层的是否有函数，如果有，箭头函数的this就是外层函数的this，如果没有，则为 window）</strong></p>
+<p><strong>3、箭头函数没有自己的this，箭头函数的this不是调用的时候决定的，this指向上下文环境。（意思：箭头函数的外层的是否有函数，如果有，箭头函数的this就是外层函数的this，如果没有，则为 window）。是由其定义的时候的上下文决定的，是固定的</strong></p>
 <hr>
 <h4 id="2-let-与-const"><a href="#2-let-与-const" class="headerlink" title="2.let 与 const"></a>2.let 与 const</h4><p>let 声明的变量只在 let 命令所在的代码块内有效。</p>
-<p>const 声明一个只读的常量，一旦声明，常量的值就不能改变。</p>
+<p>const 声明一个只读的常量，一旦声明，常量的值就不能改变。const其实是让这个变量指向的地址数据不能发生变化，当变量是普通类型的时候，就不能变。当变量是数组，对象这些<strong>引用类型</strong>的时候，因为这个地址只是指向实际数据的指针，所以可以改变这些引用类型里面的数据，只是const定义的变量不能改变。</p>
 <hr>
 <h4 id="3-解构赋值"><a href="#3-解构赋值" class="headerlink" title="3.解构赋值"></a>3.解构赋值</h4><p>解构赋值是对赋值运算符的扩展，他是一种针对数组或者对象进行模式匹配，然后对其中的变量进行赋值。</p>
+<p>可进行嵌套解构。</p>
 <p><strong>从对象或数组中提取数据, 并赋值给变量(多个)</strong>。</p>
+<p>注意当对对象进行解构的时候，<strong>在{}里面的变量名需要与被解构的对象key名相同</strong>，不然不能被解构。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'kobe'</span><span class="token punctuation">,</span> age <span class="token punctuation">:</span> <span class="token number">39</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> name <span class="token operator">=</span> obj<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
 <span class="token keyword">let</span> age <span class="token operator">=</span> obj<span class="token punctuation">.</span>age<span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//解构</span>
 <span class="token keyword">let</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span>age<span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span></code></pre>
 <hr>
-<h4 id="4-展开符-三点运算符-…"><a href="#4-展开符-三点运算符-…" class="headerlink" title="4.展开符/三点运算符(…)"></a>4.展开符/三点运算符(…)</h4><p>用来取代 arguments 但比 arguments 灵活.</p>
+<h4 id="4-展开符-三点运算符-…-rest参数"><a href="#4-展开符-三点运算符-…-rest参数" class="headerlink" title="4.展开符/三点运算符(…)/rest参数"></a>4.展开符/三点运算符(…)/rest参数</h4><p>用来取代 arguments 但比 arguments 灵活.里面的value是一个真正的数组，而不是像argument一样的伪数组</p>
+<p>而且只能是函数参数的最后一个位置，即后面不能有其他的参数</p>
 <p><img src="/images/loading.gif" data-original="https://gitee.com/xxgw1997/Web-2/raw/master/12-ES6/images/9.png" alt="img"></p>
 <p>或者可用来对数组进行扩展</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">...</span>arr1<span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token operator">...</span>arr1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1,2,3,4,5,6]</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1 2 3 4 5 6</span></code></pre>
 <hr>
@@ -542,7 +549,24 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 调用父类的toString()</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<img src="/images/loading.gif" data-original="https://www.runoob.com/wp-content/uploads/2018/12/es6-tutorial.jpg" alt="img" style="zoom: 50%;" />
+<hr>
+<p> <strong>现在对es6进行一个更细致的学习，主要是对阮一峰的es6教程的学习</strong></p>
+<img src="/images/loading.gif" data-original="https://user-gold-cdn.xitu.io/2020/3/15/170de4be1318de5e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="ES6ç¼©ç¥" style="zoom: 50%;" />
+
+<h4 id="1-模板字符串"><a href="#1-模板字符串" class="headerlink" title="1.模板字符串"></a>1.模板字符串</h4><p>使用 <strong>``</strong> 这两个反引号字符里面包围的字符串称为模板字符串，使用 <strong>${}</strong> 可使用正常作用域里面可使用的变量，函数</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>x<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> + </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>y<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>x <span class="token operator">+</span> y<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+<span class="token comment" spellcheck="true">// "1 + 2 = 3"</span>
+
+<span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>x<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> + </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>y <span class="token operator">*</span> <span class="token number">2</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>x <span class="token operator">+</span> y <span class="token operator">*</span> <span class="token number">2</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+<span class="token comment" spellcheck="true">// "1 + 4 = 5"</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>obj<span class="token punctuation">.</span>x <span class="token operator">+</span> obj<span class="token punctuation">.</span>y<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span></code></pre>
+<h4 id="2-尾调用，尾递归"><a href="#2-尾调用，尾递归" class="headerlink" title="2.尾调用，尾递归"></a>2.尾调用，尾递归</h4><p>在函数的<strong>return</strong>后面加一个函数，可以优化调用栈，在严格模式下启用</p>
+
             </div>
             <hr/>
 
@@ -837,10 +861,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.vuex插件
-Vuex 的 store 接受 plugins 选项，这个选项暴露出每次 mutation 的钩子。Vuex 插件就是一个函数，它接收 store 作为唯一参数：
+                            1.vuex插件Vuex 的 store 接受 plugins 选项，这个选项暴露出每次 mutation 的钩子。Vuex 插件就是一个函数，它接收 store 作为唯一参数：
 const myPlugin = store => {
- 
+  
                         
                     </div>
                     <div class="publish-info">

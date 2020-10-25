@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -486,7 +486,7 @@
 <span class="token punctuation">}</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//非严格模式下，输出99，严格模式下就不会出现这种奇怪的错误</span></code></pre>
 <p>var是函数作用域（包含它的函数的局部变量），let是块级作用域（类似一个大括号里面的作用域包括if，while，function等）。</p>
-<p>使用var时，会自动将声明提升到函数的顶部，如果在全局里面声明的，就提升到全局的顶部，而且只是对声明进行提升，实际上的赋值还是在原来的地方，所以可以看见var的多次声明一个变量并赋值，其实只是声明了一次，后面都是赋值。但let就不会进行提升，所以不能重复声明同一变量。</p>
+<p>使用var时，会自动将声明提升到函数的顶部，如果在全局里面声明的，就提升到全局的顶部，而且只是对声明进行提升，实际上的赋值还是在原来的地方，所以可以看见var的多次声明一个变量并赋值，其实只是声明了一次，后面都是赋值。但let就不会进行提升，所以不能重复声明同一变量，也不能在定义之前进行使用。</p>
 <p>对于函数定义，还有<strong>函数声明提升</strong>，类似于var。但函数表达式就不可以了</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//函数声明</span>
 consolo<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>

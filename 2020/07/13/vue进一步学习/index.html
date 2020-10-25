@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.8k
                 </div>
                 
 
@@ -488,7 +488,7 @@
 <p>active表示动画的进行时间，enter和leave-to表示刚进入的效果和最终离开时的效果。还有enter-to和leave这两个表示动画最后的效果和离开开始的过渡状态。</p>
 <img src="/images/loading.gif" data-original="https://www.runoob.com/wp-content/uploads/2018/06/transition.png" alt="img" style="zoom:50%;" />
 
-<p>还可以使用自定义的类名，可以和第三方css类插件库(如:animate.css)进行配合。</p>
+<p>还可以使用自定义的类名，可以和<strong>第三方css类插件库</strong>(如:animate.css)进行配合。</p>
 <p>如：</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span>
     <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>custom-classes-transition<span class="token punctuation">"</span></span>
@@ -501,6 +501,24 @@
 <p>过渡时间你也可以在transition里面是绑定duration进行设置。如：</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">:duration</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1000<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">:duration</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{ enter: 500, leave: 800 }<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">></span></span></code></pre>
+<p><strong>过渡模式</strong>：<strong>mode</strong>，在transition标签里面，值为<strong>in-out</strong>和<strong>out-in</strong></p>
+<p><strong>多组件过渡</strong>：使用动态组件(is的值来进行切换组件)，在这上面变换css动画</p>
+<p><strong>列表过渡</strong>：使用 <code>&lt;transition-group&gt;</code> 组件。</p>
+<pre class=" language-vue"><code class="language-vue"><transition-group name="list-complete" tag="p">
+    <span
+      v-for="item in items"
+      v-bind:key="item"
+      class="list-complete-item"
+    >
+      {{ item }}
+    </span>
+  </transition-group>
+//flip方法移动列表
+    shuffle: function () {
+      this.items = _.shuffle(this.items)
+    }</code></pre>
+<p><strong><code>v-move</code> class</strong>，它会在元素的改变定位的过程中应用。像之前的类名一样，可以通过 <code>name</code> attribute 来自定义前缀，也可以通过 <code>move-class</code> attribute 手动设置。例如：<strong>_.shuffle()</strong> 函数，在切换时会进行平滑移动</p>
+<p><strong>状态过渡</strong>：使用watch查看这些变化。也可将过渡放在组件里面复用</p>
 <h5 id="2-生命周期"><a href="#2-生命周期" class="headerlink" title="2.生命周期"></a>2.生命周期</h5><img src="/images/loading.gif" data-original="https://cn.vuejs.org/images/lifecycle.png" alt="Vue å®ä¾çå½å¨æ" style="zoom:33%;" />
 
 <p>我们能拿到的只有红色框里面的东西，中间的都是vue自动完成，我们无法控制。一般直接在vue实例里面添加这些东西进行控制。如：</p>
@@ -530,6 +548,40 @@
 Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'child'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 声明 props</span>
   props<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'message'</span><span class="token punctuation">,</span><span class="token string">'message1'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">//props也可以这样，可进行简单的验证</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 基础的类型检查 (`null` 和 `undefined` 会通过任何类型验证)</span>
+    propA<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 多个可能的类型</span>
+    propB<span class="token punctuation">:</span> <span class="token punctuation">[</span>String<span class="token punctuation">,</span> Number<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 必填的字符串</span>
+    propC<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      required<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 带有默认值的数字</span>
+    propD<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">100</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 带有默认值的对象</span>
+    propE<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+      <span class="token comment" spellcheck="true">// 对象或数组默认值必须从一个工厂函数获取</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span> message<span class="token punctuation">:</span> <span class="token string">'hello'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 自定义验证函数</span>
+    propF<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      validator<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 这个值必须匹配下列字符串中的一个</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'success'</span><span class="token punctuation">,</span> <span class="token string">'warning'</span><span class="token punctuation">,</span> <span class="token string">'danger'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+
   <span class="token comment" spellcheck="true">// 同样也可以在 vm 实例中像 "this.message" 这样使用</span>
   template<span class="token punctuation">:</span> <span class="token string">'&lt;span>{{ message }}+{{message1}}&lt;/span>'</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -573,26 +625,52 @@ new Vue({
 <p>component里面的data必须是一个函数，为了保证每个组件的数据不共用。注意驼峰命名法在html里面需要转换成横线格式。</p>
 <p>同时有$parent,$children,$root属性，可以在组件中找到父元素的vue对象，子元素的，根(最外层对象)的这些，之后就可以当做vue对象进行调用方法之类的。</p>
 <p>v-model也可以绑定到组件上，默认会利用名为 <code>value</code> 的 prop 和名为 <code>input</code> 的事件，需要在组件的template里面添加相应监听和$emit()调用。</p>
-<p><strong>一般使用.vue分开使用组件的话</strong></p>
+<p><strong>一般使用.vue分开使用组件的话(父组件就是使用组件的，子组件就是定义组件的)</strong></p>
 <p><strong>父组件给子组件传递数据：在父组件的子组件标签里面通过v-bind绑定一个<u>特定名</u>和数据。在子组件里使用props声明这个<u>特定名</u>，然后就可以使用这个特定名进行数据使用。</strong></p>
 <p><strong>子组件给父组件传递数据和使用父组件的方法：</strong></p>
 <p>​    <strong>1.在父组件的子组件标签里面通过v-on监听一个<u>特定名</u>和一个在父组件里面的methods的方法名，在子组件里面自定义一个点击事件之类的，触发在子组件里面自定义的方法，在这个方法里面通过this.$emit(‘<u>特定名</u>‘,’数据’)，就会通过这个特定名调用父组件里面的方法，数据也作为参数传递了过去。</strong></p>
 <p>​    <strong>2.在父组件里通过v-bind绑定一个<u>特定名</u>和<u>父组件方法</u>，在子组件里通过props声明这个特定名，然后就可以把这个<u>特定名</u>当做一个方法进行使用</strong></p>
-<h5 id="4-插槽。"><a href="#4-插槽。" class="headerlink" title="4.插槽。"></a>4.插槽。</h5><p>整体结构不变，但要插入一些内容。<slot></slot>,新版本(2.6.0)可使用v-slot。一般来说，在自定义组件的标签里面添加内容，是不会被渲染到页面上去的，但slot解决了这个问题。<slot>在组件的template里面添加使用，添加之后，当在组件标签里面添加内容时，slot将会被替换掉，内容可被渲染到页面上。一个组件的template最外层只会有一个标签，一般可使用一个div将所有元素进行包裹。</p>
+<h5 id="4-插槽。"><a href="#4-插槽。" class="headerlink" title="4.插槽。"></a>4.插槽。</h5><p>整体结构不变，但要插入一些内容。<slot></slot>,新版本(2.6.0)可使用v-slot。一般来说，在自定义组件的标签里面添加内容，是不会被渲染到页面上去的，但slot解决了这个问题。<slot>在组件的<strong>template里面添加</strong>使用，添加之后，当在组件标签里面添加内容时，slot将会被替换掉，内容可被渲染到页面上。一个组件的template最外层只会有一个标签，一般可使用一个div将所有元素进行包裹。</p>
 <p><strong>父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。</strong></p>
+<p>还有<strong>具名插槽</strong>，通过父组件<template v-slot:footer>和子组件<slot name="footer"></slot>使用。v-slot只能在template里面使用</p>
+<p><strong>作用域插槽</strong>，访问子组件的内容，将v-slot直接在组件标签上面使用</p>
+<pre class=" language-vue"><code class="language-vue"><current-user v-slot="slotProps">
+  {{ slotProps.user.firstName }}
+</current-user></code></pre>
+<p>v-slot后面有参数的话，可缩写为 <strong>‘#’</strong>，v-slot:header 可以被重写为  #header</p>
 <h5 id="5-动态组件。"><a href="#5-动态组件。" class="headerlink" title="5.动态组件。"></a>5.动态组件。</h5><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name"><span class="token namespace">v-bind:</span>is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>currentTabComponent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">></span></span></code></pre>
 <p>可使用is属性切换不同的组件。</p>
-<p>is用法。其中currentTabComponent是在vue实例里面进行数据定义，然后在局部定义组件和方法进行切换currentTabComponent，在this.$options.components[id]，this表示vue实例，获取到组件实例，之后将component标签替换成这个组件。</p>
+<p>is用法。其中currentTabComponent是在vue实例里面进行数据定义的，然后在局部定义<strong>组件</strong>和方法进行切换currentTabComponent，在this.$options.components[id]，this表示vue实例，获取到组件实例，之后将component标签替换成这个组件。</p>
 <p>一般切换的时候，都会重新渲染组件。当我们不想让其重新渲染的时候，就可以使用<keep-alive>标签。如</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name"><span class="token namespace">v-bind:</span>is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>currentTabComponent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span></code></pre>
 <p> keep-alive要求被切换到的组件都有自己的名字，不论是通过组件的 <code>name</code>选项还是局部/全局注册。</p>
 <p>因为一些标签 有一些限制出现的地方，如<li>，为了避免这些情况，在组件中的template使用<strong>单文件组件(.vue文件)</strong>就不会存在这些限制，这也是重点。</p>
+<hr>
+<p>在每个 <code>new Vue</code> 实例的子组件中，其根实例可以通过 <code>$root</code> property 进行访问其data、methods、computed里面的数据方法</p>
+<p>和 <code>$root</code> 类似，<code>$parent</code> property 可以用来从一个子组件访问父组件的实例。它提供了一种机会，可以在后期随时触达父级组件，以替代将数据以 prop 的方式传入子组件的方式。</p>
+<hr>
+<p>可在子组件标签里面使用<strong>ref</strong>，方便在js里面进行访问。只会在组件渲染完成之后生效，并且它们不是响应式的。</p>
+<pre class=" language-vue"><code class="language-vue"><base-input ref="usernameInput"></base-input>
+//js使用
+this.$refs.usernameInput</code></pre>
+<hr>
+<p><strong>依赖注入</strong> ：用到了两个新的实例选项：<code>provide</code> 和 <code>inject</code>。<code>provide</code> 选项允许我们指定我们想要<strong>提供</strong>给后代组件的数据/方法，简化了$parent获取父组件方法的方式</p>
+<pre class=" language-vue"><code class="language-vue">//父组件
+provide: function () {
+  return {
+    getMap: this.getMap,//组件里的method
+  }
+}
+
+//子组件
+inject: ["getMap"],//或去父组件的provide</code></pre>
+<hr>
 <h5 id="6-单文件组件-vue文件"><a href="#6-单文件组件-vue文件" class="headerlink" title="6.单文件组件(.vue文件)"></a>6.<strong>单文件组件(.vue文件)</strong></h5><p>脚手架。.vue文件解决了<strong>全局定义</strong> <strong>字符串模板</strong> <strong>不支持组件 CSS</strong>  <strong>没有构建步骤</strong>这些缺点</p>
 <p>1.解决了<strong>全局定义</strong> <strong>字符串模板</strong> <strong>不支持组件 CSS</strong>  <strong>没有构建步骤</strong>这些缺点，使关注点分离，模块化开发。</p>
 <p>2.vue-cli    vue.js的<a href="https://cli.vuejs.org/zh/guide/prototyping.html" target="_blank" rel="noopener">标准开发工具</a></p>
-<p>3.安装vue-cli按照官方文档的命令进行就可以了，不要其他的不加@符号的命令，在vscode终端里面目前是需要3版本以上。推荐使用git-bash进行npm下载或者cnpm下载。如果出现了什么命令没找到，注意添加安装路径到环境变量。如果安装好了，在bash里面vue –version没有问题，但在vscode终端里无法使用，将vscode设置成管理员打开。vue ui可以进行更简易化的创建配置操作。</p>
+<p>3.安装vue-cli按照官方文档的命令进行就可以了，不要其他的不加@符号的命令，在vscode终端里面目前是需要3版本以上。推荐使用git-bash进行npm下载或者cnpm下载。如果出现了什么命令没找到，注意添加安装路径到环境变量。如果安装好了，在bash里面vue –version没有问题，但在vscode终端里无法使用，将vscode设置成管理员打开。<strong>vue create xxx</strong>可以创建一个项目，同时<strong>vue ui</strong>可以进行更简易化的创建配置操作。</p>
 <p>4.在src目录里面开发，使用npm run serve看效果，npm run build打包到dist文件夹，可将dist文件夹部署到服务器，当做平常网站。注意绝对路径(/)，和相对路径(./)</p>
 <p>5.将文件模块化，明确文件关系</p>
 <p><strong>6.app.vue文件</strong>。核心文件，在template里面写html代码，script里面写js，style里面写css。注意全局使用驼峰命名，防止一些奇怪错误，注意在使用组件时，需要将驼峰命名变为横线。</p>
@@ -616,7 +694,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -870,20 +948,23 @@ export default {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/15/vue%E8%B7%AF%E7%94%B1%E4%B8%8Eless/">
+                <a href="/2020/07/15/vue-router/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue路由与less">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="vue路由">
                         
-                        <span class="card-title">vue路由与less</span>
+                        <span class="card-title">vue路由</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            B站老陈1.socket.io(套接字),用于浏览器和服务器进行实时，双向，基于事件(异步)的通信。这是其他的知识点，不是vue本身的知识点
-socket. emit(‘名’,’数据’),发送客户端数据。socket.on(‘名’,func
+                            B站老陈
+前面都没啥用，router路由才是核心
+1.router路由根据不同的路径显示不同的页面。在router里面的index.js里面配置不同的路径显示的不同的组件或者页面。
+根据选择的替换标签来显示内容。在本质上还是一个页面。
+所有
                         
                     </div>
                     <div class="publish-info">
@@ -901,8 +982,8 @@ socket. emit(‘名’,’数据’),发送客户端数据。socket.on(‘名’
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-socket-less-route/">
-                        <span class="chip bg-color">vue socket less route</span>
+                    <a href="/tags/vue-less-route/">
+                        <span class="chip bg-color">vue less route</span>
                     </a>
                     
                 </div>

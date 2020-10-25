@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    812
+                    818
                 </div>
                 
 
@@ -517,7 +517,7 @@
 <h5 id="2-mock-js模拟后端数据"><a href="#2-mock-js模拟后端数据" class="headerlink" title="2.mock.js模拟后端数据"></a>2.mock.js模拟后端数据</h5><p>通过劫持axios请求，将数据返回。路径可使用正则表达式</p>
 <p>首先需要在main.js里面进行引入，如果是在开发模式。需要npm安装。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Mock <span class="token keyword">from</span> <span class="token string">'mockjs'</span><span class="token punctuation">;</span>
-Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'/api/posi'</span><span class="token punctuation">,</span>position<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//position和index_entry是数据。需要export dedfault导出</span>
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'/api/posi'</span><span class="token punctuation">,</span>position<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//position和index_entry是数据。需要自己定义数据export dedfault导出</span>
 Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'/api/index_entry'</span><span class="token punctuation">,</span>index_entry<span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">//或者</span>

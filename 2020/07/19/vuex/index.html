@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    2.4k
                 </div>
                 
 
@@ -494,7 +494,20 @@ state<span class="token punctuation">:</span> <span class="token punctuation">{<
  modules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
   buyCar
  <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>在state里面添加全局数据，在mutation里面添加全局方法，修改数据。组件想要调用此方法，需要使用this.$store.commit(‘addnum’);进行调用。通过$store.state.num获得数据。</p>
+<p>在state里面添加全局数据，在mutation里面添加全局方法，修改数据。组件想要调用此方法，需要使用this.$store.<strong>commit</strong>(‘addnum’);进行调用。通过$store.state.num获得数据。</p>
+<p>Vuex 通过 <code>store</code> 选项，提供了一种机制将状态从根组件“注入”到每一个子组件中（需调用 <code>Vue.use(Vuex)</code>）：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所有的子组件</span>
+  store<span class="token punctuation">,</span><span class="token comment" spellcheck="true">//es6的property简化写法</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span> Counter <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
+    &lt;div class="app">
+      &lt;counter>&lt;/counter>
+    &lt;/div>
+  `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>通过在根实例中注册 <code>store</code> 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 <code>this.$store</code> 访问到。不需要每次都导入store</p>
 <h5 id="4-state"><a href="#4-state" class="headerlink" title="4.state"></a><strong>4.state</strong></h5><p>在组件里的应用，一般放在computed里面当做一个函数，返回一个在state里面的数据，如</p>
 <pre class=" language-js"><code class="language-js">msg<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> $store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>num<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
 <h6 id="4-1-mapstate"><a href="#4-1-mapstate" class="headerlink" title="4.1 mapstate"></a>4.1 mapstate</h6><p>简化我们获取数据的方式，mapState的作用就是返回一个对象，这个对象可以直接丢给computed</p>
@@ -508,9 +521,7 @@ state<span class="token punctuation">:</span> <span class="token punctuation">{<
     <span class="token comment" spellcheck="true">//     }</span>
     <span class="token comment" spellcheck="true">// }</span>
 computed<span class="token punctuation">:</span> <span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        <span class="token function">title</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> state<span class="token punctuation">.</span>title<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        title<span class="token punctuation">:</span> state <span class="token operator">=</span><span class="token operator">></span> state<span class="token punctuation">.</span>tital<span class="token punctuation">,</span>
         <span class="token function">userList</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> state<span class="token punctuation">.</span>userList<span class="token punctuation">;</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -528,27 +539,56 @@ computed<span class="token punctuation">:</span> <span class="token function">ma
 <pre class=" language-js"><code class="language-js">computed<span class="token punctuation">:</span> <span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">,</span> <span class="token string">'goodsList'</span><span class="token punctuation">,</span> <span class="token string">'userList'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>有些复杂数据还是推荐使用第一种。</p>
 <h5 id="5-getter"><a href="#5-getter" class="headerlink" title="5.getter"></a><strong>5.getter</strong></h5><p>相当于store的一个计算属性，就是对state的数据进行计算，当组件需要取到state的属性然后进行计算得到想要的结果的时候，计算的过程可以在<code>getters</code> 中进行，组件从getters中就可以直接拿到计算好的值。如果所有组件都需要这个计算的话，那就方便多了。</p>
-<pre class=" language-js"><code class="language-js">getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// ...   ，可接受其他getter作为参数</span>
-  doneTodosCount<span class="token punctuation">:</span> <span class="token punctuation">(</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> getters<span class="token punctuation">.</span>doneTodos<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//return state.num++;</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    todos<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> text<span class="token punctuation">:</span> <span class="token string">'...'</span><span class="token punctuation">,</span> done<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> text<span class="token punctuation">:</span> <span class="token string">'...'</span><span class="token punctuation">,</span> done<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//也可接收第二参数为其他的getter</span>
+    doneTodos<span class="token punctuation">:</span> state <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>todo <span class="token operator">=</span><span class="token operator">></span> todo<span class="token punctuation">.</span>done<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>Getter 会暴露为 <code>store.getters</code> 对象，你可以以属性的形式访问这些值</p>
 <pre class=" language-js"><code class="language-js">computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">,</span> <span class="token string">'userList'</span><span class="token punctuation">,</span> <span class="token string">'goodsList'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token comment" spellcheck="true">// 直接调用getters的countAge属性即可</span>
+    <span class="token comment" spellcheck="true">// 直接调用getters的doneTodos属性即可</span>
     <span class="token function">allAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>countAge
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>doneTodos
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+<p>你也可以通过让 getter 返回一个函数，来实现给 getter 传参。在你对 store 里的数组进行查询时非常有用。</p>
+<pre class=" language-js"><code class="language-js">getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  getTodoById<span class="token punctuation">:</span> <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> state<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>todo <span class="token operator">=</span><span class="token operator">></span> todo<span class="token punctuation">.</span>id <span class="token operator">===</span> id<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span><span class="token function">getTodoById</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// -> { id: 2, text: '...', done: false }</span></code></pre>
+<p>注意，getter 在通过方法访问时，每次都会去进行调用，而不会缓存结果。</p>
 <h6 id="5-1-mapgetter"><a href="#5-1-mapgetter" class="headerlink" title="5.1 mapgetter"></a>5.1 mapgetter</h6><p>如果你想将一个 getter 属性另取一个名字，使用对象形式：</p>
-<pre class=" language-js"><code class="language-js"> <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">{</span> allAge<span class="token punctuation">:</span> <span class="token string">'countAge'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token comment" spellcheck="true">// allAge() {</span>
-    <span class="token comment" spellcheck="true">//     return this.$store.getters.countAge</span>
-    <span class="token comment" spellcheck="true">// }</span></code></pre>
-<h5 id="6-mutation"><a href="#6-mutation" class="headerlink" title="6.mutation"></a><strong>6.mutation</strong></h5><p>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation</p>
+<pre class=" language-js"><code class="language-js"> <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 把 `this.doneCount` 映射为 `this.$store.getters.doneTodosCount`</span>
+  doneCount<span class="token punctuation">:</span> <span class="token string">'doneTodosCount'</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+ <span class="token keyword">import</span> <span class="token punctuation">{</span> mapGetters <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+ <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 使用对象展开运算符将 getter 混入 computed 对象中</span>
+    <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token string">'doneTodosCount'</span><span class="token punctuation">,</span>
+      <span class="token string">'anotherGetter'</span><span class="token punctuation">,</span>
+      <span class="token comment" spellcheck="true">// ...</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h5 id="6-mutation"><a href="#6-mutation" class="headerlink" title="6.mutation"></a><strong>6.mutation</strong></h5><p>更改 Vuex 的 store 中的状态的唯一方法是提交(<strong>commit</strong>)     <strong>mutation</strong></p>
 <p>当需要在store里面操作数据的增删的时候，需要使用mutation属性。</p>
 <p>可以在mutation里面添加方法，进行修改数据</p>
 <pre class=" language-js"><code class="language-js">mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -564,37 +604,69 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 <p><strong>我们在commit的第二个参数传递数据。这里有个专业的术语叫做【载荷】，只能有一个</strong></p>
-<pre class=" language-js"><code class="language-js"> mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// data接收commit的载荷</span>
-        <span class="token function">addUser</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            state<span class="token punctuation">.</span>userList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-                userName<span class="token punctuation">:</span> data<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
-                age<span class="token punctuation">:</span> data<span class="token punctuation">.</span>age
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+<pre class=" language-js"><code class="language-js">mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// data接收commit的载荷</span>
+    <span class="token function">addUser</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        state<span class="token punctuation">.</span>userList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            userName<span class="token punctuation">:</span> data<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+            age<span class="token punctuation">:</span> data<span class="token punctuation">.</span>age
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//组件里面</span>
-    methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token function">addUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// commit的第二个参数填写传递的载荷</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'addUser'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-                name<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span>
-                age<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//组件里面</span>
+methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">addUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// commit的第二个参数填写传递的载荷</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'addUser'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            name<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+            age<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 <p>​    整个应用程序，只有mutations才可以操作state状态。</p>
 <p>​    但是注意：</p>
 <p>​    <strong>mutations中的属性，必须为纯函数，必须为同步代码。</strong></p>
 <p>​    纯函数就是传入相同的参数，得到相同的结果。</p>
 <p>​    同步代码就不能是异步的，比如ajax，比如setTimeout等。</p>
+<p><strong>在组件中提交 Mutation</strong></p>
+<p>你可以在组件中使用 <code>this.$store.commit(&#39;xxx&#39;)</code> 提交 mutation，或者使用 <code>mapMutations</code> 辅助函数将组件中的 methods 映射为 <code>store.commit</code> 调用（需要在根节点注入 <code>store</code>）。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> mapMutations <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token string">'increment'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 将 `this.increment()` 映射为 `this.$store.commit('increment')`</span>
+
+      <span class="token comment" spellcheck="true">// `mapMutations` 也支持载荷：</span>
+      <span class="token string">'incrementBy'</span> <span class="token comment" spellcheck="true">// 将 `this.incrementBy(amount)` 映射为 `this.$store.commit('incrementBy', amount)`</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      add<span class="token punctuation">:</span> <span class="token string">'increment'</span> <span class="token comment" spellcheck="true">// 将 `this.add()` 映射为 `this.$store.commit('increment')`</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<hr>
+<p><strong>Mutation 需遵守 Vue 的响应规则</strong></p>
+<p>既然 Vuex 的 store 中的状态是响应式的，那么当我们变更状态时，监视状态的 Vue 组件也会自动更新。这也意味着 Vuex 中的 mutation 也需要与使用 Vue 一样遵守一些注意事项：</p>
+<ol>
+<li>最好提前在你的 store 中初始化好所有所需属性。</li>
+<li>当需要在对象上添加新属性时，你应该</li>
+</ol>
+<ul>
+<li><p>使用 <code>Vue.set(obj, &#39;newProp&#39;, 123)</code>, 或者</p>
+</li>
+<li><p>以新对象替换老对象。例如，利用<a href="https://github.com/tc39/proposal-object-rest-spread" target="_blank" rel="noopener">对象展开运算符</a>我们可以这样写：</p>
+<pre class=" language-js"><code class="language-js">state<span class="token punctuation">.</span>obj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>state<span class="token punctuation">.</span>obj<span class="token punctuation">,</span> newProp<span class="token punctuation">:</span> <span class="token number">123</span> <span class="token punctuation">}</span></code></pre>
+</li>
+</ul>
 <h5 id="7-action"><a href="#7-action" class="headerlink" title="7.action"></a><strong>7.action</strong></h5><p>Action 类似于 mutation，不同在于：</p>
 <ul>
 <li>Action 提交的是 mutation，而不是直接变更状态。</li>
 <li>Action 可以包含任意异步操作。</li>
 </ul>
-<p><em>能操作state的只有mutations，<strong>actions也不行</strong>。只能调用mutations去操作state。</em></p>
-<p>在action里面可通过commit调用mutation你的数据操纵方法，在组件你的methods里面使用dispatch调用action里的方法</p>
+<p><strong><em>能操作state的只有mutations，actions也不行。只能调用mutations去操作state。</em></strong></p>
+<p>在<strong>action里面</strong>可通过<strong>commit</strong>调用mutation你的数据操纵方法，在组件里的methods里面使用<strong>dispatch</strong>调用action里的方法</p>
 <pre class=" language-js"><code class="language-js"><span class="token function">addUserTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 使用dispatch调用actions的属性</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'addUserTimeout'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
@@ -602,12 +674,46 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
             age<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age
         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span></code></pre>
+<p>Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 <code>context.commit</code> 提交一个 mutation，或者通过 <code>context.state</code> 和 <code>context.getters</code> 来获取 state 和 getters。当我们在之后介绍到 <a href="https://vuex.vuejs.org/zh/guide/modules.html" target="_blank" rel="noopener">Modules</a> 时，你就知道 context 对象为什么不是 store 实例本身了。</p>
+<p>实践中，我们会经常用到 ES2015 的 <a href="https://github.com/lukehoban/es6features#destructuring" target="_blank" rel="noopener">参数解构</a> 来简化代码（特别是我们需要调用 <code>commit</code> 很多次的时候）：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//原来的action</span>
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    increment <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//这里的context就是上下文，相当于store</span>
+      context<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'increment'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//解构的action</span>
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  increment <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'increment'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//这个commit就相当于前面的mutation的commit调用</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//action也可以带参数</span>
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//这里的commit和state就是store里面的，products就是带的参数</span>
+  checkout <span class="token punctuation">(</span><span class="token punctuation">{</span> commit<span class="token punctuation">,</span> state <span class="token punctuation">}</span><span class="token punctuation">,</span> products<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 把当前购物车的物品备份起来</span>
+    <span class="token keyword">const</span> savedCartItems <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>state<span class="token punctuation">.</span>cart<span class="token punctuation">.</span>added<span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true">// 发出结账请求，然后乐观地清空购物车</span>
+    <span class="token function">commit</span><span class="token punctuation">(</span>types<span class="token punctuation">.</span>CHECKOUT_REQUEST<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 购物 API 接受一个成功回调和一个失败回调</span>
+    shop<span class="token punctuation">.</span><span class="token function">buyProducts</span><span class="token punctuation">(</span>
+      products<span class="token punctuation">,</span>
+      <span class="token comment" spellcheck="true">// 成功操作</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">commit</span><span class="token punctuation">(</span>types<span class="token punctuation">.</span>CHECKOUT_SUCCESS<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token comment" spellcheck="true">// 失败操作</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">commit</span><span class="token punctuation">(</span>types<span class="token punctuation">.</span>CHECKOUT_FAILURE<span class="token punctuation">,</span> savedCartItems<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>同时也可以使用mapAction进行分发action，使用async、await组合action</p>
 <p><strong>总结mutations与actiosn的区别：</strong></p>
 <p>​    1、commit方法用于调用mutation；dispatch 方法用于调用action；</p>
 <p>​    2、mutation 函数必须是纯函数，而且不能有异步代码；action 可以不是纯函数，也可以有异步代码；</p>
 <p>​    3、按照上述规则，可以用mutation完成的事情，可以直接调用mutation，mutation不能实现的事情丢给action来完成。</p>
 <p>​    4、在action中，当完成异步操作，最终需要修改数据模型时，还是需要通过mutation来完成对数据模型的操作。action不允许直接操作数据模型。</p>
-<h5 id="8-module"><a href="#8-module" class="headerlink" title="8.module"></a><strong>8.module</strong></h5><p>Vuex 允许我们将 store 分割成<strong>模块（module）</strong>。每个模块拥有自己的 state、mutation、action、getter。</p>
+<h5 id="8-module"><a href="#8-module" class="headerlink" title="8.module"></a><strong>8.module</strong></h5><p>由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。</p>
+<p>Vuex 允许我们将 store 分割成<strong>模块（module）</strong>。每个模块拥有自己的 state、mutation、action、getter。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> moduleA <span class="token operator">=</span> <span class="token punctuation">{</span>
   state<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -631,6 +737,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 
 store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>a <span class="token comment" spellcheck="true">// -> moduleA 的状态</span>
 store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>b <span class="token comment" spellcheck="true">// -> moduleB 的状态</span></code></pre>
+<p>对于模块内部的 mutation 和 getter，接收的第一个参数是<strong>模块的局部状态对象</strong>。</p>
 <h6 id="8-1命名空间"><a href="#8-1命名空间" class="headerlink" title="8.1命名空间"></a>8.1命名空间</h6><p>默认情况下，模块内部的 action、mutation 和 getter 是注册在<strong>全局命名空间</strong>的——这样使得多个模块能够对同一 mutation 或 action 作出响应。</p>
 <p>如果希望你的模块具有更高的封装度和复用性，你可以通过添加 <code>namespaced: true</code> 的方式使其成为带命名空间的模块。当模块被注册后，它的所有 getter、action 及 mutation 都会自动根据模块注册的路径调整命名，使用的时候会使用这个命名</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
@@ -640,6 +747,13 @@ store<span class="token punctuation">.</span>state<span class="token punctuation
         title<span class="token punctuation">:</span> <span class="token string">'我是首页'</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>state就是存数据的</li>
+<li>mutation就是改变state里面的数据的同步方法</li>
+<li>getter就是方便多个组件获取state里面经过进一步计算后的数据</li>
+<li>action就是异步调用mutation间接改变state里面的数据</li>
+<li>module就是解决store管理整个项目太大了，数据、方法太臃肿的问题</li>
+</ul>
 
             </div>
             <hr/>
@@ -888,10 +1002,9 @@ store<span class="token punctuation">.</span>state<span class="token punctuation
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.vuex插件
-Vuex 的 store 接受 plugins 选项，这个选项暴露出每次 mutation 的钩子。Vuex 插件就是一个函数，它接收 store 作为唯一参数：
+                            1.vuex插件Vuex 的 store 接受 plugins 选项，这个选项暴露出每次 mutation 的钩子。Vuex 插件就是一个函数，它接收 store 作为唯一参数：
 const myPlugin = store => {
- 
+  
                         
                     </div>
                     <div class="publish-info">
@@ -924,20 +1037,23 @@ const myPlugin = store => {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/15/vue%E8%B7%AF%E7%94%B1%E4%B8%8Eless/">
+                <a href="/2020/07/15/vue-router/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue路由与less">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="vue路由">
                         
-                        <span class="card-title">vue路由与less</span>
+                        <span class="card-title">vue路由</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            B站老陈1.socket.io(套接字),用于浏览器和服务器进行实时，双向，基于事件(异步)的通信。这是其他的知识点，不是vue本身的知识点
-socket. emit(‘名’,’数据’),发送客户端数据。socket.on(‘名’,func
+                            B站老陈
+前面都没啥用，router路由才是核心
+1.router路由根据不同的路径显示不同的页面。在router里面的index.js里面配置不同的路径显示的不同的组件或者页面。
+根据选择的替换标签来显示内容。在本质上还是一个页面。
+所有
                         
                     </div>
                     <div class="publish-info">
@@ -955,8 +1071,8 @@ socket. emit(‘名’,’数据’),发送客户端数据。socket.on(‘名’
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-socket-less-route/">
-                        <span class="chip bg-color">vue socket less route</span>
+                    <a href="/tags/vue-less-route/">
+                        <span class="chip bg-color">vue less route</span>
                     </a>
                     
                 </div>

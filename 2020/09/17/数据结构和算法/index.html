@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
@@ -568,6 +568,34 @@ Status preorderTraverse(Bitree t,Status(* visit)(TElemType e)){
                 if(preorderTraverse(t->rchild,visit)) return ok;
         return error;
     }else return ok;
+}
+
+//二叉树数据结构 js语法
+function TreeNode(val) {
+      this.val = val;
+      this.left = this.right = null;
+}
+
+function DFStraval(node){  
+        if(!node) return 0;
+            console.log(node.val);
+            traval(node.left);
+            traval(node.right);
+
+}
+
+function BFStraval(node){ 
+    const queue = [root];
+    while(queue.length){
+        let len  = queue.length;
+        while(len){
+            let node = queue.shift();
+            console.log(node.val);
+            node.left&&queue.push(node.left);
+            node.right&&queue.push(node.right);
+            len--;
+        }
+    }
 }</code></pre>
 <h5 id="3-图"><a href="#3-图" class="headerlink" title="3.图"></a>3.图</h5><p><a href="https://blog.csdn.net/czsupercar/article/details/88735143" target="_blank" rel="noopener">图的邻接表存储</a></p>
 <p><strong>图的遍历</strong></p>
@@ -590,7 +618,6 @@ DFS(Graph G,int v){
         if(!visted[w])    DFS(G,w);    //对v的未访问过的邻接节点w递归调用DFS
     }
 }</code></pre>
-<hr>
 <p><strong>最小生成树</strong></p>
 <p>稀疏图用Kruskal，稠密图用Prim</p>
 <p>n个节点至少需要n-1条边连通，但边上还有权值，选择权值之和最小的n-1条边，可能不唯一</p>
@@ -603,16 +630,14 @@ void MiniSpanTree_prim(MGraph G ,vertexType u){
         VertexType adjvex;//存储该边依附在顶点集U中的顶点
         VRtype lowcost;//存储在该边上的权值
     }closedge[MAX_VERTEX_NUM]
-
-      k = LocateVex(G,u);    //开始的顶点的位置
+        k = LocateVex(G,u);    //开始的顶点的位置
     for(j=0;j<G.vexnum;j++){    //辅助数组初始化,lowcost为开始节点u与其他节点之间的权值，权值可为无穷大
         if(j != k) closedge[j] = {u,G.arc[k][j].adj} //{adjvex,lowcost}
     }
     closedge[k].lowcost = 0;    //初始U={u}
     for(i=1;i<G.vexnum;i++){    //选择剩下的G.vexnum-1个顶点
-        k=minimum(closedge)；    //选择一个在closedge里边权值最小的顶点的序号，将其顶点和边加入最小生成树
-
-        printf(closedge[k].adjvex,G.vexs[k]);    //输出边
+        k=minimum(closedge)；    //选择一个在closedge里边权值最小的顶点的序号，将其顶点和边加入最小生成树        
+            printf(closedge[k].adjvex,G.vexs[k]);    //输出边
         closedge[k].lowcost = 0;    //第K顶点并入U集
         for(j=0;j<G.vexnum;j++){
             //新顶点并入U后，重新选择最小边。就是更新closedge里面的lowcost的值
@@ -621,8 +646,7 @@ void MiniSpanTree_prim(MGraph G ,vertexType u){
                 closedge[j] = {G.vexs[k],G.arcs[k][j].adj};
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>另一个就是Kruskal算法，即连通分量（即不能形成环）不断合并的过程。在开始就将n个顶点加入U，选边。</p>
 <p>每次选择边权最小的边链接两个端点是kruskal的规则，并实时判断两个点之间有没有间接联通形成环。</p>
 <p><a href="https://blog.csdn.net/mgsky1/article/details/77840286" target="_blank" rel="noopener">参考链接</a></p>
