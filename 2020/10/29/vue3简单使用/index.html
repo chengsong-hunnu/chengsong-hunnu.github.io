@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.4k
                 </div>
                 
 
@@ -761,22 +761,22 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
-<pre class=" language-vue"><code class="language-vue"><!-- src/components/MyMarker.vue -->
-<script>
-import { inject } from 'vue'
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> src<span class="token operator">/</span>components<span class="token operator">/</span>MyMarker<span class="token punctuation">.</span>vue <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
 
-export default {
-  setup() {
-    const userLocation = inject('location', 'The Universe')//后面这个是默认的值
-    const userGeolocation = inject('geolocation')
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> userLocation <span class="token operator">=</span> <span class="token function">inject</span><span class="token punctuation">(</span><span class="token string">'location'</span><span class="token punctuation">,</span> <span class="token string">'The Universe'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//后面这个是默认的值</span>
+    <span class="token keyword">const</span> userGeolocation <span class="token operator">=</span> <span class="token function">inject</span><span class="token punctuation">(</span><span class="token string">'geolocation'</span><span class="token punctuation">)</span>
 
-    return {
-      userLocation,
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      userLocation<span class="token punctuation">,</span>
       userGeolocation
-    }
-  }
-}
-</script></code></pre>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
 <h5 id="模板引用"><a href="#模板引用" class="headerlink" title="模板引用"></a>模板引用</h5><p>在使用组合式 API 时，<a href="https://www.vue3js.cn/docs/zh/guide/reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs" target="_blank" rel="noopener">响应式引用</a>和<a href="https://www.vue3js.cn/docs/zh/guide/component-template-refs.html" target="_blank" rel="noopener">模板引用</a>的概念是统一的。为了获得对模板内元素或组件实例的引用，我们可以像往常一样声明 ref 并从 <a href="https://www.vue3js.cn/docs/zh/guide/composition-api-setup.html" target="_blank" rel="noopener">setup()</a> 返回：</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span> 
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>root<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>注意这里的ref属性 This is a root element<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -802,91 +802,91 @@ export default {
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <p>这里我们在渲染上下文中暴露 <code>root</code>，并通过 <code>ref=&quot;root&quot;</code>，将其绑定到 div 作为其 ref。在虚拟 DOM 补丁算法中，如果 VNode 的 <code>ref</code> 键对应于渲染上下文中的 ref，则 VNode 的相应元素或组件实例将被分配给该 ref 的值。这是在虚拟 DOM 挂载/打补丁过程中执行的，因此模板引用只会在初始渲染之后获得赋值。</p>
 <p>作为模板使用的 ref 的行为与任何其他 ref 一样：它们是响应式的，可以传递到 (或从中返回) 复合函数中</p>
-<h5 id="总结式的完整模板"><a href="#总结式的完整模板" class="headerlink" title="总结式的完整模板"></a>总结式的完整模板</h5><pre class=" language-vue"><code class="language-vue"><template>
-  <div class="mine" ref="elmRefs">
-    <span>{{ name }}</span>
-    <br />
-    <span>{{ count }}</span>
-    <div>
-      <button @click="handleClick">测试按钮</button>
-    </div>
-    <ul>
-      <li v-for="item in list" :key="item.id">{{ item.name }}</li>
-    </ul>
-  </div>
-</template>
+<h5 id="总结式的完整模板"><a href="#总结式的完整模板" class="headerlink" title="总结式的完整模板"></a>总结式的完整模板</h5><pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"mine"</span> ref<span class="token operator">=</span><span class="token string">"elmRefs"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span> name <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+    <span class="token operator">&lt;</span>br <span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span> count <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"handleClick"</span><span class="token operator">></span>测试按钮<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>ul<span class="token operator">></span>
+      <span class="token operator">&lt;</span>li v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in list"</span> <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"item.id"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span> item<span class="token punctuation">.</span>name <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-<script lang="ts">
-import {
-  computed,
-  defineComponent,
-  getCurrentInstance,
-  onMounted,
-  PropType,
-  reactive,
-  ref,
-  toRefs,
-} from "vue";
+<span class="token operator">&lt;</span>script lang<span class="token operator">=</span><span class="token string">"ts"</span><span class="token operator">></span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  computed<span class="token punctuation">,</span>
+  defineComponent<span class="token punctuation">,</span>
+  getCurrentInstance<span class="token punctuation">,</span>
+  onMounted<span class="token punctuation">,</span>
+  PropType<span class="token punctuation">,</span>
+  reactive<span class="token punctuation">,</span>
+  ref<span class="token punctuation">,</span>
+  toRefs<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
 
-interface IState {
-  count: 0;
-  name: string;
-  list: Array<object>;
-}
+<span class="token keyword">interface</span> <span class="token class-name">IState</span> <span class="token punctuation">{</span>
+  count<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  name<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+  list<span class="token punctuation">:</span> Array<span class="token operator">&lt;</span>object<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-export default defineComponent({
-  name: "demo",
-  // 父组件传子组件参数
-  props: {
-    name: {
-      type: String as PropType<null | "">,
-      default: "vue3.x",
-    },
-    list: {
-      type: Array as PropType<object[]>,
-      default: () => [],
-    },
-  },
-  components: {
-    /// TODO 组件注册
-  },
-  emits: ["emits-name"], // 为了提示作用
-  setup(props, context) {
-    console.log(props.name);
-    console.log(props.list);
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">"demo"</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 父组件传子组件参数</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String <span class="token keyword">as</span> PropType<span class="token operator">&lt;</span><span class="token keyword">null</span> <span class="token operator">|</span> <span class="token string">""</span><span class="token operator">></span><span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">"vue3.x"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    list<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Array <span class="token keyword">as</span> PropType<span class="token operator">&lt;</span>object<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/// TODO 组件注册</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  emits<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"emits-name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 为了提示作用</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    const state = reactive<IState>({
-      name: "vue 3.0 组件",
-      count: 0,
-      list: [
-        {
-          name: "vue",
-          id: 1,
-        },
-        {
-          name: "vuex",
-          id: 2,
-        },
-      ],
-    });
+    <span class="token keyword">const</span> state <span class="token operator">=</span> reactive<span class="token operator">&lt;</span>IState<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">"vue 3.0 组件"</span><span class="token punctuation">,</span>
+      count<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      list<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">"vue"</span><span class="token punctuation">,</span>
+          id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">"vuex"</span><span class="token punctuation">,</span>
+          id<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    const a = computed(() => state.name);
+    <span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> state<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    onMounted(() => {});
+    <span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    function handleClick() {
-      state.count++;
-      // 调用父组件的方法
-      context.emit("emits-name", state.count);
-    }
+    <span class="token keyword">function</span> <span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>count<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// 调用父组件的方法</span>
+      context<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">"emits-name"</span><span class="token punctuation">,</span> state<span class="token punctuation">.</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    return {
-      ...toRefs(state),
-      handleClick,
-    };
-  },
-});
-</script></code></pre>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span><span class="token function">toRefs</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      handleClick<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
 
             </div>
             <hr/>

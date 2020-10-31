@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    5.5k
                 </div>
                 
 
@@ -477,17 +477,18 @@
 <h4 id="1-算法复杂度分析"><a href="#1-算法复杂度分析" class="headerlink" title="1.算法复杂度分析"></a>1.算法复杂度分析</h4><h5 id="1-时间复杂度"><a href="#1-时间复杂度" class="headerlink" title="1.时间复杂度"></a>1.时间复杂度</h5><p><strong>大 O 时间复杂度表示法</strong>( T(n) =O(f(n)) ） 实际上并不具体表示代码真正的执行时间，而是表示 <strong>代码执行时间随数据规模增长的变化趋势</strong>，所以也叫 <strong>渐进时间复杂度</strong>，简称 <strong>时间复杂度</strong></p>
 <p>由于 <strong>时间复杂度</strong> 描述的是算法执行时间与数据规模的 <strong>增长变化趋势</strong>，所以 <strong>常量、低阶、系数</strong> 实际上对这种增长趋势不产生决定性影响，所以在做时间复杂度分析时 <strong>忽略</strong> 这些项</p>
 <p>例：</p>
-<pre><code>function cal(m, n) {
-  let sum_3 = 0;
-   let i = 1;
-   let j = 1;
-   for (; i &lt;= m; ++i) {
-     j = 1; 
-     for (; j &lt;= n; ++j) {
-       sum_3 = sum_3 +  i * j;
-     }
-   }
-}</code></pre><p>以上代码也是求和，两层 for 循环 ，求 sum_3 的数据规模为 m 和 n，所以时间复杂度为 O(m*n)。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">cal</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> sum_3 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+   <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+   <span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> 
+     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       sum_3 <span class="token operator">=</span> sum_3 <span class="token operator">+</span>  i <span class="token operator">*</span> j<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>以上代码也是求和，两层 for 循环 ，求 sum_3 的数据规模为 m 和 n，所以时间复杂度为 O(m*n)。</p>
 <p>时间复杂度可以分为：</p>
 <ul>
 <li><strong>最好情况时间复杂度</strong>（best case time complexity）：在最理想的情况下，执行这段代码的时间复杂度。</li>
@@ -499,17 +500,18 @@
 <p><strong>O(1) &lt; O(logn) &lt; (n) &lt; O(nlogn) &lt; O(n2) &lt; O(n3) &lt; O(2n) &lt; O(n!) &lt; O(nn)</strong></p>
 <h5 id="2-空间复杂度"><a href="#2-空间复杂度" class="headerlink" title="2.空间复杂度"></a>2.空间复杂度</h5><p>类比一下，空间复杂度全称就是 <strong>渐进空间复杂度</strong>（asymptotic space complexity），表示 <strong>算法的存储空间与数据规模之间的增长关系</strong></p>
 <p>例：</p>
-<pre><code>function print(n) {
- const newArr = []; // 第 2 行
- newArr.length = n; // 第 3 行
-  for (let i = 0; i &lt;n; ++i) {
-    newArr[i] = i * i;
-  }
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">const</span> newArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 第 2 行</span>
+ newArr<span class="token punctuation">.</span>length <span class="token operator">=</span> n<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 第 3 行</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span>n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    newArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">*</span> i<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-  for (let j = n-1; j &gt;= 0; --j) {
-    console.log(newArr[i])
-  }
-}</code></pre><p>跟时间复杂度分析一样，我们可以看到，第 2 行代码中，我们申请了一个空间存储变量 newArr ，是个空数组。第 3 行把 newArr 的长度修改为 n 的长度的数组，每项的值为 undefined ，除此之外，剩下的代码都没有占用更多的空间，所以整段代码的空间复杂度就是 O(n)。</p>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> n<span class="token number">-1</span><span class="token punctuation">;</span> j <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token operator">--</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>跟时间复杂度分析一样，我们可以看到，第 2 行代码中，我们申请了一个空间存储变量 newArr ，是个空数组。第 3 行把 newArr 的长度修改为 n 的长度的数组，每项的值为 undefined ，除此之外，剩下的代码都没有占用更多的空间，所以整段代码的空间复杂度就是 O(n)。</p>
 <hr>
 <h4 id="2-数据结构"><a href="#2-数据结构" class="headerlink" title="2.数据结构"></a>2.数据结构</h4><h5 id="1-KPM算法和next数组求值"><a href="#1-KPM算法和next数组求值" class="headerlink" title="1.KPM算法和next数组求值"></a>1.KPM算法和next数组求值</h5><p>这是一个进行字符串匹配的算法，原理是求一个字符串的某一个字符的前面的字符串最大相等的前缀和后缀</p>
 <p>kmp算法为</p>
@@ -556,71 +558,71 @@
 <p>二叉树可使用二叉链表进行存储，例如<code>lchild | data | rchild</code>。</p>
 <p><strong>遍历</strong></p>
 <p>先序，中序，后序。为根节点在查序中的位置</p>
-<pre class=" language-c++"><code class="language-c++">//先序的递归算法
-Status preorderTraverse(Bitree t,Status(* visit)(TElemType e)){
-    status printelement(telemType e){
-        printf(e);    //打印输出节点,    调用实例preorderTraverse(t,printelement);
-        return ok;
-    }
-    if(t){
-        if(visit(t->data))
-            if(preorderTraverse(t->lchild,visit))
-                if(preorderTraverse(t->rchild,visit)) return ok;
-        return error;
-    }else return ok;
-}
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//先序的递归算法</span>
+Status <span class="token function">preorderTraverse</span><span class="token punctuation">(</span>Bitree t<span class="token punctuation">,</span><span class="token function">Status</span><span class="token punctuation">(</span><span class="token operator">*</span> visit<span class="token punctuation">)</span><span class="token punctuation">(</span>TElemType e<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    status <span class="token function">printelement</span><span class="token punctuation">(</span>telemType e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//打印输出节点,    调用实例preorderTraverse(t,printelement);</span>
+        <span class="token keyword">return</span> ok<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">visit</span><span class="token punctuation">(</span>t<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">preorderTraverse</span><span class="token punctuation">(</span>t<span class="token operator">-></span>lchild<span class="token punctuation">,</span>visit<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">preorderTraverse</span><span class="token punctuation">(</span>t<span class="token operator">-></span>rchild<span class="token punctuation">,</span>visit<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> ok<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> error<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">return</span> ok<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-//二叉树数据结构 js语法
-function TreeNode(val) {
-      this.val = val;
-      this.left = this.right = null;
-}
+<span class="token comment" spellcheck="true">//二叉树数据结构 js语法</span>
+function <span class="token function">TreeNode</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      this<span class="token punctuation">.</span>val <span class="token operator">=</span> val<span class="token punctuation">;</span>
+      this<span class="token punctuation">.</span>left <span class="token operator">=</span> this<span class="token punctuation">.</span>right <span class="token operator">=</span> null<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-function DFStraval(node){  
-        if(!node) return 0;
-            console.log(node.val);
-            traval(node.left);
-            traval(node.right);
+function <span class="token function">DFStraval</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">{</span>  
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">traval</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">traval</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-}
+<span class="token punctuation">}</span>
 
-function BFStraval(node){ 
-    const queue = [root];
-    while(queue.length){
-        let len  = queue.length;
-        while(len){
-            let node = queue.shift();
-            console.log(node.val);
-            node.left&&queue.push(node.left);
-            node.right&&queue.push(node.right);
-            len--;
-        }
-    }
-}</code></pre>
+function <span class="token function">BFStraval</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+    <span class="token keyword">const</span> queue <span class="token operator">=</span> <span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>queue<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        let len  <span class="token operator">=</span> queue<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            let node <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            node<span class="token punctuation">.</span>left<span class="token operator">&amp;&amp;</span>queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            node<span class="token punctuation">.</span>right<span class="token operator">&amp;&amp;</span>queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            len<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <h5 id="3-图"><a href="#3-图" class="headerlink" title="3.图"></a>3.图</h5><p><a href="https://blog.csdn.net/czsupercar/article/details/88735143" target="_blank" rel="noopener">图的邻接表存储</a></p>
 <p><strong>图的遍历</strong></p>
 <p>深度优先，广度优先</p>
-<pre class=" language-c++"><code class="language-c++">//深度优先遍历
-Boolean visited[MAX]; //访问标志数组，初始值为false，当此节点被访问了，对应的visited[i]变为true
-Status(*Visitedfunc)(int v)); //函数变量
-void DFSTraverse(Graph G,Status(*visit)(int v)){
-    VisitedFunc = Visit;
-    for(v=0;v<G.vexnum;v++){visited[v] = false}    //初始化
-    for(v=0;v<G.vexnum;v++){
-        if(!visited[v]) DFS(G,v); //对未访问过的节点调用DFS
-    }
-}
-DFS(Graph G,int v){
-    visited[v] = true;    VisitFunc(v);    //输出v节点
-    //FirstAdjVex返回v的第一个邻接节点，NextAdjVex返回v的相对于w的下一个节点，若w是v的最后一个节点，返回空
-    for(w=FirstAdjVex(G,v);w>0;w=NextAdjVex(G,v,w)){
-        if(!visted[w])    DFS(G,w);    //对v的未访问过的邻接节点w递归调用DFS
-    }
-}</code></pre>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//深度优先遍历</span>
+Boolean visited<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//访问标志数组，初始值为false，当此节点被访问了，对应的visited[i]变为true</span>
+<span class="token function">Status</span><span class="token punctuation">(</span><span class="token operator">*</span>Visitedfunc<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//函数变量</span>
+<span class="token keyword">void</span> <span class="token function">DFSTraverse</span><span class="token punctuation">(</span>Graph G<span class="token punctuation">,</span><span class="token function">Status</span><span class="token punctuation">(</span><span class="token operator">*</span>visit<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    VisitedFunc <span class="token operator">=</span> Visit<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>v<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>v<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span>v<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> false<span class="token punctuation">}</span>    <span class="token comment" spellcheck="true">//初始化</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>v<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>v<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span>v<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token function">DFS</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//对未访问过的节点调用DFS</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">DFS</span><span class="token punctuation">(</span>Graph G<span class="token punctuation">,</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> true<span class="token punctuation">;</span>    <span class="token function">VisitFunc</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出v节点</span>
+    <span class="token comment" spellcheck="true">//FirstAdjVex返回v的第一个邻接节点，NextAdjVex返回v的相对于w的下一个节点，若w是v的最后一个节点，返回空</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>w<span class="token operator">=</span><span class="token function">FirstAdjVex</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>w<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">;</span>w<span class="token operator">=</span><span class="token function">NextAdjVex</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>visted<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token function">DFS</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span>w<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//对v的未访问过的邻接节点w递归调用DFS</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p><strong>最小生成树</strong></p>
 <p>稀疏图用Kruskal，稠密图用Prim</p>
 <p>n个节点至少需要n-1条边连通，但边上还有权值，选择权值之和最小的n-1条边，可能不唯一</p>
-<pre class=" language-C++"><code class="language-C++">//最小生成树，普里姆算法，最小生成树不断壮大的过程，选顶点.使用邻接矩阵存储的网
+<pre class=" language-C"><code class="language-C">//最小生成树，普里姆算法，最小生成树不断壮大的过程，选顶点.使用邻接矩阵存储的网
 //不断寻找与逐渐生成的最小生成树相连的边权最小的点加入
 void MiniSpanTree_prim(MGraph G ,vertexType u){
     //从第u个顶点出发构造最小生成树
@@ -636,7 +638,7 @@ void MiniSpanTree_prim(MGraph G ,vertexType u){
     closedge[k].lowcost = 0;    //初始U={u}
     for(i=1;i<G.vexnum;i++){    //选择剩下的G.vexnum-1个顶点
         k=minimum(closedge)；    //选择一个在closedge里边权值最小的顶点的序号，将其顶点和边加入最小生成树        
-            printf(closedge[k].adjvex,G.vexs[k]);    //输出边
+        printf(closedge[k].adjvex,G.vexs[k]);    //输出边
         closedge[k].lowcost = 0;    //第K顶点并入U集
         for(j=0;j<G.vexnum;j++){
             //新顶点并入U后，重新选择最小边。就是更新closedge里面的lowcost的值
@@ -645,194 +647,193 @@ void MiniSpanTree_prim(MGraph G ,vertexType u){
                 closedge[j] = {G.vexs[k],G.arcs[k][j].adj};
         }
     }
- }</code></pre>
+}</code></pre>
 <p>另一个就是Kruskal算法，即连通分量（即不能形成环）不断合并的过程。在开始就将n个顶点加入U，选边。</p>
 <p>每次选择边权最小的边链接两个端点是kruskal的规则，并实时判断两个点之间有没有间接联通形成环。</p>
 <p><a href="https://blog.csdn.net/mgsky1/article/details/77840286" target="_blank" rel="noopener">参考链接</a></p>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
-#include<cstdio>
-#include<algorithm>
-using namespace std;
-int n,m,tot=0,k=0;//n端点总数，m边数，tot记录最终答案，k已经连接了多少边 
-int fat[200];//记录集体老大。
-//并查集就是一个用双亲表示法所表示的森林，我们可以利用这个结构来查找某一个顶点的双亲，进而找到根结点。这样，我们就能判断某两个顶点是否同源，在图中的表现就是加上这条边后会不会形成环。并查集以顶点为基准，有几个顶点，就有几项。
-struct node
-{
-    int from,to,dis;//结构体储存边,dis为权值 
-}edge[2000];
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">,</span>tot<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//n端点总数，m边数，tot记录最终答案，k已经连接了多少边 </span>
+<span class="token keyword">int</span> fat<span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//记录集体老大。</span>
+<span class="token comment" spellcheck="true">//并查集就是一个用双亲表示法所表示的森林，我们可以利用这个结构来查找某一个顶点的双亲，进而找到根结点。这样，我们就能判断某两个顶点是否同源，在图中的表现就是加上这条边后会不会形成环。并查集以顶点为基准，有几个顶点，就有几项。</span>
+<span class="token keyword">struct</span> node
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> from<span class="token punctuation">,</span>to<span class="token punctuation">,</span>dis<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//结构体储存边,dis为权值 </span>
+<span class="token punctuation">}</span>edge<span class="token punctuation">[</span><span class="token number">2000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-bool cmp(const node &a,const node &b)//sort排序（当然你也可以快排） 
-{
-    return a.dis<b.dis;
-}
-int father(int x)//找集体老大，并查集的一部分，就是寻找这个顶点的根 
-{
-    if(fat[x]!=x)    //如果这不是根，就继续向上查找，直至找到根
-    return father(fat[x]);
-    else return x;
-}
-void unionn(int x,int y)//加入团体，并查集的一部分 
-{
-    //fat[father(x)]=father(y);    //这感觉有些不能理解，甚至fat[x]=y好像也行
-    fat[x]=father(y);    //这样也行
-}
-int main()
-{
-    scanf("%d%d",&n,&m);//输入点数，边数 
-    for(int i=1;i<=m;i++)
-    {
-        scanf("%d%d%d",&edge[i].from,&edge[i].to,&edge[i].dis);//输入边的信息 
-    }
-    for(int i=1;i<=n;i++) fat[i]=i;//自己最开始就是自己的老大（初始化），自己的根就是自己
-    sort(edge+1,edge+1+m,cmp);//按权值排序（kruskal的体现） 
-    for(int i=1;i<=m;i++)//从小到大遍历 
-    {
-        if(k==n-1) break;//n个点需要n-1条边连接 
-        if(father(edge[i].from)!=father(edge[i].to))//假如不在一个团体，其根不一样，就是判断形不形成环 
-        {
-            unionn(edge[i].from,edge[i].to);//加入这个根的团体 
-            printf("from=%d to=%d \n",edge[i].from,edge[i].to);//打印加入的边的路径
-            tot+=edge[i].dis;//记录边权 
-            k++;//已连接边数+1 
-        }
-    }
-    printf("%d",tot);
-    return 0;
-}
+bool <span class="token function">cmp</span><span class="token punctuation">(</span><span class="token keyword">const</span> node <span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token keyword">const</span> node <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//sort排序（当然你也可以快排） </span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a<span class="token punctuation">.</span>dis<span class="token operator">&lt;</span>b<span class="token punctuation">.</span>dis<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">father</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//找集体老大，并查集的一部分，就是寻找这个顶点的根 </span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>fat<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">!=</span>x<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//如果这不是根，就继续向上查找，直至找到根</span>
+    <span class="token keyword">return</span> <span class="token function">father</span><span class="token punctuation">(</span>fat<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">unionn</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//加入团体，并查集的一部分 </span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//fat[father(x)]=father(y);    //这感觉有些不能理解，甚至fat[x]=y好像也行</span>
+    fat<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">father</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//这样也行</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">,</span><span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输入点数，边数 </span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>from<span class="token punctuation">,</span><span class="token operator">&amp;</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">,</span><span class="token operator">&amp;</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>dis<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输入边的信息 </span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> fat<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//自己最开始就是自己的老大（初始化），自己的根就是自己</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>edge<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>edge<span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span>m<span class="token punctuation">,</span>cmp<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//按权值排序（kruskal的体现） </span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//从小到大遍历 </span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>k<span class="token operator">==</span>n<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//n个点需要n-1条边连接 </span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">father</span><span class="token punctuation">(</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>from<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token function">father</span><span class="token punctuation">(</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//假如不在一个团体，其根不一样，就是判断形不形成环 </span>
+        <span class="token punctuation">{</span>
+            <span class="token function">unionn</span><span class="token punctuation">(</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>from<span class="token punctuation">,</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//加入这个根的团体 </span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"from=%d to=%d \n"</span><span class="token punctuation">,</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>from<span class="token punctuation">,</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//打印加入的边的路径</span>
+            tot<span class="token operator">+</span><span class="token operator">=</span>edge<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>dis<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//记录边权 </span>
+            k<span class="token operator">++</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//已连接边数+1 </span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>tot<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-//测试用例
-6 7                        
-0 2 1
-2 5 4
-5 3 2
-2 1 5
-1 4 3
-4 5 6
-0 4 3</code></pre>
+<span class="token comment" spellcheck="true">//测试用例</span>
+<span class="token comment" spellcheck="true">//6 7                        </span>
+<span class="token comment" spellcheck="true">//0 2 1</span>
+<span class="token comment" spellcheck="true">//2 5 4</span>
+<span class="token comment" spellcheck="true">//5 3 2</span>
+<span class="token comment" spellcheck="true">//2 1 5</span>
+<span class="token comment" spellcheck="true">//1 4 3</span>
+<span class="token comment" spellcheck="true">//4 5 6</span>
+<span class="token comment" spellcheck="true">//0 4 3</span></code></pre>
 <hr>
 <p><strong>拓扑排序</strong></p>
 <p>在有向图中选一个没有前驱的顶点（<strong>入度为0</strong>）输出，在图中删除该顶点和所有<strong>以它为尾的弧（也就是边）</strong></p>
 <p>可通过拓扑排序判断网中是否存在环，<strong>若所有的顶点都在拓扑排序序列中，则不存在环</strong>。</p>
-<pre class=" language-c++"><code class="language-c++">//拓扑排序，判断是否有环
-Status topologicalSort(AlGraph G){
-    findinDegree(G,indegree);    //对各个顶点求入度 indegree[0……vexnum-1]
-    InitStack(S);
-    for(i=0;i<G.vexnum;++i){
-        if(!indegree[i]) Push(S,i);    `//入度为0的顶点入栈
-    }
-    count = 0;    //对输出顶点计数
-    while(!StackEmpty(S)){
-        Pop(S,i);
-        printf(i,G.vertices[i].data);    ++count;    //输出i号顶点
-        for(p=G.vertices[i].firstarc; p;p=p->nextarc){    //判断这个输出顶点的邻接点
-            k = p->adjvex;    //对i号顶点的每个邻接点的入度-1
-            if(!(--indegree[k]))    Push(S,k);    //若入度为0，则入栈
-        }
-    }
-    if(count<G.vexnum)    return error;    //该有向图有回路
-    else return Ok;
-}</code></pre>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//拓扑排序，判断是否有环</span>
+Status <span class="token function">topologicalSort</span><span class="token punctuation">(</span>AlGraph G<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">findinDegree</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span>indegree<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//对各个顶点求入度 indegree[0……vexnum-1]</span>
+    <span class="token function">InitStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>indegree<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token function">Push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>    `<span class="token comment" spellcheck="true">//入度为0的顶点入栈</span>
+    <span class="token punctuation">}</span>
+    count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//对输出顶点计数</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">Pop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">++</span>count<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出i号顶点</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>p<span class="token operator">=</span>G<span class="token punctuation">.</span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>firstarc<span class="token punctuation">;</span> p<span class="token punctuation">;</span>p<span class="token operator">=</span>p<span class="token operator">-></span>nextarc<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//判断这个输出顶点的邻接点</span>
+            k <span class="token operator">=</span> p<span class="token operator">-></span>adjvex<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//对i号顶点的每个邻接点的入度-1</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token operator">--</span>indegree<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token function">Push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//若入度为0，则入栈</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>count<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">)</span>    <span class="token keyword">return</span> error<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//该有向图有回路</span>
+    <span class="token keyword">else</span> <span class="token keyword">return</span> Ok<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <hr>
 <p><strong>单源最短路径</strong></p>
 <p><a href="https://www.cnblogs.com/RioTian/p/12597634.html" target="_blank" rel="noopener">参考此链接</a></p>
-<pre class=" language-c++"><code class="language-c++">// 单源最短路径：Dijkstra 算法 
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 单源最短路径：Dijkstra 算法 </span>
 
-#include <iostream>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 
-using namespace std;
+using namespace std<span class="token punctuation">;</span>
 
-int  matrix[100][100]; // 邻接矩阵
-bool visited[100];     // 标记数组
-int  dist[100];        // 源点到顶点 i 的最短距离
-int  path[100];        // 记录最短路的路径
-int  source;           // 源点
-int  vertex_num;       // 顶点数
-int  edge_num;         // 边数
+<span class="token keyword">int</span>  matrix<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 邻接矩阵</span>
+bool visited<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 标记数组</span>
+<span class="token keyword">int</span>  dist<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 源点到顶点 i 的最短距离</span>
+<span class="token keyword">int</span>  path<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 记录最短路的路径</span>
+<span class="token keyword">int</span>  source<span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// 源点</span>
+<span class="token keyword">int</span>  vertex_num<span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 顶点数</span>
+<span class="token keyword">int</span>  edge_num<span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 边数</span>
 
-void Dijkstra(int source)
-{
-    memset(visited, 0, sizeof(visited));  // 初始化标记数组
-    visited[source] = true;    //开始节点被访问
-    for (int i = 0; i < vertex_num; i++)
-    {
-        dist[i] = matrix[source][i];    //开始节点到其他节点之间的权值
-        path[i] = source;
-    }
+<span class="token keyword">void</span> <span class="token function">Dijkstra</span><span class="token punctuation">(</span><span class="token keyword">int</span> source<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">memset</span><span class="token punctuation">(</span>visited<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>visited<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 初始化标记数组</span>
+    visited<span class="token punctuation">[</span>source<span class="token punctuation">]</span> <span class="token operator">=</span> true<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//开始节点被访问</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> vertex_num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> matrix<span class="token punctuation">[</span>source<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//开始节点到其他节点之间的权值</span>
+        path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> source<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    int min_cost;        // 权值最小
-    int min_cost_index;  // 权值最小的下标
+    <span class="token keyword">int</span> min_cost<span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 权值最小</span>
+    <span class="token keyword">int</span> min_cost_index<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 权值最小的下标</span>
 
-    for (int i = 1; i < vertex_num; i++)  // 找到源点到另外 vertex_num-1 个点的最短路径
-    {
-        min_cost = INT_MAX;    //先设为最大值
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> vertex_num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 找到源点到另外 vertex_num-1 个点的最短路径</span>
+    <span class="token punctuation">{</span>
+        min_cost <span class="token operator">=</span> INT_MAX<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//先设为最大值</span>
 
-        for (int j = 0; j < vertex_num; j++)
-        {
-            if (visited[j] == false && dist[j] < min_cost)  // 先找到与之相连的权值最小的节点
-            {
-                min_cost = dist[j];
-                min_cost_index = j;
-            }
-        }
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> vertex_num<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>visited<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> false <span class="token operator">&amp;&amp;</span> dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> min_cost<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 先找到与之相连的权值最小的节点</span>
+            <span class="token punctuation">{</span>
+                min_cost <span class="token operator">=</span> dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                min_cost_index <span class="token operator">=</span> j<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
-        visited[min_cost_index] = true;  // 该点已找到，进行标记
+        visited<span class="token punctuation">[</span>min_cost_index<span class="token punctuation">]</span> <span class="token operator">=</span> true<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 该点已找到，进行标记</span>
 
-        for (int j = 0; j < vertex_num; j++)  // 更新 dist 数组
-        {
-            if (visited[j] == false &&    //表示这个节点还未被访问
-                matrix[min_cost_index][j] != INT_MAX &&  // 确保两点之间有边
-                matrix[min_cost_index][j] + min_cost < dist[j])    //**算法核心
-            {
-                dist[j] = matrix[min_cost_index][j] + min_cost;
-                path[j] = min_cost_index;
-            }
-        }
-    }
-}
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> vertex_num<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 更新 dist 数组</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>visited<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> false <span class="token operator">&amp;&amp;</span>    <span class="token comment" spellcheck="true">//表示这个节点还未被访问</span>
+                matrix<span class="token punctuation">[</span>min_cost_index<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> INT_MAX <span class="token operator">&amp;&amp;</span>  <span class="token comment" spellcheck="true">// 确保两点之间有边</span>
+                matrix<span class="token punctuation">[</span>min_cost_index<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> min_cost <span class="token operator">&lt;</span> dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//**算法核心</span>
+            <span class="token punctuation">{</span>
+                dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> matrix<span class="token punctuation">[</span>min_cost_index<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> min_cost<span class="token punctuation">;</span>
+                path<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> min_cost_index<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-int main()
-{
-    cout << "请输入图的顶点数（<100）：";
-    cin >> vertex_num;
-    cout << "请输入图的边数：";
-    cin >> edge_num;
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"请输入图的顶点数（&lt;100）："</span><span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> vertex_num<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"请输入图的边数："</span><span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> edge_num<span class="token punctuation">;</span>
 
-    for (int i = 0; i < vertex_num; i++)
-        for (int j = 0; j < vertex_num; j++)
-            matrix[i][j] = (i != j) ? INT_MAX : 0;  // 初始化 matrix 数组
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> vertex_num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> vertex_num<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+            matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span> j<span class="token punctuation">)</span> <span class="token operator">?</span> INT_MAX <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 初始化 matrix 数组</span>
 
-    cout << "请输入边的信息：\n";
-    int u, v, w;
-    for (int i = 0; i < edge_num; i++)
-    {
-        cin >> u >> v >> w;
-        matrix[u][v] = matrix[v][u] = w;
-    }
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"请输入边的信息：\n"</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> u<span class="token punctuation">,</span> v<span class="token punctuation">,</span> w<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> edge_num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cin <span class="token operator">>></span> u <span class="token operator">>></span> v <span class="token operator">>></span> w<span class="token punctuation">;</span>
+        matrix<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> matrix<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> w<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    cout << "请输入源点（<" << vertex_num << "）：";
-    cin >> source;
-    Dijkstra(source);
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"请输入源点（&lt;"</span> <span class="token operator">&lt;&lt;</span> vertex_num <span class="token operator">&lt;&lt;</span> <span class="token string">"）："</span><span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> source<span class="token punctuation">;</span>
+    <span class="token function">Dijkstra</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    for (int i = 0; i < vertex_num; i++)
-    {
-        if (i != source)
-        {
-            cout << source << " 到 " << i << " 的最短距离是：" << dist[i] << "，路径是：" << i;
-            int t = path[i];
-            while (t != source)
-            {
-                cout << "--" << t;
-                t = path[t];
-            }
-            cout << "--" << source << endl;
-        }
-    }
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> vertex_num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span> source<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> source <span class="token operator">&lt;&lt;</span> <span class="token string">" 到 "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">" 的最短距离是："</span> <span class="token operator">&lt;&lt;</span> dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"，路径是："</span> <span class="token operator">&lt;&lt;</span> i<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> t <span class="token operator">=</span> path<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>t <span class="token operator">!=</span> source<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"--"</span> <span class="token operator">&lt;&lt;</span> t<span class="token punctuation">;</span>
+                t <span class="token operator">=</span> path<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"--"</span> <span class="token operator">&lt;&lt;</span> source <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    return 0;
-}
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-//结果
-</code></pre>
+<span class="token comment" spellcheck="true">//结果</span></code></pre>
 <hr>
 <h5 id="4-查找"><a href="#4-查找" class="headerlink" title="4.查找"></a>4.查找</h5><p><strong>1.顺序表查找</strong></p>
 <p><strong>二分法查找</strong>，low和high作为待元素的下界和上界，mid指示区间的中间位置。mid=(low+high)/2 向下取整，若mid对应的值大于被查找值key，则high = mid-1，否则low = mid+1，若相等则返回mid。当low&lt;=high时，返回未查找到。</p>
@@ -892,19 +893,19 @@ int main()
 <p><strong>核心思想</strong>为通过一次排序将待排记录分割成独立的两部分，其中一部分的关键字均比另一组的关键字小，则可分别对这两部分记录继续排序，以达到整个序列的有序</p>
 <p>首先需要选取一个枢轴，一般为第一个记录，之后将比他小的记录移到左边，大的移到右边。这样的一次操作称作一次快排</p>
 <p><strong>具体做法</strong>为附设两个指针low和high，初值指向low和high，还有一个枢轴记录的关键字pivotkey，之后首先从high的位置向前搜索找到第一个关键字小于pivotkey的记录并和枢轴记录交换位置，之后从low的位置向后搜索找到 一个比privotkey大的记录，并交换位置，重复这两部操作，直至low==high。<strong>可使用L[0]存储pivotkey</strong>，因为对枢轴的复制是多余的，只需要最后进行移位即可</p>
-<pre class=" language-c++"><code class="language-c++">//快速排序
-int Prtition(SqList &L,int low,int high){
-    L.r[0] = L.r[low];    //子表的第一个记录做枢轴记录
-    privotkey = L.r[low].key;
-    while(low<high){    //从表的两端交替向中间扫描
-        while(low<high && L.r[high].key>=privotkey)    --high;
-            L.r[low] = L.r[high];    //比枢轴记录小的记录移到左边
-        while(low<high && L.r[low].key>=privotkey)    ++low;
-            L.r[high]  = L.r[low];//比枢轴记录大的记录移到右边
-    }
-    L.r[low] = L.r[0];    //枢轴记录到位
-    return low;
-}</code></pre>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//快速排序</span>
+<span class="token keyword">int</span> <span class="token function">Prtition</span><span class="token punctuation">(</span>SqList <span class="token operator">&amp;</span>L<span class="token punctuation">,</span><span class="token keyword">int</span> low<span class="token punctuation">,</span><span class="token keyword">int</span> high<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    L<span class="token punctuation">.</span>r<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> L<span class="token punctuation">.</span>r<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//子表的第一个记录做枢轴记录</span>
+    privotkey <span class="token operator">=</span> L<span class="token punctuation">.</span>r<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>low<span class="token operator">&lt;</span>high<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//从表的两端交替向中间扫描</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>low<span class="token operator">&lt;</span>high <span class="token operator">&amp;&amp;</span> L<span class="token punctuation">.</span>r<span class="token punctuation">[</span>high<span class="token punctuation">]</span><span class="token punctuation">.</span>key<span class="token operator">>=</span>privotkey<span class="token punctuation">)</span>    <span class="token operator">--</span>high<span class="token punctuation">;</span>
+            L<span class="token punctuation">.</span>r<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> L<span class="token punctuation">.</span>r<span class="token punctuation">[</span>high<span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//比枢轴记录小的记录移到左边</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>low<span class="token operator">&lt;</span>high <span class="token operator">&amp;&amp;</span> L<span class="token punctuation">.</span>r<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">.</span>key<span class="token operator">>=</span>privotkey<span class="token punctuation">)</span>    <span class="token operator">++</span>low<span class="token punctuation">;</span>
+            L<span class="token punctuation">.</span>r<span class="token punctuation">[</span>high<span class="token punctuation">]</span>  <span class="token operator">=</span> L<span class="token punctuation">.</span>r<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//比枢轴记录大的记录移到右边</span>
+    <span class="token punctuation">}</span>
+    L<span class="token punctuation">.</span>r<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> L<span class="token punctuation">.</span>r<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//枢轴记录到位</span>
+    <span class="token keyword">return</span> low<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>4.<strong>选择排序</strong></p>
 <p>1.简单选择排序</p>
 <p>通过n-i次关键字比较，选出最小的一个记录，并和第i个记录交换</p>
