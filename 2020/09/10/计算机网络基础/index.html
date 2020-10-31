@@ -650,18 +650,19 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 
 <p>TCP 主要通过四个算法来进行拥塞控制：慢开始、拥塞避免、快重传、快恢复。</p>
 <p>发送方需要维护一个叫做<strong>拥塞窗口</strong>（cwnd）的状态变量，注意拥塞窗口与发送方窗口的区别：拥塞窗口只是一个状态变量，实际决定发送方能发送多少数据的是发送方窗口。</p>
+<p>TCP通过感知<strong>超时</strong>或者出现<strong>3次冗余ACK</strong>判断出现了拥塞，需要拥塞控制</p>
 <p>为了便于讨论，做如下假设：</p>
 <ul>
 <li>接收方有足够大的接收缓存，因此不会发生流量控制；</li>
-<li>虽然 TCP 的窗口基于字节，但是这里设窗口的大小单位为报文段。</li>
+<li>虽然 TCP 的窗口基于字节，但是这里设窗口的大小单位为报文段<strong>MSS</strong>。</li>
 </ul>
 <img src="/images/loading.gif" data-original="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/910f613f-514f-4534-87dd-9b4699d59d31.png" width="800" style="zoom: 67%;" />
 
 <h6 id="3-6-1-慢开始与拥塞避免"><a href="#3-6-1-慢开始与拥塞避免" class="headerlink" title="3.6.1  慢开始与拥塞避免"></a>3.6.1  慢开始与拥塞避免</h6><p>发送的最初执行慢开始，令 cwnd = 1，发送方只能发送 1 个报文段；当<strong>收到确认后</strong>，将 cwnd 加倍，因此之后发送方能够发送的报文段数量为：2、4、8 …</p>
 <p>注意到慢开始每个轮次都将 cwnd 加倍，这样会让 cwnd 增长速度非常快，从而使得发送方发送的速度增长速度过快，网络拥塞的可能性也就更高。设置一个<strong>慢开始门限 ssthresh</strong>，<strong>当 cwnd &gt;= ssthresh 时，进入拥塞避免</strong>，之后每个轮次只将 cwnd 加 1。</p>
-<p>如果出现了超时，则令 <strong>ssthresh = cwnd / 2</strong>，然后重新执行慢开始。</p>
+<p>如果出现了<strong>超时</strong>，则令 <strong>ssthresh = cwnd / 2</strong>，然后重新执行慢开始。</p>
 <h6 id="3-6-2-快重传与快恢复"><a href="#3-6-2-快重传与快恢复" class="headerlink" title="3.6.2  快重传与快恢复"></a>3.6.2  快重传与快恢复</h6><p>在接收方，要求每次接收到报文段都应该对最后一个已收到的<strong>有序</strong>报文段进行确认。例如已经接收到 M<sub>1</sub> 和 M<sub>2</sub>，此时收到 M<sub>4</sub>，应当发送对 M<sub>2</sub> 的确认。</p>
-<p>在发送方，如果收到三个重复确认，那么可以知道下一个报文段丢失，此时执行快重传，立即重传下一个报文段。例如收到三个 M<sub>2</sub>，则 M<sub>3</sub> 丢失，立即重传 M<sub>3</sub>。</p>
+<p>在发送方，如果<strong>收到三个重复确认ACK</strong>，那么可以知道下一个报文段丢失，此时执行快重传，立即重传下一个报文段。例如收到三个 M<sub>2</sub>，则 M<sub>3</sub> 丢失，立即重传 M<sub>3</sub>。</p>
 <p>在这种情况下，只是丢失个别报文段，而不是网络拥塞。因此执行快恢复，令 ssthresh = cwnd / 2 ，cwnd = ssthresh，注意到此时直接进入拥塞避免。</p>
 <p><strong>慢开始和快恢复的快慢指的是 cwnd 的设定值</strong>，而不是 cwnd 的增长速率。慢开始 cwnd 设定为 1，而快恢复 cwnd 设定为 ssthresh。</p>
 <hr>
