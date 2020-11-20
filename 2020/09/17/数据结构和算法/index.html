@@ -451,11 +451,16 @@
                 
 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-10-31
+                </div>
+                
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.5k
+                    6.6k
                 </div>
                 
 
@@ -622,32 +627,32 @@ Boolean visited<span class="token punctuation">[</span>MAX<span class="token pun
 <p><strong>最小生成树</strong></p>
 <p>稀疏图用Kruskal，稠密图用Prim</p>
 <p>n个节点至少需要n-1条边连通，但边上还有权值，选择权值之和最小的n-1条边，可能不唯一</p>
-<pre class=" language-C"><code class="language-C">//最小生成树，普里姆算法，最小生成树不断壮大的过程，选顶点.使用邻接矩阵存储的网
-//不断寻找与逐渐生成的最小生成树相连的边权最小的点加入
-void MiniSpanTree_prim(MGraph G ,vertexType u){
-    //从第u个顶点出发构造最小生成树
-    //closedge记录从顶点集U到V-U的代价最小的边的辅助数组定义。就是未加入的节点和这棵生成树之间的权值
-    struct {
-        VertexType adjvex;//存储该边依附在顶点集U中的顶点
-        VRtype lowcost;//存储在该边上的权值
-    }closedge[MAX_VERTEX_NUM]
-        k = LocateVex(G,u);    //开始的顶点的位置
-    for(j=0;j<G.vexnum;j++){    //辅助数组初始化,lowcost为开始节点u与其他节点之间的权值，权值可为无穷大
-        if(j != k) closedge[j] = {u,G.arc[k][j].adj} //{adjvex,lowcost}
-    }
-    closedge[k].lowcost = 0;    //初始U={u}
-    for(i=1;i<G.vexnum;i++){    //选择剩下的G.vexnum-1个顶点
-        k=minimum(closedge)；    //选择一个在closedge里边权值最小的顶点的序号，将其顶点和边加入最小生成树        
-        printf(closedge[k].adjvex,G.vexs[k]);    //输出边
-        closedge[k].lowcost = 0;    //第K顶点并入U集
-        for(j=0;j<G.vexnum;j++){
-            //新顶点并入U后，重新选择最小边。就是更新closedge里面的lowcost的值
-            if(G.arcs[k][j].adj<closedge[j].lowcost)    
-                //权值比原有的lowcost小，更新。    注意是k节点和其他节点之间的权值与之前节点的权值进行比较
-                closedge[j] = {G.vexs[k],G.arcs[k][j].adj};
-        }
-    }
-}</code></pre>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//最小生成树，普里姆算法，最小生成树不断壮大的过程，选顶点.使用邻接矩阵存储的网</span>
+<span class="token comment" spellcheck="true">//不断寻找与逐渐生成的最小生成树相连的边权最小的点加入</span>
+<span class="token keyword">void</span> <span class="token function">MiniSpanTree_prim</span><span class="token punctuation">(</span>MGraph G <span class="token punctuation">,</span>vertexType u<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//从第u个顶点出发构造最小生成树</span>
+    <span class="token comment" spellcheck="true">//closedge记录从顶点集U到V-U的代价最小的边的辅助数组定义。就是未加入的节点和这棵生成树之间的权值</span>
+    <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+        VertexType adjvex<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//存储该边依附在顶点集U中的顶点</span>
+        VRtype lowcost<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//存储在该边上的权值</span>
+    <span class="token punctuation">}</span>closedge<span class="token punctuation">[</span>MAX_VERTEX_NUM<span class="token punctuation">]</span>
+        k <span class="token operator">=</span> <span class="token function">LocateVex</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span>u<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//开始的顶点的位置</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//辅助数组初始化,lowcost为开始节点u与其他节点之间的权值，权值可为无穷大</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">!=</span> k<span class="token punctuation">)</span> closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>u<span class="token punctuation">,</span>G<span class="token punctuation">.</span>arc<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>adj<span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//{adjvex,lowcost}</span>
+    <span class="token punctuation">}</span>
+    closedge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//初始U={u}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//选择剩下的G.vexnum-1个顶点</span>
+        k<span class="token operator">=</span><span class="token function">minimum</span><span class="token punctuation">(</span>closedge<span class="token punctuation">)</span>；    <span class="token comment" spellcheck="true">//选择一个在closedge里边权值最小的顶点的序号，将其顶点和边加入最小生成树        </span>
+        <span class="token function">printf</span><span class="token punctuation">(</span>closedge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>adjvex<span class="token punctuation">,</span>G<span class="token punctuation">.</span>vexs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出边</span>
+        closedge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//第K顶点并入U集</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//新顶点并入U后，重新选择最小边。就是更新closedge里面的lowcost的值</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>G<span class="token punctuation">.</span>arcs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>adj<span class="token operator">&lt;</span>closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost<span class="token punctuation">)</span>    
+                <span class="token comment" spellcheck="true">//权值比原有的lowcost小，更新。    注意是k节点和其他节点之间的权值与之前节点的权值进行比较</span>
+                closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>G<span class="token punctuation">.</span>vexs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span>G<span class="token punctuation">.</span>arcs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>adj<span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>另一个就是Kruskal算法，即连通分量（即不能形成环）不断合并的过程。在开始就将n个顶点加入U，选边。</p>
 <p>每次选择边权最小的边链接两个端点是kruskal的规则，并实时判断两个点之间有没有间接联通形成环。</p>
 <p><a href="https://blog.csdn.net/mgsky1/article/details/77840286" target="_blank" rel="noopener">参考链接</a></p>
@@ -1226,14 +1231,13 @@ bool visited<span class="token punctuation">[</span><span class="token number">1
                     <div class="summary block-with-text">
                         
                             就是对一些js比较高级一点的知识的简单提及
-1.变量提升参考一道题
+各种杂乱知识点1.变量提升参考一道题
 var a = 10;
 {
     function hello() {
         a = 99;
         function a() {
-        }
-
+   
                         
                     </div>
                     <div class="publish-info">
@@ -1503,7 +1507,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">晟松</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>

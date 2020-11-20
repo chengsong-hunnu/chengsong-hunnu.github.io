@@ -451,11 +451,16 @@
                 
 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-10
+                </div>
+                
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -525,12 +530,24 @@ obj<span class="token punctuation">.</span><span class="token function">name</sp
 <span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token string">"Hello World"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>ts有些特殊的变量类型，如<strong>any</strong>，一般用于用户的输入，定义存储各种类型的数组。</p>
+<hr>
+<h5 id="1-基础类型"><a href="#1-基础类型" class="headerlink" title="1.基础类型"></a>1.基础类型</h5><p>any,number,string,boolean,</p>
+<p>数组（let arr: number[] = [1, 2];），</p>
+<p>元组（let x: [string, number];），</p>
+<p>枚举（enum Color {Red, Green, Blue};）</p>
+<p>void，null，undefined，never</p>
+<p><strong>类型断言</strong>：用来手动指定一个值的类型，即允许变量从一种类型更改为另一种类型。</p>
+<p>语法格式：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//&lt;类型>值 或 值 as 类型</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'1'</span> 
+<span class="token keyword">var</span> str2<span class="token punctuation">:</span>number <span class="token operator">=</span> <span class="token operator">&lt;</span>number<span class="token operator">></span> <span class="token operator">&lt;</span>any<span class="token operator">></span> str   <span class="token comment" spellcheck="true">//str、str2 是 string 类型</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span></code></pre>
+<p>ts有些特殊的变量类型，如<strong>any</strong>，一般用于用户的输入，不确定会输入什么。下面定义了存储各种类型的数组。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> arrayList<span class="token punctuation">:</span> any<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token string">'fine'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ts的变量声明格式</span>
 <span class="token keyword">let</span> myts<span class="token punctuation">:</span> number <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> uname<span class="token punctuation">:</span>string <span class="token operator">=</span> <span class="token string">"Runoob"</span><span class="token punctuation">;</span> 
 arrayList<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span></code></pre>
-<p>ts里定义函数的参数可设置可选(通过?)，在参数后面需要指明参数类型。</p>
+<p>ts里定义函数的参数可设置<strong>可选</strong>(通过?)，在参数后面需要指明参数类型。还有默认参数</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">buildName</span><span class="token punctuation">(</span>firstName<span class="token punctuation">:</span> string <span class="token operator">=</span> <span class="token string">'abc'</span><span class="token punctuation">,</span> lastName<span class="token operator">?</span><span class="token punctuation">:</span> string<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//可设置默认值</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>lastName<span class="token punctuation">)</span>
         <span class="token keyword">return</span> firstName <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> lastName<span class="token punctuation">;</span>
@@ -541,7 +558,7 @@ arrayList<span class="token punctuation">[</span><span class="token number">1</s
 <span class="token keyword">let</span> result1 <span class="token operator">=</span> <span class="token function">buildName</span><span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 正确</span>
 <span class="token keyword">let</span> result2 <span class="token operator">=</span> <span class="token function">buildName</span><span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"Adams"</span><span class="token punctuation">,</span> <span class="token string">"Sr."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 错误，</span>
 <span class="token keyword">let</span> result3 <span class="token operator">=</span> <span class="token function">buildName</span><span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"Adams"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 正确</span></code></pre>
-<p>ts的剩余参数，指不知道需要传入多少参数。</p>
+<p>ts的剩余参数，指我们不知道需要传入多少参数。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">addNumbers</span><span class="token punctuation">(</span><span class="token operator">...</span>nums<span class="token punctuation">:</span>number<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//一般是数组</span>
     <span class="token keyword">var</span> i<span class="token punctuation">;</span>   
     <span class="token keyword">var</span> sum<span class="token punctuation">:</span>number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//ts的变量声明格式</span>
@@ -1148,7 +1165,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">晟松</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>

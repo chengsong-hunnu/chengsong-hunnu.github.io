@@ -451,11 +451,16 @@
                 
 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-10
+                </div>
+                
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -503,7 +508,11 @@
 <span class="token comment" spellcheck="true">//解构</span>
 <span class="token keyword">let</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span>age<span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
 <span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//注意这种方式，是对常见等号赋值的一种对称形式    source --> target</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span>x<span class="token punctuation">,</span>age<span class="token punctuation">:</span>y<span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//referrence error</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//‘kobe’ 39</span></code></pre>
 <hr>
 <h4 id="4-展开符-三点运算符-…-rest参数"><a href="#4-展开符-三点运算符-…-rest参数" class="headerlink" title="4.展开符/三点运算符(…)/rest参数"></a>4.展开符/三点运算符(…)/rest参数</h4><p>用来取代 arguments 但比 arguments 灵活.里面的value是一个真正的数组，而不是像argument一样的伪数组</p>
 <p>而且只能是函数参数的最后一个位置，即后面不能有其他的参数</p>
@@ -1082,7 +1091,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">晟松</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>

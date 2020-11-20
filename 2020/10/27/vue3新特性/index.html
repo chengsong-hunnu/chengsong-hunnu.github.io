@@ -451,11 +451,16 @@
                 
 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-10
+                </div>
+                
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.3k
                 </div>
                 
 
@@ -475,6 +480,7 @@
                 <p>就是一个简单的对vue3的一个新特性学习和记录</p>
 <p><a href="https://www.jb51.net/article/198200.htm" target="_blank" rel="noopener">参考文章</a></p>
 <p><a href="https://www.vue3js.cn/docs/zh/guide/migration/array-refs.html" target="_blank" rel="noopener">官网参考</a></p>
+<p><a href="https://vue-composition-api-rfc.netlify.app/zh/api.html#setup" target="_blank" rel="noopener">官方文档</a></p>
 <p>如何将vue-cli创建的vue2.x项目转换为vue3的项目</p>
 <pre><code>vue add vue-next</code></pre><p>Performance (⽐ vue2 runtime快了2倍) </p>
 <p>• Tree shaking（按需编译代码）</p>
@@ -502,25 +508,27 @@
         //注意这个setup()函数，vue3的重点
         setup(){
             //第一种响应式的方式ref    值类型string number 
-            const count  = ref(0);    //创建一个响应式数据对象，以vue3的方式
+            //创建一个响应式数据对象，以vue3的方式。如果传入 ref 的是一个对象，将调用 reactive 方法进行深层响应转换。
+            const count  = ref(0);    
             const handleclick = ()=>{
                 count.value++;    //因为现在的count变成了一个对象了，需要控制的是其中的value
                 state.timer++;
             }
             //第二种响应式的方式reactive    引用类型{} []
-            const state  = reactive({timer:0});    //创建出来是一个proxy对象
+            //当 ref 作为 reactive 对象的 property 被访问或修改时，也将自动解套 value 值
+            const state  = reactive({timer:0,count});    //创建出来是一个proxy对象
             //readonly格式类似reactive，但是只能初始化进行读取，无法进行更改
 
-            //响应式系统api
+            //响应式系统api,传入一个 getter 函数，返回一个默认不可手动修改的 ref 对象。
             const double = computed(()=>{
                 return count.value * 2
             });
-            watch(double,(value)=>{
+            watch(double,(value,prevValue)=>{
                 console.log(value)
             });
             //注意所有的变量包括函数都需要返回
             return {
-                count,
+                count,//注意这里只需要传出count，不需要里面的value，它会自动解套
                 handleclick,
                 state,
                 double
@@ -528,6 +536,8 @@
         }
     }
 </script></code></pre>
+<p><code>watchEffect</code></p>
+<p>立即执行传入的一个函数，并响应式追踪其依赖，并在其依赖变更时重新运行该函数。可在后面显式的进行调用返回值停止监听</p>
 <h4 id="3-vtu"><a href="#3-vtu" class="headerlink" title="3.vtu"></a>3.vtu</h4><p>官方指定的单元测试库，帮助我们快速测试一个组件</p>
 <p><strong>测试原则</strong></p>
 <p>• input<br>​    • props<br>​    • ⽤户交互<br>• output<br>​    • dom 的渲染<br>​    • Events<br>• 测试功能，⽽不是测试细节</p>
@@ -1400,7 +1410,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">晟松</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>

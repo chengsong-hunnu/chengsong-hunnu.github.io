@@ -451,11 +451,16 @@
                 
 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-02
+                </div>
+                
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.3k
                 </div>
                 
 
@@ -513,11 +518,11 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>JSON.parse(string name)</td>
+<td>JSON.parse(json name)</td>
 <td>json<strong>字符串</strong>转成js对象  //json格式是一个字符串</td>
 </tr>
 <tr>
-<td>JSON.stringify(json name)</td>
+<td>JSON.stringify(object name)</td>
 <td>js值(对象或数组)转成json字符串</td>
 </tr>
 </tbody></table>
@@ -526,7 +531,7 @@
 <p>promise是es6新增的一个类，专门为了简单化异步编程而进行。避免了层层的回调函数，将回调函数转换成一条执行链。</p>
 <p>Promise 构造函数只有一个参数，是一个函数，这个函数在构造之后会直接被异步运行，所以我们称之为起始函数。起始函数包含两个参数 <strong>resolve 和 reject</strong>。resolve表示函数正常运行，reject表示出现错误时运行</p>
 <p><strong>在初始化Promise实例对象的时候，Promise的状态为pending；在调用resolve回调函数的时候，Promise的状态为fullfilled，表示成功状态；在调用reject回调函数的时候，Promise的状态为rejected，表示失败状态；</strong></p>
-<p>Promise 类有 .then() .catch() 和 .finally() 三个方法，这三个方法的参数都是一个函数，<strong>.then()</strong> 可以将参数中的函数添加到当前 Promise 的正常执行序列，.catch() 则是设定 Promise 的异常处理序列，.finally() 是在 Promise 执行的最后一定会执行的序列。 .then() 传入的函数会按顺序依次执行，有任何异常都会直接跳到 catch 序列。</p>
+<p>Promise 类有 .then() .catch() 和 .finally() 三个方法，这三个方法的参数都是一个函数，<strong>.then()</strong> 可以将参数中的函数添加到当前 Promise 的正常执行序列，.catch() 则是设定 Promise 的异常处理序列，.finally() 是在 Promise 执行的最后一定会执行的序列。 .then() 传入的函数会按顺序依次执行，有任何异常都会直接跳到 catch 序列。<strong>then()方法指定的回调函数将在当前脚本所有同步任务执行完后才会执行</strong></p>
 <p>如果 then 中返回的是一个 Promise 对象，那么<strong>下一个 then</strong> 将相当于对这个返回的 Promise 进行操作</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -548,6 +553,17 @@ promise<span class="token punctuation">.</span><span class="token function">then
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//111 222 成功 success</span></code></pre>
 <p>一般来说，调用resolve或reject以后，Promise 的使命就完成了，后继操作应该放到then方法里面，而不应该直接写在resolve或reject的后面。<strong>resolve或reject总是在本轮事件循环的末尾执行</strong>，所以最后才打印success。当调用resolve()函数将promise状态改变成fullfilled时，后面的reject()就不会执行</p>
+<p><strong>使用 promise 的经验法则</strong></p>
+<ol>
+<li>使用异步或阻塞代码时，请使用 promise。</li>
+<li>为了代码的可读性，resolve 方法对待 then, reject 对应 catch 。</li>
+<li>确保同时写入.catch 和 .then 方法来实现所有的 promise。</li>
+<li>如果在这两种情况下都需要做一些事情，请使用 .finally。</li>
+<li>我们只有一次改变每个promise (单一原则)。</li>
+<li>我们可以在一个promise 中添加多个处理程序。</li>
+<li>Promise对象中所有方法的返回类型，无论是静态方法还是原型方法，都是Promise。</li>
+<li>在Promise.all中，无论哪个promise 首先未完成，promise 的顺序都保持在值变量中。</li>
+</ol>
 <hr>
 <p><strong>重点异步函数</strong>：async 和 await。方便，简洁.但await 指令后必须跟着一个 Promise，异步函数会在这个 Promise 运行中暂停，直到其运行结束再继续运行。</p>
 <p>例：</p>
@@ -632,7 +648,7 @@ document<span class="token punctuation">.</span>cookie<span class="token operato
 <span class="token keyword">var</span> per1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> per2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 打印结果：[object object]</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>per1<span class="token punctuation">.</span>__proto__ <span class="token operator">==</span> Person<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//注意后面是构造函数的prototype，前面为实例的__proti__</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>per1<span class="token punctuation">.</span>__proto__ <span class="token operator">==</span> Person<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//注意后面是构造函数的prototype，前面为实例的__proto__</span>
 <span class="token comment" spellcheck="true">// 打印结果：true</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Person <span class="token operator">===</span> Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span></code></pre>
 <p><code>实例.__proto__</code> 和 <code>构造函数.prototype</code>都指的是原型对象。</p>
@@ -1164,7 +1180,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">晟松</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>

@@ -451,11 +451,16 @@
                 
 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-09
+                </div>
+                
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    4.4k
                 </div>
                 
 
@@ -473,7 +478,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>就是对一些js比较高级一点的知识的简单提及</p>
-<h5 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h5><p><a href="https://blog.csdn.net/nokiaguy/article/details/106073431" target="_blank" rel="noopener">参考一道题</a></p>
+<h4 id="各种杂乱知识点"><a href="#各种杂乱知识点" class="headerlink" title="各种杂乱知识点"></a>各种杂乱知识点</h4><h5 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h5><p><a href="https://blog.csdn.net/nokiaguy/article/details/106073431" target="_blank" rel="noopener">参考一道题</a></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">function</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -508,7 +513,7 @@ consolo<span class="token punctuation">.</span><span class="token function">log<
 <p>深拷贝：复制得到的访问地址指向<code>不同的内存空间，互不相干</code>。所以修改其中一个值，另外一个不会改变。</p>
 <p>平时使用数组复制时，我们大多数会使用 <code>=</code>，这只是浅拷贝，存在很多问题，会相互影响</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> arr2 <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+<span class="token keyword">let</span> arr2 <span class="token operator">=</span> arr<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//或arr2 = Object.assign(arr)</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[1, 2, 3, 4, 5]</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[1, 2, 3, 4, 5]</span>
 arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
@@ -519,13 +524,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//[6, 2, 3, 4, 7]</span></code></pre>
 <p><strong>深拷贝的的复制过程</strong></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">20</span> <span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//先转换成字符类型，再转成object类型，成功在堆里面生成了一个新的对象数据</span>
+<span class="token comment" spellcheck="true">//先转换成字符类型，再转成object类型，成功在堆里面生成了一个新的对象数据，但是在这是一个function对象的时候就会发生错误</span>
 <span class="token keyword">let</span> b <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 b<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span></code></pre>
 <p>在原文章中还有一些对数组这些的一些方法（如slice，concat）的测试，实现深拷贝</p>
-<h5 id="js高级程序设计里面的一些知识点记录"><a href="#js高级程序设计里面的一些知识点记录" class="headerlink" title="js高级程序设计里面的一些知识点记录"></a>js高级程序设计里面的一些知识点记录</h5><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
+<h4 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h4><h5 id="js高级程序设计"><a href="#js高级程序设计" class="headerlink" title="js高级程序设计"></a>js高级程序设计</h5><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
 <p>p237    原型的问题还是源自其自身的共享特性，当原型上面存在引用类型（如数组）的时候，这个引用类型是共享的。当一个实例修改了这个数组，其他实例也能得到这个数组，一般而言，每个实例应该有自身的属性副本。</p>
 <p>可使用<code>盗用构造函数（在子类构造函数中使用call()或apply()调用父类构造函数）</code>和<strong>组合继承(主流)</strong>（结合原型链和盗用构造函数，两者都使用）解决</p>
 <p>p240    默认情况下，所有引用类型都继承自Object</p>
@@ -534,7 +539,183 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>p300    function定义的函数里面的this引用的是这个函数被调用时所处的作用域，而箭头函数就只是被<strong>定义</strong>时的上下文</p>
 <p>p352    await关键字只能直接出现在异步函数的定义中</p>
 <p>p467    css属性名使用连字符表示法，所以就算使用的时候必须将其转为驼峰命名</p>
+<h5 id="你所不知道的js–上"><a href="#你所不知道的js–上" class="headerlink" title="你所不知道的js–上"></a>你所不知道的js–上</h5><p><strong>解析/语法分析（Parsing）</strong> </p>
+<p>这个过程是将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法 结构的树。这个树被称为“抽象语法树”（Abstract Syntax Tree，AST）。</p>
+<p>eval(..) 函数可以接受一个字符串为参数，并将其中的内容视为好像在书 写时就存在于程序中这个位置的代码。换句话说，可以在你写的代码中用程序生成代码并 运行，就好像代码是写在那个位置的一样</p>
+<p>要避免书写eval和with这两个语法，因为会影响js引擎的编译性能</p>
+<p>函数作用域的含义是指，属于这个函数的全部变量都可以在整个函数的范围内使用及复 用（事实上在嵌套的作用域中也可以使用）。</p>
+<p><strong>闭包</strong></p>
+<p>本质上无论何时何地，如果将函数（访问它们各自的词法作用域）当作第一级的值类型并到处传递，你就会看到闭包在这些函数中的应用。在定时器、事件监听器、 Ajax 请求、跨窗口通信、Web Workers 或者任何其他的异步（或者同步）任务中，只要使 用了回调函数，实际上就是在使用闭包！</p>
+<p>闭包有3个特性：</p>
+<p>①函数嵌套函数</p>
+<p>②函数内部可以引用函数外部的参数和变量</p>
+<p>③参数和变量不会被垃圾回收机制回收 </p>
+<p>P48 在循环里面的settimeout函数里面定义的函数的作用域解释</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//其实直接用let就行，但需要明白后面的原理</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span> <span class="token keyword">function</span> <span class="token function">timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> i <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> i<span class="token operator">*</span><span class="token number">1000</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//结果是：会以每秒一次的频率输出五次 6。这就是作用域的使用不当，js是单线程的，所以在执行for循环的时候定时器setTimeout被安排到任务队列中排队等待执行，而在等待过程中for循环就已经在执行，等到setTimeout可以执行的时候，for循环已经结束，i的值也已经编程5</span>
 
+<span class="token comment" spellcheck="true">//改进</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span> <span class="token keyword">function</span> <span class="token function">timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> j <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> j<span class="token operator">*</span><span class="token number">1000</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span> i <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span></code></pre>
+<p>for 循环头部的 let 声明还会有一 个特殊的行为。这个行为指出变量在循环过程中不止被声明一次，每次迭代都会声明。随 后的每个迭代都会使用上一个迭代结束时的值来初始化这个变量。</p>
+<p>简单来说闭包实则是词法作用域的产物；一个函数只要是在内部函数访问到外部函数的作用域我们则可以称之为<code>闭包</code></p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//这也是一个闭包</span>
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token string">'out var'</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>对于闭包，更常见的方式应该是<strong>模块模式</strong>，模块里面运行定义私有的实现（函数，变量 ），同时也可以暴露一些方法作为公开的API</p>
+<hr>
+<p><strong>this和原型</strong></p>
+<p>this 是在运行时进行绑定的，并不是在编写时绑定，它的上下文取决于函数调 用时的各种条件。this 的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式</p>
+<p>函数的调用栈，绑定规则</p>
+<p>就可以顺序应用下面这四条规则来判断 this 的绑定对象。 </p>
+<ol>
+<li><p>由 new 调用？绑定到新创建的对象。 </p>
+</li>
+<li><p>由 call 或者 apply（或者 bind）调用？绑定到指定的对象。 </p>
+</li>
+<li><p>由上下文对象调用？绑定到那个上下文对象。 </p>
+</li>
+<li><p>默认：在严格模式下绑定到 undefined，否则绑定到全局对象</p>
+</li>
+</ol>
+<p>P115 [[PUT]] 和 [[GET]]是对对象的描述表示，而setter和getter是对对象单个属性值的表示</p>
+<p>setter 会覆盖单个属性默认的 [[Put]]（也被称为赋值）操作</p>
+<p>in 操作符可以检查容器内是否有某个值，但是它实际上检查的是某 个属性名是否存在。对于数组来说这个区别非常重要，<br><code>4 in [2, 4, 6]</code>的结 果并不是你期待的 True，因为 [2, 4, 6] 这个数组中包含的属性名是 0、1、 2，没有 4。</p>
+<p>Object.keys(..) 会返回一个数组，包含所有可枚举属性，Object.getOwnPropertyNames(..) 会返回一个数组，包含所有属性，无论它们是否可枚举。 </p>
+<p>in 和 hasOwnProperty(..) 的区别在于是否查找 [[Prototype]] 链(in会查找原型链)，然而，Object.keys(..) 和 Object.getOwnPropertyNames(..) 都只会找对象直接包含的属性</p>
+<h5 id="你所不知道的js–中"><a href="#你所不知道的js–中" class="headerlink" title="你所不知道的js–中"></a>你所不知道的js–中</h5><p><strong>类型与语法</strong></p>
+<p>JavaScript 中的变量是没有类型的，只有值才有。变量可以随时持有任何类型的值</p>
+<p>变量在未持有值的时候为 undefined。此时 typeof 返回 “undefined”：</p>
+<p>数组通过数字进行索引，但有趣的是它们也是对象，所以也可以包含字符串键值和属性（但这些并不计算在数组长度内）</p>
+<pre class=" language-js"><code class="language-js">a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+a<span class="token punctuation">[</span><span class="token string">'bc'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+a<span class="token punctuation">.</span>lenght <span class="token comment" spellcheck="true">// 1</span>
+a<span class="token punctuation">.</span>bc <span class="token comment" spellcheck="true">// 2</span>
+<span class="token comment" spellcheck="true">//注意这个点的强制转换</span>
+a<span class="token punctuation">[</span><span class="token string">'23'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">23</span>
+a<span class="token punctuation">.</span>length <span class="token comment" spellcheck="true">// 24</span></code></pre>
+<p>• undefined 指从未赋值</p>
+<p>• null 指曾赋过值，但是目前没有值</p>
+<p>null 是一个特殊关键字，不是标识符，我们不能将其当作变量来使用和赋值。然而</p>
+<p>undefined 却是一个标识符，可以被当作变量来使用和赋值。</p>
+<p>由于 NaN 和自身不相等，所以必须使用 ES6 中的 Number.isNaN(..)</p>
+<p>ES6 中新加入了一个工具方法 Object.is(..) 来判断两个值是否绝对相等，主要用于特殊的判断，如NAN和+0，-0，Infinity，-Infinity</p>
+<p>以下这些是假值：</p>
+<p>• undefined</p>
+<p>• null</p>
+<p>• false</p>
+<p>• +0、-0 和 NaN</p>
+<p>• “”</p>
+<p>假值的布尔强制类型转换结果为 false。</p>
+<p>从逻辑上说，假值列表以外的都应该是真值（truthy）。但 JavaScript 规范对此并没有明确定义，只是给出了一些示例，例如规定所有的对象都是真值，<strong>我们可以理解为假值列表以外的值都是真值</strong>。</p>
+<p>例如：[],    {},    function(){}都是真值</p>
+<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201107165428413.png" alt="image-20201107165428413" style="zoom: 80%;" />
+
+<p>我们要对 == 两边的值认真推敲，以下两个原则可以让我们有效地避免出错。</p>
+<p>• 如果两边的值中有 true 或者 false，千万不要使用 ==。</p>
+<p>• 如果两边的值中有 []、”” 或者 0，尽量不要使用 ==。这时最好用 === 来避免不经意的强制类型转换。这两个原则可以让我们避开几乎所有强制类型转换的坑。</p>
+<p>所以 == 和 === 选择哪一个取决于是否允许在相等比较中发生强制类型转换</p>
+<p>语句都有一个结果值（statement completion value，undefined 也算），获得结果值最直接的方法是在浏览器开发控制台中输入语句，默认情况下控制台会显示<strong>所执行的最后一条语句的结果值</strong>。</p>
+<p>如果在控制台中输入 var a = 42 会得到结果值 undefined，而非 42</p>
+<p>换句话说，代码块的结果值就如同一个隐式的返回，即返回最后一个语句的结果值</p>
+<p>delete 用来删除对象中的属性和数组中的单元</p>
+<p><strong>JavaScript 中的 &amp;&amp; 和 || 运算符返回它们其中一个操作数的值，而非true 或 false</strong></p>
+<ul>
+<li><p>42 || ’b‘;     // 42</p>
+</li>
+<li><p>​    true || false &amp;&amp; false; // true</p>
+</li>
+<li><p>​    (true || false) &amp;&amp; false; // false</p>
+</li>
+<li><p>​    true || (false &amp;&amp; false); // true</p>
+</li>
+</ul>
+<p>这说明 &amp;&amp; 运算符先于 || 执行，而且执行顺序并非我们所设想的从左到右。原因就在于运算符优先级</p>
+<p>暂时性死区：指的是由于代码中的变量还没有初始化而不能被引用的情况，对此，最直观的例子是 ES6 规范中的 let 块作用域，另一个 TDZ 违规的例子是 ES6 中的参数默认值{<br> a = 2; // ReferenceError!<br> let a;<br>}</p>
+<p>异步函数的<strong>回调地狱</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//假设所有的函数都是异步回调函数，最后的运行顺序会是ABCDEF</span>
+<span class="token function">doA</span><span class="token punctuation">(</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+ <span class="token function">doC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+ <span class="token function">doD</span><span class="token punctuation">(</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+ <span class="token function">doF</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+ <span class="token punctuation">}</span> <span class="token punctuation">)</span> 
+ <span class="token function">doE</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token function">doB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>通过回调表达程序异步和管理并发的两个主要缺陷：缺乏顺序性和可信任性(控制反转)。</p>
+<p><strong>PROMISE</strong></p>
+<p>虽然之前也写过一些关于promise的文字，但现在还是为了加深记忆，再写一些吧</p>
+<p><a href="https://segmentfault.com/a/1190000017312249" target="_blank" rel="noopener">一篇比较好的文章</a></p>
+<p>注意异步<strong>任务队列</strong>这个东西，会决定异步代码和同步代码的运行顺序</p>
+<p><strong>链式流</strong></p>
+<p>如果向 Promise.resolve(..) 传递一个非 Promise、非 thenable 的立即值，就会得到一个用这个值填充的 promise</p>
+<p>而如果向 Promise.resolve(..) 传递一个真正的 Promise，就只会返回同一个 promise.对传入的 thenable 则会展开。如果这个 thenable 展开得到一个拒绝状态，那么从 Promise.resolve(..) 返回的 Promise 实际上就是这同一个拒绝状态</p>
+<p>reject(..) 不会像 resolve(..) 一 样 进 行 展 开。 如 果 向reject(..) 传入一个 Promise/thenable 值，它会把这个值原封不动地设置为</p>
+<p>拒绝理由。后续的拒绝处理函数接收到的是你实际传给 reject(..) 的那个Promise/thenable，而不是其底层的立即值</p>
+<p>Promise 链的一个最佳实践就是最后总以一个 catch(..) 结束</p>
+<p>catch也会返回一个promise实例，并且是resolved状态。<code>throw new Error()</code>抛出错误变为rejected状态</p>
+<pre><code>var p = Promise.resolve( 21 ); 
+p.then( function(v){ 
+console.log( v ); // 21 
+// 创建一个promise并将其返回
+return new Promise( function(resolve,reject){ 
+// 用值42填充
+    resolve( v  * 2 ); 
+        } ); 
+    } ) 
+    .then( function(v){ 
+        console.log( v ); // 42 
+} ); </code></pre><p>虽然我们把 42 封装到了返回的 promise 中，但它仍然会被展开并最终成为链接的 promise的决议，因此第二个 then(..) 得到的仍然是 42。如果我们向封装的 promise 引入异步，一切都仍然会同样工作</p>
+<p><strong>Promise.all([promise1,promise2… ])</strong></p>
+<p>同时执行两个或更多步骤（也就是“并行执行”）。它们的完成顺序并不重要，但是必须都要完成，才能继续进行其他步骤</p>
+<p>Promise.all([ .. ]) 需要一个参数，是一个数组，通常由 Promise 实例组成，当然就算不是promise也行，因为其实里面的都会被resolve一次，确保得到一有个真正的promise。如果数组是空的，主 Promise 就会立即完成。</p>
+<p>从 Promise.all([ .. ]) 调用返回的 promise 会收到一个完成消息。这是一个由所有传入 promise 的完成消息组成的<strong>数组，与指定的顺序一致（与完成顺序无关）</strong></p>
+<p>Promise.all([ .. ]) 返回的主 promise 在且仅在所有的成员 promise 都完成后才会完成。如果这些 promise 中有任何一个被拒绝的话，主 Promise.all([ .. ])promise 就会立即被拒绝，并丢弃来自其他所有 promise 的全部结果。</p>
+<p><strong>Promise.race([promise1,promise2…])</strong></p>
+<p>与 Promise.all([ .. ]) 类似，一旦有任何一个 Promise 决议为完成，Promise.race([ .. ])就会完成；一旦有任何一个 Promise 决议为拒绝，它就会拒绝。但不能传递空数组，不然会被一直挂住，不会返回</p>
+<p><strong>web worker</strong></p>
+<p>在js中运行一个类似多线程的程序</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> w1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span> <span class="token string">"http://some.url.1/mycoolworker.js"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>注意是一个js文件，Worker 之间以及它们和主程序之间，不会共享任何作用域或资源，不会发生抢占，锁这些多线程的东西</p>
+<p>Worker w1 对象是一个事件侦听者和触发者，可以通过订阅它来获得这个 Worker 发出的事件以及发送事件给这个 Worker</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//主线程侦听事件</span>
+w1<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span> <span class="token string">"message"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+ <span class="token comment" spellcheck="true">// evt.data </span>
+<span class="token punctuation">}</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//发送 "message" 事件给这个 Worker：</span>
+w1<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span> <span class="token string">"something cool to say"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//在这个 Worker 内部，收发消息是完全对称的：</span>
+<span class="token comment" spellcheck="true">// "mycoolworker.js" </span>
+<span class="token function">addEventListener</span><span class="token punctuation">(</span> <span class="token string">"message"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+ <span class="token comment" spellcheck="true">// evt.data </span>
+<span class="token punctuation">}</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token function">postMessage</span><span class="token punctuation">(</span> <span class="token string">"a really cool reply"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>要在创建 Worker 的程序中终止 Worker，可以调用 Worker 对象（就像前面代码中的 w1）上的 terminate()。突然终止 Worker 线程不会给它任何机会完成它的工作或者清理任何资源。这就类似于通过关闭浏览器标签页来关闭页面</p>
+<p>Web Worker 通常应用于哪些方面呢？</p>
+<ul>
+<li>处理密集型数学计算</li>
+<li>大数据集排序</li>
+<li>数据处理（压缩、音频分析、图像处理等）</li>
+<li>高流量网络通信</li>
+</ul>
+<p>具体的实现和操作，到时候看文档吧</p>
+<h5 id="你所不知道的js–下"><a href="#你所不知道的js–下" class="headerlink" title="你所不知道的js–下"></a>你所不知道的js–下</h5>
             </div>
             <hr/>
 
@@ -1051,7 +1232,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">晟松</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>

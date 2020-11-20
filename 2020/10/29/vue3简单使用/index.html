@@ -451,6 +451,11 @@
                 
 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-12
+                </div>
+                
 
                 
                 <div class="info-break-policy">
@@ -538,9 +543,9 @@ Vue<span class="token punctuation">.</span>config<span class="token punctuation"
 <p>一个大型组件的示例，其中<strong>逻辑关注点</strong>是按颜色分组。</p>
 <p>这种碎片化使得理解和维护复杂组件变得困难。选项的分离掩盖了潜在的逻辑问题。此外，在处理单个逻辑关注点时，我们必须不断地“跳转”相关代码的选项块。</p>
 <p>如果我们能够将与同一个逻辑关注点相关的代码配置在一起会更好。而这正是组合式 API 使我们能够做到的。</p>
-<h5 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h5><p>开始使用组合式 API，我们首先需要一个可以实际使用它的地方。在 Vue 组件中，我们将此位置称为 <code>setup</code></p>
+<h5 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h5><p>开始使用组合式 API，我们首先需要一个可以实际使用它的地方，也称入口函数。在 Vue 组件中，我们将此位置称为 <code>setup</code></p>
 <p>新的 <code>setup</code> 组件选项在<strong>创建组件之前</strong>执行，一旦 <code>props</code> 被解析，并充当合成 API 的入口点。</p>
-<p>setup 函数<strong>会在 beforeCreate 之后、created 之前执行</strong>, vue3也是取消了这两个钩子，统一用setup代替, 该函数相当于一个生命周期函数，vue中过去的data，methods，watch等全部都用对应的新增api写在setup()函数中，也可不写在这里面。</p>
+<p>setup 函数<strong>会在 beforeCreate之前执行</strong>, vue3也是取消了这两个钩子，统一用setup代替, 该函数相当于一个生命周期函数，vue中过去的data，methods，watch等全部都用对应的新增api写在setup()函数中，也可不写在这里面。</p>
 <ul>
 <li>props: 用来接收 props 数据</li>
 <li>context 用来定义上下文, 上下文对象中包含了一些有用的属性，这些属性在 vue 2.x 中需要通过 this 才能访问到, 在 setup() 函数中无法访问到 this，是个 undefined</li>
@@ -560,7 +565,7 @@ Vue<span class="token punctuation">.</span>config<span class="token punctuation"
           mydata<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
-  <span class="token function">setup</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// { user: '' }</span>
 
     <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 这里返回的任何内容都可以用于组件的其余部分</span>
@@ -1119,32 +1124,34 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/29/vue3%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+                <a href="/2020/11/16/vue%E6%BA%90%E7%A0%81%E7%AE%80%E5%8D%95%E8%A7%A3%E6%9E%90/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="vue3简单使用">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="vue源码简单解析">
                         
-                        <span class="card-title">vue3简单使用</span>
+                        <span class="card-title">vue源码简单解析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对vue3出现的一些新的语法方面的记录和简单使用
-1.main.js首先vue2与vue3在main.js里面出现了一些改变
-Vue 应用挂载到App.vue里面 &lt;div id=&quot;app&quot;&gt;&lt;/div
+                            只是一个关于vue2.x版本的核心源码简单学习
+vue2学习网址
+vue3版本（还未完成）
+之后vue3.x后面再看吧
+响应式原理这里在vue2和vue3之间会有一个比较大的区别，都看一下吧
+vue2// vue2对象响应式原理：Objec
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1153,12 +1160,11 @@ Vue 应用挂载到App.vue里面 &lt;div id=&quot;app&quot;&gt;&lt;/div
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue3/">
-                        <span class="chip bg-color">vue3</span>
+                    <a href="/tags/vue2/">
+                        <span class="chip bg-color">vue2</span>
                     </a>
                     
                 </div>
@@ -1187,9 +1193,9 @@ Vue 应用挂载到App.vue里面 &lt;div id=&quot;app&quot;&gt;&lt;/div
                             就是一个简单的对vue3的一个新特性学习和记录
 参考文章
 官网参考
+官方文档
 如何将vue-cli创建的vue2.x项目转换为vue3的项目
 vue add vue-nextPerformance (⽐ vue2 runtime快了2倍) 
-• Tr
                         
                     </div>
                     <div class="publish-info">
@@ -1408,7 +1414,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">晟松</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
