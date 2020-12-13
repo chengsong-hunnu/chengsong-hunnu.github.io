@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-20
+                    2020-11-21
                 </div>
                 
 
@@ -1023,13 +1023,15 @@ react<span class="token punctuation">.</span>foo <span class="token operator">=<
 
 <p>具体的方式还是看源码吧</p>
 <h4 id="模板编译"><a href="#模板编译" class="headerlink" title="模板编译"></a>模板编译</h4><p>把用户写的模板进行编译，就会产生<code>VNode</code>，得到虚拟DOM</p>
+<img src="/images/loading.gif" data-original="https://img-blog.csdnimg.cn/20200419204951458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjEyNDIxNA==,size_16,color_FFFFFF,t_70" style="zoom:67%;" />
+
 <p><code>Vue</code>会把用户在<code>&lt;template&gt;&lt;/template&gt;</code>标签中写的类似于原生<code>HTML</code>的内容进行编译，把原生<code>HTML</code>的内容找出来，再把非原生<code>HTML</code>找出来，经过一系列的逻辑处理生成渲染函数，也就是<code>render</code>函数，而<code>render</code>函数会将模板内容生成对应的<code>VNode</code>，而<code>VNode</code>再经过前几篇文章介绍的<code>patch</code>过程从而得到将要渲染的视图中的<code>VNode</code>，最后根据<code>VNode</code>创建真实的<code>DOM</code>节点并插入到视图中， 最终完成视图的渲染更新</p>
 <img src="/images/loading.gif" data-original="https://vue-js.com/learn-vue/assets/img/1.f0570125.png" alt="img" style="zoom:67%;" />
 
 <h5 id="抽象语法树（AST）"><a href="#抽象语法树（AST）" class="headerlink" title="抽象语法树（AST）"></a><strong>抽象语法树</strong>（AST）</h5><p>是源代码语法结构的一种抽象表示。它以树状的形式表现编程语言的语法结构，树上的每个节点都表示源代码中的一种结构。</p>
 <img src="/images/loading.gif" data-original="https://vue-js.com/learn-vue/assets/img/2.5596631a.png" alt="img" style="zoom:80%;" />
 
-<p>将一堆字符串模板解析成抽象语法树<code>AST</code>后，我们就可以对其进行各种操作处理了，处理完后用处理后的<code>AST</code>来生成<code>render</code>函数。其具体流程可大致分为三个阶段：</p>
+<p>将一堆字符串模板解析成抽象语法树<code>AST</code>后，我们就可以对其进行各种操作处理了，处理完后用处理后的<code>AST</code>来生成<code>render</code>函数（提一下，render函数执行后就会得到一个虚拟节点树）。其具体流程可大致分为三个阶段：</p>
 <ol>
 <li>模板解析阶段：将一堆模板字符串用正则等方式解析成抽象语法树<code>AST</code>；</li>
 <li>优化阶段：遍历<code>AST</code>，找出其中的静态节点，并打上标记；</li>
@@ -1447,7 +1449,12 @@ res <span class="token operator">=</span> <span class="token punctuation">{</spa
     <span class="token keyword">return</span> code
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
+<p>其实在后面还有一个对模板编译整体流程的解析，但是有些绕，可以去看一下</p>
+<p><a href="https://vue-js.com/learn-vue/complie/summary.html#_1-%E5%89%8D%E8%A8%80" target="_blank" rel="noopener">整体解析地址</a></p>
+<hr>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><img src="/images/loading.gif" data-original="https://vue-js.com/learn-vue/assets/img/1.6e1e57be.jpg" alt="img" style="zoom:67%;" />
 
+<h5 id="初始阶段-new-Vue"><a href="#初始阶段-new-Vue" class="headerlink" title="初始阶段(new Vue)"></a>初始阶段(new Vue)</h5>
             </div>
             <hr/>
 
@@ -1679,35 +1686,30 @@ res <span class="token operator">=</span> <span class="token punctuation">{</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/11/16/vue%E6%BA%90%E7%A0%81%E7%AE%80%E5%8D%95%E8%A7%A3%E6%9E%90/">
+                <a href="/2020/11/21/linux%E7%9F%A5%E8%AF%86%E7%82%B9%E5%A4%8D%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="vue源码简单解析">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="linux知识点复习">
                         
-                        <span class="card-title">vue源码简单解析</span>
+                        <span class="card-title">linux知识点复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            只是一个关于vue2.x版本的核心源码简单学习
-vue2学习网址
-vue3版本（还未完成）
-之后vue3.x后面再看吧
-响应式原理这里在vue2和vue3之间会有一个比较大的区别，都看一下吧
-vue2// vue2对象响应式原理：Objec
+                            对大三上的linux课和书本上的一些重要知识点的简单总结
+第一章    概述页7 linux内核是一个单内核的结构，相对于微内核来说，从整体上把内核作为一个大过程来看，而进程管理，内存管理是其中的一个模块。效率高，但难以维护和修改，微内核与
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1716,12 +1718,11 @@ vue2// vue2对象响应式原理：Objec
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue2/">
-                        <span class="chip bg-color">vue2</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>

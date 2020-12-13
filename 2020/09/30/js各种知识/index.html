@@ -453,14 +453,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-09
+                    2020-12-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    6.4k
                 </div>
                 
 
@@ -530,6 +530,133 @@ b<span class="token punctuation">.</span>x <span class="token operator">=</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span></code></pre>
 <p>在原文章中还有一些对数组这些的一些方法（如slice，concat）的测试，实现深拷贝</p>
+<h5 id="3-各种遇见的小技巧"><a href="#3-各种遇见的小技巧" class="headerlink" title="3.各种遇见的小技巧"></a>3.各种遇见的小技巧</h5><p>取得两个值的中间值，因为有可能两个值之间相加可能会超出表示范围，虽然一般使用了bigint之后，不太可能会这样，但还是注意一下</p>
+<p>使用    left+Math.floor( (right-left)/2 )</p>
+<p>随机数的生成    Math.floor( random* (m-n +1) + n) )    包含n，也包含m</p>
+<h5 id="4-各种小知识点"><a href="#4-各种小知识点" class="headerlink" title="4.各种小知识点"></a>4.各种小知识点</h5><h6 id="1-CommonJS-规范总结与扩展"><a href="#1-CommonJS-规范总结与扩展" class="headerlink" title="1: CommonJS 规范总结与扩展"></a>1: <a href="https://github.com/sisterAn/blog/issues/4" target="_blank" rel="noopener">CommonJS 规范总结与扩展</a></h6><p>前后端 JS 分别搁置在 HTTP 的两端，它们扮演的角色不同，侧重点也不一样。 浏览器端的 JS 需要经历从一个服务器端分发到多个客户端执行，而服务器端 JS 则是相同的代码需要多次执行。前者的瓶颈在于宽带，后者的瓶颈则在于 CPU 等内存资源。前者需要通过网络加载代码，后者则需要从磁盘中加载， 两者的加载速度也不是在一个数量级上的。<br>纵观 Node 的模块引入过程，几乎全都是同步的，尽管与 Node 强调异步的行为有些相反，但它是合理的，但前端如果也用同步方式引入，试想一下，在 UI 加载的过程中需要花费很多时间来等待脚本加载完成，这会造成用户体验的很大问题。</p>
+<p>CommonJS 为后端 JS 制定的；     AMD（异步模块定义），ES6模块化（<code>export</code>和<code>import</code>）是 JS 前端的规范。</p>
+<p><code>CommonJS</code>和ES6中模块化的两者区别</p>
+<ul>
+<li>前者支持动态导入，也就是 <code>require(${path}/xx.js)</code>，后者目前不支持，但是已有提案</li>
+<li>前者是同步导入，因为用于服务端，文件都在本地，同步导入即使卡住主线程影响也不大。而后者是异步导入，因为用于浏览器，需要下载文件，如果也采用同步导入会对渲染有很大影响</li>
+<li>前者在导出时都是值拷贝，就算导出的值变了，导入的值也不会改变，所以如果想更新值，必须重新导入一次。但是后者采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化</li>
+<li>后者会编译成 <code>require/exports</code> 来执行的</li>
+</ul>
+<h6 id="2：ES6的class使用"><a href="#2：ES6的class使用" class="headerlink" title="2：ES6的class使用"></a>2：<a href="https://es6.ruanyifeng.com/#docs/class" target="_blank" rel="noopener">ES6的class使用</a></h6><p>主要是在class定义的constructor中，在这里面定义的在this上面的变量才是实例变量，在constructor外面定义的变量和函数都是类本身的（也可称是在原型中）</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//定义类</span>
+<span class="token keyword">class</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//实例变量</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'('</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">+</span> <span class="token string">', '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> point <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+point<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// (2, 3)</span>
+
+point<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
+point<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
+point<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span>
+point<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span></code></pre>
+<h6 id="3：js单线程和异步"><a href="#3：js单线程和异步" class="headerlink" title="3：js单线程和异步"></a>3：<a href="https://www.cnblogs.com/zhengyufeng/p/10895895.html" target="_blank" rel="noopener">js单线程和异步</a></h6><p><img src="/images/loading.gif" data-original="https://img2018.cnblogs.com/blog/1681656/201905/1681656-20190521094010441-614833594.png" alt="img"></p>
+<p>​    WebAPIs：浏览器为异步任务单独开辟的线程（服务JavaScript的，处理JavaScript的异步）</p>
+<p>​    虚线那一块（看图）：堆（heap）和栈（stack）共同组成了js主线程（这个就是我们JavaScript的线程）</p>
+<p>​    callback queue（最下面的那个长方形）：任务队列，里面放着各种事件，比如我们点击所触发的事件，浏览器会帮我们以任务的形式，把他放入任务队列中</p>
+<p>​    event loop（那个转圈圈）：任务循环，又叫事件循环。</p>
+<p><strong>流程：</strong></p>
+<p>  当我们的程序运行时，执行我们JavaScript的主线程，堆（heap）和栈（stack）共同组成了JavaScript的主线程，函数的执行就是通过进栈和出栈实现的。比如图中有一个foo()函数，主线程把它推入栈中，在执行函数体时，发现还需要执行上面的那几个函数，所以又把这几个函数推入栈中，等到函数执行完，就让函数出栈。当栈中的函数需要异步的时候，主线程会把需要异步的部分推给WebAPIs（浏览器开辟的线程），由WebAPIs去执行。</p>
+<p>  当所有函数都执行完毕后，所有的函数就都被推出了栈。这个时候，程序就会通过event loop（事件循环）去callback queue（任务队列）中寻找下一个任务推入栈中。而WebAPIs（浏览器开辟的线程）执行完主程序推给他的异步之后，将处理后的结果以事件的形式丢到callback queue（任务队列）中，这个事件就是我们写代码的时候的回调函数。而这个时候任务队列里的任务正在往栈（stack）中推，所以异步之后的事件也会被推到栈（stack）中执行，但这个时候他已经不在是异步的了而是同步的，JavaScript的主线程是可以执行的。由此无论是同步还是异步，所有的函数全部执行完毕。</p>
+<p><strong>（event loop（事件循环）总是会循环的查找任务队列里是否还有任务，有就往栈（stack）中推）</strong></p>
+<img src="/images/loading.gif" data-original="https://img2018.cnblogs.com/blog/1681656/201906/1681656-20190602140133041-896205690.png" alt="img" style="zoom: 50%;" />
+
+<p><a href="https://github.com/biaochenxuying/blog/issues/64" target="_blank" rel="noopener">promise async await过程</a></p>
+<p><a href="https://github.com/sisterAn/blog/issues/21" target="_blank" rel="noopener">浏览器的Tasks、microtasks、 queues 和 schedules</a></p>
+<p><strong>任务队列 分为宏任务和微任务：</strong></p>
+<p>宏任务队列：<code>setTimeout，setInterval ，setImmediate，I/O ，UI rendering （浏览器渲染）</code><br>微任务队列：<code>process.nextTick（下一个事件轮询的时间点上执行），Promise callback，Object.observer， MutationObserver（监视 DOM 变动的接口）</code></p>
+<p><strong>关键：</strong></p>
+<ol>
+<li>当前在调用栈 (call stack) 内的所有函数会被执行。当它们返回值的时候，会被从栈内弹出。</li>
+<li>当调用栈是空的时，所有排队的微任务会一个接一个从微任务任务队列中弹出进入调用栈中，然后在调用栈中被执行！(微任务自己也能返回一个新的微任务，有效地创建无限的微任务循环 )</li>
+<li>如果调用栈和微任务队列都是空的，事件循环会检查宏任务队列里是否还有任务。如果宏任务中还有任务，会从宏任务队列中弹出进入调用栈，被执行后会从调用栈中弹出！</li>
+</ol>
+<h6 id="4：js对象方法"><a href="#4：js对象方法" class="headerlink" title="4：js对象方法"></a>4：<a href="https://www.w3school.com.cn/js/js_object_methods.asp" target="_blank" rel="noopener">js对象方法</a></h6><p>类似于这样的一个对象里面有一个属性为一个function</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> group <span class="token operator">=</span> <span class="token punctuation">{</span>
+    title<span class="token punctuation">:</span> <span class="token string">"Our Group"</span><span class="token punctuation">,</span>
+    students<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"John"</span><span class="token punctuation">,</span> <span class="token string">"Pete"</span><span class="token punctuation">,</span> <span class="token string">"Alice"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">//对象方法 </span>
+    show<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'this is a object function'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment" spellcheck="true">//主要是说这个，这个es6对其的简化，让其不在使用function关键字这些，例如vue里面的data(){ return {}}就使用了简化写法</span>
+    <span class="token function">showList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>students<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>
+          student <span class="token operator">=</span><span class="token operator">></span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>title <span class="token operator">+</span> <span class="token string">': '</span> <span class="token operator">+</span> student<span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h6 id="5：formdata文件上传"><a href="#5：formdata文件上传" class="headerlink" title="5：formdata文件上传"></a>5：<a href="https://blog.csdn.net/liuyalu_/article/details/105836451" target="_blank" rel="noopener">formdata文件上传</a></h6><p>一般使用axios的post进行文件上传，这里使用vant组件库的文件上传作为例子，因为vant没有对文件上传进行封装，可以更清晰的了解一下上传的全过程</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//这里是vue里面的一个使用formdata传文件的方法</span>
+<span class="token keyword">async</span> <span class="token function">afterRead</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> formdata <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"file"</span><span class="token punctuation">,</span> file<span class="token punctuation">.</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"cheng"</span><span class="token punctuation">,</span> <span class="token string">"chengsong123456"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        url<span class="token punctuation">:</span> <span class="token string">"url/uploadimg"</span><span class="token punctuation">,</span>
+        method<span class="token punctuation">:</span> <span class="token string">"post"</span><span class="token punctuation">,</span>
+        headers<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> <span class="token string">"application/x-www-form-urlencoded"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        data<span class="token punctuation">:</span> formdata
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>data <span class="token operator">=</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+<p>这里面的formdata有两个字段，一个是file，一个是cheng。第一个是一个上传的图片文件，第二个是一个字符串</p>
+<p>这两个在node后端里面所处的位置也不一样，前面的file是直接在req里面，使用req.file就可以拿到，而后面的字符串就在req.body里面了，需要使用req.body.cheng才能拿到</p>
+<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201213115607145.png" alt="image-20201213115607145" style="zoom: 80%;" />
+
+<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201213120630601.png" alt="image-20201213120630601" style="zoom:80%;" />
+
+
+
+<p>至于跟在url后面的query参数，想下面的id这种</p>
+<pre><code>http://localhost:3000/users/send?test=test&amp;id=21</code></pre><p>可以直接在req.query里面拿到全部的query参数</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//这是nodejs后端的一个接口代码</span>
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"/send"</span><span class="token punctuation">,</span>upload<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>cheng <span class="token operator">===</span> undefined <span class="token operator">&amp;&amp;</span> req<span class="token punctuation">.</span>cheng <span class="token operator">==</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> msg<span class="token punctuation">:</span> <span class="token string">"文件不能为空"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'req:'</span><span class="token punctuation">,</span>req<span class="token punctuation">)</span>
+        <span class="token keyword">let</span> data <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>cheng
+        <span class="token keyword">let</span> file <span class="token operator">=</span> req<span class="token punctuation">.</span>file<span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>msg<span class="token punctuation">:</span>data<span class="token punctuation">,</span>file<span class="token punctuation">:</span>file<span class="token punctuation">,</span>id<span class="token punctuation">:</span>req<span class="token punctuation">.</span>query<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>发送的数据为：</p>
+<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201213120504718.png" alt="image-20201213120504718" style="zoom:80%;" />
+
+<p>返回的数据为</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"msg"</span><span class="token operator">:</span> <span class="token string">"song123"</span><span class="token punctuation">,</span>
+    <span class="token property">"file"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"fieldname"</span><span class="token operator">:</span> <span class="token string">"file"</span><span class="token punctuation">,</span>
+        <span class="token property">"originalname"</span><span class="token operator">:</span> <span class="token string">"rcd.db"</span><span class="token punctuation">,</span>
+        <span class="token property">"encoding"</span><span class="token operator">:</span> <span class="token string">"7bit"</span><span class="token punctuation">,</span>
+        <span class="token property">"mimetype"</span><span class="token operator">:</span> <span class="token string">"application/octet-stream"</span><span class="token punctuation">,</span>
+        <span class="token property">"destination"</span><span class="token operator">:</span> <span class="token string">"./public/uploads/"</span><span class="token punctuation">,</span>
+        <span class="token property">"filename"</span><span class="token operator">:</span> <span class="token string">"ebe916462f40761bac5531a62815ab0a"</span><span class="token punctuation">,</span>
+        <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"public\\uploads\\ebe916462f40761bac5531a62815ab0a"</span><span class="token punctuation">,</span>
+        <span class="token property">"size"</span><span class="token operator">:</span> <span class="token number">3805</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"id"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"ts"</span><span class="token operator">:</span> <span class="token string">"ds"</span><span class="token punctuation">,</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"21"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <h4 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h4><h5 id="js高级程序设计"><a href="#js高级程序设计" class="headerlink" title="js高级程序设计"></a>js高级程序设计</h5><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
 <p>p237    原型的问题还是源自其自身的共享特性，当原型上面存在引用类型（如数组）的时候，这个引用类型是共享的。当一个实例修改了这个数组，其他实例也能得到这个数组，一般而言，每个实例应该有自身的属性副本。</p>
 <p>可使用<code>盗用构造函数（在子类构造函数中使用call()或apply()调用父类构造函数）</code>和<strong>组合继承(主流)</strong>（结合原型链和盗用构造函数，两者都使用）解决</p>
@@ -546,6 +673,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>函数作用域的含义是指，属于这个函数的全部变量都可以在整个函数的范围内使用及复 用（事实上在嵌套的作用域中也可以使用）。</p>
 <p><strong>闭包</strong></p>
 <p>本质上无论何时何地，如果将函数（访问它们各自的词法作用域）当作第一级的值类型并到处传递，你就会看到闭包在这些函数中的应用。在定时器、事件监听器、 Ajax 请求、跨窗口通信、Web Workers 或者任何其他的异步（或者同步）任务中，只要使 用了回调函数，实际上就是在使用闭包！</p>
+<p>理解闭包的关键在于：外部函数调用之后其变量对象本应该被销毁，但闭包的存在使我们仍然可以访问外部函数的变量对象，这就是闭包的重要概念</p>
 <p>闭包有3个特性：</p>
 <p>①函数嵌套函数</p>
 <p>②函数内部可以引用函数外部的参数和变量</p>
@@ -577,6 +705,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span> 
 <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>对于闭包，更常见的方式应该是<strong>模块模式</strong>，模块里面运行定义私有的实现（函数，变量 ），同时也可以暴露一些方法作为公开的API</p>
+<p><a href="https://baijiahao.baidu.com/s?id=1625874168103299234&wfr=spider&for=pc" target="_blank" rel="noopener">参考</a></p>
+<p><a href="https://zh.javascript.info/closure" target="_blank" rel="noopener">参考2</a></p>
 <hr>
 <p><strong>this和原型</strong></p>
 <p>this 是在运行时进行绑定的，并不是在编写时绑定，它的上下文取决于函数调 用时的各种条件。this 的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式</p>

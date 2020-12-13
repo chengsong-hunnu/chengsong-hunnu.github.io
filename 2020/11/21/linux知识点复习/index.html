@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Git简单使用, 晟松">
+    <meta name="keywords" content="linux知识点复习, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git简单使用 | 晟松</title>
+    <title>linux知识点复习 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git简单使用</h1>
+                    <h1 class="description center-align post-title">linux知识点复习</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -446,21 +446,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-18
+                    2020-11-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-11-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    1.3k
                 </div>
                 
 
@@ -477,204 +477,54 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>就是把git方面的知识写下来，方便回忆和查看，虽然之前零零散散看了一些，但还是不清不楚的，主要记录一些操作方面的知识</p>
-<p><a href="https://www.bilibili.com/video/BV1FE411P7B3" target="_blank" rel="noopener">狂神说的git视频</a></p>
-<p><a href="https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQ" target="_blank" rel="noopener">文档</a></p>
-<h4 id="1-基础指令"><a href="#1-基础指令" class="headerlink" title="1.基础指令"></a>1.基础指令</h4><p>1）、cd : 改变目录。</p>
-<p>2）、cd . . 回退到上一个目录，直接cd进入默认目录</p>
-<p>3）、pwd : 显示当前所在的目录路径。</p>
-<p>4）、ls(ll):  都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。</p>
-<p>5）、touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。</p>
-<p>6）、rm:  删除一个文件, rm index.js 就会把index.js文件删除。</p>
-<p>7）、mkdir:  新建一个目录,就是新建一个文件夹。</p>
-<p>8）、rm -r :  删除一个文件夹, rm -r src 删除src目录</p>
-<pre><code>rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！强制删除根目录</code></pre><p>9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。</p>
-<p>10）、reset 重新初始化终端/清屏。</p>
-<p>11）、clear 清屏。</p>
-<p>12）、history 查看命令历史。</p>
-<p>13）、help 帮助。</p>
-<p>14）、exit 退出。</p>
-<p>15）、#表示注释</p>
-<h4 id="2-git配置"><a href="#2-git配置" class="headerlink" title="2.git配置"></a>2.git配置</h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#查看系统config</span>
-<span class="token function">git</span> config --system --list　　
-<span class="token comment" spellcheck="true">#查看当前用户（global）配置</span>
-<span class="token function">git</span> config --global  --list</code></pre>
-<h5 id="Git相关的配置文件："><a href="#Git相关的配置文件：" class="headerlink" title="Git相关的配置文件："></a><strong>Git相关的配置文件：</strong></h5><p>1）、Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   –system 系统级</p>
-<p>2）、C:\Users\Administrator\ .gitconfig   只适用于当前登录用户的配置  –global 全局</p>
-<h5 id="设置用户名与邮箱（用户标识，必要）"><a href="#设置用户名与邮箱（用户标识，必要）" class="headerlink" title="设置用户名与邮箱（用户标识，必要）"></a>设置用户名与邮箱（用户标识，必要）</h5><p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"kuangshen"</span>  <span class="token comment" spellcheck="true">#名称</span>
-<span class="token function">git</span> config --global user.email 24736743@qq.com   <span class="token comment" spellcheck="true">#邮箱</span></code></pre>
-<p>如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要<strong>–global</strong>选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
-<h4 id="3-git基本理论"><a href="#3-git基本理论" class="headerlink" title="3.git基本理论"></a>3.git基本理论</h4><p>Git本地有<strong>三个工作区域</strong>：工作目录（Working Directory）、暂存区(Stage/Index)、资源库(Repository或Git Directory)。如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：</p>
-<img src="/images/loading.gif" data-original="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Ksu8UlITwMlbX3kMGtZ9p0NJ4L9OPI9ia1MmibpvDd6cSddBdvrlbdEtyEOrh4CKnWVibyfCHa3lzXw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img" style="zoom:67%;" />
-
-<ul>
-<li>Workspace：工作区，就是你平时存放项目代码的地方</li>
-<li>Index / Stage：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息</li>
-<li>Repository：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</li>
-<li>Remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</li>
-</ul>
-<p>git的<strong>工作流程</strong>一般是这样的：</p>
-<p>１、在工作目录中添加、修改文件；</p>
-<p>２、将需要进行版本管理的文件放入暂存区域；</p>
-<p>３、将暂存区域的文件提交到git仓库。</p>
-<p>因此，git管理的文件有三种状态：已修改（modified）,已暂存（staged）,已提交(committed)</p>
-<img src="/images/loading.gif" data-original="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Ksu8UlITwMlbX3kMGtZ9p09iaOhl0dACfLrMwNbDzucGQ30s3HnsiaczfcR6dC9OehicuwibKuHjRlzg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img" style="zoom: 50%;" />
-
-<p>版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。</p>
-<ul>
-<li>Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.</li>
-<li>Unmodify: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为Modified. 如果使用git rm移出版本库, 则成为Untracked文件</li>
-<li>Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过, 返回到unmodify状态, 这个git checkout即从库中取出文件, 覆盖当前修改 !</li>
-<li>Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified</li>
-</ul>
-<p>查看文件状态</p>
-<p>上面说文件有4种状态，通过如下命令可以查看到文件的状态：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#查看指定文件状态</span>
-<span class="token function">git</span> status <span class="token punctuation">[</span>filename<span class="token punctuation">]</span>
-<span class="token comment" spellcheck="true">#查看所有文件状态</span>
-<span class="token function">git</span> status
-<span class="token comment" spellcheck="true"># git add .                  添加所有文件到暂存区</span>
-<span class="token comment" spellcheck="true"># git commit -m "消息内容"    提交暂存区中的内容到本地仓库 -m 提交信息</span></code></pre>
-<h4 id="4-主要操作流程"><a href="#4-主要操作流程" class="headerlink" title="4.主要操作流程"></a>4.主要操作流程</h4><img src="/images/loading.gif" data-original="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Ksu8UlITwMlbX3kMGtZ9p0AII6YVooUzibpibzJnoOHHXUsL3f9DqA4horUibfcpEZ88Oyf2gQQNR6w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img" style="zoom:50%;" />
-
-<p>注意：<code>[]</code>中括号可用<code>&quot;&quot;</code>双引号代替，输入法英文模式下</p>
-<p>1.建立仓库</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 在当前目录新建一个Git代码库</span>
-$ <span class="token function">git</span> init
-
-<span class="token comment" spellcheck="true"># 新建一个目录，将其初始化为Git代码库</span>
-$ <span class="token function">git</span> init <span class="token punctuation">[</span>project-name<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 下载一个项目和它的整个代码历史</span>
-$ <span class="token function">git</span> clone <span class="token punctuation">[</span>url<span class="token punctuation">]</span></code></pre>
-<p>2.修改文件之后，添加文件</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 添加指定文件到暂存区</span>
-$ <span class="token function">git</span> add <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
-
-<span class="token comment" spellcheck="true"># 添加指定目录到暂存区，包括子目录</span>
-$ <span class="token function">git</span> add <span class="token punctuation">[</span>dir<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 添加当前目录的所有文件到暂存区</span>
-$ <span class="token function">git</span> add <span class="token keyword">.</span>
-
-<span class="token comment" spellcheck="true"># 添加每个变化前，都会要求确认</span>
-<span class="token comment" spellcheck="true"># 对于同一个文件的多处变化，可以实现分次提交</span>
-$ <span class="token function">git</span> add -p
-
-<span class="token comment" spellcheck="true"># 删除工作区文件，并且将这次删除放入暂存区</span>
-$ <span class="token function">git</span> <span class="token function">rm</span> <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
-
-<span class="token comment" spellcheck="true"># 停止追踪指定文件，但该文件会保留在工作区</span>
-$ <span class="token function">git</span> <span class="token function">rm</span> --cached <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 改名文件，并且将这个改名放入暂存区</span>
-$ <span class="token function">git</span> <span class="token function">mv</span> <span class="token punctuation">[</span>file-original<span class="token punctuation">]</span> <span class="token punctuation">[</span>file-renamed<span class="token punctuation">]</span></code></pre>
-<p>3.提交到本地仓库</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 提交暂存区到仓库区</span>
-$ <span class="token function">git</span> commit -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 提交暂存区的指定文件到仓库区</span>
-$ <span class="token function">git</span> commit <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>. -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 提交工作区自上次commit之后的变化，直接到仓库区</span>
-$ <span class="token function">git</span> commit -a
-
-<span class="token comment" spellcheck="true"># 提交时显示所有diff信息</span>
-$ <span class="token function">git</span> commit -v
-
-<span class="token comment" spellcheck="true"># 使用一次新的commit，替代上一次提交</span>
-<span class="token comment" spellcheck="true"># 如果代码没有任何新变化，则用来改写上一次commit的提交信息</span>
-$ <span class="token function">git</span> commit --amend -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 重做上一次commit，并包括指定文件的新变化</span>
-$ <span class="token function">git</span> commit --amend <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.</code></pre>
-<p>4.远程同步</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 下载远程仓库的所有变动</span>
-$ <span class="token function">git</span> fetch <span class="token punctuation">[</span>remote<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 显示所有远程仓库</span>
-$ <span class="token function">git</span> remote -v
-
-<span class="token comment" spellcheck="true"># 显示某个远程仓库的信息</span>
-$ <span class="token function">git</span> remote show <span class="token punctuation">[</span>remote<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 增加一个新的远程仓库，并命名</span>
-$ <span class="token function">git</span> remote add <span class="token punctuation">[</span>shortname<span class="token punctuation">]</span> <span class="token punctuation">[</span>url<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 取回远程仓库的变化，并与本地分支合并</span>
-$ <span class="token function">git</span> pull <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 上传本地指定分支到远程仓库，常用，</span>
-$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 强行推送当前分支到远程仓库，即使有冲突</span>
-$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> --force
-
-<span class="token comment" spellcheck="true"># 推送所有分支到远程仓库</span>
-$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> --all</code></pre>
-<p>5.撤销</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 恢复暂存区的指定文件到工作区</span>
-$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 恢复某个commit的指定文件到暂存区和工作区</span>
-$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>commit<span class="token punctuation">]</span> <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 恢复暂存区的所有文件到工作区</span>
-$ <span class="token function">git</span> checkout <span class="token keyword">.</span>
-
-<span class="token comment" spellcheck="true"># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span>
-$ <span class="token function">git</span> reset <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 重置暂存区与工作区，与上一次commit保持一致</span>
-$ <span class="token function">git</span> reset --hard
-
-<span class="token comment" spellcheck="true"># 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</span>
-$ <span class="token function">git</span> reset <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</span>
-$ <span class="token function">git</span> reset --hard <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 重置当前HEAD为指定commit，但保持暂存区和工作区不变</span>
-$ <span class="token function">git</span> reset --keep <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true"># 新建一个commit，用来撤销指定commit</span>
-<span class="token comment" spellcheck="true"># 后者的所有变化都将被前者抵消，并且应用到当前分支</span>
-$ <span class="token function">git</span> revert <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
-
-暂时将未提交的变化移除，稍后再移入
-$ <span class="token function">git</span> stash
-$ <span class="token function">git</span> stash pop</code></pre>
-<p><strong>一个流程</strong></p>
-<p>为了方便，其实可以远程网站上创建一个仓库，之后再git clone下来进行操作</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#clone的</span>
-$ <span class="token function">git</span> clone url
-$ <span class="token function">git</span> add filename/dir
-$ <span class="token function">git</span> commit -m <span class="token string">"注释"</span>
-$ <span class="token function">git</span> push
-
-<span class="token comment" spellcheck="true">#init的</span>
-$ <span class="token function">git</span> init  <span class="token comment" spellcheck="true"># 初始化git</span>
-
-<span class="token comment" spellcheck="true">#这两步一般不用</span>
-$ <span class="token function">git</span> config  user.name <span class="token string">"username"</span>  <span class="token comment" spellcheck="true"># 配置用户名</span>
-$ <span class="token function">git</span> config  user.email <span class="token string">"email"</span>  <span class="token comment" spellcheck="true"># 配置邮箱名</span>
-
-$ <span class="token function">git</span> remote -v  <span class="token comment" spellcheck="true"># 查看远程仓库信息</span>
-
-$ <span class="token function">git</span> remote add <span class="token punctuation">[</span>shortname<span class="token punctuation">]</span> <span class="token punctuation">[</span>url<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 添加一个指定名字的远程仓库，一般可先创建好</span>
-<span class="token comment" spellcheck="true"># 示例 git remote add jx git@gitee.com:jxl/laravel.git</span>
-
-$ <span class="token function">git</span> pull <span class="token operator">&lt;</span>远程主机名<span class="token operator">></span> <span class="token operator">&lt;</span>远程分支名<span class="token operator">></span>:<span class="token operator">&lt;</span>本地分支名<span class="token operator">></span> 
-<span class="token comment" spellcheck="true"># git pull命令用于从另一个存储库或本地分支获取并集成(整合)。git pull命令的作用是：取回远程主机某个分支的更新，再与本地的指定分支合并，它的完整格式稍稍有点复杂。</span>
-
-$ <span class="token function">git</span> add <span class="token keyword">.</span> <span class="token comment" spellcheck="true"># 提交当前所有文件到缓存区</span>
-
-$ <span class="token function">git</span> commit -m <span class="token string">"注释"</span>
-
-$ <span class="token function">git</span> push <span class="token operator">&lt;</span>远程主机名<span class="token operator">></span> <span class="token operator">&lt;</span>本地分支名<span class="token operator">></span>:<span class="token operator">&lt;</span>远程分支名<span class="token operator">></span> 
-<span class="token comment" spellcheck="true"># git push命令用于将本地分支的更新，推送到远程主机。它的格式与git pull命令相似。</span></code></pre>
-<h4 id="5-sourcetree"><a href="#5-sourcetree" class="headerlink" title="5.sourcetree"></a>5.sourcetree</h4><p>这是一个客户端程序，可通过这个可视化工具，更方便的进行文件的操作管理</p>
+                <p>对大三上的linux课和书本上的一些重要知识点的简单总结</p>
+<h4 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章    概述"></a>第一章    概述</h4><p>页7 linux内核是一个单内核的结构，相对于微内核来说，从整体上把内核作为一个大过程来看，而进程管理，内存管理是其中的一个模块。效率高，但难以维护和修改，微内核与其相反</p>
+<p>页9 linux内核除系统调用之外还有5个主要的子系统：进程调度、内存管理、虚拟文件系统、网络接口、进程间通信。中心是进程调度，其他子系统都依赖于它</p>
+<h4 id="第二章-内存寻址"><a href="#第二章-内存寻址" class="headerlink" title="第二章    内存寻址"></a>第二章    内存寻址</h4><p>分段（虚拟地址-&gt;线性地址），分页（线性地址-&gt;物理地址）</p>
+<p>页24 80x86的寄存器</p>
+<p>4个32位的控制寄存器用于分页机制，CR0控制是否在保护模式和是否分页，CR3保存页目录的基址</p>
+<p>物理地址，虚拟地址（段选择符：偏移量），线性地址</p>
+<h5 id="段机制"><a href="#段机制" class="headerlink" title="段机制"></a>段机制</h5><p>段的基址，界限，保护属性</p>
+<p>线性地址：基址+界限</p>
+<p>段描述表，存储索引（段寄存器存的索引）、基址、界限、属性。其中表项即为段描述符</p>
+<p>页29 地址转换，linux中的段机制（基址为0，界限为4GB）</p>
+<h5 id="页机制"><a href="#页机制" class="headerlink" title="页机制"></a>页机制</h5><p>将线性空间划分为若干大小相等的片（4KB），称为页。同样，物理地址空间也划分成相等大小的物理页</p>
+<p>页表：物理页面基址，页的属性。低12位记录页的属性，页表每一项4个字节就行</p>
+<p>二级页表：页表再分页，第一级称为页目录，存放页表信息。4个字节线性地址结构：10位页目录，10位页，12位页内偏移量</p>
+<p>第二级称为页表，每个页表存放在一个4KB的页中，包含1K个页表项</p>
+<p>页表项结构</p>
+<p>页34 二级页表的详细地址转换</p>
+<h4 id="第三章-进程"><a href="#第三章-进程" class="headerlink" title="第三章    进程"></a>第三章    进程</h4><p>程序与进程</p>
+<p>进程=正文段+用户数据段+系统数据段</p>
+<p>进程控制块PCB是进程存在与运行的唯一标志，存放于内核的内核栈中</p>
+<p>内核可通过PID找到对应的PCB</p>
+<p>进程的组织方式：hash表存储，使用链地址法处理冲突的PID</p>
+<p>等待队列</p>
+<p>进程调度，公平、高效、响应时间、周转时间、吞吐量</p>
+<p>时间片轮转调度算法、优先权调度算法（抢占式，非抢占式）、多级反馈队列调度算法、实时调度</p>
+<p>进程调度时机：进程状态转换的时刻（进程终止，进程休眠）、当前进程时间片用完、设备驱动程序运行、内核态返回到用户态</p>
+<p>进程调度依据，task_struct结构中的与调度相关的域，goodness()函数结合这些域，为每个可运行进程分配一个权值，调度程序以这个权值作为进程选择的唯一依据</p>
+<p>linux2.6版本对进程调度算法的改进</p>
+<p>页73 进程的创建</p>
+<p>创建和执行 ：fork() exec()      写时复制（fork并没有直接复制父进程的全部资源，只有当需要修改的时候才对被修改部分进行拷贝，实际开销只是复制父进程的页表和创建的PCB）    一般来说，子进程先执行    克隆进程时，运行父进程和子进程共享相同的资源</p>
+<p>线程及其创建，内核将线程视作一个使用某些共享资源的进程</p>
+<p>wait() exit()</p>
+<h4 id="第四章-内存管理"><a href="#第四章-内存管理" class="headerlink" title="第四章    内存管理"></a>第四章    内存管理</h4><p>虚拟内存，内核空间（所有进程共享 32位系统1GB），用户空间（3GB）</p>
+<p>页87 虚拟内存的实现机制</p>
+<p>进程的用户空间（从上至下）：堆栈段、BSS（未初始化的数据段）、数据段、代码段</p>
+<p>进程用户空间的两个数据结构的描述 mm_struct（内存描述符） vm_area_structs（虚存取描述符）</p>
+<p>页98 请页机制（进程运行时，只会将用户空间的少量页装入物理内存，所以可能会发生缺页异常）</p>
+<p>外碎片：已分配的内存块中分散许多小块的空闲页面</p>
+<p>页103 使用伙伴算法解决外碎片，但伙伴算法无法分配比较小的内存（如几十字节）只能分配一个完整的页，所以会产生内碎片（如结构体内存对齐产生内碎片）</p>
+<p>使用slab算法解决内碎片</p>
+<p>kmalloc()分配在物理上页是连续的，但vmalloc()物理内存无需连续（分配时的性能消耗更大）</p>
+<p>交换机制，将内存的内容与专用的磁盘空间进行交换，交换的单位是页面而不是进程</p>
+<p>考虑三个问题：那种页面要换出、如何在交换区存放页面、如何选择被交换出的页面</p>
+<p>页119 cpu使用虚拟地址而不是物理地址</p>
+<h4 id="第五章-中断和异常"><a href="#第五章-中断和异常" class="headerlink" title="第五章    中断和异常"></a>第五章    中断和异常</h4><p>外设可屏蔽中断（外部i/o请求） 使用中断控制器</p>
+<p>异常（cpu内部出现的中断，计算机内部硬件出现错误 ）不使用中断控制器，也不能被屏蔽</p>
+<p>中断描述符表</p>
+<p><strong>中断处理</strong></p>
 
             </div>
             <hr/>
@@ -700,7 +550,7 @@ $ <span class="token function">git</span> push <span class="token operator">&lt;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/10/18/Git%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">http://yoursite.com/2020/10/18/Git%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</a>
+                    <a href="http://yoursite.com/2020/11/21/linux%E7%9F%A5%E8%AF%86%E7%82%B9%E5%A4%8D%E4%B9%A0/">http://yoursite.com/2020/11/21/linux%E7%9F%A5%E8%AF%86%E7%82%B9%E5%A4%8D%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -738,8 +588,8 @@ $ <span class="token function">git</span> push <span class="token operator">&lt;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -911,28 +761,27 @@ $ <span class="token function">git</span> push <span class="token operator">&lt;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/25/uniapp%E5%88%9D%E5%AD%A6%E4%B9%A0/">
+                <a href="/2020/11/28/vue%E5%92%8Cnode%E9%83%A8%E7%BD%B2%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="uniapp初学习">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="vue和node部署服务器">
                         
-                        <span class="card-title">uniapp初学习</span>
+                        <span class="card-title">vue和node部署服务器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对B站上面的一个uniapp的课程的简单学习记录
-视频地址
-另一个文档地址：介绍的更广泛一些
-上面文档的话，其实感觉最重要的还是给我带来了一个关于组件的库，可以更方便的进行使用了
-uview组件库：直接用于uniapp端的组件库，还是比较完
+                            就以一个对自己的vue和node项目关于服务器部署的各种各样的问题的记录和解决
+首先对于一些先决条件，比如服务器的购买和使用宝塔面板管理服务器，安全组，端口这些，就不记录了
+vue+node+mysql参考
+vue跨域：一般在开发环境下，对
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-25
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-28
                         </span>
                         <span class="publish-author">
                             
@@ -945,8 +794,8 @@ uview组件库：直接用于uniapp端的组件库，还是比较完
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/uniapp-%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <span class="chip bg-color">uniapp 小程序</span>
+                    <a href="/tags/node-%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%83%A8%E7%BD%B2/">
+                        <span class="chip bg-color">node 服务器 部署</span>
                     </a>
                     
                 </div>
@@ -960,28 +809,29 @@ uview组件库：直接用于uniapp端的组件库，还是比较完
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/12/leetcode%E8%AE%B0%E5%BD%95%E7%9A%84%E4%B8%80%E4%BA%9B%E9%A2%98/">
+                <a href="/2020/11/16/vue%E6%BA%90%E7%A0%81%E7%AE%80%E5%8D%95%E8%A7%A3%E6%9E%90/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="leetcode记录的一些题">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="vue源码简单解析">
                         
-                        <span class="card-title">leetcode记录的一些题</span>
+                        <span class="card-title">vue源码简单解析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            就是对LeetCode里面碰见的一些比较好的算法题目的一个记录，后面可以方便的回顾一下
-Easy字符串
-外观序列：有一个正则表达式的神奇解法
-实现 strStr()：kmp算法的题目
-字符串转换整数（atoi）：尽量不使用库函数，通过自动机
+                            只是一个关于vue2.x版本的核心源码简单学习
+vue2学习网址
+vue3版本（还未完成）
+之后vue3.x后面再看吧
+响应式原理这里在vue2和vue3之间会有一个比较大的区别，都看一下吧
+vue2// vue2对象响应式原理：Objec
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
                             </span>
                         <span class="publish-author">
                             
@@ -994,8 +844,8 @@ Easy字符串
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LeetCode-%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">LeetCode 算法</span>
+                    <a href="/tags/vue2/">
+                        <span class="chip bg-color">vue2</span>
                     </a>
                     
                 </div>
