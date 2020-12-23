@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-28
+                    2020-12-23
                 </div>
                 
 
@@ -504,24 +504,24 @@ response<span class="token punctuation">.</span><span class="token function">hea
 <p>还有一些其他的更具体的对允许跨域的域名的控制，需要的时候，再进行处理</p>
 <p><strong>部署</strong>：使用<code>npm run build</code>打包之后，直接将dist目录里面的文件全部上传到服务器里面，然后在宝塔里面添加网站</p>
 <p>例：myui.chengsong.info    然后将上传的dist目录与其相对应，可以修改配置文件</p>
-<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201128164515904.png" alt="image-20201128164515904" style="zoom:80%;" />
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128164256348.png" alt="image-20201128164515904" style="zoom:80%;" />
 
 <p>然后DNS也要添加解析到自己的服务器ip</p>
-<p><img src="/images/loading.gif" data-original="C:%5CUsers%5Cadmin%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201128164256348.png" alt="image-20201128164256348"></p>
+<p><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128164515904.png" alt="image-20201128164256348"></p>
 <p>后面基本就可以使用这个网站名进行访问了</p>
 <h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><p>关于node的项目部署</p>
 <p><a href="https://blog.csdn.net/l_ppp/article/details/106085916" target="_blank" rel="noopener">参考链接</a></p>
 <p><a href="https://www.bwmelon.com/archives/27/" target="_blank" rel="noopener">node部署参考</a>：比较细节</p>
 <p>将nodejs的文件除开node_module目录打包之后，上传到服务器，然后解压，使用pm2对nodejs解压目录进行链接（需要先在终端目录里面使用    <code>npm install</code> 安装依赖），这里的端口号是node项目里面监听的端口号</p>
-<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201128165455499.png" alt="image-20201128165455499" style="zoom:67%;" />
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128165455499.png" alt="image-20201128165455499" style="zoom:67%;" />
 
 <p>需要将这个node项目映射到自己的服务器公网ip，然后重启</p>
 <p>之后使用ip+端口号就能访问和请求得到数据，例：<a href="http://115.159.103.48:5000/" target="_blank" rel="noopener">http://115.159.103.48:5000/</a></p>
 <p>自己踩得坑：</p>
 <p>上面的跨域问题的处理，需要解决。</p>
 <p>然后一般会使用到数据库，如mysql，mongodb这些，需要将原来建的表和数据导入到宝塔自带的数据库里面，然后需要在node项目里面关于链接数据库的js文件里面修改数据库名和用户名才能使用</p>
-<p><img src="/images/loading.gif" data-original="C:%5CUsers%5Cadmin%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201128165809874.png" alt="image-20201128165809874"></p>
-<p><img src="/images/loading.gif" data-original="C:%5CUsers%5Cadmin%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201128165753322.png" alt="image-20201128165753322"></p>
+<p><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128165753322.png" alt="image-20201128165809874"></p>
+<p><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128165809874.png" alt="image-20201128165753322"></p>
 
             </div>
             <hr/>

@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-13
+                    2020-12-23
                 </div>
                 
 
@@ -604,6 +604,7 @@ point<span class="token punctuation">.</span>__proto__<span class="token punctua
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//这里是vue里面的一个使用formdata传文件的方法</span>
 <span class="token keyword">async</span> <span class="token function">afterRead</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">let</span> formdata <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//这里的file.file就是实际上传的文件内容（或许是二进制形式？）</span>
       formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"file"</span><span class="token punctuation">,</span> file<span class="token punctuation">.</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
       formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"cheng"</span><span class="token punctuation">,</span> <span class="token string">"chengsong123456"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -617,9 +618,9 @@ point<span class="token punctuation">.</span>__proto__<span class="token punctua
   <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 <p>这里面的formdata有两个字段，一个是file，一个是cheng。第一个是一个上传的图片文件，第二个是一个字符串</p>
 <p>这两个在node后端里面所处的位置也不一样，前面的file是直接在req里面，使用req.file就可以拿到，而后面的字符串就在req.body里面了，需要使用req.body.cheng才能拿到</p>
-<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201213115607145.png" alt="image-20201213115607145" style="zoom: 80%;" />
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201213115607145.png" alt="image-20201213115607145" style="zoom: 80%;" />
 
-<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201213120630601.png" alt="image-20201213120630601" style="zoom:80%;" />
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201213120630601.png" alt="image-20201213120630601" style="zoom:80%;" />
 
 
 
@@ -637,7 +638,7 @@ router<span class="token punctuation">.</span><span class="token function">post<
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>发送的数据为：</p>
-<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201213120504718.png" alt="image-20201213120504718" style="zoom:80%;" />
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201213120504718.png" alt="image-20201213120504718" style="zoom:80%;" />
 
 <p>返回的数据为</p>
 <pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
@@ -754,7 +755,7 @@ a<span class="token punctuation">.</span>length <span class="token comment" spel
 <p>假值的布尔强制类型转换结果为 false。</p>
 <p>从逻辑上说，假值列表以外的都应该是真值（truthy）。但 JavaScript 规范对此并没有明确定义，只是给出了一些示例，例如规定所有的对象都是真值，<strong>我们可以理解为假值列表以外的值都是真值</strong>。</p>
 <p>例如：[],    {},    function(){}都是真值</p>
-<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201107165428413.png" alt="image-20201107165428413" style="zoom: 80%;" />
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201107165428413.png" alt="image-20201107165428413" style="zoom: 80%;" />
 
 <p>我们要对 == 两边的值认真推敲，以下两个原则可以让我们有效地避免出错。</p>
 <p>• 如果两边的值中有 true 或者 false，千万不要使用 ==。</p>

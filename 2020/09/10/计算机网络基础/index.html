@@ -453,14 +453,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-22
+                    2020-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.1k
+                    11.2k
                 </div>
                 
 
@@ -533,6 +533,7 @@
 <p>可供应用程序使用的运输服务：1.可靠的数据传输  2.定时 3.吞吐量 4.安全</p>
 <h5 id="2-1-HTTP"><a href="#2-1-HTTP" class="headerlink" title="2.1 HTTP"></a>2.1 HTTP</h5><p>定义了web客户向web服务器请求web页面的方式，以服务器向客户发送web页面的方式。使用TCP作为他的支撑运输协议。因为HTTP服务器不保存客户的任何信息，所以称HTTP协议是一个<strong>无状态协议</strong>，每一次请求都认为是一个全新的请求。默认是持续连接，也可改成非持续连接。</p>
 <p><strong>HTTP报文格式</strong></p>
+<p><a href="https://www.jianshu.com/p/6e86903d74f7" target="_blank" rel="noopener">常见响应头字段详解</a></p>
 <p><strong>请求报文</strong>：第一行称为请求行，包含方法字段(get/post/put……)、URL字段、HTTP版本字段。后续的行称为首部行。</p>
 <img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20200913192706036.png" alt="image-20200913192706036" style="zoom:70%;" />
 
@@ -582,7 +583,8 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <p><a href="https://blog.csdn.net/qq_43977818/article/details/108577151" target="_blank" rel="noopener">三次握手/四次挥手的简要解析</a></p>
 <p>TCP本身没有提供加密服务，现在主要依靠<strong>安全套接字层(SSL)</strong>提供安全保证，在应用层上进行实现，是一种对TCP的加强。</p>
 <hr>
-<p><strong>可靠的数据传送服务</strong>：进程依靠TCP，无差错，按适当的顺序交付所有传输的数据。具有<strong>自动重传请求协议</strong>，需要差错检测，接收方反馈，重传三种功能处理比特差错的情况。还有<strong>超时重传(但这个时间的设置是一个问题)</strong>，检测冗余(因为过早超时，进行了数据重发，接收方产生了数据冗余)。</p>
+<h5 id="3-1可靠的数据传送服务"><a href="#3-1可靠的数据传送服务" class="headerlink" title="3-1可靠的数据传送服务"></a>3-1<strong>可靠的数据传送服务</strong></h5><p>其实书上关于这里的描述是最细致的，关于rdt1、2、3的演变，GBN或SR的选择，这一方面都很重要</p>
+<p>进程依靠TCP，无差错，按适当的顺序交付所有传输的数据。具有<strong>自动重传请求协议</strong>，需要差错检测，接收方反馈，重传三种功能处理比特差错的情况。还有<strong>超时重传(但这个时间的设置是一个问题)</strong>，检测冗余(因为过早超时，进行了数据重发，接收方产生了数据冗余)。</p>
 <p>接收方一般有累计确认机制</p>
 <img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20200915173418221.png" alt="image-20200915173418221" style="zoom:67%;" />
 
@@ -592,7 +594,7 @@ name=Professional%20Ajax&amp;publisher=Wiley    //响应数据</code></pre><p>co
 <h5 id="3-2-TCP首部格式"><a href="#3-2-TCP首部格式" class="headerlink" title="3.2 TCP首部格式"></a><strong>3.2 TCP首部格式</strong></h5><img src="/images/loading.gif" data-original="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/55dc4e84-573d-4c13-a765-52ed1dd251f9.png" width="700" style="zoom:60%;" />
 
 <ul>
-<li><strong>序号</strong>   ：用于对字节流进行编号，例如序号为 301，表示第一个字节的编号为 301，如果携带的数据长度为 100 字节，那么下一个报文段的序号应为 401。因为MSS的限制，TCP将数据报分成MSS大小的字节流。</li>
+<li><strong>序号</strong>   ：用于对字节流进行编号，例如序号为 301，表示第一个字节的编号为 301，如果携带的数据长度为 100 字节，那么下一个报文段的序号应为 401。因为MTU（最大传输单元）的限制，TCP将数据报分成MSS（最大报文段长度）大小的字节流。</li>
 <li><strong>确认号</strong>   ：期望收到的下一个报文段的<strong>序号</strong>。例如 B 正确收到 A 发送来的一个报文段，序号为 501，携带的数据长度为 200 字节，因此 B 期望下一个报文段的序号为 701，B 发送给 A 的确认报文段中确认号就为 701。</li>
 <li><strong>数据偏移</strong>   ：指的是数据部分距离报文段起始处的偏移量，实际上指的是首部的长度。</li>
 <li><strong>确认 ACK</strong>   ：当 ACK=1 时确认号字段有效，否则无效。TCP 规定，在连接建立后所有传送的报文段都必须把 ACK 置 1。</li>
