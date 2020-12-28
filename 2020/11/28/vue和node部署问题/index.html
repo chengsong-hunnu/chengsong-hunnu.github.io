@@ -453,14 +453,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-23
+                    2020-12-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    744
+                    756
                 </div>
                 
 
@@ -486,7 +486,7 @@
 <p>可以对axios封装的时候，可使用</p>
 <pre class=" language-js"><code class="language-js">axios<span class="token punctuation">.</span>defaults<span class="token punctuation">.</span>baseURL<span class="token operator">=</span><span class="token string">'后端ip地址'</span>    <span class="token comment" spellcheck="true">//例：http://47.99.134.126:28019/api</span></code></pre>
 <p>后面再进行axios请求的时候，部署到服务器就不会有这些问题了</p>
-<p>其实更好的是在后端直接处理跨域</p>
+<p>其实更好的是在后端直接处理跨域，然后就不用代理这个东西了</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//设置跨域访问</span>
 app<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> response<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
