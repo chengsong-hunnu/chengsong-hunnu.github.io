@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-19
+                    2021-01-02
                 </div>
                 
 
@@ -515,7 +515,7 @@ state<span class="token punctuation">:</span> <span class="token punctuation">{<
 <p>通过在根实例中注册 <code>store</code> 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 <code>this.$store</code> 访问到。不需要每次都导入store</p>
 <h5 id="4-state"><a href="#4-state" class="headerlink" title="4.state"></a><strong>4.state</strong></h5><p>在组件里的应用，一般放在computed里面当做一个函数，返回一个在state里面的数据，如</p>
 <pre class=" language-js"><code class="language-js">msg<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> $store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>num<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
-<h6 id="4-1-mapstate"><a href="#4-1-mapstate" class="headerlink" title="4.1 mapstate"></a>4.1 mapstate</h6><p>简化我们获取数据的方式，mapState的作用就是返回一个对象，这个对象可以直接丢给computed</p>
+<h6 id="4-1-mapState"><a href="#4-1-mapState" class="headerlink" title="4.1 mapState"></a>4.1 mapState</h6><p>简化我们获取数据的方式，mapState的作用就是返回一个对象，这个对象可以直接丢给computed</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> mapState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token comment" spellcheck="true">//需要引用</span>
    <span class="token comment" spellcheck="true">// computed: {//旧方法</span>
     <span class="token comment" spellcheck="true">//     userList: function() {</span>

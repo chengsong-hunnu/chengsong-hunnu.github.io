@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-23
+                    2021-01-04
                 </div>
                 
 
@@ -600,7 +600,8 @@ point<span class="token punctuation">.</span>__proto__<span class="token punctua
         <span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<h6 id="5：formdata文件上传"><a href="#5：formdata文件上传" class="headerlink" title="5：formdata文件上传"></a>5：<a href="https://blog.csdn.net/liuyalu_/article/details/105836451" target="_blank" rel="noopener">formdata文件上传</a></h6><p>一般使用axios的post进行文件上传，这里使用vant组件库的文件上传作为例子，因为vant没有对文件上传进行封装，可以更清晰的了解一下上传的全过程</p>
+<h6 id="5：formdata文件上传"><a href="#5：formdata文件上传" class="headerlink" title="5：formdata文件上传"></a>5：<a href="https://blog.csdn.net/liuyalu_/article/details/105836451" target="_blank" rel="noopener">formdata文件上传</a></h6><p>其实也是一个像key：value的类型</p>
+<p>一般使用axios的post进行文件上传，这里使用vant组件库的文件上传作为例子，因为vant没有对文件上传进行封装，可以更清晰的了解一下上传的全过程</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//这里是vue里面的一个使用formdata传文件的方法</span>
 <span class="token keyword">async</span> <span class="token function">afterRead</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">let</span> formdata <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

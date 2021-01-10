@@ -453,14 +453,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-26
+                    2020-12-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    756
+                    789
                 </div>
                 
 
@@ -479,6 +479,8 @@
             <div id="articleContent">
                 <p>就以一个对自己的vue和node项目关于服务器部署的各种各样的问题的记录和解决</p>
 <p>首先对于一些先决条件，比如服务器的购买和使用宝塔面板管理服务器，安全组，端口这些，就不记录了</p>
+<p>连接服务器（例子）：ssh <a href="mailto:root@172.20.0.80">root@172.20.0.80</a>（ip地址）</p>
+<p>输入172.20.0.80的密码即可连接到服务器。</p>
 <p><a href="https://www.pianshen.com/article/27801079363/" target="_blank" rel="noopener">vue+node+mysql参考</a></p>
 <h4 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h4><p><strong>跨域</strong>：一般在开发环境下，对于远程的http请求可直接使用vue.config.js里面使用proxy代理一下，处理跨域问题，但如果后端没有对跨域进行处理的话，部署到服务器之后，会有问题，如在本地是对<code>axios.get(&#39;/api/post&#39;,params:{})</code>，本地请求会变成</p>
 <p><code>http://115.159.103.48/post?id=1</code>，得到正确的数据</p>

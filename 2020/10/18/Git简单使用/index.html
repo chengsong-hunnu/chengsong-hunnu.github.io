@@ -453,14 +453,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -590,8 +590,12 @@ $ <span class="token function">git</span> commit --amend -m <span class="token p
 <span class="token comment" spellcheck="true"># 重做上一次commit，并包括指定文件的新变化</span>
 $ <span class="token function">git</span> commit --amend <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.</code></pre>
 <p>4.远程同步</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 下载远程仓库的所有变动</span>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 下载远程仓库的所有变动，一般就是在远程创建了分支之后，使用这个命令拉去这个分支到本地</span>
 $ <span class="token function">git</span> fetch <span class="token punctuation">[</span>remote<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 使用这个命令得到所有本地的分支</span>
+$ <span class="token function">git</span> branch -a
+<span class="token comment" spellcheck="true"># 使用这个命令切换在本地的分支</span>
+$ Git checkout 分支名
 
 <span class="token comment" spellcheck="true"># 显示所有远程仓库</span>
 $ <span class="token function">git</span> remote -v
@@ -675,6 +679,7 @@ $ <span class="token function">git</span> commit -m <span class="token string">"
 $ <span class="token function">git</span> push <span class="token operator">&lt;</span>远程主机名<span class="token operator">></span> <span class="token operator">&lt;</span>本地分支名<span class="token operator">></span>:<span class="token operator">&lt;</span>远程分支名<span class="token operator">></span> 
 <span class="token comment" spellcheck="true"># git push命令用于将本地分支的更新，推送到远程主机。它的格式与git pull命令相似。</span></code></pre>
 <h4 id="5-sourcetree"><a href="#5-sourcetree" class="headerlink" title="5.sourcetree"></a>5.sourcetree</h4><p>这是一个客户端程序，可通过这个可视化工具，更方便的进行文件的操作管理</p>
+<p>注意要在里面的工具-选项里面对自己本地电脑的密钥添加到里面去，只有才能使用ssh进行访问拉取上传</p>
 
             </div>
             <hr/>
