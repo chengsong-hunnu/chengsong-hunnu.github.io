@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="js复习, 晟松">
+    <meta name="keywords" content="yarn和npm, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>js复习 | 晟松</title>
+    <title>yarn和npm | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">js复习</h1>
+                    <h1 class="description center-align post-title">yarn和npm</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/js/">
-                                <span class="chip bg-color">js</span>
+                            <a href="/tags/yarn-npm/">
+                                <span class="chip bg-color">yarn npm</span>
                             </a>
                         
                     </div>
@@ -446,21 +446,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-25
+                    2020-09-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-02
+                    2021-01-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    1.5k
                 </div>
                 
 
@@ -477,192 +477,174 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p> 之前对js只是在菜鸟上面简单的看了一遍，并没有进行一个熟练地使用，后面发现需要补一些基础原理方面的，特在这里对前面的js进行一个复习</p>
-<h5 id="1-js组成"><a href="#1-js组成" class="headerlink" title="1.js组成"></a>1.js组成</h5><blockquote>
-<p><strong>js = ECMAScript + DOM + BOM + 高级</strong></p>
-</blockquote>
-<p><strong>ECMAScript</strong>（前身为欧洲计算机制造商协会）：JavaScript的语法规范</p>
-<p><strong>DOM</strong>（Document Object Model 的文档对象模型简称）：JavaScript操作网页上元素的API</p>
-<p><strong>BOM</strong>（Browser Object Model 的浏览器对象模型简称）：JavaScript操作浏览器部分功能的API</p>
-<h5 id="2-记录一些常用的方法"><a href="#2-记录一些常用的方法" class="headerlink" title="2.记录一些常用的方法"></a>2.记录一些常用的方法</h5><p>字符串：</p>
-<table>
-<thead>
-<tr>
-<th>名</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>trim()</td>
-<td>去除字符串的左右空格，不包括在中间的空格</td>
-</tr>
-<tr>
-<td>indexOf()</td>
-<td>返回一个字符在字符串的位置</td>
-</tr>
-<tr>
-<td>split()</td>
-<td>把字符串分割成字符串数组</td>
-</tr>
-<tr>
-<td>slice()</td>
-<td>得到一个字符串的一部分</td>
-</tr>
-</tbody></table>
-<p>json：</p>
-<table>
-<thead>
-<tr>
-<th>名</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>JSON.parse(json name)</td>
-<td>json<strong>字符串</strong>转成js对象  //json格式是一个字符串</td>
-</tr>
-<tr>
-<td>JSON.stringify(object name)</td>
-<td>js值(对象或数组)转成json字符串</td>
-</tr>
-</tbody></table>
-<p>算了，用的时候还不如直接查参考手册</p>
-<h5 id="3-js-promise"><a href="#3-js-promise" class="headerlink" title="3.js promise"></a>3.js promise</h5><p>之前一直听说promise，但不知道是何，现在才来进行一个理解。</p>
-<p>promise是es6新增的一个类，专门为了简单化异步编程而进行。避免了层层的回调函数，将回调函数转换成一条执行链。</p>
-<p>Promise 构造函数只有一个参数，是一个函数，这个函数在构造之后会直接被异步运行，所以我们称之为起始函数。起始函数包含两个参数 <strong>resolve 和 reject</strong>。resolve表示函数正常运行，reject表示出现错误时运行</p>
-<p><strong>在初始化Promise实例对象的时候，Promise的状态为pending；在调用resolve回调函数的时候，Promise的状态为fullfilled，表示成功状态；在调用reject回调函数的时候，Promise的状态为rejected，表示失败状态；</strong></p>
-<p>Promise 类有 .then() .catch() 和 .finally() 三个方法，这三个方法的参数都是一个函数，<strong>.then()</strong> 可以将参数中的函数添加到当前 Promise 的正常执行序列，.catch() 则是设定 Promise 的异常处理序列，.finally() 是在 Promise 执行的最后一定会执行的序列。 .then() 传入的函数会按顺序依次执行，有任何异常都会直接跳到 catch 序列。<strong>then()方法指定的回调函数将在当前脚本所有同步任务执行完后才会执行</strong></p>
-<p>如果 then 中返回的是一个 Promise 对象，那么<strong>下一个 then</strong> 将相当于对这个返回的 Promise 进行操作</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 执行异步操作</span>
-  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">222</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 执行异步操作成功,此时修改promise的状态fullfilled</span>
-    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">"success!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 执行异步操作成功,此时修改promise的状态rejected</span>
-    <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">"failed!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// promise的状态fullfilled的操作</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"成功"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// promise的状态rejected的操作</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"失败"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//111 222 成功 success</span></code></pre>
-<p>一般来说，调用resolve或reject以后，Promise 的使命就完成了，后继操作应该放到then方法里面，而不应该直接写在resolve或reject的后面。<strong>resolve或reject总是在本轮事件循环的末尾执行</strong>，所以最后才打印success。当调用resolve()函数将promise状态改变成fullfilled时，后面的reject()就不会执行</p>
-<p><strong>使用 promise 的经验法则</strong></p>
-<ol>
-<li>使用异步或阻塞代码时，请使用 promise。</li>
-<li>为了代码的可读性，resolve 方法对待 then, reject 对应 catch 。</li>
-<li>确保同时写入.catch 和 .then 方法来实现所有的 promise。</li>
-<li>如果在这两种情况下都需要做一些事情，请使用 .finally。</li>
-<li>我们只有一次改变每个promise (单一原则)。</li>
-<li>我们可以在一个promise 中添加多个处理程序。</li>
-<li>Promise对象中所有方法的返回类型，无论是静态方法还是原型方法，都是Promise。</li>
-<li>在Promise.all中，无论哪个promise 首先未完成，promise 的顺序都保持在值变量中。</li>
+                <p>对yarn和npm的一些命令的简单学习和对比，还有一些其他的可能会用的东西在里面</p>
+<h5 id="1-快速删除node-modules"><a href="#1-快速删除node-modules" class="headerlink" title="1.快速删除node_modules"></a>1.快速删除node_modules</h5><p>手动删除真的很慢：</p>
+<ul>
+<li>安装： <code>npm install rimraf -g</code></li>
+<li>使用：<code>rimraf node_modules</code></li>
+</ul>
+<p>实测2分钟之内就能删除，比手动快多了</p>
+<h5 id="2-yarn的安装"><a href="#2-yarn的安装" class="headerlink" title="2.yarn的安装:"></a>2.yarn的安装:</h5><ol>
+<li>下载node.js，使用npm安装<br><code>npm install -g yarn</code><br>`查看版本：yarn –version</li>
+<li>Yarn 淘宝源安装，分别复制粘贴以下代码行到黑窗口运行即可<br>yarn config set registry <code>https://registry.npm.taobao.org -g</code><br>yarn config set sass_binary_site <code>http://cdn.npm.taobao.org/dist/node-sass -g</code></li>
 </ol>
-<hr>
-<p><strong>重点异步函数</strong>：async 和 await。方便，简洁.但await 指令后必须跟着一个 Promise，异步函数会在这个 Promise 运行中暂停，直到其运行结束再继续运行。</p>
-<p>例：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">print</span><span class="token punctuation">(</span>delay<span class="token punctuation">,</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">asyncFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">await</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">"First"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">await</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">,</span> <span class="token string">"Second"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">await</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token string">"Third"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h5 id="4-DOM文档对象模型"><a href="#4-DOM文档对象模型" class="headerlink" title="4.DOM文档对象模型"></a>4.DOM文档对象模型</h5><p>通过 HTML DOM，可访问 JavaScript HTML 文档的所有元素。</p>
-<p>改变 <strong>HTML</strong> 元素的属性，请使用这个语法：</p>
-<p>document.getElementById(<em>id</em>).<em>attribute=新属性值</em></p>
-<hr>
-<p>改变 HTML 元素的<strong>样式</strong>，请使用这个语法：</p>
-<p>document.getElementById(<em>id</em>).style.<em>property</em>=<em>新样式</em></p>
-<hr>
-<p>添加<strong>监听</strong>事件。addEventListener() 方法允许向同一个元素添加多个事件，且不会覆盖已存在的事件。不论是同一种类型，还是不同的类型</p>
-<p><em>element</em>.addEventListener(<em>event, function, useCapture</em>);</p>
-<p>第一个参数是事件的类型 (如 “click” 或 “mousedown”).</p>
-<p>第二个参数是事件触发后调用的函数。</p>
-<p>第三个参数是个布尔值用于描述事件是冒泡还是捕获。该参数是可选的。</p>
-<hr>
-<p><strong>冒泡，捕获</strong>定义了事件触发的顺序</p>
-<p>在 <em>冒泡</em> 中，<strong>内部</strong>元素的事件会先被触发，然后再触发外部元素</p>
-<p>在 <em>捕获</em> 中，<strong>外部</strong>元素的事件会先被触发，然后才会触发内部元素的事件</p>
-<h5 id="5-BOM浏览器对象模型"><a href="#5-BOM浏览器对象模型" class="headerlink" title="5.BOM浏览器对象模型"></a>5.BOM浏览器对象模型</h5><p>所有 JavaScript 全局对象、函数以及变量均自动成为 <strong>window 对象</strong>的成员。</p>
-<p>window的常用方法：</p>
-<ul>
-<li>window.innerHeight - 浏览器窗口的内部高度(包括滚动条)</li>
-<li>window.innerWidth - 浏览器窗口的内部宽度(包括滚动条)</li>
-<li>window.open() - 打开新窗口</li>
-<li>window.close() - 关闭当前窗口</li>
-<li>window.moveTo() - 移动当前窗口</li>
-<li>window.resizeTo() - 调整当前窗口的尺寸</li>
-</ul>
-<hr>
-<p>window.<strong>location</strong> 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。使用时可省略window。</p>
-<ul>
-<li>location.href 属性返回当前页面的 URL。// <a href="https://www.runoob.com/js/js-window-location.html" target="_blank" rel="noopener">https://www.runoob.com/js/js-window-location.html</a></li>
-<li>location.pathname 属性返回 URL 的路径名。 // /js/js-window-location.html</li>
-<li>location.assign() 方法加载新的文档，打开新的网页。// window.location.assign(“<a href="https://www.runoob.com&quot;" target="_blank" rel="noopener">https://www.runoob.com&quot;</a>)</li>
-</ul>
-<hr>
-<ul>
-<li>history.back() - 与在浏览器点击后退按钮相同</li>
-<li>history.forward() - 与在浏览器中点击向前按钮相同</li>
-</ul>
-<hr>
-<p><strong>计时事件</strong></p>
-<ul>
-<li>setInterval(fucntion,time) - 间隔指定的毫秒数<strong>不停地执行</strong>指定的代码。</li>
-<li>setTimeout(function,time) - 在指定的毫秒数后执行指定代码。</li>
-<li>clearInterval() 方法用于停止 setInterval() 方法执行的函数代码。</li>
-<li>clearTimeout() 方法用于停止执行setTimeout()方法的函数代码。</li>
-</ul>
-<hr>
-<p><strong>cookie</strong></p>
-<p>Cookie 的作用就是用于解决 “如何记录客户端的用户信息”.当用户访问 web 页面时，他的名字可以记录在 cookie 中.下一次访问就可以通过cookie读取用户访问记录。</p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//创建 cookie 如下所示：</span>
-document<span class="token punctuation">.</span>cookie<span class="token operator">=</span><span class="token string">"username=John Doe"</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//读取 cookie：</span>
-<span class="token keyword">var</span> x <span class="token operator">=</span> document<span class="token punctuation">.</span>cookie<span class="token punctuation">;</span></code></pre>
-<h5 id="6-this"><a href="#6-this" class="headerlink" title="6.this"></a>6.this</h5><p>根据函数的调用方式的不同，this会指向不同的对象：【重要】</p>
-<ul>
-<li>1.以函数的形式调用时，this永远都是window。比如<code>fun();</code>相当于<code>window.fun();</code></li>
-<li>2.以方法的形式调用时，this是调用方法的那个对象</li>
-<li>3.以构造函数的形式调用时，this是新创建的那个对象</li>
-<li>4.使用call和apply调用时，this是指定的那个对象</li>
-</ul>
-<h5 id="7-原型对象-原型链"><a href="#7-原型对象-原型链" class="headerlink" title="7.原型对象(原型链)"></a>7.原型对象(原型链)</h5><p><a href="http://www.cpengx.cn/p/357.html" target="_blank" rel="noopener">具体细节查看</a></p>
-<h6 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h6><p>我们所创建的每一个函数，解析器都会向函数中添加一个属性 prototype。这个属性对应着一个对象，这个对象就是我们所谓的原型对象。每个原型都有一个 constructor 属性指向关联的构造函数 实例原型指向构造函数</p>
-<p>当函数以<strong>构造函数</strong>的形式调用时，它所创建的实例对象中都会有一个隐含的属性，指向该构造函数的原型，我们可以通过<strong>proto</strong>来访问该属性</p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 定义构造函数</span>
-<span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-<span class="token keyword">var</span> per1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> per2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 打印结果：[object object]</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>per1<span class="token punctuation">.</span>__proto__ <span class="token operator">==</span> Person<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//注意后面是构造函数的prototype，前面为实例的__proto__</span>
-<span class="token comment" spellcheck="true">// 打印结果：true</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Person <span class="token operator">===</span> Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span></code></pre>
-<p><code>实例.__proto__</code> 和 <code>构造函数.prototype</code>都指的是原型对象。</p>
-<img src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/1490251-e7476a8697e97aab.png?imageMogr2/auto-orient/strip|imageView2/2/w/567/format/webp" alt="图解" style="zoom:80%;" />
+<h5 id="3-常用"><a href="#3-常用" class="headerlink" title="3.常用"></a>3.常用</h5><pre class=" language-bash"><code class="language-bash">安装yarn 
+<span class="token function">npm</span> <span class="token function">install</span> -g yarn
+安装成功后，查看版本号： 
+yarn --version
+创建文件夹 yarn 
+md yarn
+进入yarn文件夹 
+<span class="token function">cd</span> yarn
+初始化项目 
+yarn init // 同npm init，执行输入信息后，会生成package.json文件
+yarn的配置项： 
+yarn config list // 显示所有配置项
+yarn config get <span class="token operator">&lt;</span>key<span class="token operator">></span> //显示某配置项
+yarn config delete <span class="token operator">&lt;</span>key<span class="token operator">></span> //删除某配置项
+yarn config <span class="token keyword">set</span> <span class="token operator">&lt;</span>key<span class="token operator">></span> <span class="token operator">&lt;</span>value<span class="token operator">></span> <span class="token punctuation">[</span>-g<span class="token operator">|</span>--global<span class="token punctuation">]</span> //设置配置项
+安装包： 
+yarn <span class="token function">install</span> //安装package.json里所有包，并将包及它的所有依赖项保存进yarn.lock
+yarn <span class="token function">install</span> --flat //安装一个包的单一版本
+yarn <span class="token function">install</span> --force //强制重新下载所有包
+yarn <span class="token function">install</span> --production //只安装dependencies里的包
+yarn <span class="token function">install</span> --no-lockfile //不读取或生成yarn.lock
+yarn <span class="token function">install</span> --pure-lockfile //不生成yarn.lock
+添加包（会更新package.json和yarn.lock）：
+yarn add <span class="token punctuation">[</span>package<span class="token punctuation">]</span> // 在当前的项目中添加一个依赖包，会自动更新到package.json和yarn.lock文件中
+yarn add <span class="token punctuation">[</span>package<span class="token punctuation">]</span>@<span class="token punctuation">[</span>version<span class="token punctuation">]</span> // 安装指定版本，这里指的是主要版本，如果需要精确到小版本，使用-E参数
+yarn add <span class="token punctuation">[</span>package<span class="token punctuation">]</span>@<span class="token punctuation">[</span>tag<span class="token punctuation">]</span> // 安装某个tag（比如beta,next或者latest）
+//不指定依赖类型默认安装到dependencies里，你也可以指定依赖类型：
 
-<p>原型对象就相当于一个<strong>公共</strong>的区域，所有同一个类的实例都可以访问到这个原型对象，我们可以将对象中共有的内容，统一设置到原型对象中。</p>
-<h6 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h6><p>原型对象也是对象，所以它也有原型，当我们使用或访问一个对象的属性或方法时：</p>
-<ul>
-<li>它会先在对象自身中寻找，如果有则直接使用；</li>
-<li>如果没有则会去原型对象中寻找，如果找到则直接使用；</li>
-<li>如果没有则去原型的原型中寻找，直到找到Object对象的原型。</li>
-<li>Object对象的原型没有原型，如果在Object原型中依然没有找到，则返回 null</li>
-</ul>
-<img src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/1490251-3089c135df71c956.png?imageMogr2/auto-orient/strip|imageView2/2/w/604/format/webp" alt="原型链" style="zoom:60%;" />
+yarn add --dev/-D // 加到 devDependencies
+yarn add --peer/-P // 加到 peerDependencies
+yarn add --optional/-O // 加到 optionalDependencies
+//默认安装包的主要版本里的最新版本，下面两个命令可以指定版本：
+
+yarn add --exact/-E // 安装包的精确版本。例如yarn add foo@1.2.3会接受1.9.1版，但是yarn add foo@1.2.3 --exact只会接受1.2.3版
+yarn add --tilde/-T // 安装包的次要版本里的最新版。例如yarn add foo@1.2.3 --tilde会接受1.2.9，但不接受1.3.0
+发布包
+
+yarn publish
+移除一个包 
+yarn remove <span class="token operator">&lt;</span>packageName<span class="token operator">></span>：移除一个包，会自动更新package.json和yarn.lock
+更新一个依赖 
+yarn upgrade 用于更新包到基于规范范围的最新版本
+运行脚本 
+yarn run 用来执行在 package.json 中 scripts 属性下定义的脚本
+显示某个包的信息 
+yarn info <span class="token operator">&lt;</span>packageName<span class="token operator">></span> 可以用来查看某个模块的最新版本信息
+缓存 
+yarn cache 
+yarn cache list <span class="token comment" spellcheck="true"># 列出已缓存的每个包 </span>
+yarn cache <span class="token function">dir</span> <span class="token comment" spellcheck="true"># 返回 全局缓存位置 </span>
+yarn cache clean <span class="token comment" spellcheck="true"># 清除缓存</span></code></pre>
+<p><img src="/images/loading.gif" data-original="https://img-blog.csdn.net/20180802111644352?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l3MDB5dw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="对比"></p>
+<p>在vue项目里面，</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> run dev <span class="token operator">==</span> yarn run dev <span class="token operator">==</span> yarn dev
+<span class="token function">npm</span> run build  <span class="token operator">==</span> yarn run build <span class="token operator">==</span> yarn build</code></pre>
+<p>这是另一个网址的记录，看着好像还行</p>
+<pre class=" language-bash"><code class="language-bash">1. 开始一个新工程
+yarn init 与 <span class="token function">npm</span> init 一样通过交互式会话创建一个 package.json
+yarn init <span class="token comment" spellcheck="true"># yarn</span>
+
+<span class="token function">npm</span> init <span class="token comment" spellcheck="true"># npm</span>
+<span class="token comment" spellcheck="true"># 跳过会话，直接通过默认值生成 package.json</span>
+yarn init --yes <span class="token comment" spellcheck="true"># 简写 -y</span>
+
+<span class="token function">npm</span> init -y
+2. 添加一个依赖
+通过 yarn add 添加依赖会更新 package.json 以及 yarn.lock 文件
+1<span class="token punctuation">)</span>.开发环境
+yarn add <span class="token operator">&lt;</span>packageName<span class="token operator">></span> 依赖会记录在 package.json 的 dependencies 下 开发环境
+yarn add webpack@2.3.3 <span class="token comment" spellcheck="true"># yarn --save 是 yarn 默认的，默认记录在 package.json 中</span>
+
+<span class="token function">npm</span> <span class="token function">install</span> webpack@2.3.3 --save <span class="token comment" spellcheck="true"># npm</span>
+2<span class="token punctuation">)</span>.生产环境
+yarn add <span class="token operator">&lt;</span>packageName<span class="token operator">></span> --dev 依赖会记录在 package.json 的 devDependencies 下 生产环境
+yarn add webpack --dev <span class="token comment" spellcheck="true"># yarn 简写 -D</span>
+
+<span class="token function">npm</span> <span class="token function">install</span> webpack --save-dev <span class="token comment" spellcheck="true"># npm</span>
+3<span class="token punctuation">)</span>.全局
+yarn global add <span class="token operator">&lt;</span>packageName<span class="token operator">></span> 全局安装依赖
+yarn global add webpack <span class="token comment" spellcheck="true"># yarn</span>
+
+<span class="token function">npm</span> <span class="token function">install</span> webpack -g <span class="token comment" spellcheck="true"># npm</span>
+3. 更新一个依赖
+yarn upgrade 用于更新包到基于规范范围的最新版本
+yarn upgrade <span class="token comment" spellcheck="true"># 升级所有依赖项，不记录在 package.json 中</span>
+<span class="token function">npm</span> update <span class="token comment" spellcheck="true"># npm 可以通过 ‘--save|--save-dev’ 指定升级哪类依赖</span>
+
+yarn upgrade webpack <span class="token comment" spellcheck="true"># 升级指定包</span>
+<span class="token function">npm</span> update webpack --save-dev <span class="token comment" spellcheck="true"># npm</span>
+
+yarn upgrade --latest <span class="token comment" spellcheck="true"># 忽略版本规则，升级到最新版本，并且更新 package.json</span>
+4. 移除一个依赖
+yarn remove <span class="token operator">&lt;</span>packageName<span class="token operator">></span>
+yarn remove webpack <span class="token comment" spellcheck="true"># yarn</span>
+<span class="token function">npm</span> uninstall webpack --save <span class="token comment" spellcheck="true"># npm 可以指定 --save | --save-dev</span>
+5. 安装 package.json 中的所有文件
+yarn 或者 yarn <span class="token function">install</span>
+yarn <span class="token function">install</span> <span class="token comment" spellcheck="true"># 或者 yarn 在 node_modules 目录安装 package.json 中列出的所有依赖</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token comment" spellcheck="true"># npm</span>
+
+yarn <span class="token function">install</span> 安装时，如果 node_modules 中有相应的包则不会重新下载 --force 可以强制重新下载安装
+yarn <span class="token function">install</span> --force <span class="token comment" spellcheck="true"># 强制下载安装</span>
+<span class="token function">npm</span> <span class="token function">install</span> --force <span class="token comment" spellcheck="true"># npm</span>
+6. 运行脚本
+yarn run 用来执行在 package.json 中 scripts 属性下定义的脚本
+// package.json
+<span class="token punctuation">{</span>
+    <span class="token string">"scripts"</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"dev"</span><span class="token keyword">:</span> <span class="token string">"node app.js"</span>,
+    <span class="token string">"start"</span><span class="token keyword">:</span> <span class="token string">"node app.js"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+yarn run dev <span class="token comment" spellcheck="true"># yarn 执行 dev 对应的脚本 node app.js</span>
+<span class="token function">npm</span> run <span class="token comment" spellcheck="true"># npm</span>
+
+yarn start <span class="token comment" spellcheck="true"># yarn</span>
+<span class="token function">npm</span> start <span class="token comment" spellcheck="true"># npm</span>
+与 <span class="token function">npm</span> 一样 可以有 yarn start 和 yarn <span class="token function">test</span> 两个简写的运行脚本方式
+7. 显示某个包信息
+yarn info <span class="token operator">&lt;</span>packageName<span class="token operator">></span> 可以用来查看某个模块的最新版本信息
+yarn info webpack <span class="token comment" spellcheck="true"># yarn</span>
+<span class="token function">npm</span> info webpack <span class="token comment" spellcheck="true"># npm</span>
+
+yarn info webpack --json <span class="token comment" spellcheck="true"># 输出 json 格式</span>
+<span class="token function">npm</span> info webpack --json <span class="token comment" spellcheck="true"># npm</span>
+
+yarn info webpack readme <span class="token comment" spellcheck="true"># 输出 README 部分</span>
+<span class="token function">npm</span> info webpack readme
+8. 列出项目的所有依赖
+yarn list
+yarn list <span class="token comment" spellcheck="true"># 列出当前项目的依赖</span>
+<span class="token function">npm</span> list <span class="token comment" spellcheck="true"># npm</span>
+
+yarn list --depth<span class="token operator">=</span>0 <span class="token comment" spellcheck="true"># 限制依赖的深度</span>
+<span class="token function">sudo</span> yarn global list <span class="token comment" spellcheck="true"># 列出全局安装的模块</span>
+9. 管理 yarn 配置文件
+yarn coinfig
+yarn config <span class="token keyword">set</span> key value <span class="token comment" spellcheck="true"># 设置</span>
+<span class="token function">npm</span> config <span class="token keyword">set</span> key value
+
+yarn config get key <span class="token comment" spellcheck="true"># 读取值</span>
+<span class="token function">npm</span> config get key
+
+yarn config delete key <span class="token comment" spellcheck="true"># 删除</span>
+<span class="token function">npm</span> config delete key
+
+yarn config list <span class="token comment" spellcheck="true"># 显示当前配置</span>
+<span class="token function">npm</span> config list
+
+yarn config <span class="token keyword">set</span> registry https://registry.npm.taobao.org <span class="token comment" spellcheck="true"># 设置淘宝镜像</span>
+<span class="token function">npm</span> config <span class="token keyword">set</span> registry https://registry.npm.taobao.org <span class="token comment" spellcheck="true"># npm</span>
+10. 缓存
+yarn cache
+<span class="token function">sudo</span> yarn cache list <span class="token comment" spellcheck="true"># 列出已缓存的每个包</span>
+<span class="token function">sudo</span> yarn cache <span class="token function">dir</span> <span class="token comment" spellcheck="true"># 返回 全局缓存位置</span>
+<span class="token function">sudo</span> yarn cache clean <span class="token comment" spellcheck="true"># 清除缓存</span></code></pre>
+
             </div>
             <hr/>
 
@@ -687,7 +669,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/08/25/js%E5%A4%8D%E4%B9%A0/">http://yoursite.com/2020/08/25/js%E5%A4%8D%E4%B9%A0/</a>
+                    <a href="http://yoursite.com/2020/09/07/yarn%E5%92%8Cnpm/">http://yoursite.com/2020/09/07/yarn%E5%92%8Cnpm/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -725,8 +707,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/js/">
-                                    <span class="chip bg-color">js</span>
+                                <a href="/tags/yarn-npm/">
+                                    <span class="chip bg-color">yarn npm</span>
                                 </a>
                             
                         </div>
@@ -946,27 +928,28 @@ webpack filename -o targetname --mode=d
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/24/%E6%AD%A3%E5%88%99%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+                <a href="/2020/08/25/js%20promise%E5%A4%8D%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="正则入门笔记">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="js promise复习">
                         
-                        <span class="card-title">正则入门笔记</span>
+                        <span class="card-title">js promise复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大概就是网上的30分钟入门正则表达的一个个人总结。链接
-不过就只是进行一个简单的学习和简单实用。一些方便常用的正则早有人进行了总结
-1.元字符(\b)，代表单词的开头或者结尾，并不匹配任何字符，只表明是匹配这个位置。
-(.)元字符，匹配除了
+                             之前对js只是在菜鸟上面简单的看了一遍，并没有进行一个熟练地使用，后面发现需要补一些基础原理方面的，特在这里对前面的js进行一个复习
+1.js组成
+js = ECMAScript + DOM + BOM + 高级
+
+ECMAScript（
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-25
                             </span>
                         <span class="publish-author">
                             
@@ -979,8 +962,8 @@ webpack filename -o targetname --mode=d
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/regexp-%E6%AD%A3%E5%88%99/">
-                        <span class="chip bg-color">regexp 正则</span>
+                    <a href="/tags/js-promise/">
+                        <span class="chip bg-color">js promise</span>
                     </a>
                     
                 </div>

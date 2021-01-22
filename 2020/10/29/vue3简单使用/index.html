@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-12
+                    2021-01-14
                 </div>
                 
 
@@ -499,8 +499,8 @@ Vue<span class="token punctuation">.</span>config<span class="token punctuation"
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></code></pre>
 <h5 id="vue3-x"><a href="#vue3-x" class="headerlink" title="vue3.x"></a>vue3.x</h5><pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
-
-<span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></code></pre>
+<span class="token comment" spellcheck="true">//这里的App就是App.vue文件里面export导出的一个东西，之后挂载到'id=app'的div上</span>
+<span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span> </code></pre>
 <p>应用实例暴露当前全局 API 的子集，经验法则是，任何全局改变 Vue 行为的 API 现在都会移动到应用实例上，以下是当前全局 API 及其相应实例 API 的表：</p>
 <table>
 <thead>

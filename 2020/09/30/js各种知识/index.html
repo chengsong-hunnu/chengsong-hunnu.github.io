@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/js/">
-                                <span class="chip bg-color">js</span>
+                            <a href="/tags/js-other/">
+                                <span class="chip bg-color">js other</span>
                             </a>
                         
                     </div>
@@ -453,14 +453,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-04
+                    2021-01-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.4k
+                    6.7k
                 </div>
                 
 
@@ -477,8 +477,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>就是对一些js比较高级一点的知识的简单提及</p>
-<h4 id="各种杂乱知识点"><a href="#各种杂乱知识点" class="headerlink" title="各种杂乱知识点"></a>各种杂乱知识点</h4><h5 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h5><p><a href="https://blog.csdn.net/nokiaguy/article/details/106073431" target="_blank" rel="noopener">参考一道题</a></p>
+                <p>就是对一些js比较高级一点的知识的简单提及，现在可能会包括其他各种各样的前端碰见的问题和方法了</p>
+<h2 id="各种杂乱知识点"><a href="#各种杂乱知识点" class="headerlink" title="各种杂乱知识点"></a>各种杂乱知识点</h2><h3 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h3><p><a href="https://blog.csdn.net/nokiaguy/article/details/106073431" target="_blank" rel="noopener">参考一道题</a></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">function</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -499,7 +499,7 @@ consolo<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment" spellcheck="true">//函数表达式，在之前调用会error，而且不是let的原因</span>
 <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> num<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//除此之外，这两种方式等价</span></code></pre>
-<h5 id="2-堆栈，深拷贝，浅拷贝"><a href="#2-堆栈，深拷贝，浅拷贝" class="headerlink" title="2.堆栈，深拷贝，浅拷贝"></a>2.堆栈，深拷贝，浅拷贝</h5><p><a href="https://biaochenxuying.cn/articleDetail?article_id=5d1b1e2cb9e26b1e10d2e5d5" target="_blank" rel="noopener">参考文章</a></p>
+<h3 id="2-堆栈，深拷贝，浅拷贝"><a href="#2-堆栈，深拷贝，浅拷贝" class="headerlink" title="2.堆栈，深拷贝，浅拷贝"></a>2.堆栈，深拷贝，浅拷贝</h3><p><a href="https://biaochenxuying.cn/articleDetail?article_id=5d1b1e2cb9e26b1e10d2e5d5" target="_blank" rel="noopener">参考文章</a></p>
 <p><strong>堆</strong>其实是一种特殊的树。只要满足这两点，它就是一个堆。</p>
 <ul>
 <li>堆是一个完全二叉树。 完全二叉树：除了最后一层，其他层的节点个数都是满的，最后一层的节点都靠左排列。</li>
@@ -508,7 +508,7 @@ consolo<span class="token punctuation">.</span><span class="token function">log<
 <p>对于数据存储：</p>
 <ul>
 <li><strong>基本类型</strong>是保存在栈内存中的简单数据段，它们的值都有固定的大小，保存在栈空间，通过按值访问，并由系统自动分配和自动释放。 这样带来的好处就是，内存可以及时得到回收，相对于堆来说，更加容易管理内存空间。 JavaScript 中的 <code>Boolean、Null、Undefined、Number、String、Symbol</code> 都是基本类型。</li>
-<li><strong>引用类型</strong>（如对象、数组、函数等）是保存在堆内存中的对象，值大小不固定，栈内存中存放的该对象的访问地址指向堆内存中的对象，JavaScript 不允许直接访问堆内存中的位置，因此操作对象时，实际操作对象的引用。 JavaScript 中的 <code>Object、Array、Function、RegExp、Date</code> 是引用类型。</li>
+<li><strong>引用类型</strong>（如对象、数组、函数等）是保存在堆内存中的对象，值大小不固定，栈内存中存放的该对象的访问地址指向堆内存中的对象，JavaScript 不允许直接访问堆内存中的位置，因此操作对象时，实际操作对象的引用。 JavaScript 中的 <code>Object、Array、Function、RegExp、Date</code> 是引用类型。为什么引用类型要存在堆里面，是为了加快运算的速度</li>
 </ul>
 <p>深拷贝：复制得到的访问地址指向<code>不同的内存空间，互不相干</code>。所以修改其中一个值，另外一个不会改变。</p>
 <p>平时使用数组复制时，我们大多数会使用 <code>=</code>，这只是浅拷贝，存在很多问题，会相互影响</p>
@@ -530,10 +530,10 @@ b<span class="token punctuation">.</span>x <span class="token operator">=</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span></code></pre>
 <p>在原文章中还有一些对数组这些的一些方法（如slice，concat）的测试，实现深拷贝</p>
-<h5 id="3-各种遇见的小技巧"><a href="#3-各种遇见的小技巧" class="headerlink" title="3.各种遇见的小技巧"></a>3.各种遇见的小技巧</h5><p>取得两个值的中间值，因为有可能两个值之间相加可能会超出表示范围，虽然一般使用了bigint之后，不太可能会这样，但还是注意一下</p>
+<h3 id="3-各种遇见的小技巧"><a href="#3-各种遇见的小技巧" class="headerlink" title="3.各种遇见的小技巧"></a>3.各种遇见的小技巧</h3><p>取得两个值的中间值，因为有可能两个值之间相加可能会超出表示范围，虽然一般使用了bigint之后，不太可能会这样，但还是注意一下</p>
 <p>使用    left+Math.floor( (right-left)/2 )</p>
 <p>随机数的生成    Math.floor( random* (m-n +1) + n) )    包含n，也包含m</p>
-<h5 id="4-各种小知识点"><a href="#4-各种小知识点" class="headerlink" title="4.各种小知识点"></a>4.各种小知识点</h5><h6 id="1-CommonJS-规范总结与扩展"><a href="#1-CommonJS-规范总结与扩展" class="headerlink" title="1: CommonJS 规范总结与扩展"></a>1: <a href="https://github.com/sisterAn/blog/issues/4" target="_blank" rel="noopener">CommonJS 规范总结与扩展</a></h6><p>前后端 JS 分别搁置在 HTTP 的两端，它们扮演的角色不同，侧重点也不一样。 浏览器端的 JS 需要经历从一个服务器端分发到多个客户端执行，而服务器端 JS 则是相同的代码需要多次执行。前者的瓶颈在于宽带，后者的瓶颈则在于 CPU 等内存资源。前者需要通过网络加载代码，后者则需要从磁盘中加载， 两者的加载速度也不是在一个数量级上的。<br>纵观 Node 的模块引入过程，几乎全都是同步的，尽管与 Node 强调异步的行为有些相反，但它是合理的，但前端如果也用同步方式引入，试想一下，在 UI 加载的过程中需要花费很多时间来等待脚本加载完成，这会造成用户体验的很大问题。</p>
+<h3 id="4-各种小知识点"><a href="#4-各种小知识点" class="headerlink" title="4.各种小知识点"></a>4.各种小知识点</h3><h4 id="1：CommonJS-规范总结与扩展"><a href="#1：CommonJS-规范总结与扩展" class="headerlink" title="1：CommonJS 规范总结与扩展"></a>1：<a href="https://github.com/sisterAn/blog/issues/4" target="_blank" rel="noopener">CommonJS 规范总结与扩展</a></h4><p>前后端 JS 分别搁置在 HTTP 的两端，它们扮演的角色不同，侧重点也不一样。 浏览器端的 JS 需要经历从一个服务器端分发到多个客户端执行，而服务器端 JS 则是相同的代码需要多次执行。前者的瓶颈在于宽带，后者的瓶颈则在于 CPU 等内存资源。前者需要通过网络加载代码，后者则需要从磁盘中加载， 两者的加载速度也不是在一个数量级上的。<br>纵观 Node 的模块引入过程，几乎全都是同步的，尽管与 Node 强调异步的行为有些相反，但它是合理的，但前端如果也用同步方式引入，试想一下，在 UI 加载的过程中需要花费很多时间来等待脚本加载完成，这会造成用户体验的很大问题。</p>
 <p>CommonJS 为后端 JS 制定的；     AMD（异步模块定义），ES6模块化（<code>export</code>和<code>import</code>）是 JS 前端的规范。</p>
 <p><code>CommonJS</code>和ES6中模块化的两者区别</p>
 <ul>
@@ -542,7 +542,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>前者在导出时都是值拷贝，就算导出的值变了，导入的值也不会改变，所以如果想更新值，必须重新导入一次。但是后者采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化</li>
 <li>后者会编译成 <code>require/exports</code> 来执行的</li>
 </ul>
-<h6 id="2：ES6的class使用"><a href="#2：ES6的class使用" class="headerlink" title="2：ES6的class使用"></a>2：<a href="https://es6.ruanyifeng.com/#docs/class" target="_blank" rel="noopener">ES6的class使用</a></h6><p>主要是在class定义的constructor中，在这里面定义的在this上面的变量才是实例变量，在constructor外面定义的变量和函数都是类本身的（也可称是在原型中）</p>
+<h4 id="2：ES6的class使用"><a href="#2：ES6的class使用" class="headerlink" title="2：ES6的class使用"></a>2：<a href="https://es6.ruanyifeng.com/#docs/class" target="_blank" rel="noopener">ES6的class使用</a></h4><p>主要是在class定义的constructor中，在这里面定义的在this上面的变量才是实例变量，在constructor外面定义的变量和函数都是类本身的（也可称是在原型中）</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//定义类</span>
 <span class="token keyword">class</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">//实例变量</span>
@@ -565,7 +565,7 @@ point<span class="token punctuation">.</span><span class="token function">hasOwn
 point<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
 point<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span>
 point<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span></code></pre>
-<h6 id="3：js单线程和异步"><a href="#3：js单线程和异步" class="headerlink" title="3：js单线程和异步"></a>3：<a href="https://www.cnblogs.com/zhengyufeng/p/10895895.html" target="_blank" rel="noopener">js单线程和异步</a></h6><p><img src="/images/loading.gif" data-original="https://img2018.cnblogs.com/blog/1681656/201905/1681656-20190521094010441-614833594.png" alt="img"></p>
+<h4 id="3：js单线程和异步"><a href="#3：js单线程和异步" class="headerlink" title="3：js单线程和异步"></a>3：<a href="https://www.cnblogs.com/zhengyufeng/p/10895895.html" target="_blank" rel="noopener">js单线程和异步</a></h4><p><img src="/images/loading.gif" data-original="https://img2018.cnblogs.com/blog/1681656/201905/1681656-20190521094010441-614833594.png" alt="img"></p>
 <p>​    WebAPIs：浏览器为异步任务单独开辟的线程（服务JavaScript的，处理JavaScript的异步）</p>
 <p>​    虚线那一块（看图）：堆（heap）和栈（stack）共同组成了js主线程（这个就是我们JavaScript的线程）</p>
 <p>​    callback queue（最下面的那个长方形）：任务队列，里面放着各种事件，比如我们点击所触发的事件，浏览器会帮我们以任务的形式，把他放入任务队列中</p>
@@ -586,7 +586,7 @@ point<span class="token punctuation">.</span>__proto__<span class="token punctua
 <li>当调用栈是空的时，所有排队的微任务会一个接一个从微任务任务队列中弹出进入调用栈中，然后在调用栈中被执行！(微任务自己也能返回一个新的微任务，有效地创建无限的微任务循环 )</li>
 <li>如果调用栈和微任务队列都是空的，事件循环会检查宏任务队列里是否还有任务。如果宏任务中还有任务，会从宏任务队列中弹出进入调用栈，被执行后会从调用栈中弹出！</li>
 </ol>
-<h6 id="4：js对象方法"><a href="#4：js对象方法" class="headerlink" title="4：js对象方法"></a>4：<a href="https://www.w3school.com.cn/js/js_object_methods.asp" target="_blank" rel="noopener">js对象方法</a></h6><p>类似于这样的一个对象里面有一个属性为一个function</p>
+<h4 id="4：js对象方法"><a href="#4：js对象方法" class="headerlink" title="4：js对象方法"></a>4：<a href="https://www.w3school.com.cn/js/js_object_methods.asp" target="_blank" rel="noopener">js对象方法</a></h4><p>类似于这样的一个对象里面有一个属性为一个function</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> group <span class="token operator">=</span> <span class="token punctuation">{</span>
     title<span class="token punctuation">:</span> <span class="token string">"Our Group"</span><span class="token punctuation">,</span>
     students<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"John"</span><span class="token punctuation">,</span> <span class="token string">"Pete"</span><span class="token punctuation">,</span> <span class="token string">"Alice"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -600,7 +600,7 @@ point<span class="token punctuation">.</span>__proto__<span class="token punctua
         <span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<h6 id="5：formdata文件上传"><a href="#5：formdata文件上传" class="headerlink" title="5：formdata文件上传"></a>5：<a href="https://blog.csdn.net/liuyalu_/article/details/105836451" target="_blank" rel="noopener">formdata文件上传</a></h6><p>其实也是一个像key：value的类型</p>
+<h4 id="5：formdata文件上传"><a href="#5：formdata文件上传" class="headerlink" title="5：formdata文件上传"></a>5：<a href="https://blog.csdn.net/liuyalu_/article/details/105836451" target="_blank" rel="noopener">formdata文件上传</a></h4><p>其实也是一个像key：value的类型</p>
 <p>一般使用axios的post进行文件上传，这里使用vant组件库的文件上传作为例子，因为vant没有对文件上传进行封装，可以更清晰的了解一下上传的全过程</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//这里是vue里面的一个使用formdata传文件的方法</span>
 <span class="token keyword">async</span> <span class="token function">afterRead</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -659,7 +659,8 @@ router<span class="token punctuation">.</span><span class="token function">post<
         <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"21"</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h4 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h4><h5 id="js高级程序设计"><a href="#js高级程序设计" class="headerlink" title="js高级程序设计"></a>js高级程序设计</h5><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
+<h4 id="6：浏览器console-log"><a href="#6：浏览器console-log" class="headerlink" title="6：浏览器console.log"></a>6：<a href="https://blog.csdn.net/Ideality_hunter/article/details/71633995?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control" target="_blank" rel="noopener">浏览器console.log</a></h4><p>谷歌的浏览器内核在设计的时候为了对性能进行调优，防止因为过多的console.log影响到原来的程序的性能，所以console.log其实是异步的，只是在展开的时候对快照进行实时计算得到的，骑在右边会有一个小感叹号的图标进行提示（在nodejs里面console.log是同步的）</p>
+<h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><h3 id="js高级程序设计（第四版）"><a href="#js高级程序设计（第四版）" class="headerlink" title="js高级程序设计（第四版）"></a>js高级程序设计（第四版）</h3><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
 <p>p237    原型的问题还是源自其自身的共享特性，当原型上面存在引用类型（如数组）的时候，这个引用类型是共享的。当一个实例修改了这个数组，其他实例也能得到这个数组，一般而言，每个实例应该有自身的属性副本。</p>
 <p>可使用<code>盗用构造函数（在子类构造函数中使用call()或apply()调用父类构造函数）</code>和<strong>组合继承(主流)</strong>（结合原型链和盗用构造函数，两者都使用）解决</p>
 <p>p240    默认情况下，所有引用类型都继承自Object</p>
@@ -668,7 +669,8 @@ router<span class="token punctuation">.</span><span class="token function">post<
 <p>p300    function定义的函数里面的this引用的是这个函数被调用时所处的作用域，而箭头函数就只是被<strong>定义</strong>时的上下文</p>
 <p>p352    await关键字只能直接出现在异步函数的定义中</p>
 <p>p467    css属性名使用连字符表示法，所以就算使用的时候必须将其转为驼峰命名</p>
-<h5 id="你所不知道的js–上"><a href="#你所不知道的js–上" class="headerlink" title="你所不知道的js–上"></a>你所不知道的js–上</h5><p><strong>解析/语法分析（Parsing）</strong> </p>
+<h3 id="你所不知道的js–上"><a href="#你所不知道的js–上" class="headerlink" title="你所不知道的js–上"></a>你所不知道的js–上</h3><p>感觉这一个系列的三本书有些久远了，都是15年的了，有一些跟不上现在的发展，所以简单看下就好，不必深究</p>
+<p><strong>解析/语法分析（Parsing）</strong> </p>
 <p>这个过程是将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法 结构的树。这个树被称为“抽象语法树”（Abstract Syntax Tree，AST）。</p>
 <p>eval(..) 函数可以接受一个字符串为参数，并将其中的内容视为好像在书 写时就存在于程序中这个位置的代码。换句话说，可以在你写的代码中用程序生成代码并 运行，就好像代码是写在那个位置的一样</p>
 <p>要避免书写eval和with这两个语法，因为会影响js引擎的编译性能</p>
@@ -729,7 +731,7 @@ router<span class="token punctuation">.</span><span class="token function">post<
 <p>in 操作符可以检查容器内是否有某个值，但是它实际上检查的是某 个属性名是否存在。对于数组来说这个区别非常重要，<br><code>4 in [2, 4, 6]</code>的结 果并不是你期待的 True，因为 [2, 4, 6] 这个数组中包含的属性名是 0、1、 2，没有 4。</p>
 <p>Object.keys(..) 会返回一个数组，包含所有可枚举属性，Object.getOwnPropertyNames(..) 会返回一个数组，包含所有属性，无论它们是否可枚举。 </p>
 <p>in 和 hasOwnProperty(..) 的区别在于是否查找 [[Prototype]] 链(in会查找原型链)，然而，Object.keys(..) 和 Object.getOwnPropertyNames(..) 都只会找对象直接包含的属性</p>
-<h5 id="你所不知道的js–中"><a href="#你所不知道的js–中" class="headerlink" title="你所不知道的js–中"></a>你所不知道的js–中</h5><p><strong>类型与语法</strong></p>
+<h3 id="你所不知道的js–中"><a href="#你所不知道的js–中" class="headerlink" title="你所不知道的js–中"></a>你所不知道的js–中</h3><p><strong>类型与语法</strong></p>
 <p>JavaScript 中的变量是没有类型的，只有值才有。变量可以随时持有任何类型的值</p>
 <p>变量在未持有值的时候为 undefined。此时 typeof 返回 “undefined”：</p>
 <p>数组通过数字进行索引，但有趣的是它们也是对象，所以也可以包含字符串键值和属性（但这些并不计算在数组长度内）</p>
@@ -847,7 +849,8 @@ w1<span class="token punctuation">.</span><span class="token function">postMessa
 <li>高流量网络通信</li>
 </ul>
 <p>具体的实现和操作，到时候看文档吧</p>
-<h5 id="你所不知道的js–下"><a href="#你所不知道的js–下" class="headerlink" title="你所不知道的js–下"></a>你所不知道的js–下</h5>
+<h3 id="你所不知道的js–下"><a href="#你所不知道的js–下" class="headerlink" title="你所不知道的js–下"></a>你所不知道的js–下</h3><p>这本书感觉更像是上面两本书的一个简单总结，不打算对这本书进行记录</p>
+
             </div>
             <hr/>
 
@@ -910,8 +913,8 @@ w1<span class="token punctuation">.</span><span class="token function">postMessa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/js/">
-                                    <span class="chip bg-color">js</span>
+                                <a href="/tags/js-other/">
+                                    <span class="chip bg-color">js other</span>
                                 </a>
                             
                         </div>

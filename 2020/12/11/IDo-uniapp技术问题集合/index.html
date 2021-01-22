@@ -453,14 +453,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-04
+                    2021-01-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    631
+                    1.6k
                 </div>
                 
 
@@ -480,8 +480,9 @@
                 <p>就是一个对于uniapp微信小程序项目遇到的技术问题和解决方法，还有一些关于uniapp和其他杂乱的知识的集合</p>
 <p><a href="https://ask.dcloud.net.cn/article/35489" target="_blank" rel="noopener">关于uni-app的ui库、ui框架、ui组件</a></p>
 <p><a href="http://www.uviewui.com/components/intro.html" target="_blank" rel="noopener">使用的组件库uview</a></p>
+<p><a href="https://gitee.com/cheng_song/ido-practice-management" target="_blank" rel="noopener">码云代码仓库</a></p>
 <h4 id="1-单位"><a href="#1-单位" class="headerlink" title="1.单位"></a>1.单位</h4><p>一般直接使用uniapp自定义的<strong>rpx</strong>单位和vw、vh来进行单位的设置，rem、百分比这个主要适用于响应式，但这只是一个微信小程序，所以使用rpx即可，uniapp将所有手机的屏幕都看成750rpx，可根据这个来进行布局设置</p>
-<h2 id="前端页面逻辑"><a href="#前端页面逻辑" class="headerlink" title="前端页面逻辑"></a>前端页面逻辑</h2><p>主体页面：</p>
+<h3 id="前端页面逻辑"><a href="#前端页面逻辑" class="headerlink" title="前端页面逻辑"></a>前端页面逻辑</h3><p>主体页面：</p>
 <ul>
 <li><p>登录页：输入账号密码可登录，也可点击注册按钮进行企业人员注册，之后就跳转到首页</p>
 </li>
@@ -512,6 +513,53 @@
 </ul>
 </li>
 </ul>
+<h3 id="uniapp使用总结"><a href="#uniapp使用总结" class="headerlink" title="uniapp使用总结"></a>uniapp使用总结</h3><p>为何使用uniapp</p>
+<p>主要是因为我们自己的需求可能需要多端的应用，为了以后的方便，所以直接使用uniapp这一个多端跨平台的框架来进行前端开发。而且其目前是基于vue2.x的语法进行开发，而目前vue2是比较成熟的一个体系，所以综合选择了uniapp</p>
+<p>使用技术</p>
+<p>因为uniapp自己的限制，所以就没有使用vue-router了，而直接使用其知道的page.json进行页面路由的管理；此外使用了vuex进行全局状态管理，并使用本地缓存技术将一些比较核心的数据缓存在本地；使用uview的组件库，让页面的美观度更好；使用uview的网络请求拦截和全局api管理；使用scss优化css的编写</p>
+<p>使用体验</p>
+<p>目前来看，uniapp为了跨平台，对vue的一些扩展进行了删减，例如vuex的全局状态，在uniapp的官方文档里面其实很少见这个东西，还是自己对这个项目进行一个扩展，所以一些原来的vuex的为了进行良好管理的功能都没有了，所以一个不注意，就会造成各种奇怪的bug。至于其他的一些东西，有一些奇怪的bug，不知道是因为uniapp自己的还是uview组件库的。除此之外，uniapp对目前简单的项目开发还是挺好的，无论是页面路由的管理还是对vue语法的支持都是挺方便的</p>
+<h3 id="页面功能介绍"><a href="#页面功能介绍" class="headerlink" title="页面功能介绍"></a>页面功能介绍</h3><p>pages目录的页面结构和介绍</p>
+<pre class=" language-js"><code class="language-js">├── error
+│   └── error<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//错误页面，当出现错误时跳转到这个页面</span>
+├── home
+│   └── home<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//”首页“页面，一登录成功后跳转到这个页面</span>
+├── internship
+│   └── internship<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//”实习圈“页面，目前的计划还未迭代到这里</span>
+├── login
+│   ├── loginForm<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//登录页面，所有的用户都是在这个页面登录</span>
+│   └── register<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//注册页面，企业员工使用企业注册码在这个页面填写个人信息并注册，注册成功后跳转到登录页面登录</span>
+└── student
+    ├── addMessage
+    │   ├── addMessage<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//发布页面，用户选择需要发布的消息类型</span>
+    │   └── edit<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//消息的编辑页面，目前只是一个页面，还未与后台有联系</span>
+    ├── message
+    │   ├── guardAngel
+    │   │   ├── chat<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//聊天界面，目前还只能发送文字，还未能发送图片，支持下拉刷新，消息更新</span>
+    │   │   └── guardAngel<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//守护天使的选择界面，选择与哪一位进行聊天</span>
+    │   ├── interview
+    │   │   └── interview<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//还未迭代到这里来</span>
+    │   ├── lectureMeeting
+    │   │   └── lectureMeeting<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//还未迭代到这里来</span>
+    │   ├── message<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//”消息“页面，主要显示系统消息和一些实习通知，守护天使通知等</span>
+    │   ├── messageDetails<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//消息详情页面</span>
+    │   └── monthlySummary
+    │       └── monthlySummary<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//还未迭代到这里来</span>
+    └── my
+        ├── my<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//"我的"页面，显示自己的头像姓名和一些功能模块，会根据用户的身份显示不同的功能</span>
+        ├── myDetails
+        │   ├── changeIntro<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//修改信息的页面，如修改手机号，密码等</span>
+        │   └── myDetails<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//”我的“详细信息的页面，可对头像、性别进行修改，还能看自己的一些信息</span>
+        ├── <span class="token keyword">set</span>
+        │   └── <span class="token keyword">set</span><span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//”设置“页面，可修改自己的手机号、邮箱、登录密码等</span>
+        └── treasure
+            ├── starRank<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//实习宝藏星星数排行页面</span>
+            ├── submitTask<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//实习宝藏任务提交页面，可提交文字和图片</span>
+            ├── taskDescribe<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//企业员工审核学生提交的任务和详细信息，并给出自己的分数</span>
+            ├── taskRecord<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//任务记录页面，可查看自己进行中、审核中和已完成的任务记录</span>
+            ├── treasure<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//”实习宝藏“页面，可查看目前可进行的任务和已进行、审核中和已完成的任务</span>
+            └── treasureCheck<span class="token punctuation">.</span>vue <span class="token comment" spellcheck="true">//企业员工的实习宝藏审核页面，查看自己关联学生提交的任务</span></code></pre>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>在uniapp里面的本地缓存的存储和清除的时机有一些问题，需要再理清楚</p>
 
             </div>
             <hr/>
@@ -744,33 +792,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/12/11/IDo-uniapp%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98%E9%9B%86%E5%90%88/">
+                <a href="/2021/01/10/Scss%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="IDo uniapp技术问题集合">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Scss的简单使用">
                         
-                        <span class="card-title">IDo uniapp技术问题集合</span>
+                        <span class="card-title">Scss的简单使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            就是一个对于uniapp微信小程序项目遇到的技术问题和解决方法，还有一些关于uniapp和其他杂乱的知识的集合
-关于uni-app的ui库、ui框架、ui组件
-使用的组件库uview
-1.单位一般直接使用uniapp自定义的rpx单位和vw
+                            scss官网
+
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -779,12 +824,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/IDo-uniapp-vue2-x/">
-                        <span class="chip bg-color">IDo uniapp vue2.x</span>
+                    <a href="/tags/scss-vue/">
+                        <span class="chip bg-color">scss vue</span>
                     </a>
                     
                 </div>
