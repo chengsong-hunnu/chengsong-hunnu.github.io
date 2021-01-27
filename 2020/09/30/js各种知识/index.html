@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-22
+                    2021-01-26
                 </div>
                 
 
@@ -534,7 +534,7 @@ point<span class="token punctuation">.</span>__proto__<span class="token punctua
 
 <p><a href="https://github.com/biaochenxuying/blog/issues/64" target="_blank" rel="noopener">promise async await过程</a></p>
 <p><a href="https://github.com/sisterAn/blog/issues/21" target="_blank" rel="noopener">浏览器的Tasks、microtasks、 queues 和 schedules</a></p>
-<p><strong>任务队列 分为宏任务和微任务：</strong></p>
+<p><strong>任务队列 分为<a href="https://www.jianshu.com/p/bfc3e319a96b" target="_blank" rel="noopener">宏任务和微任务</a>：</strong></p>
 <p>宏任务队列：<code>setTimeout，setInterval ，setImmediate，I/O ，UI rendering （浏览器渲染）</code><br>微任务队列：<code>process.nextTick（下一个事件轮询的时间点上执行），Promise callback，Object.observer， MutationObserver（监视 DOM 变动的接口）</code></p>
 <p><strong>关键：</strong></p>
 <ol>
@@ -542,6 +542,7 @@ point<span class="token punctuation">.</span>__proto__<span class="token punctua
 <li>当调用栈是空的时，所有排队的微任务会一个接一个从微任务任务队列中弹出进入调用栈中，然后在调用栈中被执行！(微任务自己也能返回一个新的微任务，有效地创建无限的微任务循环 )</li>
 <li>如果调用栈和微任务队列都是空的，事件循环会检查宏任务队列里是否还有任务。如果宏任务中还有任务，会从宏任务队列中弹出进入调用栈，被执行后会从调用栈中弹出！</li>
 </ol>
+<p>一般微任务是先于宏任务执行的</p>
 <h4 id="4：js对象方法"><a href="#4：js对象方法" class="headerlink" title="4：js对象方法"></a>4：<a href="https://www.w3school.com.cn/js/js_object_methods.asp" target="_blank" rel="noopener">js对象方法</a></h4><p>类似于这样的一个对象里面有一个属性为一个function</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> group <span class="token operator">=</span> <span class="token punctuation">{</span>
     title<span class="token punctuation">:</span> <span class="token string">"Our Group"</span><span class="token punctuation">,</span>
@@ -567,6 +568,7 @@ point<span class="token punctuation">.</span>__proto__<span class="token punctua
       <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         url<span class="token punctuation">:</span> <span class="token string">"url/uploadimg"</span><span class="token punctuation">,</span>
         method<span class="token punctuation">:</span> <span class="token string">"post"</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// 这里要更改一下请求头</span>
         headers<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> <span class="token string">"application/x-www-form-urlencoded"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
         data<span class="token punctuation">:</span> formdata
       <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
