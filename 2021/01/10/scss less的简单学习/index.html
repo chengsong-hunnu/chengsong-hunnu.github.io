@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-26
+                    2021-01-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    104
+                    873
                 </div>
                 
 
@@ -434,8 +434,121 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><a href="https://www.sass.hk/" target="_blank" rel="noopener">scss官网</a></p>
-<p><a href="http://lesscss.cn/" target="_blank" rel="noopener">less官网</a></p>
+<p><a href="https://less.bootcss.com/#%E6%A6%82%E8%A7%88" target="_blank" rel="noopener">less官网</a></p>
+<p><a href="http://www.zhuchuli.cn:4000/hexo-theme-huxblog/2020/11/22/less/" target="_blank" rel="noopener">less较详细的教程</a></p>
 <p>为什么这两个我都要去看一眼啦，主要是看了一些文章，感觉对如何选择项目里面使用这两种css预编译器有了些想法，公司用啥就用啥，但个人而言还是使用less吧，因为安装方便，而且目前还没有经过太复杂的项目css管理，所以就先这样吧</p>
+<p>目前主要学习less</p>
+<h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>vue项目里面使用less的话。直接在vue-cli创建的时候选择即可</p>
+<p>或者</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i <span class="token function">less</span> --save-dev</code></pre>
+<p>目前使用 less 最常用的应该是其可以直接进行嵌套写css，不需要写一长串的选择之后再写样式，可以直接嵌套</p>
+<p>Less中的注释：</p>
+<ul>
+<li><code>//</code>： 以<code>//</code>开始的注释，不会被编译到css文件中</li>
+<li><code>/**/</code>：以<code>/**/</code>包裹的注释会被编译在css的文件中</li>
+</ul>
+<p>而另一个应该就是自定义变量了，只需引入就可使用。可以很方便的进行更换主题配色之类的</p>
+<pre class=" language-less"><code class="language-less"><span class="token variable">@width<span class="token punctuation">:</span></span> <span class="token number">10</span>px<span class="token punctuation">;</span>
+<span class="token variable">@height<span class="token punctuation">:</span></span> <span class="token variable">@width</span> <span class="token operator">+</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
+
+<span class="token selector">#header</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">@width</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">@height</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 还有选择器的格式，注意不能使用选择器的格式选择变量，如width:@{width} 是没用的</span>
+<span class="token variable">@urlImg<span class="token punctuation">:</span></span> <span class="token string">"https://free.img.jpg.ink/imgs/2020/11/21/c59141c275a4e.jpeg"</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*作为url */</span>
+<span class="token selector">.header3</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url("@{urlImg}")</span> no<span class="token operator">-</span>repeat<span class="token punctuation">;</span>
+    <span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">100%</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h5 id="mixin混入"><a href="#mixin混入" class="headerlink" title="mixin混入"></a>mixin混入</h5><pre class=" language-less"><code class="language-less"><span class="token selector">.bordered</span> <span class="token punctuation">{</span>
+  <span class="token property">border-top</span><span class="token punctuation">:</span> dotted <span class="token number">1</span>px black<span class="token punctuation">;</span>
+  <span class="token property">border-bottom</span><span class="token punctuation">:</span> solid <span class="token number">2</span>px black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 可定义默认值参数</span>
+<span class="token selector">.border1(<span class="token variable">@color</span>:black)</span> <span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">3</span>px solid <span class="token variable">@color</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">#menu a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#111</span><span class="token punctuation">;</span>
+  <span class="token mixin-usage function">.bordered</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">footer</span> <span class="token punctuation">{</span>
+    <span class="token selector">&amp;:hover</span> <span class="token punctuation">{</span>
+        <span class="token mixin-usage function">.border1</span><span class="token punctuation">(</span>green<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>你还可以使用此方法将伪选择器（pseudo-selectors）与混合（mixins）一同使用。下面是一个经典的 clearfix 技巧，重写为一个混合（mixin） (<code>&amp;</code> 表示当前选择器的父级）：</p>
+<pre class=" language-less"><code class="language-less"><span class="token selector">.clearfix</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">zoom</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+  <span class="token selector">&amp;:after</span> <span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+    <span class="token property">visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h5 id="规则嵌套和冒泡"><a href="#规则嵌套和冒泡" class="headerlink" title="@规则嵌套和冒泡"></a>@规则嵌套和冒泡</h5><p>@ 规则（例如 <code>@media</code> 或 <code>@supports</code>）可以与选择器以相同的方式进行嵌套。@ 规则会被放在前面，同一规则集中的其它元素的相对顺序保持不变。这叫做冒泡（bubbling）。</p>
+<pre class=" language-less"><code class="language-less"><span class="token selector">.component</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span>px<span class="token punctuation">;</span>
+  <span class="token atrule">@media <span class="token punctuation">(</span>min-width<span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">600</span>px<span class="token punctuation">;</span>
+    <span class="token atrule">@media  <span class="token punctuation">(</span>min-resolution<span class="token punctuation">:</span> 192dpi<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+      <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url(/img/retina2x.png)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token atrule">@media <span class="token punctuation">(</span>min-width<span class="token punctuation">:</span> 1280px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">800</span>px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>编译为：</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.component</span> </span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token class">.component</span> </span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">600</span>px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">min-resolution</span><span class="token punctuation">:</span> 192dpi<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token class">.component</span> </span><span class="token punctuation">{</span>
+    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url(/img/retina2x.png)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 1280px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector"><span class="token class">.component</span> </span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">800</span>px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h5 id="运算（Operations）"><a href="#运算（Operations）" class="headerlink" title="运算（Operations）"></a>运算（Operations）</h5><p>算术运算符 <code>+</code>、<code>-</code>、<code>*</code>、<code>/</code> 可以对任何数字、颜色或变量进行运算。如果可能的话，算术运算符在加、减或比较之前会进行单位换算。计算的结果以最左侧操作数的单位类型为准。如果单位换算无效或失去意义，则忽略单位。无效的单位换算例如：px 到 cm 或 rad 到 % 的转换。</p>
+<pre class=" language-less"><code class="language-less"><span class="token comment" spellcheck="true">// 所有操作数被转换成相同的单位</span>
+<span class="token variable">@conversion-1<span class="token punctuation">:</span></span> <span class="token number">5</span>cm <span class="token operator">+</span> <span class="token number">10</span>mm<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 6cm</span>
+<span class="token variable">@conversion-2<span class="token punctuation">:</span></span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">3</span>cm <span class="token operator">-</span> <span class="token number">5</span>mm<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 -1.5cm</span>
+
+<span class="token comment" spellcheck="true">// conversion is impossible</span>
+<span class="token variable">@incompatible-units<span class="token punctuation">:</span></span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">5</span>px <span class="token operator">-</span> <span class="token number">3</span>cm<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 4px</span>
+
+<span class="token comment" spellcheck="true">// example with variables</span>
+<span class="token variable">@base<span class="token punctuation">:</span></span> <span class="token number">5%</span><span class="token punctuation">;</span>
+<span class="token variable">@filler<span class="token punctuation">:</span></span> <span class="token variable">@base</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 10%</span>
+<span class="token variable">@other<span class="token punctuation">:</span></span> <span class="token variable">@base</span> <span class="token operator">+</span> <span class="token variable">@filler</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 15%</span></code></pre>
+<hr>
+<h5 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h5><p>less内置了一些常用的函数，可以直接在style里面进行使用</p>
+<hr>
+<p>还有作用域这种东西，主要是配合变量一起使用</p>
+<hr>
+<h5 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h5><p>“导入”的工作方式和你预期的一样。你可以导入一个 <code>.less</code> 文件，此文件中的所有变量就可以全部使用了。如果导入的文件是 <code>.less</code> 扩展名，则可以将扩展名省略掉：</p>
+<pre class=" language-css"><code class="language-css">// 注意是@import 进行导入，不要省略了@
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"library"</span><span class="token punctuation">;</span></span> // library<span class="token number">.</span>less
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"typo.css"</span><span class="token punctuation">;</span></span></code></pre>
 
             </div>
             <hr/>
