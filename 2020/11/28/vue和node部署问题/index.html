@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-29
+                    2021-02-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    789
+                    1.4k
                 </div>
                 
 
@@ -438,9 +438,12 @@
 <p>连接服务器（例子）：ssh <a href="mailto:root@172.20.0.80">root@172.20.0.80</a>（ip地址）</p>
 <p>输入172.20.0.80的密码即可连接到服务器。</p>
 <p><a href="https://www.pianshen.com/article/27801079363/" target="_blank" rel="noopener">vue+node+mysql参考</a></p>
-<h4 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h4><p><strong>跨域</strong>：一般在开发环境下，对于远程的http请求可直接使用vue.config.js里面使用proxy代理一下，处理跨域问题，但如果后端没有对跨域进行处理的话，部署到服务器之后，会有问题，如在本地是对<code>axios.get(&#39;/api/post&#39;,params:{})</code>，本地请求会变成</p>
+<h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h3><p><strong>跨域</strong>：一般在开发环境下，对于远程的http请求可直接使用vue.config.js里面使用proxy代理一下，处理跨域问题</p>
+<p><a href="https://www.cnblogs.com/bobo1/p/12588079.html" target="_blank" rel="noopener">简单proxy讲解</a></p>
+<p>但如果后端没有对跨域进行处理的话，部署到服务器之后，会有问题，如在本地是对<code>axios.get(&#39;/api/post&#39;,params:{})</code>，本地请求会变成</p>
 <p><code>http://115.159.103.48/post?id=1</code>，得到正确的数据</p>
 <p>但部署之后会变成<code>http://myui.chengsong.info/api/post?id=1</code>，请求失败</p>
+<p>这里的 myui.chengsong.info 在本次开发时显示的是 localhost:8080</p>
 <p>可以对axios封装的时候，可使用</p>
 <pre class=" language-js"><code class="language-js">axios<span class="token punctuation">.</span>defaults<span class="token punctuation">.</span>baseURL<span class="token operator">=</span><span class="token string">'后端ip地址'</span>    <span class="token comment" spellcheck="true">//例：http://47.99.134.126:28019/api</span></code></pre>
 <p>后面再进行axios请求的时候，部署到服务器就不会有这些问题了</p>
@@ -460,28 +463,74 @@ response<span class="token punctuation">.</span><span class="token function">hea
 <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>还有一些其他的更具体的对允许跨域的域名的控制，需要的时候，再进行处理</p>
-<p><strong>部署</strong>：使用<code>npm run build</code>打包之后，直接将dist目录里面的文件全部上传到服务器里面，然后在宝塔里面添加网站</p>
-<p>例：myui.chengsong.info    然后将上传的dist目录与其相对应，可以修改配置文件</p>
+<p><strong>部署</strong>：项目使用<code>npm run build</code>打包之后，直接将dist目录里面的文件全部上传到服务器里面，然后在宝塔里面添加网站</p>
+<p>例：myui.chengsong.info（创建站点时输入的网址）    然后将上传的dist目录与其相对应，可以修改配置文件</p>
 <p><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128164515904.png" alt="image-20201128164256348"></p>
 <p>然后DNS也要添加解析到自己的服务器ip</p>
 <img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128164256348.png" alt="image-20201128164515904" style="zoom:80%;" />
 
+
+
 <img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201223113254905.png" alt="image-20201223113254905" style="zoom:67%;" />
 
+
+
 <p>后面基本就可以使用这个网站名进行访问了</p>
-<h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><p>关于node的项目部署</p>
+<h3 id="nuxt"><a href="#nuxt" class="headerlink" title="nuxt"></a>nuxt</h3><h4 id="服务器渲染应用部署"><a href="#服务器渲染应用部署" class="headerlink" title="服务器渲染应用部署"></a>服务器渲染应用部署</h4><p><a href="https://www.aijiumai.cn/view/item/62.html" target="_blank" rel="noopener">简单教程</a></p>
+<p><a href="https://blog.csdn.net/weixin_30646315/article/details/98028293" target="_blank" rel="noopener">有些难看的教程</a></p>
+<p>1.首先在宝塔面板里面添加一个站点，跟上面的vue部署差不多</p>
+<p>2.后面再站点里面修改配置文件（注意端口号是在nuxt项目在package.json里面进行修改的）</p>
+<pre class=" language-js"><code class="language-js"><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"firstStudy"</span><span class="token punctuation">,</span>
+  <span class="token string">"version"</span><span class="token punctuation">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
+  <span class="token string">"private"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"dev"</span><span class="token punctuation">:</span> <span class="token string">"nuxt"</span><span class="token punctuation">,</span>
+    <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"nuxt build"</span><span class="token punctuation">,</span>
+    <span class="token string">"start"</span><span class="token punctuation">:</span> <span class="token string">"PORT=3003 nuxt start"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//注意这里的port，在部署的时候会运行在这个端口上，主要是为了防止服务器端口冲突</span>
+    <span class="token string">"generate"</span><span class="token punctuation">:</span> <span class="token string">"nuxt generate"</span><span class="token punctuation">,</span>
+    <span class="token string">"lint:js"</span><span class="token punctuation">:</span> <span class="token string">"eslint --ext \".js,.vue\" --ignore-path .gitignore ."</span><span class="token punctuation">,</span>
+    <span class="token string">"lint"</span><span class="token punctuation">:</span> <span class="token string">"yarn lint:js"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+<img src="/images/loading.gif" data-original="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20210203180924769.png" alt="image-20210203180924769" style="zoom:80%;" />
+
+<p>3.设置一个反向代理，主要是因为在服务器里面执行 npm run start 之后其实是在本地服务器的，需要代理到我们创建的站点上面</p>
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20210203181140550.png" alt="image-20210203181140550" style="zoom:80%;" />
+
+<p>4.本地<code>npm run build</code>后，将build后的文件上传到服务器上面新建站点的对应目录中，有四个文件，具体的文件看上面的教程吧</p>
+<p>5.在服务器上使用pm2开启进程守护</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#在站点对应的目录里面执行</span>
+pm2 start <span class="token function">npm</span> --name <span class="token string">"my-nuxt"</span> -- run start  <span class="token comment" spellcheck="true">#my-nuxt为我们自定义的项目名称，也是我们自定义的守护进程名称</span>
+<span class="token comment" spellcheck="true">#可使用 pm2 list 查看所有的pm2守护，也可直接使用宝塔面板自带的可视化pm2进行查看</span></code></pre>
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20210203185141914.png" alt="image-20210203185141914" style="zoom:80%;" />
+
+<p>之后就能通过站点对应的域名进行访问了</p>
+<h4 id="静态应用部署"><a href="#静态应用部署" class="headerlink" title="静态应用部署"></a>静态应用部署</h4><p>在nuxt项目里面执行</p>
+<pre><code>npm run generate</code></pre><p>之后将build出的dist目录上传到服务器的一个目录里，之后的步骤就跟上面的vue项目部署差不多了</p>
+<h3 id="node"><a href="#node" class="headerlink" title="node"></a>node</h3><p>关于node的项目部署</p>
 <p><a href="https://blog.csdn.net/l_ppp/article/details/106085916" target="_blank" rel="noopener">参考链接</a></p>
 <p><a href="https://www.bwmelon.com/archives/27/" target="_blank" rel="noopener">node部署参考</a>：比较细节</p>
-<p>将nodejs的文件除开node_module目录打包之后，上传到服务器，然后解压，使用pm2对nodejs解压目录进行链接（需要先在终端目录里面使用    <code>npm install</code> 安装依赖），这里的端口号是node项目里面监听的端口号</p>
+<p>将nodejs的文件除开node_module目录打包之后，上传到服务器，然后解压，使用pm2对nodejs解压目录进行链接（需要先在终端目录里面使用    <code>npm install</code> 安装依赖），这里的端口号是node项目app.js文件里面监听的端口号</p>
 <img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128165455499.png" alt="image-20201128165455499" style="zoom:67%;" />
 
-<p>需要将这个node项目映射到自己的服务器公网ip，然后重启</p>
+<p>需要将这个node项目映射到自己的服务器公网ip或者域名（域名需要在DNS里面添加解析），然后重启</p>
+<p>添加了之后，就会在网站里面自动新建一个站点，在站点里面进行了反向代理，才能使得外部可访问</p>
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20210203190717110.png" alt="image-20210203190717110" style="zoom:80%;" />
+
 <p>之后使用ip+端口号就能访问和请求得到数据，例：<a href="http://115.159.103.48:5000/" target="_blank" rel="noopener">http://115.159.103.48:5000/</a></p>
+<p>或者域名访问    例：<a href="http://api.chengsong.info/post?id=1" target="_blank" rel="noopener">http://api.chengsong.info/post?id=1</a> 或  <a href="http://api.chengsong.info:5000/post?id=1" target="_blank" rel="noopener">http://api.chengsong.info:5000/post?id=1</a> </p>
 <p>自己踩得坑：</p>
 <p>上面的跨域问题的处理，需要解决。</p>
 <p>然后一般会使用到数据库，如mysql，mongodb这些，需要将原来建的表和数据导入到宝塔自带的数据库里面，然后需要在node项目里面关于链接数据库的js文件里面修改数据库名和用户名才能使用</p>
 <p><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128165753322.png" alt="image-20201128165809874"></p>
 <p><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201128165809874.png" alt="image-20201128165753322"></p>
+<h3 id="域名相关"><a href="#域名相关" class="headerlink" title="域名相关"></a>域名相关</h3><p>对域名的SSL证书添加</p>
+<p>我自己用的是腾讯云的域名，所以使用腾讯自己的免费SSL证书就行了</p>
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20210203191625079.png" alt="image-20210203191625079" style="zoom:80%;" />
+
+<p>之后在宝塔面板里面对网站站点进行SSL证书申请和部署即可</p>
+<img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20210203192016104.png" alt="image-20210203192016104" style="zoom:80%;" />
+
+<p>后面就可通过<strong>https</strong>进行访问</p>
 
             </div>
             <hr/>

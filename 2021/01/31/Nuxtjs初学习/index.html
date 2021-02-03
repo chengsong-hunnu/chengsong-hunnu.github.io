@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue总结, 晟松">
+    <meta name="keywords" content="Nuxtjs初学习, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue总结 | 晟松</title>
+    <title>Nuxtjs初学习 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,7 +269,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue总结</h1>
+                    <h1 class="description center-align post-title">Nuxtjs初学习</h1>
                 </div>
             </div>
         </div>
@@ -386,8 +386,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue/">
-                                <span class="chip bg-color">vue</span>
+                            <a href="/tags/vue-nuxtjs/">
+                                <span class="chip bg-color">vue nuxtjs</span>
                             </a>
                         
                     </div>
@@ -402,21 +402,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-27
+                    2021-01-31
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-19
+                    2021-02-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    618
+                    480
                 </div>
                 
 
@@ -433,21 +433,45 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>先简单的学习了一些vue的基础知识，先做一个基础的总结，免得知识有些混乱和忘记，只是稍微提一下，并给一个例子</p>
-<h5 id="1-基础常用语法"><a href="#1-基础常用语法" class="headerlink" title="1.基础常用语法"></a>1.<strong>基础常用语法</strong></h5><p>v-bind,v-on,v-model,v-for,v-if/v-show,</p>
-<p>2.在vue实例里面，需要el挂载，data数据，methods方法，computed计算属性，watch侦听器侦听数据变化，</p>
-<p>3.核心组件，专门建一个文件夹放置组件这些可复用的页面，在需要使用的时候，需要使用import引入组件。</p>
-<p>组件里面包括<template></template>里面放置html代码，<script></script>放置js代码，<style></style>放置css代码。</p>
-<p>还有组件之间传递值的方式。</p>
-<p>4.动画，<transition> 需要动画效果的html代码</transition></p>
-<p>5.路由<strong>router</strong>，根据路径的不同显示不同地页面组件。路由守卫，就是对路由的传递进行验证看是否满足什么条件</p>
-<p>6.css预编译less。</p>
-<p>7.<strong>vuex</strong>，对大型vue应用的数据进行统一管理。</p>
-<p>自定义指令 directive</p>
-<p><strong>8.B站vue商城项目总结</strong></p>
-<p>​    跟着在B站老陈的视频进行vue的一些学习，最后面就是对前面学习的一些知识的总结性使用。做了一个仿网易严选的商城项目。这里面，你说技术并没有很难，最大的感受还是对现在前端的开发有了一些理解，特别是对ui组件的使用，可以直接就拿现有的组件进行开发，对前端的组件化开发有了一些理解。</p>
-<p>​    在这个项目里面使用了路由，组件，vuex，axios等技术的使用，对后端返回的数据也有了一些认识。知道该如何获取和使用。在这里面，更多的感觉到了组件化开发的好处和开发一个组件的困难。在购物车的单选和全选那里，因为组件本身的改变，和官网页面的更新不及时(可能是这个原因),导致一直有一些问题存在，最后还是自己修改了后端传来的数据和添加了一些方法(这些方法，看着就写的一塌糊涂)，最后才实现的。</p>
-<p>​    下一步，应该是对现在前端的typescript和前面只学了一点点的es6,7还有对现在css的一些学习模仿，和js跟深一点的东西的学习。还有node.js.</p>
+                <p>怎么说啦，学这个主要是为了解决seo的问题，使用服务端渲染，给用户更好的体验</p>
+<p><a href="https://www.nuxtjs.cn/" target="_blank" rel="noopener">官网</a></p>
+<p><a href="https://www.jspang.com/detailed?id=37" target="_blank" rel="noopener">一位大佬的简单教程</a></p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>Nuxt自动生产了项目目录，我们先来一个一个介绍一下。</p>
+<pre><code>|-- .nuxt                            // Nuxt自动生成，临时的用于编辑的文件，build
+|-- assets                           // 用于组织未编译的静态资源入LESS、SASS 或 JavaScript
+|-- components                       // 用于自己编写的Vue组件，比如滚动组件，日历组件，分页组件
+|-- layouts                          // 布局目录，用于组织应用的布局组件，不可更改。
+|-- middleware                       // 用于存放中间件
+|-- pages                            // 用于存放写的页面，我们主要的工作区域
+|-- plugins                          // 用于存放JavaScript插件的地方
+|-- static                           // 用于存放静态资源文件，比如图片
+|-- store                            // 用于组织应用的Vuex 状态管理。
+|-- .editorconfig                    // 开发工具格式配置
+|-- .eslintrc.js                     // ESLint的配置文件，用于检查代码格式
+|-- .gitignore                       // 配置git不上传的文件
+|-- nuxt.config.json                 // 用于组织Nuxt.js应用的个性化配置，已覆盖默认配置
+|-- package-lock.json                // npm自动生成，用于帮助package的统一性设置的，yarn也有相同的操作
+|-- package-lock.json                // npm自动生成，用于帮助package的统一性设置的，yarn也有相同的操作
+|-- package.json                     // npm包管理配置文件</code></pre><h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>感觉这里有一些特别，</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><code>nuxt start</code> 执行后的端口号是在nuxt项目在package.json里面进行修改的）</p>
+<pre class=" language-js"><code class="language-js"><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"firstStudy"</span><span class="token punctuation">,</span>
+  <span class="token string">"version"</span><span class="token punctuation">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
+  <span class="token string">"private"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"dev"</span><span class="token punctuation">:</span> <span class="token string">"nuxt"</span><span class="token punctuation">,</span>
+    <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"nuxt build"</span><span class="token punctuation">,</span>
+    <span class="token string">"start"</span><span class="token punctuation">:</span> <span class="token string">"PORT=3003 nuxt start"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//注意这里的port，在部署的时候会运行在这个端口上，主要是为了防止服务器端口冲突</span>
+    <span class="token string">"generate"</span><span class="token punctuation">:</span> <span class="token string">"nuxt generate"</span><span class="token punctuation">,</span>
+    <span class="token string">"lint:js"</span><span class="token punctuation">:</span> <span class="token string">"eslint --ext \".js,.vue\" --ignore-path .gitignore ."</span><span class="token punctuation">,</span>
+    <span class="token string">"lint"</span><span class="token punctuation">:</span> <span class="token string">"yarn lint:js"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+<p><code>nuxt</code> 执行后的端口号是在  <strong>nuxt.config.js</strong> 文件里面修改的</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">{</span>
+    server<span class="token punctuation">:</span> <span class="token punctuation">{</span>    
+        port<span class="token punctuation">:</span> <span class="token number">8000</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">// default: 3000</span>
+        <span class="token comment" spellcheck="true">// host: '0.0.0.0' // default: localhost</span>
+     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -473,7 +497,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://chengsong.info/2020/07/27/vue%E6%80%BB%E7%BB%93/">http://chengsong.info/2020/07/27/vue%E6%80%BB%E7%BB%93/</a>
+                    <a href="http://chengsong.info/2021/01/31/Nuxtjs%E5%88%9D%E5%AD%A6%E4%B9%A0/">http://chengsong.info/2021/01/31/Nuxtjs%E5%88%9D%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -511,8 +535,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
+                                <a href="/tags/vue-nuxtjs/">
+                                    <span class="chip bg-color">vue nuxtjs</span>
                                 </a>
                             
                         </div>
@@ -680,39 +704,34 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/29/typescript%E5%88%9D%E5%AD%A6%E4%B9%A0/">
+                <a href="/2021/01/31/Nuxtjs%E5%88%9D%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="typescript初学习">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Nuxtjs初学习">
                         
-                        <span class="card-title">typescript初学习</span>
+                        <span class="card-title">Nuxtjs初学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            typescript学习,下面简称ts.有些语法类似于java
-typescript是js的一个超集，添加了一些新的扩展.主要目的是为了开发大型应用。
-
-类型批注和编译时类型检查
-类型推断
-类型擦除
-接口
-枚举
-Mixin
-泛型编程
-名字空
+                            怎么说啦，学这个主要是为了解决seo的问题，使用服务端渲染，给用户更好的体验
+官网
+一位大佬的简单教程
+目录结构Nuxt自动生产了项目目录，我们先来一个一个介绍一下。
+|-- .nuxt                           
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -721,11 +740,12 @@ Mixin
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/typescript/">
-                        <span class="chip bg-color">typescript</span>
+                    <a href="/tags/vue-nuxtjs/">
+                        <span class="chip bg-color">vue nuxtjs</span>
                     </a>
                     
                 </div>
@@ -739,30 +759,28 @@ Mixin
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/24/ES6%E5%AD%A6%E4%B9%A0/">
+                <a href="/2021/01/21/js%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E6%8C%87%E5%8D%97%E7%AC%AC%E5%9B%9B%E7%89%88-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="ES6初学习">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="js高级程序指南第四版--学习记录">
                         
-                        <span class="card-title">ES6初学习</span>
+                        <span class="card-title">js高级程序指南第四版--学习记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            js的一种版本标准，只是为了学一些重点的新语法。进行一点记录，更细致的还是查看教程吧
-阮一峰的es6教程
-掘金的总结
-1.箭头函数箭头函数的作用主要是定义匿名函数
-let foo = function () {};
-// 转换成箭头函数
-l
+                            这个博客是记录title里面的哪本书里面的一些我觉得我现在还没太明白的一些东西，和一些重点需要记录的
+js高级程序指南第四版密码:c73c
+下面就是对这本的书的一些知识点的记录了
+严格模式在脚本开头加上
+&quot;use strict&q
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-21
                             </span>
                         <span class="publish-author">
                             
@@ -775,8 +793,8 @@ l
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/es6/">
-                        <span class="chip bg-color">es6</span>
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>

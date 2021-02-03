@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-26
+                    2021-01-30
                 </div>
                 
 
@@ -630,7 +630,7 @@ router<span class="token punctuation">.</span><span class="token function">post<
 <h3 id="你所不知道的js–上"><a href="#你所不知道的js–上" class="headerlink" title="你所不知道的js–上"></a>你所不知道的js–上</h3><p>感觉这一个系列的三本书有些久远了，都是15年的了，有一些跟不上现在的发展，所以简单看下就好，不必深究</p>
 <p><strong>解析/语法分析（Parsing）</strong> </p>
 <p>这个过程是将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法 结构的树。这个树被称为“抽象语法树”（Abstract Syntax Tree，AST）。</p>
-<p>eval(..) 函数可以接受一个字符串为参数，并将其中的内容视为好像在书 写时就存在于程序中这个位置的代码。换句话说，可以在你写的代码中用程序生成代码并 运行，就好像代码是写在那个位置的一样</p>
+<p>eval(..) 函数可以接受一个字符串为参数，并将其中的内容视为好像在书 写时就存在于程序中这个位置的代码。换句话说，可以在你写的代码中用程序生成代码并运行，就好像代码是写在那个位置的一样</p>
 <p>要避免书写eval和with这两个语法，因为会影响js引擎的编译性能</p>
 <p>函数作用域的含义是指，属于这个函数的全部变量都可以在整个函数的范围内使用及复 用（事实上在嵌套的作用域中也可以使用）。</p>
 <p><strong>闭包</strong></p>
@@ -738,7 +738,8 @@ a<span class="token punctuation">.</span>length <span class="token comment" spel
 </li>
 </ul>
 <p>这说明 &amp;&amp; 运算符先于 || 执行，而且执行顺序并非我们所设想的从左到右。原因就在于运算符优先级</p>
-<p>暂时性死区：指的是由于代码中的变量还没有初始化而不能被引用的情况，对此，最直观的例子是 ES6 规范中的 let 块作用域，另一个 TDZ 违规的例子是 ES6 中的参数默认值{<br> a = 2; // ReferenceError!<br> let a;<br>}</p>
+<p>暂时性死区：指的是由于代码中的变量还没有初始化而不能被引用的情况，对此，最直观的例子是 ES6 规范中的 let 块作用域，另一个 TDZ 违规的例子是 ES6 中的参数默认值</p>
+<p>{<br> a = 2; // ReferenceError!<br> let a;<br>}</p>
 <p>异步函数的<strong>回调地狱</strong></p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//假设所有的函数都是异步回调函数，最后的运行顺序会是ABCDEF</span>
 <span class="token function">doA</span><span class="token punctuation">(</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
