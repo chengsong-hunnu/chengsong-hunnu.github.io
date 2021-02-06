@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-02-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.4k
                 </div>
                 
 
@@ -436,6 +436,12 @@
                 <p>怎么说啦，学这个主要是为了解决seo的问题，使用服务端渲染，给用户更好的体验</p>
 <p><a href="https://www.nuxtjs.cn/" target="_blank" rel="noopener">官网</a></p>
 <p><a href="https://www.jspang.com/detailed?id=37" target="_blank" rel="noopener">一位大佬的简单教程</a></p>
+<p><a href="https://www.bilibili.com/video/BV13Z4y1T74J?p=5&spm_id_from=pageDriver" target="_blank" rel="noopener">B站视频教程</a></p>
+<img src="/images/loading.gif" data-original="https://img2018.cnblogs.com/blog/1158910/201908/1158910-20190818204215037-2038459873.png" alt="生命周期" style="zoom:80%;" />
+
+<p>注意上面的<strong>beforecreated</strong>和<strong>created</strong>两个钩子，这两个钩子既可以跑在服务端，也可以跑在客户端。有一个验证就是，使用console，服务端的会再终端里面打印出来，而客户端的会在浏览器的控制台打印出来</p>
+<p>剩下的其他部分就是vue自己的其他生命周期钩子了，如mounted这些</p>
+<p>在服务器端的钩子不能访问客户端的对象，如window对象，只能获取到服务器的上下文context</p>
 <h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>Nuxt自动生产了项目目录，我们先来一个一个介绍一下。</p>
 <pre><code>|-- .nuxt                            // Nuxt自动生成，临时的用于编辑的文件，build
 |-- assets                           // 用于组织未编译的静态资源入LESS、SASS 或 JavaScript
@@ -454,6 +460,24 @@
 |-- package-lock.json                // npm自动生成，用于帮助package的统一性设置的，yarn也有相同的操作
 |-- package.json                     // npm包管理配置文件</code></pre><h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>感觉这里有一些特别，跟普通的vue比没了显式的vue-router的目录和文件，Nuxt.js 会依据 <code>pages</code> 目录中的所有 <code>*.vue</code> 文件生成应用的路由配置。可以在执行<code>nuxt</code>命令后在 <strong>.nuxt</strong> 目录里面的router.js文件里面看见生成的路由</p>
 <p>路由可对全部页面使用过渡效果。也可单独对某一个页面使用过渡效果（这个需要使用页面组件的transition属性）</p>
+<p>全局的直接在一个css文件里面以page开头写动画效果，然后在nuxt.config.js里面的css属性里面引入，nuxt会自动将这个效果应用到全部的页面切换，这也是nuxt约定式的一个体现</p>
+<p>进入和离开的active动画一般写在一起，刚进入的状态和最后退出后的状态一般写在一起</p>
+<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* 这里是page页面全局的页面切换动画 */</span>
+<span class="token selector"><span class="token class">.page-enter-active</span>,
+<span class="token class">.page-leave-active</span> </span><span class="token punctuation">{</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> all <span class="token number">0.5</span>s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.page-enter</span>,
+<span class="token class">.page-leave-to</span> </span><span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+nuxt<span class="token number">.</span>config<span class="token number">.</span>js
+<span class="token property">css</span><span class="token punctuation">:</span> [
+    <span class="token string">'element-ui/lib/theme-chalk/index.css'</span>,
+    // 在这里引入
+    <span class="token string">'assets/main.css'</span>,
+  ],</code></pre>
 <h4 id="普通路由"><a href="#普通路由" class="headerlink" title="普通路由"></a>普通路由</h4><p>假设 <code>pages</code> 的目录结构如下：</p>
 <pre class=" language-bash"><code class="language-bash">pages/
 --<span class="token operator">|</span> user/
@@ -557,7 +581,7 @@
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
-<h4 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h4><p>相当于路由守卫</p>
+<h4 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h4><p>相当于路由守卫 执行顺序为nuxt.config.js     layout    pages    （如果都使用了middleware的话）</p>
 <p>每一个中间件应放置在 <code>middleware/</code> 目录。文件名的名称将成为中间件名称 (<code>middleware/auth.js</code>将成为 <code>auth</code> 中间件)。</p>
 <p>一个中间件接收 <a href="https://www.nuxtjs.cn/api#上下文对象" target="_blank" rel="noopener">context</a> 作为第一个参数：</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -675,12 +699,14 @@ routes<span class="token punctuation">:</span> <span class="token punctuation">[
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
 <p>可以在这里改一下网页的图标，title这些东西</p>
 <h4 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h4><p>可根据上面的 <strong>default.vue</strong> 文件进行修改，创建一个新的布局文件(如 blog.vue)，然后在一个页面里面使用 <strong>layout:“blog”</strong> 进行使用，虽然感觉没啥用</p>
-<h4 id="404页面"><a href="#404页面" class="headerlink" title="404页面"></a>404页面</h4><p>可以在layout目录里面创建一个 <strong>error.vue</strong> 文件，在这里面创建404页面</p>
+<h4 id="404页面"><a href="#404页面" class="headerlink" title="404页面"></a>404页面</h4><p>可以在layout目录里面创建一个 <strong>error.vue</strong> 文件（一定要名称为 <strong>error</strong>），在这里面创建404页面</p>
 <p><strong>注意</strong>：虽然此文件放在 <code>layouts</code> 文件夹中, 但应该将它看作是一个 <strong>页面(page)</strong>.</p>
 <pre class=" language-vue"><code class="language-vue"><template>
   <div class="container">
     <h1 v-if="error.statusCode === 404">页面不存在</h1>
     <h1 v-else>应用发生错误异常</h1>
+    // 这里的$router是context自带的路由属性
+    <button @click="$router.replace('/ts')">跳转到ts页面</button>
     <nuxt-link to="/">首 页</nuxt-link>
   </div>
 </template>
@@ -890,6 +916,7 @@ Vue<span class="token punctuation">.</span>prototype<span class="token punctuati
 <p>nuxt项目似乎对scss有针对的集成，但对less就有些问题，我使用的时候就会出现错误，所以还是使用scss吧</p>
 <p>nuxt项目在使用官方的npx创建的时候如果选择了axios就会自动引入这个模块，之后就能在context上下文对象里面获取到</p>
 <p><a href="https://axios.nuxtjs.org/usage/" target="_blank" rel="noopener">官方axios集成</a> </p>
+<p>nuxt大部分的情况下就是约定式的，就是你按照一定的规范这样做，nuxt自己会根据你做的东西生成对应的代码，比如在layout布局里面的 <strong>error.vue</strong> 文件就会被当成一个404页面，注意名称一定要是error.vue，且在layout目录下</p>
 <h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p>官方网址：<a href="https://www.nuxtjs.cn/guide/commands" target="_blank" rel="noopener">https://www.nuxtjs.cn/guide/commands</a></p>
 
             </div>
@@ -1123,34 +1150,29 @@ Vue<span class="token punctuation">.</span>prototype<span class="token punctuati
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/31/Nuxtjs%E5%88%9D%E5%AD%A6%E4%B9%A0/">
+                <a href="/2021/02/05/Nodejs-express-koa2%E5%88%9D%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Nuxtjs初学习">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Nodejs express koa2初学习">
                         
-                        <span class="card-title">Nuxtjs初学习</span>
+                        <span class="card-title">Nodejs express koa2初学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            怎么说啦，学这个主要是为了解决seo的问题，使用服务端渲染，给用户更好的体验
-官网
-一位大佬的简单教程
-目录结构Nuxt自动生产了项目目录，我们先来一个一个介绍一下。
-|-- .nuxt                           
+                            这个文章主要记录一下对nodejs的一个框架express的学习，虽然其实node目前有很多框架，但目前我主要的是在学习前端，后端目前只是写一些简单的接口，为前端进行使用，目前想要学习的框架有两个，一个是目前的express，下一步应该是k
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-31
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1159,12 +1181,11 @@ Vue<span class="token punctuation">.</span>prototype<span class="token punctuati
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-nuxtjs/">
-                        <span class="chip bg-color">vue nuxtjs</span>
+                    <a href="/tags/nodejs-express-koa2/">
+                        <span class="chip bg-color">nodejs express koa2</span>
                     </a>
                     
                 </div>

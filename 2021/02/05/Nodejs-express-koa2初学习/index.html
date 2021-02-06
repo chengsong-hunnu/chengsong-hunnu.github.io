@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="scss less的简单学习, 晟松">
+    <meta name="keywords" content="Nodejs express koa2初学习, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>scss less的简单学习 | 晟松</title>
+    <title>Nodejs express koa2初学习 | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,7 +269,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">scss less的简单学习</h1>
+                    <h1 class="description center-align post-title">Nodejs express koa2初学习</h1>
                 </div>
             </div>
         </div>
@@ -386,8 +386,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/scss-less-vue/">
-                                <span class="chip bg-color">scss less vue</span>
+                            <a href="/tags/nodejs-express-koa2/">
+                                <span class="chip bg-color">nodejs express koa2</span>
                             </a>
                         
                     </div>
@@ -402,7 +402,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-10
+                    2021-02-05
                 </div>
                 
 
@@ -416,7 +416,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    910
+                    165
                 </div>
                 
 
@@ -433,123 +433,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://www.sass.hk/" target="_blank" rel="noopener">scss官网</a></p>
-<p><a href="https://less.bootcss.com/#%E6%A6%82%E8%A7%88" target="_blank" rel="noopener">less官网</a></p>
-<p><a href="http://www.zhuchuli.cn:4000/hexo-theme-huxblog/2020/11/22/less/" target="_blank" rel="noopener">less较详细的教程</a></p>
-<p>为什么这两个我都要去看一眼啦，主要是看了一些文章，感觉对如何选择项目里面使用这两种css预编译器有了些想法，公司用啥就用啥，但个人而言还是使用less吧，因为安装方便，而且目前还没有经过太复杂的项目css管理，所以就先这样吧</p>
-<p>目前主要学习less</p>
-<h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>vue项目里面使用less的话。直接在vue-cli创建的时候选择即可</p>
-<p>或者</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i <span class="token function">less</span> --save-dev</code></pre>
-<p>目前使用 less 最常用的应该是其可以直接进行嵌套写css，不需要写一长串的选择之后再写样式，可以直接嵌套</p>
-<p>Less中的注释：</p>
-<ul>
-<li><code>//</code>： 以<code>//</code>开始的注释，不会被编译到css文件中</li>
-<li><code>/**/</code>：以<code>/**/</code>包裹的注释会被编译在css的文件中</li>
-</ul>
-<p>而另一个应该就是自定义变量了，只需引入就可使用。可以很方便的进行更换主题配色之类的</p>
-<pre class=" language-less"><code class="language-less"><span class="token variable">@width<span class="token punctuation">:</span></span> <span class="token number">10</span>px<span class="token punctuation">;</span>
-<span class="token variable">@height<span class="token punctuation">:</span></span> <span class="token variable">@width</span> <span class="token operator">+</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
-
-<span class="token selector">#header</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">@width</span><span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">@height</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 还有选择器的格式，注意不能使用选择器的格式选择变量，如width:@{width} 是没用的</span>
-<span class="token variable">@urlImg<span class="token punctuation">:</span></span> <span class="token string">"https://free.img.jpg.ink/imgs/2020/11/21/c59141c275a4e.jpeg"</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">/*作为url */</span>
-<span class="token selector">.header3</span> <span class="token punctuation">{</span>
-    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url("@{urlImg}")</span> no<span class="token operator">-</span>repeat<span class="token punctuation">;</span>
-    <span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">100%</span> <span class="token number">100%</span><span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h5 id="mixin混入"><a href="#mixin混入" class="headerlink" title="mixin混入"></a>mixin混入</h5><pre class=" language-less"><code class="language-less"><span class="token selector">.bordered</span> <span class="token punctuation">{</span>
-  <span class="token property">border-top</span><span class="token punctuation">:</span> dotted <span class="token number">1</span>px black<span class="token punctuation">;</span>
-  <span class="token property">border-bottom</span><span class="token punctuation">:</span> solid <span class="token number">2</span>px black<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 可定义默认值参数</span>
-<span class="token selector">.border1(<span class="token variable">@color</span>:black)</span> <span class="token punctuation">{</span>
-    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">3</span>px solid <span class="token variable">@color</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector">#menu a</span> <span class="token punctuation">{</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#111</span><span class="token punctuation">;</span>
-  <span class="token mixin-usage function">.bordered</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">footer</span> <span class="token punctuation">{</span>
-    <span class="token selector">&amp;:hover</span> <span class="token punctuation">{</span>
-        <span class="token mixin-usage function">.border1</span><span class="token punctuation">(</span>green<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>你还可以使用此方法将伪选择器（pseudo-selectors）与混合（mixins）一同使用。下面是一个经典的 clearfix 技巧，重写为一个混合（mixin） (<code>&amp;</code> 表示当前选择器的父级）：</p>
-<pre class=" language-less"><code class="language-less"><span class="token selector">.clearfix</span> <span class="token punctuation">{</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
-  <span class="token property">zoom</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-  <span class="token selector">&amp;:after</span> <span class="token punctuation">{</span>
-    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" "</span><span class="token punctuation">;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
-    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
-    <span class="token property">visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h5 id="规则嵌套和冒泡"><a href="#规则嵌套和冒泡" class="headerlink" title="@规则嵌套和冒泡"></a>@规则嵌套和冒泡</h5><p>@ 规则（例如 <code>@media</code> 或 <code>@supports</code>）可以与选择器以相同的方式进行嵌套。@ 规则会被放在前面，同一规则集中的其它元素的相对顺序保持不变。这叫做冒泡（bubbling）。</p>
-<pre class=" language-less"><code class="language-less"><span class="token selector">.component</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span>px<span class="token punctuation">;</span>
-  <span class="token atrule">@media <span class="token punctuation">(</span>min-width<span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">600</span>px<span class="token punctuation">;</span>
-    <span class="token atrule">@media  <span class="token punctuation">(</span>min-resolution<span class="token punctuation">:</span> 192dpi<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
-      <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url(/img/retina2x.png)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-  <span class="token atrule">@media <span class="token punctuation">(</span>min-width<span class="token punctuation">:</span> 1280px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">800</span>px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>编译为：</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.component</span> </span><span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
-  <span class="token selector"><span class="token class">.component</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">600</span>px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">min-resolution</span><span class="token punctuation">:</span> 192dpi<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
-  <span class="token selector"><span class="token class">.component</span> </span><span class="token punctuation">{</span>
-    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url(/img/retina2x.png)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 1280px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
-  <span class="token selector"><span class="token class">.component</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">800</span>px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h5 id="运算（Operations）"><a href="#运算（Operations）" class="headerlink" title="运算（Operations）"></a>运算（Operations）</h5><p>算术运算符 <code>+</code>、<code>-</code>、<code>*</code>、<code>/</code> 可以对任何数字、颜色或变量进行运算。如果可能的话，算术运算符在加、减或比较之前会进行单位换算。计算的结果以最左侧操作数的单位类型为准。如果单位换算无效或失去意义，则忽略单位。无效的单位换算例如：px 到 cm 或 rad 到 % 的转换。</p>
-<pre class=" language-less"><code class="language-less"><span class="token comment" spellcheck="true">// 所有操作数被转换成相同的单位</span>
-<span class="token variable">@conversion-1<span class="token punctuation">:</span></span> <span class="token number">5</span>cm <span class="token operator">+</span> <span class="token number">10</span>mm<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 6cm</span>
-<span class="token variable">@conversion-2<span class="token punctuation">:</span></span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">3</span>cm <span class="token operator">-</span> <span class="token number">5</span>mm<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 -1.5cm</span>
-
-<span class="token comment" spellcheck="true">// conversion is impossible</span>
-<span class="token variable">@incompatible-units<span class="token punctuation">:</span></span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">5</span>px <span class="token operator">-</span> <span class="token number">3</span>cm<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 4px</span>
-
-<span class="token comment" spellcheck="true">// example with variables</span>
-<span class="token variable">@base<span class="token punctuation">:</span></span> <span class="token number">5%</span><span class="token punctuation">;</span>
-<span class="token variable">@filler<span class="token punctuation">:</span></span> <span class="token variable">@base</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 10%</span>
-<span class="token variable">@other<span class="token punctuation">:</span></span> <span class="token variable">@base</span> <span class="token operator">+</span> <span class="token variable">@filler</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 结果是 15%</span></code></pre>
-<hr>
-<h5 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h5><p>less内置了一些常用的函数，可以直接在style里面进行使用</p>
-<hr>
-<p>还有作用域这种东西，主要是配合变量一起使用</p>
-<hr>
-<h5 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h5><p>“导入”的工作方式和你预期的一样。你可以导入一个 <code>.less</code> 文件，此文件中的所有变量就可以全部使用了。如果导入的文件是 <code>.less</code> 扩展名，则可以将扩展名省略掉：</p>
-<pre class=" language-css"><code class="language-css">// 注意是@import 进行导入，不要省略了@
-<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"library"</span><span class="token punctuation">;</span></span> // library<span class="token number">.</span>less
-<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"typo.css"</span><span class="token punctuation">;</span></span></code></pre>
-<h4 id="scss"><a href="#scss" class="headerlink" title="scss"></a>scss</h4><p>感觉scss如果一般的使用的话，最大的区别就是对变量的区别了，scss的变量以 <strong>$</strong> 开头，less以 <strong>@</strong> 开头</p>
+                <p>这个文章主要记录一下对nodejs的一个框架express的学习，虽然其实node目前有很多框架，但目前我主要的是在学习前端，后端目前只是写一些简单的接口，为前端进行使用，目前想要学习的框架有两个，一个是目前的express，下一步应该是koa2，为什么目前要先学习express呐，主要是express的社区比较完善，比较完善的能找到一些学习资料和视频，而koa看着好像社区还不太繁荣，所以目前先学着express，等学完之后，再去学习koa2</p>
+<p><a href="https://www.jspang.com/detailed?id=34" target="_blank" rel="noopener">koa2教程</a></p>
 
             </div>
             <hr/>
@@ -575,7 +460,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://chengsong.info/2021/01/10/scss%20less%E7%9A%84%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/">http://chengsong.info/2021/01/10/scss%20less%E7%9A%84%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/</a>
+                    <a href="http://chengsong.info/2021/02/05/Nodejs-express-koa2%E5%88%9D%E5%AD%A6%E4%B9%A0/">http://chengsong.info/2021/02/05/Nodejs-express-koa2%E5%88%9D%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -613,8 +498,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/scss-less-vue/">
-                                    <span class="chip bg-color">scss less vue</span>
+                                <a href="/tags/nodejs-express-koa2/">
+                                    <span class="chip bg-color">nodejs express koa2</span>
                                 </a>
                             
                         </div>
@@ -786,28 +671,26 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/14/vue%E5%90%84%E7%A7%8D%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">
+                <a href="/2021/02/06/Nuxt%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="vue各种知识记录">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="nuxt进一步学习">
                         
-                        <span class="card-title">vue各种知识记录</span>
+                        <span class="card-title">nuxt进一步学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这个博客应该是用来记录各种的知识点的，可能百度一下就能知道，但还是稍微记一些吧，以后好方便解决bug
-虽然目前好像就是用来记录vue3的一些特殊点的
-组合式api参考
-vue3中文文档API参考
-setup集合根据官网的说明，setup应该
+                            主要是对B站一个nuxt的学习视频的简单学习记录，记录一下上一个文章里面有些没有说到的点
+B站视频教程
+扩展路由nuxt的路由一般是在pages目录里面约定式的生成的，比如pages里面的index.vue文件就会被当成 / 路由匹配的组件
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-06
                         </span>
                         <span class="publish-author">
                             
@@ -820,8 +703,8 @@ setup集合根据官网的说明，setup应该
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue-vue3/">
-                        <span class="chip bg-color">vue vue3</span>
+                    <a href="/tags/nuxt-B%E7%AB%99-axios-proxy-router/">
+                        <span class="chip bg-color">nuxt B站 axios proxy router</span>
                     </a>
                     
                 </div>
@@ -835,28 +718,30 @@ setup集合根据官网的说明，setup应该
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/11/IDo-uniapp%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98%E9%9B%86%E5%90%88/">
+                <a href="/2021/01/31/Nuxtjs%E5%88%9D%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="IDo uniapp技术问题集合">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Nuxtjs初学习">
                         
-                        <span class="card-title">IDo uniapp技术问题集合</span>
+                        <span class="card-title">Nuxtjs初学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            就是一个对于uniapp微信小程序项目遇到的技术问题和解决方法，还有一些关于uniapp和其他杂乱的知识的集合
-关于uni-app的ui库、ui框架、ui组件
-使用的组件库uview
-码云代码仓库
-1.单位一般直接使用uniapp自定义的r
+                            怎么说啦，学这个主要是为了解决seo的问题，使用服务端渲染，给用户更好的体验
+官网
+一位大佬的简单教程
+B站视频教程
+
+
+注意上面的beforecreated和created两个钩子，这两个钩子既可以跑在服务端，也可以跑在客户端。有一个验证
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-31
                             </span>
                         <span class="publish-author">
                             
@@ -869,8 +754,8 @@ setup集合根据官网的说明，setup应该
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/IDo-uniapp-vue2-x/">
-                        <span class="chip bg-color">IDo uniapp vue2.x</span>
+                    <a href="/tags/vue-nuxtjs/">
+                        <span class="chip bg-color">vue nuxtjs</span>
                     </a>
                     
                 </div>
