@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-14
+                    2021-02-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.6k
                 </div>
                 
 
@@ -763,7 +763,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <p>这里我们在渲染上下文中暴露 <code>root</code>，并通过 <code>ref=&quot;root&quot;</code>，将其绑定到 div 作为其 ref。在虚拟 DOM 补丁算法中，如果 VNode 的 <code>ref</code> 键对应于渲染上下文中的 ref，则 VNode 的相应元素或组件实例将被分配给该 ref 的值。这是在虚拟 DOM 挂载/打补丁过程中执行的，因此模板引用只会在初始渲染之后获得赋值。</p>
 <p>作为模板使用的 ref 的行为与任何其他 ref 一样：它们是响应式的，可以传递到 (或从中返回) 复合函数中</p>
-<h5 id="总结式的完整模板"><a href="#总结式的完整模板" class="headerlink" title="总结式的完整模板"></a>总结式的完整模板</h5><pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+<h4 id="3-总结式的完整模板"><a href="#3-总结式的完整模板" class="headerlink" title="3.总结式的完整模板"></a>3.总结式的完整模板</h4><pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
   <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"mine"</span> ref<span class="token operator">=</span><span class="token string">"elmRefs"</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span> name <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
     <span class="token operator">&lt;</span>br <span class="token operator">/</span><span class="token operator">></span>
@@ -848,6 +848,71 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<h4 id="4-更优雅的使用方式"><a href="#4-更优雅的使用方式" class="headerlink" title="4.更优雅的使用方式"></a>4.更优雅的使用方式</h4><p>简单的说就是将一个相关的逻辑都放在一个函数里面，然后将这个函数在<strong>setup()</strong>里面调用，并解构出函数里面return出的一些函数和对象等数据，然后统一在 <strong>setup()</strong> 里面return出来，之后就正常进行使用</p>
+<p><a href="https://gitee.com/cheng_song/shirakami-haruka-button" target="_blank" rel="noopener">vue3+ts 示例</a></p>
+<p>主要使用示例是在 home.vue 和harukaButton.vue里面</p>
+<pre class=" language-vue"><code class="language-vue"><template>
+    <v-card
+        flat
+        rounded="xl"
+        class="haruka-card"
+    >
+        <v-card-title v-if="title" primary-title>
+            {{ title }}
+        </v-card-title>
+        <v-card-text>
+            <slot />
+        </v-card-text>
+    </v-card>
+</template>
+
+<script lang="ts">
+import { computed, defineComponent, Ref, toRefs } from '@vue/composition-api'
+import i18n from '@/plugins/i18n'
+
+function useCardTitle(tag: Ref<string>, rawTitle?: Ref<string>) {
+    const title = computed(() => {
+        if (rawTitle?.value) {
+            return rawTitle.value
+        }
+        if (!tag.value) {
+            return ''
+        }
+        return i18n.t(`tags.${tag.value}`)
+    })
+    return title
+}
+
+export default defineComponent({
+    name: 'HarukaCard',
+    props: {
+        tag: {
+            type: String,
+            default: '',
+        },
+        rawTitle: {
+            type: String,
+            default: '',
+        },
+    },
+    setup(props, ctx) {
+        const { rawTitle, tag } = toRefs(props)
+        // 就像这样调用这个函数
+        const title = useCardTitle(tag, rawTitle)
+        return {
+            title,
+        }
+    },
+})
+</script>
+
+<style lang="scss" scoped>
+@import '@/styles/index.scss';
+
+.haruka-card {
+    box-shadow: 1px 5px 22px rgb(255, 174, 166, 0.6) !important;
+}
+</style></code></pre>
 
             </div>
             <hr/>

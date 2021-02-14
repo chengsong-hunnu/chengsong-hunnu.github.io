@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vuex, 晟松">
+    <meta name="keywords" content="vue-vuex, 晟松">
     <meta name="description" content="晟松的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vuex | 晟松</title>
+    <title>vue-vuex | 晟松</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,7 +269,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vuex</h1>
+                    <h1 class="description center-align post-title">vue-vuex</h1>
                 </div>
             </div>
         </div>
@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-02
+                    2021-02-08
                 </div>
                 
 
@@ -499,6 +499,13 @@ computed<span class="token punctuation">:</span> <span class="token function">ma
 <p>如果mapState属性的名字和state中属性的名字相同的话，就可以采用下面更简单的写法：</p>
 <pre class=" language-js"><code class="language-js">computed<span class="token punctuation">:</span> <span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">,</span> <span class="token string">'goodsList'</span><span class="token punctuation">,</span> <span class="token string">'userList'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>有些复杂数据还是推荐使用第一种。</p>
+<p>或者如果你是用了模块的话，需要在mapState的第一个参数里面传入这个模块文件，在第二个参数里面获取这个模块的state</p>
+<pre class=" language-js"><code class="language-js">computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token string">'some/nested/module'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">:</span> state <span class="token operator">=</span><span class="token operator">></span> state<span class="token punctuation">.</span>a<span class="token punctuation">,</span>
+    b<span class="token punctuation">:</span> state <span class="token operator">=</span><span class="token operator">></span> state<span class="token punctuation">.</span>b
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 <h5 id="5-getter"><a href="#5-getter" class="headerlink" title="5.getter"></a><strong>5.getter</strong></h5><p>相当于store的一个计算属性，就是对state的数据进行计算，当组件需要取到state的属性然后进行计算得到想要的结果的时候，计算的过程可以在<code>getters</code> 中进行，组件从getters中就可以直接拿到计算好的值。如果所有组件都需要这个计算的话，那就方便多了。</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -740,7 +747,7 @@ store<span class="token punctuation">.</span>state<span class="token punctuation
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://chengsong.info/2020/07/19/vuex/">http://chengsong.info/2020/07/19/vuex/</a>
+                    <a href="http://chengsong.info/2020/07/19/vue-vuex/">http://chengsong.info/2020/07/19/vue-vuex/</a>
                 </span>
             </div>
             <div class="reprint__notice">
