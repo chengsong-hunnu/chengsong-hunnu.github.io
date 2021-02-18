@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-19
+                    2021-02-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    2.7k
                 </div>
                 
 
@@ -435,7 +435,7 @@
             <div id="articleContent">
                 <p><strong>B站老陈</strong></p>
 <p>前面都没啥用，router路由才是核心</p>
-<h3 id="1-router路由"><a href="#1-router路由" class="headerlink" title="1.router路由"></a>1.router路由</h3><p>根据不同的路径显示不同的页面。在router里面的index.js里面配置不同的路径显示的不同的组件或者页面。</p>
+<h3 id="router路由"><a href="#router路由" class="headerlink" title="router路由"></a>router路由</h3><p>根据不同的路径显示不同的页面。在router里面的index.js里面配置不同的路径显示的不同的组件或者页面。</p>
 <p>根据选择的<router-link to ='/foo'>替换<router-view>标签来显示内容。在本质上还是一个页面。</p>
 <p>所有的核心配置都在index.js里面</p>
 <pre class=" language-js"><code class="language-js">
@@ -465,7 +465,7 @@
   <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">]</span></code></pre>
 <p>通过path，name，component设置。</p>
 <p>我们可以在任何组件内通过 <code>this.$router</code> 访问路由器，也可以通过 <code>this.$route</code> 访问当前路由</p>
-<p><strong>动态路由</strong>，把某种模式匹配到的所有路由，全都映射到同个组件。在path里面可使用通配符 <code>*</code>进行匹配任意路径，一般用于404页面。当使用一个通配符时，<code>$route.params</code> 内会自动添加一个名为 <code>pathMatch</code> 参数，它包含了 URL 通过通配符被匹配的部分。当使用<em>通配符</em>路由时，请确保路由的顺序是正确的，也就是说含有<em>通配符</em>的路由应该放在最后。</p>
+<h4 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a><strong>动态路由</strong></h4><p>把某种模式匹配到的所有路由，全都映射到同个组件。在path里面可使用通配符 <code>*</code>进行匹配任意路径，一般用于404页面。当使用一个通配符时，<code>$route.params</code> 内会自动添加一个名为 <code>pathMatch</code> 参数，它包含了 URL 通过通配符被匹配的部分。当使用<em>通配符</em>路由时，请确保路由的顺序是正确的，也就是说含有<em>通配符</em>的路由应该放在最后。</p>
 <p>有时候，同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：谁先定义的，谁的优先级就最高。</p>
 <pre class=" language-js"><code class="language-js">routes<span class="token punctuation">:</span> <span class="token punctuation">[</span>
 <span class="token comment" spellcheck="true">// 动态路径参数 以冒号开头</span>
@@ -484,8 +484,7 @@ path<span class="token punctuation">:</span> <span class="token string">'/user-*
     <span class="token function">$route</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token comment" spellcheck="true">// 对路由变化作出响应...</span>
     <span class="token punctuation">}</span></code></pre>
-<p><strong>嵌套路由</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<h4 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a><strong>嵌套路由</strong></h4><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   routes<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">'/user/:id'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> User<span class="token punctuation">,</span>
       children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
@@ -509,8 +508,9 @@ path<span class="token punctuation">:</span> <span class="token string">'/user-*
 <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> UserHome <span class="token punctuation">}</span></code></pre>
 <p>使用children属性进行嵌套的配置。还可以继续进行嵌套。</p>
 <p><strong>要注意，以 <code>/</code> 开头的嵌套路径会被当作根路径。 这让你充分的使用嵌套组件而无须设置嵌套的路径</strong></p>
-<p><strong>编程式导航</strong>(使用点击事件在js的mehtods里面使用)，除了使用 <code>&lt;router-link to=&quot;...&quot;&gt;</code>，<br>还可使用<code>router.push(location, onComplete?, onAbort?)</code>进行导航。</p>
+<h4 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a><strong>编程式导航</strong></h4><p>(使用点击事件在js的mehtods里面使用)。除了使用 <code>&lt;router-link to=&quot;...&quot;&gt;</code>，<br>还可使用<code>router.push(location, onComplete?, onAbort?)</code>进行导航。</p>
 <p>使用 <code>router.push</code> 方法。这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。</p>
+<p>注意使用时的参数需要匹配：<strong>name params</strong>         <strong>path query</strong></p>
 <p><strong>注意：在 Vue 实例内部，你可以通过 <code>$router</code> 访问路由实例。因此你可以调用 <code>this.$router.push</code></strong></p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 字符串</span>
 router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'home'</span><span class="token punctuation">)</span>
@@ -518,7 +518,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <span class="token comment" spellcheck="true">// 对象</span>
 router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">'home'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true">// 命名的路由</span>
+<span class="token comment" spellcheck="true">// 命名路由</span>
 router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span> params<span class="token punctuation">:</span> <span class="token punctuation">{</span> userId<span class="token punctuation">:</span> <span class="token string">'123'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">// 带查询参数，变成 /register?plan=private</span>
@@ -532,8 +532,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <p><strong>注意：如果提供了 <code>path</code>，<code>params</code> 会被忽略，params将以path里面的为准</strong></p>
 <p>router.replace()类似于push，只是替换掉history里面的当前记录</p>
 <p>router.go(n)这个方法的参数是一个整数，意思是在 history 记录中向前或者后退多少步</p>
-<p><strong>命名路由</strong></p>
-<p>通过一个名称来标识一个路由</p>
+<h4 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a><strong>命名路由</strong></h4><p>通过一个名称来标识一个路由</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   routes<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
@@ -566,8 +565,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p><strong>重定向和别名</strong></p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<h4 id="重定向和别名"><a href="#重定向和别名" class="headerlink" title="重定向和别名"></a><strong>重定向和别名</strong></h4><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   routes<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">'/a'</span><span class="token punctuation">,</span> redirect<span class="token punctuation">:</span> <span class="token string">'/b'</span> <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
@@ -594,8 +592,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>“别名”的功能让你可以自由地将 UI 结构映射到任意的 URL，而不是受限于配置的嵌套路由结构。</p>
-<p><strong>路由组件传参</strong></p>
-<p>在组件中使用 <code>$route</code> 会使之与其对应路由形成高度耦合，从而使组件只能在某些特定的 URL 上使用，限制了其灵活性。使用 <code>props</code> 将组件和路由解耦：</p>
+<h4 id="路由组件传参"><a href="#路由组件传参" class="headerlink" title="路由组件传参"></a><strong>路由组件传参</strong></h4><p>在组件中使用 <code>$route</code> 会使之与其对应路由形成高度耦合，从而使组件只能在某些特定的 URL 上使用，限制了其灵活性。使用 <code>props</code> 将组件和路由解耦：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token punctuation">{</span>
   template<span class="token punctuation">:</span> <span class="token string">'&lt;div>User {{ $route.params.id }}&lt;/div>'</span>
 <span class="token punctuation">}</span>
@@ -623,8 +620,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>在组件里也使用props将传入的数据拿到，进行数据显示。</p>
-<p><strong>路由守卫</strong></p>
-<p>简单来说就是路由在跳转之前的验证，当满足条件时才会进行跳转。分为<code>全局守卫</code>，<code>路由守卫</code>和<code>组件守卫</code></p>
+<h4 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a><strong>路由守卫</strong></h4><p>简单来说就是路由在跳转之前的验证，当满足条件时才会进行跳转。分为<code>全局守卫</code>，<code>路由守卫</code>和<code>组件守卫</code></p>
 <p>1.注册全局守卫应该在路由模块暴露出去之前定义，所有的路由跳转都会被调用使用<code>router.beforeEach(function(to,from,next){})</code>来注册一个全局守卫。</p>
 <p>参数：</p>
 <ul>
@@ -676,7 +672,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 <hr>
-<h5 id="完整的导航解析流程"><a href="#完整的导航解析流程" class="headerlink" title="完整的导航解析流程"></a>完整的导航解析流程</h5><ol>
+<h4 id="完整的导航解析流程"><a href="#完整的导航解析流程" class="headerlink" title="完整的导航解析流程"></a>完整的导航解析流程</h4><ol>
 <li><p>导航被触发。</p>
 </li>
 <li><p>在失活的组件里调用 <code>beforeRouteLeave</code> 守卫。</p>
@@ -703,11 +699,9 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <hr>
 </li>
 </ol>
-<p><strong>路由元信息</strong></p>
-<p>路由的特有属性，写在meta:{ }里面，为后面的组件提供一些特定信息进行逻辑判断。</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><h5 id="路由元信息"><a href="#路由元信息" class="headerlink" title="路由元信息"></a><strong>路由元信息</strong></h5><p>路由的特有属性，写在meta:{ }里面，为后面的组件提供一些特定信息进行逻辑判断。</p>
 <p>一个路由匹配到的所有路由记录会暴露为 <code>$route</code> 对象 (还有在导航守卫中的路由对象) 的 <code>$route.matched</code> 数组。因此，我们需要遍历 <code>$route.matched</code> 来检查路由记录中的 <code>meta</code> 字段。</p>
-<p><strong>过渡动效</strong></p>
-<p>用 <code>&lt;transition&gt;</code> 组件给它添加一些过渡效果</p>
+<h5 id="过渡动效"><a href="#过渡动效" class="headerlink" title="过渡动效"></a><strong>过渡动效</strong></h5><p>用 <code>&lt;transition&gt;</code> 组件给它添加一些过渡效果</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>transition name<span class="token operator">=</span><span class="token string">"slide"</span> mode<span class="token operator">=</span><span class="token string">"out-in"</span> 
 enter<span class="token operator">-</span>active<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"animated bounceInLeft"</span> 
 leave<span class="token operator">-</span>active<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"animated bounceOutRight"</span><span class="token operator">></span>
@@ -716,15 +710,13 @@ leave<span class="token operator">-</span>active<span class="token operator">-</
       <span class="token operator">&lt;</span><span class="token operator">/</span>keep<span class="token operator">-</span>alive<span class="token operator">></span>
 
     <span class="token operator">&lt;</span><span class="token operator">/</span>transition<span class="token operator">></span></code></pre>
-<p><strong>数据获取</strong></p>
-<p>我们可以通过两种方式来实现：</p>
+<h5 id="数据获取"><a href="#数据获取" class="headerlink" title="数据获取"></a><strong>数据获取</strong></h5><p>我们可以通过两种方式来实现：</p>
 <ul>
 <li><strong>导航完成之后获取</strong>：先完成导航，然后在接下来的组件生命周期created钩子中获取数据。在数据获取期间显示“加载中”之类的指示。</li>
 <li><strong>导航完成之前获取</strong>：导航完成前，在路由进入的守卫中获取数据，在数据获取成功后执行导航。在为后面的视图获取数据时，用户会停留在当前的界面，因此建议在数据获取期间，显示一些进度条或者别的指示。如果数据获取失败，同样有必要展示一些全局的错误提醒。</li>
 </ul>
 <p>从技术角度讲，两种方式都不错 —— 就看你想要的用户体验是哪种。</p>
-<p><strong>滚动行为</strong></p>
-<p>使用前端路由，当切换到新路由时，想要页面滚到顶部，或者是保持原先的滚动位置，就像重新加载页面那样。 <code>vue-router</code> 能做到，而且更好，它让你可以自定义路由切换时页面如何滚动。</p>
+<h5 id="滚动行为"><a href="#滚动行为" class="headerlink" title="滚动行为"></a><strong>滚动行为</strong></h5><p>使用前端路由，当切换到新路由时，想要页面滚到顶部，或者是保持原先的滚动位置，就像重新加载页面那样。 <code>vue-router</code> 能做到，而且更好，它让你可以自定义路由切换时页面如何滚动。</p>
 <p>当创建一个 Router 实例，你可以提供一个 <code>scrollBehavior</code> 方法</p>
 <pre class=" language-js"><code class="language-js">scrollBehavior <span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">,</span> savedPosition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>savedPosition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -733,16 +725,7 @@ leave<span class="token operator">-</span>active<span class="token operator">-</
     <span class="token keyword">return</span> <span class="token punctuation">{</span> x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p><strong>路由懒加载</strong></p>
-<p>当打包构建应用时，JavaScript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了</p>
-<h4 id="2-less"><a href="#2-less" class="headerlink" title="2.less"></a>2.less</h4><p>css扩展语言，预处理器。让其可重复使用，但浏览器不支持，需要编译转化为css。使用</p>
-<pre><code>lessc 源文件.less 目标文件.css</code></pre><p>将less文件编译成css文件。</p>
-<p>使用@变量名 = xxx,定义全局可使用的变量。可混合带参数使用，直接在一个class里面引入另一个class名，即可将样式复制过来，参数也可在样式里面当一个变量。参数需要@符号声明。参数可以使用一个默认值，当没有参数传入时，就使用默认值。@_匹配模式，相当于匹配一些class，再加上一些样式。还可对变量进行计算可进行样式直接嵌套(不建议使用嵌套)</p>
-<p>可使用@argument将所有的默认变量传入。</p>
-<pre><code>.border_arg(@width: 1.75rem, @color: #e6e6e6, @style: solid) {
-    border: @arguments
-}</code></pre><p>在vue里面使用less：</p>
-<p>需要在sytle标签里面设置lang属性为less。lang=”less”。</p>
+<h5 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a><strong>路由懒加载</strong></h5><p>当打包构建应用时，JavaScript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了</p>
 
             </div>
             <hr/>
