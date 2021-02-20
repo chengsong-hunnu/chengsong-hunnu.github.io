@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-13
+                    2021-02-20
                 </div>
                 
 
@@ -576,7 +576,7 @@ point<span class="token punctuation">.</span>__proto__<span class="token punctua
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 <p>这里面的formdata有两个字段，一个是file，一个是cheng。第一个是一个上传的图片文件，第二个是一个字符串</p>
-<p>这两个在node后端里面所处的位置也不一样，前面的file是直接在req里面，使用req.file就可以拿到，而后面的字符串就在req.body里面了，需要使用req.body.cheng才能拿到</p>
+<p>这两个在node后端里面所处的位置也不一样，前面的file是直接在req里面，使用req.file就可以拿到，而后面的字符串就在req.body里面了，需要使用req.body.cheng才能拿到，注意这里的req.body是使用了body-parser中间件的</p>
 <img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201213115607145.png" alt="image-20201213115607145" style="zoom: 80%;" />
 
 <img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20201213120630601.png" alt="image-20201213120630601" style="zoom:80%;" />
