@@ -416,7 +416,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.7k
+                    8.3k
                 </div>
                 
 
@@ -1243,12 +1243,158 @@ app<span class="token punctuation">.</span><span class="token function">use</spa
 <p>然后进行访问 <strong><a href="http://localhost:3000/my.txt" target="_blank" rel="noopener">http://localhost:3000/my.txt</a></strong> 就能得到这个静态资源</p>
 <p>当得到一个网址的时候，会首先去static目录里面找有没有这个文件，然后找到就返回这个文件，没有就继续 next 向下匹配</p>
 <h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><p>会使用到一个中间件 <strong><a href="http://www.ptbird.cn/koa-body.html" target="_blank" rel="noopener">koa-body</a></strong> ，需要安装，然后配置一些东西，好像也可以直接使用这个替代上面的 koa-bodyparser 来获取表单数据，直接一个中间件处理两种数据</p>
+<h4 id="koa-body-的基本参数"><a href="#koa-body-的基本参数" class="headerlink" title="koa-body 的基本参数"></a><code>koa-body</code> 的基本参数</h4><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">描述</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">patchNode</td>
+<td align="left">将请求体打到原生 node.js 的<code>ctx.req</code>中</td>
+<td align="left">Boolean</td>
+<td align="left"><code>false</code></td>
+</tr>
+<tr>
+<td align="left">patchKoa</td>
+<td align="left">将请求体打到 koa 的 <code>ctx.request</code> 中</td>
+<td align="left">Boolean</td>
+<td align="left"><code>true</code></td>
+</tr>
+<tr>
+<td align="left">jsonLimit</td>
+<td align="left">JSON 数据体的大小限制</td>
+<td align="left">String / Integer</td>
+<td align="left"><code>1mb</code></td>
+</tr>
+<tr>
+<td align="left">formLimit</td>
+<td align="left">限制表单请求体的大小</td>
+<td align="left">String / Integer</td>
+<td align="left"><code>56kb</code></td>
+</tr>
+<tr>
+<td align="left">textLimit</td>
+<td align="left">限制 text body 的大小</td>
+<td align="left">String / Integer</td>
+<td align="left"><code>56kb</code></td>
+</tr>
+<tr>
+<td align="left">encoding</td>
+<td align="left">表单的默认编码</td>
+<td align="left">String</td>
+<td align="left"><code>utf-8</code></td>
+</tr>
+<tr>
+<td align="left">multipart</td>
+<td align="left">是否支持 <code>multipart-formdate</code> 的表单</td>
+<td align="left">Boolean</td>
+<td align="left"><code>false</code></td>
+</tr>
+<tr>
+<td align="left">urlencoded</td>
+<td align="left">是否支持 <code>urlencoded</code> 的表单</td>
+<td align="left">Boolean</td>
+<td align="left"><code>true</code></td>
+</tr>
+<tr>
+<td align="left">text</td>
+<td align="left">是否解析 <code>text/plain</code> 的表单</td>
+<td align="left">Boolean</td>
+<td align="left"><code>true</code></td>
+</tr>
+<tr>
+<td align="left">json</td>
+<td align="left">是否解析 <code>json</code> 请求体</td>
+<td align="left">Boolean</td>
+<td align="left"><code>true</code></td>
+</tr>
+<tr>
+<td align="left">jsonStrict</td>
+<td align="left">是否使用 json 严格模式，<code>true</code> 会只处理数组和对象</td>
+<td align="left">Boolean</td>
+<td align="left"><code>true</code></td>
+</tr>
+<tr>
+<td align="left">formidable</td>
+<td align="left">配置更多的关于 <code>multipart</code> 的选项</td>
+<td align="left">Object</td>
+<td align="left"><code>{}</code></td>
+</tr>
+<tr>
+<td align="left">onError</td>
+<td align="left">错误处理</td>
+<td align="left">Function</td>
+<td align="left"><code>function(){}</code></td>
+</tr>
+<tr>
+<td align="left">stict</td>
+<td align="left">严格模式,启用后不会解析 <code>GET, HEAD, DELETE</code>请求</td>
+<td align="left">Boolean</td>
+<td align="left"><code>true</code></td>
+</tr>
+</tbody></table>
+<h4 id="formidable-的相关配置参数"><a href="#formidable-的相关配置参数" class="headerlink" title="formidable 的相关配置参数"></a><code>formidable</code> 的相关配置参数</h4><table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">描述</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">maxFields</td>
+<td align="left">限制字段的数量</td>
+<td align="left">Integer</td>
+<td align="left"><code>1000</code></td>
+</tr>
+<tr>
+<td align="left">maxFieldsSize</td>
+<td align="left">限制字段的最大大小</td>
+<td align="left">Integer</td>
+<td align="left"><code>2 * 1024 * 1024</code></td>
+</tr>
+<tr>
+<td align="left">uploadDir</td>
+<td align="left">文件上传的文件夹</td>
+<td align="left">String</td>
+<td align="left"><code>os.tmpDir()</code></td>
+</tr>
+<tr>
+<td align="left">keepExtensions</td>
+<td align="left">保留原来的文件后缀</td>
+<td align="left">Boolean</td>
+<td align="left"><code>false</code></td>
+</tr>
+<tr>
+<td align="left">hash</td>
+<td align="left">如果要计算文件的 hash，则可以选择 <code>md5/sha1</code></td>
+<td align="left">String</td>
+<td align="left"><code>false</code></td>
+</tr>
+<tr>
+<td align="left">multipart</td>
+<td align="left">是否支持多文件上传</td>
+<td align="left">Boolean</td>
+<td align="left"><code>true</code></td>
+</tr>
+<tr>
+<td align="left">onFileBegin</td>
+<td align="left">文件上传前的一些设置操作</td>
+<td align="left">Function</td>
+<td align="left"><code>function(name,file){}</code></td>
+</tr>
+</tbody></table>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// app.js</span>
 <span class="token keyword">const</span> koaBody <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-body'</span><span class="token punctuation">)</span>
 app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
     <span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        multipart<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//支持表单上传</span>
-        formidable<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        multipart<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//支持文件上传</span>
+        formidable<span class="token punctuation">:</span> <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">// 这里还有一些其他的配置，需要时去官网文档看</span>
             maxFileSize<span class="token punctuation">:</span> <span class="token number">2000</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 设置上传文件大小最大限制，默认2M</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -1265,9 +1411,10 @@ app<span class="token punctuation">.</span><span class="token function">use</spa
         <span class="token comment" spellcheck="true">// 创建可读流，同时在ctx.request.files里面选出属性名为file的文件的path创建流</span>
         <span class="token keyword">const</span> reader <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'path'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true">// 创建一个文件保存在哪里的路径</span>
-        <span class="token keyword">let</span> filePath <span class="token operator">=</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../upload'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+        <span class="token keyword">let</span> time <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">let</span> filePath <span class="token operator">=</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../upload'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>time<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
         <span class="token comment" spellcheck="true">// 这就是返回给前端进行图片访问的url，需要配合前面设置的静态资源目录路径</span>
-        remotefilePath <span class="token operator">=</span> <span class="token template-string"><span class="token string">`http://127.0.0.1/upload/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+        remotefilePath <span class="token operator">=</span> <span class="token template-string"><span class="token string">`http://127.0.0.1/upload/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>time<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
         <span class="token comment" spellcheck="true">// 创建可写流，即保存文件</span>
         <span class="token keyword">const</span> upStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true">// 可读流通过管道写入可写流</span>
@@ -1300,6 +1447,34 @@ router<span class="token punctuation">.</span><span class="token function">post<
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> route</code></pre>
+<h4 id="另一种配置"><a href="#另一种配置" class="headerlink" title="另一种配置"></a><a href="http://www.ptbird.cn/koa-body-diy-upload-dir-and-filename.html" target="_blank" rel="noopener">另一种配置</a></h4><p>当然，koa-body给我们提供了相应的接口，让我么可以直接在配置的时候，就能对文件进行存储和重命名，主要是使用 <strong>onFileBegin</strong> 这个属性，具体的配置就看其他大佬写的吧</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> koaBody <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-body'</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+    <span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        multipart<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//支持表单上传</span>
+        formidable<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            maxFileSize<span class="token punctuation">:</span> <span class="token number">2000</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 设置上传文件大小最大限制，默认2M</span>
+            uploadDir<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'upload'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            onFileBegin<span class="token punctuation">:</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> file<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+              console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span>
+              <span class="token comment" spellcheck="true">// 获取文件后缀</span>
+              <span class="token keyword">const</span> ext <span class="token operator">=</span> <span class="token function">getUploadFileExt</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token comment" spellcheck="true">// 最终要保存到的文件夹目录</span>
+              <span class="token keyword">const</span> dirName <span class="token operator">=</span> <span class="token function">getUploadDirName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">const</span> dir <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token template-string"><span class="token string">`public/upload/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dirName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token comment" spellcheck="true">// 检查文件夹是否存在如果不存在则新建文件夹</span>
+              <span class="token function">checkDirExist</span><span class="token punctuation">(</span>dir<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token comment" spellcheck="true">// 获取文件名称</span>
+              <span class="token keyword">const</span> fileName <span class="token operator">=</span> <span class="token function">getUploadFileName</span><span class="token punctuation">(</span>ext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token comment" spellcheck="true">// 重新覆盖 file.path 属性</span>
+              file<span class="token punctuation">.</span>path <span class="token operator">=</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dir<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+              app<span class="token punctuation">.</span>context<span class="token punctuation">.</span>uploadpath <span class="token operator">=</span> app<span class="token punctuation">.</span>context<span class="token punctuation">.</span>uploadpath <span class="token operator">?</span> app<span class="token punctuation">.</span>context<span class="token punctuation">.</span>uploadpath <span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+              app<span class="token punctuation">.</span>context<span class="token punctuation">.</span>uploadpath<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dirName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+<p>虽然感觉这样没有太大的区别，自由度没有上面的那种那么高</p>
 <h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p>安装 <strong>koa2-cors</strong> 中间件<br>在koa2里解决跨域的中间件叫koa2-cors，我们先进入service文件夹，然后直接使用npm来进行安装。</p>
 <pre><code>npm install --save koa2-cors</code></pre><p>安装完成后，记得要在service/index.js文件中引入和注册（使用）一下中间件：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> cors <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa2-cors'</span><span class="token punctuation">)</span>
