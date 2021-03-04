@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-20
+                    2021-02-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.8k
+                    6.9k
                 </div>
                 
 
@@ -489,6 +489,16 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <h3 id="3-各种遇见的小技巧"><a href="#3-各种遇见的小技巧" class="headerlink" title="3.各种遇见的小技巧"></a>3.各种遇见的小技巧</h3><p>取得两个值的中间值，因为有可能两个值之间相加可能会超出表示范围，虽然一般使用了bigint之后，不太可能会这样，但还是注意一下</p>
 <p>使用    left+Math.floor( (right-left)/2 )</p>
 <p>随机数的生成    Math.floor( random* (m-n +1) + n) )    包含n，也包含m</p>
+<p>或者封装成一个函数进行调用</p>
+<pre class=" language-js"><code class="language-js">number <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> total_number_of_choices <span class="token operator">+</span> first_possible_value<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 取随机数</span>
+
+<span class="token keyword">function</span> <span class="token function">selectFrom</span><span class="token punctuation">(</span>lowerValue<span class="token punctuation">,</span> upperValue<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+ <span class="token keyword">let</span> choices <span class="token operator">=</span> upperValue <span class="token operator">-</span> lowerValue <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> 
+ <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> choices <span class="token operator">+</span> lowerValue<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+<span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token function">selectFrom</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2~10 范围内的值，其中包含 2 和 10</span></code></pre>
 <h3 id="4-各种小知识点"><a href="#4-各种小知识点" class="headerlink" title="4.各种小知识点"></a>4.各种小知识点</h3><h4 id="1：CommonJS-规范总结与扩展"><a href="#1：CommonJS-规范总结与扩展" class="headerlink" title="1：CommonJS 规范总结与扩展"></a>1：<a href="https://github.com/sisterAn/blog/issues/4" target="_blank" rel="noopener">CommonJS 规范总结与扩展</a></h4><p>前后端 JS 分别搁置在 HTTP 的两端，它们扮演的角色不同，侧重点也不一样。 浏览器端的 JS 需要经历从一个服务器端分发到多个客户端执行，而服务器端 JS 则是相同的代码需要多次执行。前者的瓶颈在于宽带，后者的瓶颈则在于 CPU 等内存资源。前者需要通过网络加载代码，后者则需要从磁盘中加载， 两者的加载速度也不是在一个数量级上的。<br>纵观 Node 的模块引入过程，几乎全都是同步的，尽管与 Node 强调异步的行为有些相反，但它是合理的，但前端如果也用同步方式引入，试想一下，在 UI 加载的过程中需要花费很多时间来等待脚本加载完成，这会造成用户体验的很大问题。</p>
 <p>CommonJS 为后端 JS 制定的；     AMD（异步模块定义），ES6模块化（<code>export</code>和<code>import</code>）是 JS 前端的规范。</p>
 <p><code>CommonJS</code>和ES6中模块化的两者区别</p>
@@ -620,6 +630,7 @@ router<span class="token punctuation">.</span><span class="token function">post<
 <h4 id="6：浏览器console-log"><a href="#6：浏览器console-log" class="headerlink" title="6：浏览器console.log"></a>6：<a href="https://blog.csdn.net/Ideality_hunter/article/details/71633995?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control" target="_blank" rel="noopener">浏览器console.log</a></h4><p>谷歌的浏览器内核在设计的时候为了对性能进行调优，防止因为过多的console.log影响到原来的程序的性能，所以console.log其实是异步的，只是在展开的时候对快照进行实时计算得到的，骑在右边会有一个小感叹号的图标进行提示（在nodejs里面console.log是同步的）</p>
 <h4 id="7：css的-important"><a href="#7：css的-important" class="headerlink" title="7：css的 !important"></a>7：<a href="https://www.cnblogs.com/planetwithpig/p/11804355.html" target="_blank" rel="noopener">css的 !important</a></h4><p>简单的说，这就是一个增加样式权重的，这里的权重表示的是在多个地方对同一个元素样式进行改变之后，最终会呈现出什么样式</p>
 <p><strong>注意</strong>：这里的 <strong>!important</strong> 不是 <strong>z-index</strong> ，一个是样式优先级，一个是堆叠优先级</p>
+<h4 id="8：css自定义属性"><a href="#8：css自定义属性" class="headerlink" title="8：css自定义属性"></a>8：<a href="https://www.cnblogs.com/cangqinglang/p/11384703.html" target="_blank" rel="noopener">css自定义属性</a></h4><p><code>--*</code>来声明变量名，<code>var(--*)</code>来使用</p>
 <h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><h3 id="js高级程序设计（第四版）"><a href="#js高级程序设计（第四版）" class="headerlink" title="js高级程序设计（第四版）"></a>js高级程序设计（第四版）</h3><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
 <p>p237    原型的问题还是源自其自身的共享特性，当原型上面存在引用类型（如数组）的时候，这个引用类型是共享的。当一个实例修改了这个数组，其他实例也能得到这个数组，一般而言，每个实例应该有自身的属性副本。</p>
 <p>可使用<code>盗用构造函数（在子类构造函数中使用call()或apply()调用父类构造函数）</code>和<strong>组合继承(主流)</strong>（结合原型链和盗用构造函数，两者都使用）解决</p>

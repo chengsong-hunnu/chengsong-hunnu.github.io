@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-08
+                    2021-02-26
                 </div>
                 
 
@@ -439,7 +439,7 @@
 <p><a href="https://www.bilibili.com/video/BV13Z4y1T74J?p=5&spm_id_from=pageDriver" target="_blank" rel="noopener">B站视频教程</a></p>
 <img src="/images/loading.gif" data-original="https://img2018.cnblogs.com/blog/1158910/201908/1158910-20190818204215037-2038459873.png" alt="生命周期" style="zoom:80%;" />
 
-<p>注意上面的<strong>beforecreated</strong>和<strong>created</strong>两个钩子，这两个钩子既可以跑在服务端，也可以跑在客户端。有一个验证就是，使用console，服务端的会再终端里面打印出来，而客户端的会在浏览器的控制台打印出来</p>
+<p>注意上面的<strong>beforecreated</strong>和<strong>created</strong>两个钩子，这两个钩子既可以跑在服务端，也可以跑在客户端。有一个验证就是，使用console，服务端的会在终端里面打印出来，而客户端的会在浏览器的控制台打印出来</p>
 <p>剩下的其他部分就是vue自己的其他生命周期钩子了，如mounted这些</p>
 <p>在服务器端的钩子不能访问客户端的对象，如window对象，只能获取到服务器的上下文context</p>
 <p><strong>nuxtServerInit</strong> ： 这个初始化方法可自定义。写在这个vuex里面主模块的 store的actions里面，起nuxtServerInit这个名字，服务器在初始化的时候就会自动调用这个函数进行初始化</p>
@@ -457,7 +457,6 @@
 |-- .eslintrc.js                     // ESLint的配置文件，用于检查代码格式
 |-- .gitignore                       // 配置git不上传的文件
 |-- nuxt.config.json                 // 用于组织Nuxt.js应用的个性化配置，已覆盖默认配置
-|-- package-lock.json                // npm自动生成，用于帮助package的统一性设置的，yarn也有相同的操作
 |-- package-lock.json                // npm自动生成，用于帮助package的统一性设置的，yarn也有相同的操作
 |-- package.json                     // npm包管理配置文件</code></pre><h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>感觉这里有一些特别，跟普通的vue比没了显式的vue-router的目录和文件，Nuxt.js 会依据 <code>pages</code> 目录中的所有 <code>*.vue</code> 文件生成应用的路由配置。可以在执行<code>nuxt</code>命令后在 <strong>.nuxt</strong> 目录里面的router.js文件里面看见生成的路由</p>
 <p>路由可对全部页面使用过渡效果。也可单独对某一个页面使用过渡效果（这个需要使用页面组件的transition属性）</p>
@@ -597,7 +596,7 @@ nuxt<span class="token number">.</span>config<span class="token number">.</span>
 <li>匹配页面</li>
 </ol>
 <p>然后在你的 <code>nuxt.config.js</code> 、 layouts 或者 pages 中使用中间件:</p>
-<pre class=" language-js"><code class="language-js">nuxt<span class="token punctuation">.</span>config<span class="token punctuation">.</span>js
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// nuxt.config.js</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   router<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -617,7 +616,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <p>注意一下 <strong>index.vue</strong> 文件，会根据目录自动创建相应路由，</p>
 <ul>
 <li>普通路由：直接在pages目录里面创建 <strong>a.vue</strong> 文件，会自动生成 <strong>/a</strong> 的路由，也可先创建一个目录，如目录名为<strong>ts</strong>，然后在目录里面创建 <strong>b.vue</strong> 文件，最后产生的路由为 <strong>/ts/b</strong></li>
-<li>动态路由：就是在带参数的路由，最主要的就是使用下划线开头命名<strong>.vue</strong>文件，也可以相似的命名目录，使得下划线开头的目录里面的 <strong>index.vue</strong> 也变成动态的，注意同一个目录里面的动态路由文件只能创建一个，因为url只会匹配到一个动态路由文件</li>
+<li>动态路由：就是在带参数的路由，最主要的就是使用下划线开头命名  <strong>_*.vue</strong> 文件，也可以相似的命名目录，使得下划线开头的目录里面的 <strong>index.vue</strong> 也变成动态的，注意同一个目录里面的动态路由文件只能创建一个，因为url只会匹配到一个动态路由文件</li>
 <li>嵌套路由：直接创建一个目录（如 ts），同时创建一个跟目录同名的<strong>ts.vue</strong>文件，在这个文件里面增加 <code>&lt;nuxt-child/&gt;</code> 用于显示子视图内容。然后在创建的目录里面新建 <strong>.vue</strong> 文件即可进行嵌套，生成的路由文件里面，这些目录里的文件就会在 <strong>/ts</strong> 路由的children属性中</li>
 </ul>
 <h4 id="最后一个示例"><a href="#最后一个示例" class="headerlink" title="最后一个示例"></a>最后一个示例</h4><p>pages目录结构</p>
@@ -792,8 +791,8 @@ export default {
     <span class="token comment" spellcheck="true">// 这里的$axios是nuxt创建的时候自动集成的，所以可以在上下文对象里面解构出来，其实也可以使用import的方式导入进行使用</span>
     <span class="token keyword">const</span> <span class="token punctuation">{</span> data <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> $axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'https://api.chengsong.info'</span><span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true">// return { info: data }</span>
-    <span class="token keyword">return</span> axios
-      <span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`https://my-api/posts/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>params<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 这里是引入的方式</span>
+    <span class="token keyword">return</span> axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`https://my-api/posts/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>params<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
       <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">{</span> title<span class="token punctuation">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>title <span class="token punctuation">}</span>
       <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -831,7 +830,7 @@ export default {
 <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
 
 Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$myInjectedFunction <span class="token operator">=</span> string <span class="token operator">=</span><span class="token operator">></span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is an example'</span><span class="token punctuation">,</span> string<span class="token punctuation">)</span></code></pre>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This is an example'</span><span class="token punctuation">,</span> string<span class="token punctuation">)</span></code></pre>
 <p><code>nuxt.config.js</code>:</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
   plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'~/plugins/vue-inject.js'</span><span class="token punctuation">]</span>

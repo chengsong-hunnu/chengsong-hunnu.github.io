@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-02-26
                 </div>
                 
 
@@ -445,13 +445,13 @@
 
 
 <h4 id="vue3组合式api使用"><a href="#vue3组合式api使用" class="headerlink" title="vue3组合式api使用"></a>vue3组合式api使用</h4><p>1.直接在setup里面将所有的逻辑都写在里面，很垃圾</p>
-<p>2.将同一个逻辑所需的数据，方法都写在一个函数里面，并都return出来，然后在setup里面调用这个函数并解构出前面return出的数据、方法。最后统一在setup里面再return出来，之前的一个博客 <a href="https://chengsong.info/2020/10/29/vue3%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/#toc-heading-4">vue3简单使用</a> 里面有简单记录</p>
+<p>2.将同一个逻辑所需的数据，方法都写在一个函数里面，并都return出来，然后在setup里面调用这个函数并解构出前面return出的数据、方法。最后统一在setup里面再return出来，之前的一个博客 <a href="https://chengsong.info/2020/10/29/vue3%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/#toc-heading-4">vue3简单使用</a> 里面的最后面有简单记录</p>
 <p>3.类似于2所说，但同一个逻辑的所有数据方法都写在一个外部的js文件里面（记得导入那些需要的组合式api），并使用export default xxx 导出，然后在需要的.vue文件里面使用import导入，然后在setup里面使用，其他的就跟2差不多。这样做主要是更好的具有维护性和扩展性</p>
 <p><strong>记住composition api 和 option api 是可以混在一起使用的</strong> </p>
-<p>比如 可使用<strong>data</strong> 定义一些响应式数据，也可以使用ref和reactive定义响应式数据</p>
+<p>比如 可使用 <strong>data</strong> 定义一些响应式数据，也可以使用ref和reactive定义响应式数据</p>
 <p><strong>setup函数是在 beforeCreate钩子之前执行的</strong> ，所以在setup里面不能访问vue2的<strong>this</strong></p>
 <p>setup函数必须是同步的，不能是异步的，即不能在setup的前面加上 <strong>async</strong>，可以在里面调用函数的时候，将那些函数变成异步的</p>
-<h4 id="组合api本质"><a href="#组合api本质" class="headerlink" title="组合api本质"></a>组合api本质</h4><p>可以将这个当做一个 <strong>注入</strong> 的过程，你在setup里面return出去的数据和方法，都会被注入到原来的option api里面，该是data里面的就注入到data里面，该死methods里面的，就注入到methods里面 …… </p>
+<h4 id="组合api本质"><a href="#组合api本质" class="headerlink" title="组合api本质"></a>组合api本质</h4><p>可以将这个当做一个 <strong>注入</strong> 的过程，你在setup里面return出去的数据和方法，都会被注入到原来的option api里面，该是data里面的就注入到data里面，该是methods里面的，就注入到methods里面 …… </p>
 <h4 id="reactive和ref"><a href="#reactive和ref" class="headerlink" title="reactive和ref"></a>reactive和ref</h4><h5 id="reactive"><a href="#reactive" class="headerlink" title="reactive"></a>reactive</h5><p>vue3使用proxy实现响应式数据    reactive的参数必须是一个自定义的对象或数组，不能是其他的对象，比如说通过 new Data() 创建出一个时间对象参数，默认情况下，修改这个对象，界面不会自动刷新，只能通过重新赋值的方式属性</p>
 <p>可在return的时候通过 <strong>toRefs</strong> api将对象中的每一个属性都转为ref形式</p>
 <h5 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h5><p>一般使用来对简单值的监听，比如number、string这些，在js里面访问的时候需要使用 .value访问，在template里面不需要，因为vue会自动添加.value</p>
@@ -587,7 +587,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span></code></pre>
 <p>感觉这个用法虽然高级，但有些麻烦了</p>
-<h4 id="ref-1"><a href="#ref-1" class="headerlink" title="ref"></a>ref</h4><p>这里的ref是vue2里面的那个控制dom元素的ref，这里只是记录一下用法</p>
+<h4 id="dom-ref"><a href="#dom-ref" class="headerlink" title="dom-ref"></a>dom-ref</h4><p>这里的ref是vue2里面的那个控制dom元素的ref，这里只是记录一下用法</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">"box"</span><span class="token operator">></span> <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 
 <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
