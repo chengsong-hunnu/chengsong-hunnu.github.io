@@ -416,7 +416,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.6k
+                    7.7k
                 </div>
                 
 
@@ -1216,7 +1216,7 @@ router<span class="token punctuation">.</span><span class="token keyword">get</s
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'路由被匹配上了'</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<h3 id="post提交数据"><a href="#post提交数据" class="headerlink" title="post提交数据"></a>post提交数据</h3><p>需要使用 <strong>koa-bodyparser</strong>  这个中间件，需要安装，然后使用，注意这个不能得到formdata的数据</p>
+<h3 id="post提交数据"><a href="#post提交数据" class="headerlink" title="post提交数据"></a>post提交数据</h3><p>需要使用 <strong>koa-bodyparser</strong>  这个中间件，需要安装，然后使用，注意这个不能得到formdata的数据，其实可以直接在koa2里面使用koa-body，能直接处理多种数据上传（包括文件上传，表单上传等）</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> bodyParser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-bodyparser'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1242,7 +1242,7 @@ app<span class="token punctuation">.</span><span class="token function">use</spa
 <p><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20210304162710544.png" alt="image-20210304162710544"></p>
 <p>然后进行访问 <strong><a href="http://localhost:3000/my.txt" target="_blank" rel="noopener">http://localhost:3000/my.txt</a></strong> 就能得到这个静态资源</p>
 <p>当得到一个网址的时候，会首先去static目录里面找有没有这个文件，然后找到就返回这个文件，没有就继续 next 向下匹配</p>
-<h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><p>会使用到一个中间件 <strong>koa-body</strong> ，需要安装，然后配置一些东西</p>
+<h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><p>会使用到一个中间件 <strong><a href="http://www.ptbird.cn/koa-body.html" target="_blank" rel="noopener">koa-body</a></strong> ，需要安装，然后配置一些东西，好像也可以直接使用这个替代上面的 koa-bodyparser 来获取表单数据，直接一个中间件处理两种数据</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// app.js</span>
 <span class="token keyword">const</span> koaBody <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-body'</span><span class="token punctuation">)</span>
 app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
