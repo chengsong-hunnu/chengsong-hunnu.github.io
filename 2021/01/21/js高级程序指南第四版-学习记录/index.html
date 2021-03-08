@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-25
+                    2021-03-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.4k
+                    10.5k
                 </div>
                 
 
@@ -851,7 +851,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token keyword">static</span> <span class="token function">locate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
     <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 也可使用set和get，这个属性名不存在也可以，不会报错</span>
+    <span class="token comment" spellcheck="true">// 也可使用set和get，这个属性不存在也可以，不会报错,但注意在这个类实例化的时候，当new出来的对象设置实例属性的时候，这个set会被调用</span>
     <span class="token keyword">set</span> <span class="token function">name</span><span class="token punctuation">(</span>newName<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
         <span class="token keyword">this</span><span class="token punctuation">.</span>name_ <span class="token operator">=</span> newName<span class="token punctuation">;</span> 
     <span class="token punctuation">}</span> 

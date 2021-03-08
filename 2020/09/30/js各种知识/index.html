@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-25
+                    2021-03-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.9k
+                    7.2k
                 </div>
                 
 
@@ -499,6 +499,28 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span> 
 <span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token function">selectFrom</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2~10 范围内的值，其中包含 2 和 10</span></code></pre>
+<h4 id="koa-class写controller"><a href="#koa-class写controller" class="headerlink" title="koa class写controller"></a><a href="https://gitee.com/gfzl-open-source/vue-koa2#http://sinn.boyagirl.com/detail/58d9072cc1a5bd0001672cdc" target="_blank" rel="noopener">koa class写controller</a></h4><p>class+async/await的结合，可以使得我们更好的组织api的逻辑层，语义和结构都会更加清晰。这样做就不用写一个逻辑处理函数都exports一次。直接暴露一个class出去就可以了。async函数作为class的静态方法,所有我们可以直接className.[xxx]来访问这些控制器。</p>
+<p>先上代码:</p>
+<pre class=" language-js"><code class="language-js"># 逻辑层（来自server<span class="token operator">/</span>controllers<span class="token operator">/</span>article<span class="token punctuation">.</span>js）
+<span class="token keyword">const</span> Article <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../models/article.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">ArticleController</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//创建文章</span>
+    <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">createArticle</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//发布文章</span>
+    <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">ifPublishArticle</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//获取所有文章</span>
+    <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">getAllArticles</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//获取所以已发布的文章</span>
+    <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">getAllPublishedArticles</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+exports <span class="token operator">=</span> module<span class="token punctuation">.</span>exports <span class="token operator">=</span> ArticleController<span class="token punctuation">;</span>
+
+# <span class="token function">接口层</span><span class="token punctuation">(</span>来自server<span class="token operator">/</span>routes<span class="token operator">/</span>index<span class="token punctuation">.</span>js<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//引入class这个类</span>
+<span class="token keyword">const</span> A <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../controllers/article.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+router
+    <span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/articles/:id'</span><span class="token punctuation">,</span> A<span class="token punctuation">.</span>getArticleById<span class="token punctuation">)</span>                      
+    <span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/articles'</span><span class="token punctuation">,</span> checkToken<span class="token punctuation">,</span> A<span class="token punctuation">.</span>createArticle<span class="token punctuation">)</span>  </code></pre>
 <h3 id="4-各种小知识点"><a href="#4-各种小知识点" class="headerlink" title="4.各种小知识点"></a>4.各种小知识点</h3><h4 id="1：CommonJS-规范总结与扩展"><a href="#1：CommonJS-规范总结与扩展" class="headerlink" title="1：CommonJS 规范总结与扩展"></a>1：<a href="https://github.com/sisterAn/blog/issues/4" target="_blank" rel="noopener">CommonJS 规范总结与扩展</a></h4><p>前后端 JS 分别搁置在 HTTP 的两端，它们扮演的角色不同，侧重点也不一样。 浏览器端的 JS 需要经历从一个服务器端分发到多个客户端执行，而服务器端 JS 则是相同的代码需要多次执行。前者的瓶颈在于宽带，后者的瓶颈则在于 CPU 等内存资源。前者需要通过网络加载代码，后者则需要从磁盘中加载， 两者的加载速度也不是在一个数量级上的。<br>纵观 Node 的模块引入过程，几乎全都是同步的，尽管与 Node 强调异步的行为有些相反，但它是合理的，但前端如果也用同步方式引入，试想一下，在 UI 加载的过程中需要花费很多时间来等待脚本加载完成，这会造成用户体验的很大问题。</p>
 <p>CommonJS 为后端 JS 制定的；     AMD（异步模块定义），ES6模块化（<code>export</code>和<code>import</code>）是 JS 前端的规范。</p>
 <p><code>CommonJS</code>和ES6中模块化的两者区别</p>
@@ -631,6 +653,12 @@ router<span class="token punctuation">.</span><span class="token function">post<
 <h4 id="7：css的-important"><a href="#7：css的-important" class="headerlink" title="7：css的 !important"></a>7：<a href="https://www.cnblogs.com/planetwithpig/p/11804355.html" target="_blank" rel="noopener">css的 !important</a></h4><p>简单的说，这就是一个增加样式权重的，这里的权重表示的是在多个地方对同一个元素样式进行改变之后，最终会呈现出什么样式</p>
 <p><strong>注意</strong>：这里的 <strong>!important</strong> 不是 <strong>z-index</strong> ，一个是样式优先级，一个是堆叠优先级</p>
 <h4 id="8：css自定义属性"><a href="#8：css自定义属性" class="headerlink" title="8：css自定义属性"></a>8：<a href="https://www.cnblogs.com/cangqinglang/p/11384703.html" target="_blank" rel="noopener">css自定义属性</a></h4><p><code>--*</code>来声明变量名，<code>var(--*)</code>来使用</p>
+<pre class=" language-css"><code class="language-css">--a
+
+<span class="token property">margin</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--a<span class="token punctuation">)</span></code></pre>
+<h4 id="9：vue动态绑定样式的bug"><a href="#9：vue动态绑定样式的bug" class="headerlink" title="9：vue动态绑定样式的bug"></a>9：<a href="https://www.bilibili.com/video/av926272235" target="_blank" rel="noopener">vue动态绑定样式的bug</a></h4><p>因为vue对动态绑定样式的一些数据侦听延迟，会造成样式的判断条件改变了，但样式并没有同步更新，需要更新一下界面。所以为了解决这个问题，就需要我们自己来使用 <strong>vue.set</strong> 来自己强制将数据侦听，或者说将数据改变之后，使用 <strong>Object.assign</strong> 重新给这个数据赋值给自己，也可以解决这个问题</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token punctuation">,</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> e<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p><a href="https://www.jianshu.com/p/71b1807b1815" target="_blank" rel="noopener">参考vue.set使用</a></p>
 <h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><h3 id="js高级程序设计（第四版）"><a href="#js高级程序设计（第四版）" class="headerlink" title="js高级程序设计（第四版）"></a>js高级程序设计（第四版）</h3><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
 <p>p237    原型的问题还是源自其自身的共享特性，当原型上面存在引用类型（如数组）的时候，这个引用类型是共享的。当一个实例修改了这个数组，其他实例也能得到这个数组，一般而言，每个实例应该有自身的属性副本。</p>
 <p>可使用<code>盗用构造函数（在子类构造函数中使用call()或apply()调用父类构造函数）</code>和<strong>组合继承(主流)</strong>（结合原型链和盗用构造函数，两者都使用）解决</p>
