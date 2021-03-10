@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-06
+                    2021-03-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.2k
+                    7.4k
                 </div>
                 
 
@@ -659,6 +659,13 @@ router<span class="token punctuation">.</span><span class="token function">post<
 <h4 id="9：vue动态绑定样式的bug"><a href="#9：vue动态绑定样式的bug" class="headerlink" title="9：vue动态绑定样式的bug"></a>9：<a href="https://www.bilibili.com/video/av926272235" target="_blank" rel="noopener">vue动态绑定样式的bug</a></h4><p>因为vue对动态绑定样式的一些数据侦听延迟，会造成样式的判断条件改变了，但样式并没有同步更新，需要更新一下界面。所以为了解决这个问题，就需要我们自己来使用 <strong>vue.set</strong> 来自己强制将数据侦听，或者说将数据改变之后，使用 <strong>Object.assign</strong> 重新给这个数据赋值给自己，也可以解决这个问题</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token punctuation">,</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> e<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p><a href="https://www.jianshu.com/p/71b1807b1815" target="_blank" rel="noopener">参考vue.set使用</a></p>
+<h4 id="10：vue项目eslint和本地冲突"><a href="#10：vue项目eslint和本地冲突" class="headerlink" title="10：vue项目eslint和本地冲突"></a><a href="https://www.cnblogs.com/webhmy/p/12060651.html" target="_blank" rel="noopener">10：vue项目eslint和本地冲突</a></h4><p>就是当你创建了一个项目之后，或者下载了一个别人的项目之后，发现别人的eslint格式与你的有一些区别，有时候会报错</p>
+<p>这个时候一般可以直接在项目根目录下面创建 <strong>.prettierrc.json</strong> 文件，写你的项目局部使用格式</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"singleQuote"</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span> 
+    <span class="token property">"semi"</span><span class="token operator">:</span><span class="token boolean">true</span> 
+<span class="token punctuation">}</span></code></pre>
+<p>还有一个 <strong>.eslintrc.js</strong> 里面存储一些局部eslint的使用格式，也可以在这里进行修改，使之不与本地发送冲突</p>
 <h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><h3 id="js高级程序设计（第四版）"><a href="#js高级程序设计（第四版）" class="headerlink" title="js高级程序设计（第四版）"></a>js高级程序设计（第四版）</h3><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
 <p>p237    原型的问题还是源自其自身的共享特性，当原型上面存在引用类型（如数组）的时候，这个引用类型是共享的。当一个实例修改了这个数组，其他实例也能得到这个数组，一般而言，每个实例应该有自身的属性副本。</p>
 <p>可使用<code>盗用构造函数（在子类构造函数中使用call()或apply()调用父类构造函数）</code>和<strong>组合继承(主流)</strong>（结合原型链和盗用构造函数，两者都使用）解决</p>
