@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-28
+                    2021-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    636
+                    468
                 </div>
                 
 
@@ -546,52 +546,6 @@ Vue<span class="token punctuation">.</span>prototype<span class="token punctuati
 <span class="token keyword">const</span> app <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">createApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>globalProperties<span class="token punctuation">.</span>$http <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
 <p>还有一些其他的用法，看官网吧</p>
-<h4 id="vue-router的特殊用法"><a href="#vue-router的特殊用法" class="headerlink" title="vue-router的特殊用法"></a>vue-router的特殊用法</h4><p>一般的嵌套路由是这样的</p>
-<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
-    path<span class="token punctuation">:</span> <span class="token string">"/components"</span><span class="token punctuation">,</span>
-    name<span class="token punctuation">:</span> <span class="token string">"Components"</span><span class="token punctuation">,</span>
-    component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">"@/views/NavView/Components.vue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    redirect<span class="token punctuation">:</span> <span class="token string">"/components/button"</span><span class="token punctuation">,</span>
-    children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-            path<span class="token punctuation">:</span> <span class="token string">"button"</span><span class="token punctuation">,</span>
-            name<span class="token punctuation">:</span> <span class="token string">"Button"</span><span class="token punctuation">,</span>
-            component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">"@/views/Button.vue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
-            path<span class="token punctuation">:</span> <span class="token string">"icon"</span><span class="token punctuation">,</span>
-            name<span class="token punctuation">:</span> <span class="token string">"Icon"</span><span class="token punctuation">,</span>
-            component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">"@/views/Icon.vue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">]</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span>
-
-<span class="token comment" spellcheck="true">// 后面的页面路由</span>
-<span class="token operator">/</span>components<span class="token operator">/</span>button
-
-<span class="token comment" spellcheck="true">// 其&lt;router-view />是在Components.vue文件里面</span></code></pre>
-<p>现在看见了一种新的方式</p>
-<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
-    path<span class="token punctuation">:</span> <span class="token string">"/home"</span><span class="token punctuation">,</span>
-    component<span class="token punctuation">:</span> Home<span class="token punctuation">,</span>
-    <span class="token comment" spellcheck="true">// redirect: "/welcome",</span>
-    children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/welcome"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Welcome <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/less"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Less <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/variable"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Variable <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/mixins"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Mixins <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/nestedRules"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> NestedRules <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/operations"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> operations <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/namespace"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Namespace <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/important"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Important <span class="token punctuation">}</span>
-    <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span>
-
-<span class="token comment" spellcheck="true">// 后面的页面路由</span>
-<span class="token operator">/</span>less
-
-<span class="token comment" spellcheck="true">// 其&lt;router-view />是在Home.vue文件里面</span></code></pre>
-<p>直接就通过 <strong>/</strong> 变为绝对地址，就不需要加上前面的那个 /home 的前缀了</p>
 
             </div>
             <hr/>

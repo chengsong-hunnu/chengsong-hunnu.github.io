@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-26
+                    2021-03-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.6k
                 </div>
                 
 
@@ -478,6 +478,11 @@ state<span class="token punctuation">.</span>value <span class="token operator">
 <p>此外还有一个 <strong>triggerRef</strong> 的api根据传入的数据主动的更新界面</p>
 <pre><code>state.value.b.c = 22
 triggerRef(state) // 使用方式</code></pre><p>注意没有提供 triggerRactive 这个api</p>
+<h4 id="自定义hook函数"><a href="#自定义hook函数" class="headerlink" title="自定义hook函数"></a>自定义hook函数</h4><ul>
+<li>使用Vue3的组合API封装的可复用的功能函数</li>
+<li>自定义hook的作用类似于vue2中的mixin技术</li>
+<li>自定义Hook的优势: 很清楚复用功能代码的来源, 更清楚易懂</li>
+</ul>
 <h4 id="toRaw"><a href="#toRaw" class="headerlink" title="toRaw"></a>toRaw</h4><p>官网说法：返回由 <code>reactive</code> 或 <code>readonly</code> 方法转换成响应式代理的普通对象。这是一个还原方法，可用于临时读取，访问不会被代理/跟踪，写入时也不会触发更改</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">}</span>
 <span class="token keyword">const</span> reactiveFoo <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span>
@@ -625,6 +630,20 @@ copy<span class="token punctuation">.</span>count<span class="token operator">++
 
 <span class="token comment" spellcheck="true">// 之后</span>
 <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h4 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h4><p>感觉vue3的watch用法有了一些改变，当观测的数据是reactive的时候，需要传递一个箭头函数，返回这个reactive里面的值</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">watch</span><span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> state<span class="token punctuation">.</span>count<span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// 这里需要一个箭头函数</span>
+  <span class="token punctuation">(</span>count<span class="token punctuation">,</span> prevCount<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/* ... */</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 直接侦听一个ref</span>
+<span class="token keyword">const</span> count <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">watch</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token punctuation">(</span>count<span class="token punctuation">,</span> prevCount<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* ... */</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>后面的主要是关于一些原理的手写实现，现在就不记录了，等后面除了新的东西再记录吧</p>
 
             </div>
@@ -897,7 +916,7 @@ typescript有些久没用过ts了，之前的知识点都忘了，现在再简�
                 <div class="card-action article-tags">
                     
                     <a href="/tags/ts-vue3/">
-                        <span class="chip bg-color">-ts -vue3</span>
+                        <span class="chip bg-color">ts vue3</span>
                     </a>
                     
                 </div>

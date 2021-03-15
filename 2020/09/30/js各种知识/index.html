@@ -409,14 +409,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-09
+                    2021-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.4k
+                    7.7k
                 </div>
                 
 
@@ -553,7 +553,8 @@ point<span class="token punctuation">.</span><span class="token function">hasOwn
 point<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
 point<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span>
 point<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span></code></pre>
-<h4 id="3：js单线程和异步"><a href="#3：js单线程和异步" class="headerlink" title="3：js单线程和异步"></a>3：<a href="https://www.cnblogs.com/zhengyufeng/p/10895895.html" target="_blank" rel="noopener">js单线程和异步</a></h4><p><img src="/images/loading.gif" data-original="https://img2018.cnblogs.com/blog/1681656/201905/1681656-20190521094010441-614833594.png" alt="img"></p>
+<h4 id="3：js单线程和异步"><a href="#3：js单线程和异步" class="headerlink" title="3：js单线程和异步"></a>3：<a href="https://www.cnblogs.com/zhengyufeng/p/10895895.html" target="_blank" rel="noopener">js单线程和异步</a></h4><p><a href="https://www.bilibili.com/video/BV1K4411D7Jb?t=664" target="_blank" rel="noopener">B站视频</a></p>
+<p><img src="/images/loading.gif" data-original="https://img2018.cnblogs.com/blog/1681656/201905/1681656-20190521094010441-614833594.png" alt="img"></p>
 <p>​    WebAPIs：浏览器为异步任务单独开辟的线程（服务JavaScript的，处理JavaScript的异步）</p>
 <p>​    虚线那一块（看图）：堆（heap）和栈（stack）共同组成了js主线程（这个就是我们JavaScript的线程）</p>
 <p>​    callback queue（最下面的那个长方形）：任务队列，里面放着各种事件，比如我们点击所触发的事件，浏览器会帮我们以任务的形式，把他放入任务队列中</p>
@@ -660,12 +661,67 @@ router<span class="token punctuation">.</span><span class="token function">post<
 <pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token punctuation">,</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> e<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p><a href="https://www.jianshu.com/p/71b1807b1815" target="_blank" rel="noopener">参考vue.set使用</a></p>
 <h4 id="10：vue项目eslint和本地冲突"><a href="#10：vue项目eslint和本地冲突" class="headerlink" title="10：vue项目eslint和本地冲突"></a><a href="https://www.cnblogs.com/webhmy/p/12060651.html" target="_blank" rel="noopener">10：vue项目eslint和本地冲突</a></h4><p>就是当你创建了一个项目之后，或者下载了一个别人的项目之后，发现别人的eslint格式与你的有一些区别，有时候会报错</p>
+<p>一般是因为Vetur是使用prettier进行格式化，因为自己vscode的prettier插件的配置不同，就会导致不同的结果</p>
 <p>这个时候一般可以直接在项目根目录下面创建 <strong>.prettierrc.json</strong> 文件，写你的项目局部使用格式</p>
 <pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
-    <span class="token property">"singleQuote"</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span> 
-    <span class="token property">"semi"</span><span class="token operator">:</span><span class="token boolean">true</span> 
+    <span class="token property">"singleQuote"</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>     // 是否对string使用单引号
+    <span class="token property">"semi"</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span> // 是否每行末尾都添加分号
+    <span class="token property">"trailingComma"</span><span class="token operator">:</span><span class="token string">"none"</span> // 对象末尾属性是否添加逗号
 <span class="token punctuation">}</span></code></pre>
 <p>还有一个 <strong>.eslintrc.js</strong> 里面存储一些局部eslint的使用格式，也可以在这里进行修改，使之不与本地发送冲突</p>
+<h4 id="11：setTimeout-func-4-7"><a href="#11：setTimeout-func-4-7" class="headerlink" title="11：setTimeout(func,4.7)"></a>11：setTimeout(func,4.7)</h4><p>这一段代码</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">setTimeout</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span></code></pre>
+<p>其实并不会一直的以0毫秒的时间进行执行，js会自动给其加一个间隔时间，这个时间大概是4.7秒</p>
+<h4 id="12：js事件原理"><a href="#12：js事件原理" class="headerlink" title="12：js事件原理"></a><a href="https://www.bilibili.com/video/BV1K4411D7Jb?t=664" target="_blank" rel="noopener">12：js事件原理</a></h4><img src="/images/loading.gif" data-original="https://gitee.com/cheng_song/picgo-img/raw/master/img/image-20210315182440827.png" alt="image-20210315182440827" style="zoom: 50%;" />
+
+<p>这张图左边是js脚本的运行，中间的一个环是事件环，右边的是渲染任务。而渲染任务是需要在事件执行之后才能进行执行</p>
+<p>记住一个函数 <a href="https://www.jianshu.com/p/fa5512dfb4f5" target="_blank" rel="noopener"><strong>requestAnimationFrame</strong></a> 会让动画更加的流畅</p>
+<h4 id="13：vue-router的特殊用法"><a href="#13：vue-router的特殊用法" class="headerlink" title="13：vue-router的特殊用法"></a>13：vue-router的特殊用法</h4><p>一般的嵌套路由是这样的</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
+    path<span class="token punctuation">:</span> <span class="token string">"/components"</span><span class="token punctuation">,</span>
+    name<span class="token punctuation">:</span> <span class="token string">"Components"</span><span class="token punctuation">,</span>
+    component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">"@/views/NavView/Components.vue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    redirect<span class="token punctuation">:</span> <span class="token string">"/components/button"</span><span class="token punctuation">,</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            path<span class="token punctuation">:</span> <span class="token string">"button"</span><span class="token punctuation">,</span>
+            name<span class="token punctuation">:</span> <span class="token string">"Button"</span><span class="token punctuation">,</span>
+            component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">"@/views/Button.vue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            path<span class="token punctuation">:</span> <span class="token string">"icon"</span><span class="token punctuation">,</span>
+            name<span class="token punctuation">:</span> <span class="token string">"Icon"</span><span class="token punctuation">,</span>
+            component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">"@/views/Icon.vue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token comment" spellcheck="true">// 后面的页面路由</span>
+<span class="token operator">/</span>components<span class="token operator">/</span>button
+
+<span class="token comment" spellcheck="true">// 其&lt;router-view />是在Components.vue文件里面</span></code></pre>
+<p>现在看见了一种新的方式</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
+    path<span class="token punctuation">:</span> <span class="token string">"/home"</span><span class="token punctuation">,</span>
+    component<span class="token punctuation">:</span> Home<span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// redirect: "/welcome",</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/welcome"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Welcome <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/less"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Less <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/variable"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Variable <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/mixins"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Mixins <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/nestedRules"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> NestedRules <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/operations"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> operations <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/namespace"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Namespace <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">"/important"</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Important <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token comment" spellcheck="true">// 后面的页面路由</span>
+<span class="token operator">/</span>less
+
+<span class="token comment" spellcheck="true">// 其&lt;router-view />是在Home.vue文件里面</span></code></pre>
+<p>直接就通过 <strong>/</strong> 变为绝对地址，就不需要加上前面的那个 /home 的前缀了</p>
 <h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><h3 id="js高级程序设计（第四版）"><a href="#js高级程序设计（第四版）" class="headerlink" title="js高级程序设计（第四版）"></a>js高级程序设计（第四版）</h3><p>p236    实例只有指向原型的指针，没有指向构造函数的指针</p>
 <p>p237    原型的问题还是源自其自身的共享特性，当原型上面存在引用类型（如数组）的时候，这个引用类型是共享的。当一个实例修改了这个数组，其他实例也能得到这个数组，一般而言，每个实例应该有自身的属性副本。</p>
 <p>可使用<code>盗用构造函数（在子类构造函数中使用call()或apply()调用父类构造函数）</code>和<strong>组合继承(主流)</strong>（结合原型链和盗用构造函数，两者都使用）解决</p>
